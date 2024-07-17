@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5hdnvohh05nk"]
+
+[ext_resource type="PackedScene" uid="uid://cxj7rbnpswron" path="res://Ressources/Octahedron.fbx" id="1_2akuf"]
+
+[node name="Root Scene" instance=ExtResource("1_2akuf")]
+transform = Transform3D(0.862855, 0, 0, 0, 0.557039, 0, 0, 0, 1.1538, 0, 0, 0)
+
+[node name="Pyramid001" parent="RootNode" index="0"]
+layers = 4
