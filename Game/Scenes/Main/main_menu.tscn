@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://uiqmxktdm8b3"]
+
+[ext_resource type="Script" path="res://Scenes/Main/MainMenu.gd" id="1_8gul7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rcew5"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_tclvk"]
+font_size = 32
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_8gul7")
+
+[node name="Title" type="HBoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 175.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 2
+text = "TITLE"
+label_settings = SubResource("LabelSettings_rcew5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="VBoxContainer" parent="."]
+offset_left = 128.0
+offset_top = 175.0
+offset_right = 528.0
+offset_bottom = 720.0
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Continue" type="Button" parent="Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "New Game"
+
+[node name="Settings" type="Button" parent="Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Main"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 128.0
+offset_top = 175.0
+offset_right = 528.0
+offset_bottom = 720.0
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Back" type="Button" parent="Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[node name="YouSure" type="VBoxContainer" parent="."]
+offset_left = 128.0
+offset_top = 175.0
+offset_right = 528.0
+offset_bottom = 720.0
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Label" type="Label" parent="YouSure"]
+layout_mode = 2
+text = "This will erase your save
+Are you sure?"
+label_settings = SubResource("LabelSettings_tclvk")
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="YouSure"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Yes"
+
+[node name="No" type="Button" parent="YouSure"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "No"

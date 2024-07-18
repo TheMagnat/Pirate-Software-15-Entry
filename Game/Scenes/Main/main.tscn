@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c01k4w5v13dy5"]
+
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
+[ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fnm52")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Menu" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 100
+script = ExtResource("2_cec7k")
+
+[node name="Control" type="Control" parent="Menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Line2D" type="Line2D" parent="Menu/Control"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(0, 360)
+points = PackedVector2Array(0, 0, 1280, 0)
+width = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control"]
+layout_mode = 2
+offset_left = 512.0
+offset_right = 768.0
+offset_bottom = 720.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Menu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="Back" type="Button" parent="Menu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
