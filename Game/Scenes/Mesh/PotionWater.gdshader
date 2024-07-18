@@ -16,25 +16,16 @@ const float VERTEX_SCALER = 0.0003125;
 
 void vertex() {
 	float scaledTime = TIME * 2.0;
+
+	float oldValue = VERTEX.z;
+	VERTEX.z *= 0.0;
 	
-	if (UV.y < liquidLevel){
-		VERTEX.z *= 0.0;
-		
-		float noiseValue = texture(noise, UV).r;
-		
-		//VERTEX.z += (
-			//cos(VERTEX.y * 500.0 + scaledTime * 1.2458) * 0.0 +
-			//sin(VERTEX.x * 500.0 + scaledTime + 1.0 * (xMovement * 20.0)) * 1.0
-		//) * VERTEX_SCALER;
-		
-		//float test = xMovement * cos(9.5 * xMovement) * exp(0.002 * abs(xMovement));
-		
-		VERTEX.z += (
-			cos(VERTEX.y + scaledTime * 1.2458) * 0.5 + VERTEX.y * yTilt * 500.0 +
-			sin(VERTEX.x * 500.0 + scaledTime) * 0.45 + VERTEX.x * xTilt * 500.0
-		) * VERTEX_SCALER;
-		
-	}
+	VERTEX.z += (
+		cos(VERTEX.y + scaledTime * 1.2458) * 0.5 + VERTEX.y * yTilt * 500.0 +
+		sin(VERTEX.x * 500.0 + scaledTime) * 0.45 + VERTEX.x * xTilt * 500.0
+	) * VERTEX_SCALER;
+	
+	VERTEX.z = min(VERTEX.z, oldValue);
 	
 }
 

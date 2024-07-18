@@ -31,7 +31,7 @@ func zIsTilted(zSign):
 	growing.y = zSign
 
 func getTiltFunctionResult(x: float):
-	return -x * cos(9.5 * x) * exp(0.002 * abs(x));
+	return -x * cos(9.5 * x) * exp(0.5 * abs(x));
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

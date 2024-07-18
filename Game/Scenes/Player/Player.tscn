@@ -23,7 +23,7 @@ fill_to = Vector2(0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
 size = Vector3(1, 0.62793, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48575, 1.02518, -2.04109)
 script = ExtResource("1_hvi4h")
 
