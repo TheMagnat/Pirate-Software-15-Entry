@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgyf1i48s3iys"]
 
-[ext_resource type="Script" path="res://Scenes/Player/CharacterBody3D.gd" id="1_hvi4h"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://coeoswc6wsxnx" path="res://Scenes/Mesh/Potion.tscn" id="2_ehkyx"]
 [ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
@@ -24,24 +24,25 @@ fill_to = Vector2(0, 0)
 size = Vector3(1, 0.62793, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48575, 1.02518, -2.04109)
-script = ExtResource("1_hvi4h")
+script = ExtResource("1_xqvjk")
 
-[node name="Potion" parent="." instance=ExtResource("2_ehkyx")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="CameraHolder" type="Node3D" parent="."]
 
-[node name="SpottedSprite" type="Sprite3D" parent="."]
+[node name="SpottedSprite" type="Sprite3D" parent="CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35594, 0)
 material_override = SubResource("ShaderMaterial_xydlr")
 cast_shadow = 0
 gi_mode = 0
 texture = SubResource("GradientTexture2D_qjbo3")
 
-[node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965044, 0.262088, 0, -0.262088, 0.965044, -0.0732975, 1.85791, 2.23976)
+[node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4)
 cull_mask = 1048571
 current = true
 far = 50.0
+
+[node name="Potion" parent="CameraHolder" instance=ExtResource("2_ehkyx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
