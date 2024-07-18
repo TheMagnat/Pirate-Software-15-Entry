@@ -4,7 +4,7 @@ const GAME_SCENE := preload("res://Scenes/Main/main.tscn")
 
 func _play():
 	print("starting game")
-	get_tree().change_scene_to_packed(GAME_SCENE)
+	Transition.start(get_tree().change_scene_to_packed.bind(GAME_SCENE))
 
 func play_continue():
 	print("load save")

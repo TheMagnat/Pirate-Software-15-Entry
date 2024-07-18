@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://de2wa3g6in18b"]
+
+[ext_resource type="Script" path="res://Scenes/Main/transition.gd" id="1_qkqh5"]
+
+[sub_resource type="Shader" id="Shader_x4tme"]
+code = "shader_type canvas_item;
+
+const float F = 25.0;
+
+float spike(vec2 uv) {
+	float x = uv.x * 3.5;
+	float y = uv.y * F;
+	
+	if (y - floor(y) >= 0.5) {
+		y = F - uv.y * F;
+	}
+	
+	if ((x + y - floor(y)) < 0.5) {
+		return 0.0;
+	} 
+	
+	return 1.0;
+}
+
+float xoffset(float t) {
+	return cos(t) * 0.04 - 0.04;
+}
+
+float fx(float t, vec2 uv) {
+	return min(1.0, spike(uv + vec2(xoffset(t * 40.156), t)) +
+		spike(uv + vec2(xoffset(t * 75.53156), -t * 0.62462)) +
+		spike(uv + vec2(xoffset(t * 51.43156), -t * 0.72462)) +
+		spike(uv + vec2(xoffset(t * 132.3156), t * 0.42462)));
+}
+
+void fragment() {
+	float t = TIME * 0.1;
+	if (UV.x < 0.5) {
+		COLOR.a = fx(t, UV);
+	} else {
+		COLOR.a = fx(t, vec2(1.0 - UV.x, UV.y));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0ohq"]
+shader = SubResource("Shader_x4tme")
+
+[sub_resource type="Animation" id="Animation_fx1el"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1280.0]
+}
+
+[sub_resource type="Animation" id="Animation_463ee"]
+resource_name = "in"
+length = 0.75
+step = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1280.0, -512.0]
+}
+
+[sub_resource type="Animation" id="Animation_oxu1q"]
+resource_name = "out"
+length = 0.75
+step = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-512.0, -2304.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d28r8"]
+_data = {
+"RESET": SubResource("Animation_fx1el"),
+"in": SubResource("Animation_463ee"),
+"out": SubResource("Animation_oxu1q")
+}
+
+[node name="Transition" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_qkqh5")
+
+[node name="Line2D" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_a0ohq")
+offset_left = 1280.0
+offset_right = 3584.0
+offset_bottom = 720.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d28r8")
+}
