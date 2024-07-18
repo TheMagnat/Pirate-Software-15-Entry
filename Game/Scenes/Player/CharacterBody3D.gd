@@ -8,15 +8,21 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
-var lightTreshold: float = 0.75 # Value from which we consider the player is spotted
+@export var lightTreshold: float = 0.75 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-var timeForFullSpot: float = 0.25 # Seconds
+@export var timeForFullSpot: float = 0.25 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
 
 @onready var topViewport: Viewport = $"SubViewport"
 
+
+# Parameters
+@onready var waterShaderHandler: WaterShaderHandler = $WaterShaderHandler
+
+func _ready():
+	waterShaderHandler.shaderMaterial = $Potion/RootNode/ree.material_override
 
 func getLightLevel(top : bool = true) -> float:
 	var img = null
@@ -43,8 +49,7 @@ func lightLogic(delta: float):
 		deadTime += delta
 		$SpottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
 		return
-	
-	var topViewport: Viewport = $"SubViewport"
+
 	var topLightLevel: float = getLightLevel()
 	
 	# If true, player is in the light
@@ -64,7 +69,6 @@ func _physics_process(delta: float):
 	
 	### Light computation Logic ###
 	lightLogic(delta)
-	
 	
 	### Movement Logic ###
 	# Add the gravity.
@@ -88,6 +92,11 @@ func _physics_process(delta: float):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	if direction.x != 0:
+		waterShaderHandler.xIsTilted(sign(direction.x))
+	if direction.z != 0:
+		waterShaderHandler.zIsTilted(-sign(direction.z))
 	
 	$SubViewport/TopView.global_position.x = global_position.x
 	$SubViewport/TopView.global_position.z = global_position.z

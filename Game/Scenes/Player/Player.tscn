@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgyf1i48s3iys"]
+
+[ext_resource type="Script" path="res://Scenes/Player/CharacterBody3D.gd" id="1_hvi4h"]
+[ext_resource type="PackedScene" uid="uid://coeoswc6wsxnx" path="res://Scenes/Mesh/Potion.tscn" id="2_ehkyx"]
+[ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
+[ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
+[ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
+render_priority = 0
+shader = ExtResource("4_25lkd")
+shader_parameter/spottedValue = 1.0
+shader_parameter/deadTime = null
+
+[sub_resource type="Gradient" id="Gradient_w6moc"]
+colors = PackedColorArray(0.821911, 2.62313e-06, 7.70092e-07, 1, 0.860243, 0.395413, 0.313954, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qjbo3"]
+gradient = SubResource("Gradient_w6moc")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
+size = Vector3(1, 0.62793, 1)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48575, 1.02518, -2.04109)
+script = ExtResource("1_hvi4h")
+
+[node name="Potion" parent="." instance=ExtResource("2_ehkyx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="SpottedSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35594, 0)
+material_override = SubResource("ShaderMaterial_xydlr")
+cast_shadow = 0
+gi_mode = 0
+texture = SubResource("GradientTexture2D_qjbo3")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965044, 0.262088, 0, -0.262088, 0.965044, -0.0732975, 1.85791, 2.23976)
+cull_mask = 1048571
+current = true
+far = 50.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
+shape = SubResource("BoxShape3D_nngex")
+
+[node name="WaterShaderHandler" type="Node" parent="."]
+script = ExtResource("7_bm8x7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(9, 9)
+render_target_update_mode = 4
+
+[node name="TopView" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 5.3557, -0.209573)
+keep_aspect = 0
+cull_mask = 1048573
+projection = 1
+current = true
+size = 0.905
+far = 50.0
+
+[node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
+transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.06423, 0, 0, 0)
