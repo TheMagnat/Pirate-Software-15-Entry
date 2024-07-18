@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://fm00mdomx6ap"]
+
+[ext_resource type="MeshLibrary" uid="uid://cpowtvxjofjs2" path="res://tiles.tres" id="1_lund1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pxwly"]
+
+[sub_resource type="Sky" id="Sky_l1w0e"]
+sky_material = SubResource("ProceduralSkyMaterial_pxwly")
+
+[sub_resource type="Environment" id="Environment_tkmhf"]
+background_mode = 2
+sky = SubResource("Sky_l1w0e")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[node name="PrototypeScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tkmhf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68174, 0.874197, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_lund1")
