@@ -9,6 +9,7 @@ func main_menu():
 
 func _ready():
 	$Control.visible = false
+	$Control/VBoxContainer/Lobby.pressed.connect(get_parent().load_lobby)
 	$Control/VBoxContainer/MainMenu.pressed.connect(main_menu)
 	$Control/VBoxContainer/Back.pressed.connect(show_menu.bind(false))
 
