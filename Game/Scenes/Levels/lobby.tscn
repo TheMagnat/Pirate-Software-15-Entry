@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=13 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
+[ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -96,6 +97,12 @@ shape = SubResource("BoxShape3D_awf8h")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall5"]
 mesh = SubResource("BoxMesh_lyaao")
 skeleton = NodePath("../..")
+
+[node name="LevelLoaders" type="Node3D" parent="."]
+
+[node name="Level 1 loader" parent="LevelLoaders" instance=ExtResource("3_0mbah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+index = null
 
 [node name="CameraInside" type="Camera3D" parent="."]
 transform = Transform3D(0.766044, -0.321394, 0.55667, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663414, 9, 7, 8)

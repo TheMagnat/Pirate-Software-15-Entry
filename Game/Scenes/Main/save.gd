@@ -12,18 +12,14 @@ const UNLOCKABLES := {
 	"SMOKE": 0,
 }
 
-const LEVELS := {
-	1: true,
-	2: false,
-	3: false,
-}
+const LEVELS := [ true, false, false ]
 
 
 const SAVE_FILE := "user://save.dat"
 
 var resources := {}
 var unlockable := {}
-var levels := {}
+var levels := []
 
 var enable_save := false
 
@@ -49,14 +45,18 @@ func save_game():
 	file.store_var(levels)
 	file.close()
 
+func get_var(file: FileAccess, default):
+	var v = file.get_var()
+	if typeof(v) != typeof(default):
+		return default
+	return v
 
 func load_game():
 	if !save_exists():
 		save_erase()
 	else:
 		var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
-		resources = file.get_var()
-		unlockable = file.get_var()
-		levels = file.get_var()
+		resources = get_var(file, RESOURCES)
+		unlockable = get_var(file, UNLOCKABLES)
+		levels = get_var(file, LEVELS)
 		file.close()
-
