@@ -25,6 +25,7 @@ var deadTime: float = 0.0
 
 func _ready():
 	waterShaderHandler.shaderMaterial = $CameraHolder/Potion/RootNode/ree.material_override
+	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
 
 func getLightLevel(top : bool = true) -> float:
 	var img = null
@@ -105,18 +106,37 @@ func _physics_process(delta: float):
 	$SubViewport/TopView.global_position.z = global_position.z
 	#TODO: Handle y position if player y can change
 
-var cam_tween : Tween
-var goal_rot_side := 0.0
+const CAMERA_SIDE_POS := Vector3(0, 2, 4)
+const CAMERA_UP_POS := Vector3(0, 6, 0)
 
+var cam_up_tween : Tween
+var is_up := false
+func camera_up(up: bool):
+	if up == is_up:
+		return
+	
+	is_up = up
+	if cam_up_tween: cam_up_tween.kill()
+	cam_up_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
+	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "rotation:x", -PI/2 if up else -PI/12, 0.3)
+	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "position", CAMERA_UP_POS if up else CAMERA_SIDE_POS, 0.3)
+	cam_up_tween.tween_property(spottedSprite, "rotation:x", -PI/2 if up else 0.0, 0.3)
+
+var cam_side_tween : Tween
+var goal_rot_side := 0.0
 func camera_side(side: float):
-	if cam_tween: cam_tween.kill()
+	if cam_side_tween: cam_side_tween.kill()
 	
 	goal_rot_side += side * PI/2
-	cam_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
-	cam_tween.tween_property($CameraHolder, "rotation", Vector3(0.0, goal_rot_side, 0.0), 0.25)
+	cam_side_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	cam_side_tween.tween_property($CameraHolder, "rotation:y", goal_rot_side, 0.25)
 
 func _input(event):
 	if event.is_action_pressed("cam_left"):
 		camera_side(-1.0)
 	if event.is_action_pressed("cam_right"):
 		camera_side(1.0)
+	if event.is_action_pressed("cam_up"):
+		camera_up(true)
+	if event.is_action_pressed("cam_down"):
+		camera_up(false)

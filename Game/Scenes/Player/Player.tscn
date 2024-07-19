@@ -36,7 +36,7 @@ gi_mode = 0
 texture = SubResource("GradientTexture2D_qjbo3")
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 0)
 cull_mask = 1048571
 current = true
 far = 50.0
