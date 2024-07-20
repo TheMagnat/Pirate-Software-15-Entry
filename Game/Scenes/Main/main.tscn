@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=4 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
+[ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/world_environment.tscn" id="2_vtowc"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fnm52")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_vtowc")]
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -32,6 +35,11 @@ offset_right = 768.0
 offset_bottom = 720.0
 theme_override_constants/separation = 16
 alignment = 1
+
+[node name="Lobby" type="Button" parent="Menu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lobby"
 
 [node name="MainMenu" type="Button" parent="Menu/Control/VBoxContainer"]
 layout_mode = 2

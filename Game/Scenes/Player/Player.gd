@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -22,6 +21,13 @@ var deadTime: float = 0.0
 @onready var waterShaderHandler: WaterShaderHandler = $WaterShaderHandler
 @onready var spottedSprite := $CameraHolder/SpottedSprite
 
+@onready var playerCamera := $CameraHolder/PlayerCamera
+@onready var camera := playerCamera
+
+func set_camera(cam: Camera3D):
+	camera.current = false
+	camera = cam
+	camera.current = true
 
 func _ready():
 	waterShaderHandler.shaderMaterial = $CameraHolder/Potion/RootNode/ree.material_override
@@ -68,6 +74,20 @@ func lightLogic(delta: float):
 	
 	spottedSprite.material_override.set_shader_parameter("spottedValue", spottedValue)
 
+var base_direction := Vector3()
+var input_dir := Vector2()
+func _process(_delta: float):
+	if base_direction.x != 0:
+		waterShaderHandler.xIsTilted(sign(base_direction.x))
+	if base_direction.z != 0:
+		waterShaderHandler.zIsTilted(-sign(base_direction.z))
+	
+	if camera != playerCamera and input_dir:
+		$CameraHolder.global_rotation.y = 3.0 * PI/2 - input_dir.angle()
+	
+	$SubViewport/TopView.global_position.x = global_position.x
+	$SubViewport/TopView.global_position.z = global_position.z
+
 func _physics_process(delta: float):
 	### Light computation Logic ###
 	lightLogic(delta)
@@ -84,8 +104,8 @@ func _physics_process(delta: float):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var base_input_dir := Input.get_vector("left", "right", "up", "down")
-	var input_dir := base_input_dir.rotated(-$CameraHolder.rotation.y)
-	var base_direction := (transform.basis * Vector3(base_input_dir.x, 0, base_input_dir.y)).normalized()
+	input_dir = base_input_dir.rotated(-camera.global_rotation.y)
+	base_direction = (transform.basis * Vector3(base_input_dir.x, 0, base_input_dir.y)).normalized()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
@@ -96,14 +116,6 @@ func _physics_process(delta: float):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-	
-	if base_direction.x != 0:
-		waterShaderHandler.xIsTilted(sign(base_direction.x))
-	if base_direction.z != 0:
-		waterShaderHandler.zIsTilted(-sign(base_direction.z))
-	
-	$SubViewport/TopView.global_position.x = global_position.x
-	$SubViewport/TopView.global_position.z = global_position.z
 	#TODO: Handle y position if player y can change
 
 const CAMERA_SIDE_POS := Vector3(0, 2, 4)
@@ -112,8 +124,7 @@ const CAMERA_UP_POS := Vector3(0, 6, 0)
 var cam_up_tween : Tween
 var is_up := false
 func camera_up(up: bool):
-	if up == is_up:
-		return
+	if camera != playerCamera || up == is_up: return
 	
 	is_up = up
 	if cam_up_tween: cam_up_tween.kill()
@@ -125,6 +136,8 @@ func camera_up(up: bool):
 var cam_side_tween : Tween
 var goal_rot_side := 0.0
 func camera_side(side: float):
+	if camera != playerCamera: return
+	
 	if cam_side_tween: cam_side_tween.kill()
 	
 	goal_rot_side += side * PI/2
