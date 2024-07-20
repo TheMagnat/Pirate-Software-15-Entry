@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var open_level := -1
+@export var open_levels : Array[int] = []
 @export var finish_resources := {}
 var idx := -1
 
@@ -25,4 +25,4 @@ func init(i: int):
 func finish_level(body = null):
 	if body.is_in_group("Player") or body == null:
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level(idx, open_level, time_spent, finish_resources)
+		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)

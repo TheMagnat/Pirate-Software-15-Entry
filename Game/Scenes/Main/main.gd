@@ -32,11 +32,11 @@ func load_level(path: String, idx := -1):
 	else:
 		Transition.start(_load_level.bind(path, idx))
 
-func finish_level(idx: int, open_level: int, time_spent: float, resources: Dictionary):
+func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
 	### Open the access to this level
-	if open_level != -1:
-		print("Opened access to level " + str(open_level))
-		Save.levels[open_level][0] = true
+	for idx2 in open_levels:
+		print("Opened access to level " + str(idx2))
+		Save.levels[idx2][0] = true
 	
 	### Record time on this level
 	print("Level finished in " + str(time_spent) + " seconds")
