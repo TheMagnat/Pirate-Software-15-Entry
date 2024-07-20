@@ -24,6 +24,7 @@ bottom_radius = 2.0
 height = 1.0
 
 [node name="Level0" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2248, 0.76962, -0.873228)
 script = ExtResource("1_vxi04")
 
 [node name="Player" parent="." instance=ExtResource("1_yg6ec")]
