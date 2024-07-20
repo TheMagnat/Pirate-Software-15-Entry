@@ -2,6 +2,8 @@ extends Node
 
 const lobby_level := "res://Scenes/Levels/lobby.tscn"
 
+var current_level := ""
+
 func _ready():
 	Save.enable_save = true
 	load_lobby()
@@ -17,6 +19,8 @@ func _load_level(path: String):
 	
 	for child in $Level.get_children():
 		child.queue_free()
+	
+	current_level = path
 	
 	$Menu/Control/VBoxContainer/Lobby.visible = path != lobby_level
 	$Level.add_child(load(path).instantiate())

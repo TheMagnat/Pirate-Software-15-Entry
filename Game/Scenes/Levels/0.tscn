@@ -10,6 +10,7 @@ size = Vector3(1000, 20, 1000)
 size = Vector3(1000, 20, 1000)
 
 [node name="Level0" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2248, 0.76962, -0.873228)
 script = ExtResource("1_vxi04")
 
 [node name="Player" parent="." instance=ExtResource("1_yg6ec")]
@@ -24,3 +25,8 @@ shape = SubResource("BoxShape3D_vppxe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D"]
 mesh = SubResource("BoxMesh_sil8d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.281052, 0, -0.959693, 0, 1, 0, 0.959693, 0, 0.281052, -5.79045, 3.59583, -0.987795)
+light_energy = 16.0
+light_specular = 8.949
