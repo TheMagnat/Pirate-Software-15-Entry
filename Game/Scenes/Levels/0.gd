@@ -1,3 +1,4 @@
 extends "res://Scenes/Levels/level.gd"
 
-## for now it's empty
+func _ready():
+	$finish.body_entered.connect(finish_level)
