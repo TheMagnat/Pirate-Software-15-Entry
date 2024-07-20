@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx0prvnvk6ip4"]
+[gd_scene load_steps=18 format=3 uid="uid://dx0prvnvk6ip4"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_gcm38"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/Mob.gd" id="2_3yii8"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/StateMachine/StateMachine.gd" id="2_04b8s"]
+[ext_resource type="Script" path="res://Scenes/DebugScene/ItemThrower.gd" id="2_jeavh"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/Enemy/IdleState.gd" id="3_7wesw"]
+[ext_resource type="PackedScene" uid="uid://dt2batwvxthuo" path="res://Scenes/DebugScene/Ball.tscn" id="3_eus2a"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/Enemy/PatrolState.gd" id="4_mxlp4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3edfm"]
@@ -30,7 +32,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [sub_resource type="BoxMesh" id="BoxMesh_hpvxh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tt3bo"]
-viewport_path = NodePath("Player/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
 
@@ -189,6 +191,10 @@ skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("1_gcm38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23405, 1.02518, 8.28492)
+
+[node name="ItemThrower" type="Node3D" parent="Player"]
+script = ExtResource("2_jeavh")
+item = ExtResource("3_eus2a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
