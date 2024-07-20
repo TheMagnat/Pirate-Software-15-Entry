@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fm00mdomx6ap"]
-
-[ext_resource type="MeshLibrary" uid="uid://cpowtvxjofjs2" path="res://tiles.tres" id="1_lund1"]
+[gd_scene load_steps=4 format=3 uid="uid://fm00mdomx6ap"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pxwly"]
 
@@ -22,4 +20,3 @@ environment = SubResource("Environment_tkmhf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68174, 0.874197, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_lund1")
