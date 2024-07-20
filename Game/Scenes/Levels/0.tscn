@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ky7ruq01ylx"]
+[gd_scene load_steps=8 format=3 uid="uid://c4ky7ruq01ylx"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/0.gd" id="1_vxi04"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_yg6ec"]
@@ -8,6 +8,20 @@ size = Vector3(1000, 20, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sil8d"]
 size = Vector3(1000, 20, 1000)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6go4v"]
+height = 1.0
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cufub"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.517647)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r0cov"]
+material = SubResource("StandardMaterial3D_cufub")
+top_radius = 2.0
+bottom_radius = 2.0
+height = 1.0
 
 [node name="Level0" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2248, 0.76962, -0.873228)
@@ -26,7 +40,11 @@ shape = SubResource("BoxShape3D_vppxe")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D"]
 mesh = SubResource("BoxMesh_sil8d")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.281052, 0, -0.959693, 0, 1, 0, 0.959693, 0, 0.281052, -5.79045, 3.59583, -0.987795)
-light_energy = 16.0
-light_specular = 8.949
+[node name="finish" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
+shape = SubResource("CylinderShape3D_6go4v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
+mesh = SubResource("CylinderMesh_r0cov")
