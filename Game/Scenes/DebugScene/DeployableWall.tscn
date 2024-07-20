@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh1sxt6a08fe8"]
+
+[ext_resource type="Script" path="res://Scenes/DebugScene/DeployableWall.gd" id="1_8cgs1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5tg0"]
+albedo_color = Color(0.905882, 0.27451, 0.141176, 0.541176)
+
+[sub_resource type="BoxMesh" id="BoxMesh_np4ac"]
+material = SubResource("StandardMaterial3D_v5tg0")
+size = Vector3(4, 2.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f22b7"]
+size = Vector3(4, 2.5, 1)
+
+[node name="DeployableWall" type="RigidBody3D"]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_8cgs1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_np4ac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_f22b7")

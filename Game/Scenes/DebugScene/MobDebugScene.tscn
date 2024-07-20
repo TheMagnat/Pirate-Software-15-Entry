@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx0prvnvk6ip4"]
+[gd_scene load_steps=19 format=3 uid="uid://dx0prvnvk6ip4"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_gcm38"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/Mob.gd" id="2_3yii8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/DebugScene/Enemy/IdleState.gd" id="3_7wesw"]
 [ext_resource type="PackedScene" uid="uid://dt2batwvxthuo" path="res://Scenes/DebugScene/Ball.tscn" id="3_eus2a"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/Enemy/PatrolState.gd" id="4_mxlp4"]
+[ext_resource type="PackedScene" uid="uid://dh1sxt6a08fe8" path="res://Scenes/DebugScene/DeployableWall.tscn" id="4_y1ndp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3edfm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -192,9 +193,13 @@ skeleton = NodePath("../../..")
 [node name="Player" parent="." instance=ExtResource("1_gcm38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23405, 1.02518, 8.28492)
 
-[node name="ItemThrower" type="Node3D" parent="Player"]
+[node name="ItemThrowerBall" type="Node3D" parent="Player"]
 script = ExtResource("2_jeavh")
 item = ExtResource("3_eus2a")
+
+[node name="ItemThrowerWall" type="Node3D" parent="Player"]
+script = ExtResource("2_jeavh")
+item = ExtResource("4_y1ndp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -218,6 +223,7 @@ light_energy = 32.0
 light_indirect_energy = 16.0
 light_size = 1.0
 light_specular = 0.0
+shadow_enabled = true
 spot_range = 9.422
 spot_angle = 50.14
 
