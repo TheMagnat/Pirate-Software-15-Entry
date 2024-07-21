@@ -21,7 +21,7 @@ func xIsTilted(xSign):
 		tilt.x = currentValue / limit
 	
 	growing.x = xSign
-	
+
 func zIsTilted(zSign):
 	# Tilt correction to prevent brutal change
 	if growing.y == 0 and tilt.y != 0:
@@ -35,7 +35,6 @@ func getTiltFunctionResult(x: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	# X part
 	if growing.x == 0:
 		var currentSignX = sign(tilt.x)

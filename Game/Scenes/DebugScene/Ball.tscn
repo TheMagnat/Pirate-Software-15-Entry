@@ -1,13 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt2batwvxthuo"]
+[gd_scene load_steps=5 format=3 uid="uid://dpckh3ieawwn"]
+
+[ext_resource type="Script" path="res://Scenes/DebugScene/Projectile.gd" id="1_pphbo"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_x4f2r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bdn7q"]
 
-[node name="Ball" type="RigidBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_2hl7m"]
+radius = 10.0
+
+[node name="Ball" type="RigidBody3D" groups=["Projectile"]]
+collision_layer = 8
+collision_mask = 15
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_pphbo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_x4f2r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bdn7q")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_2hl7m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

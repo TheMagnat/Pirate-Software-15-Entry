@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://vjbahhayd10k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m2tgk"]
+sky_top_color = Color(0, 0.027451, 0.290196, 1)
+sky_horizon_color = Color(0, 0.160784, 0.54902, 1)
+sky_curve = 0.252268
+sun_angle_max = 34.44
+sun_curve = 4.17862
+
+[sub_resource type="Sky" id="Sky_rd210"]
+sky_material = SubResource("ProceduralSkyMaterial_m2tgk")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_8txwq"]
+background_mode = 2
+background_energy_multiplier = 0.6
+sky = SubResource("Sky_rd210")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.9
+ambient_light_energy = 0.1
+tonemap_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_8txwq")

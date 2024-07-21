@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
-[ext_resource type="PackedScene" uid="uid://coeoswc6wsxnx" path="res://Scenes/Mesh/Potion.tscn" id="2_ehkyx"]
+[ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
 [ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
 [ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
@@ -24,25 +24,28 @@ fill_to = Vector2(0, 0)
 size = Vector3(1, 0.62793, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_xqvjk")
 
-[node name="CameraHolder" type="Node3D" parent="."]
+[node name="AssetsHolder" type="Node3D" parent="."]
 
-[node name="SpottedSprite" type="Sprite3D" parent="CameraHolder"]
+[node name="Potion" parent="AssetsHolder" instance=ExtResource("2_cw1pp")]
+
+[node name="SpottedSprite" type="Sprite3D" parent="AssetsHolder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35594, 0)
+visible = false
 material_override = SubResource("ShaderMaterial_xydlr")
 cast_shadow = 0
 gi_mode = 0
 texture = SubResource("GradientTexture2D_qjbo3")
 
+[node name="CameraHolder" type="Node3D" parent="."]
+
 [node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 0)
 cull_mask = 1048571
-current = true
 far = 50.0
-
-[node name="Potion" parent="CameraHolder" instance=ExtResource("2_ehkyx")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
@@ -56,7 +59,7 @@ size = Vector2i(9, 9)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 5.3557, -0.209573)
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 5.356, 0)
 keep_aspect = 0
 cull_mask = 1048573
 projection = 1
@@ -65,4 +68,4 @@ size = 0.905
 far = 50.0
 
 [node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
-transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.06423, 0, 0, 0)
+transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.43034, 0, 0, 0)

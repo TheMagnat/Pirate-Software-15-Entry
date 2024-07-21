@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcosg2j6qqww8"]
+
+[ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/StateMachineController.gd" id="2_b2anw"]
+[ext_resource type="Script" path="res://Scenes/Tool/StateMachine/StateMachine.gd" id="3_r687w"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/IdleState.gd" id="4_fqmb1"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SuspiciousState.gd" id="5_eg1kb"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/PatrolState.gd" id="6_j7gh3"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ff4gg"]
+size = Vector3(1, 1.97467, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fv6ih"]
+radius = 5.27478
+
+[node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42463, 1.88216, -5.13941)
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_mno22")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_qakwb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00283813, 0)
+shape = SubResource("BoxShape3D_ff4gg")
+
+[node name="View" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 7
+
+[node name="FrontShape" type="CollisionShape3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.97406)
+shape = SubResource("SphereShape3D_fv6ih")
+
+[node name="Torche" type="SpotLight3D" parent="."]
+light_energy = 32.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+spot_range = 9.422
+spot_angle = 50.14
+
+[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("view", "stateMachine")]
+script = ExtResource("2_b2anw")
+view = NodePath("../View")
+stateMachine = NodePath("../StateMachine")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialStateNode")]
+script = ExtResource("3_r687w")
+initialStateNode = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent")]
+script = ExtResource("4_fqmb1")
+parent = NodePath("../..")
+
+[node name="Suspicious" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent")]
+script = ExtResource("5_eg1kb")
+parent = NodePath("../..")
+
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
+script = ExtResource("6_j7gh3")
+checkpoints = PackedVector2Array(20.24, -4.55063, 20.24, 4.76809, 8.42463, 4.76809, 8.42463, -5.13941, 8.42463, -5.13941)
+parent = NodePath("../..")
+nav = NodePath("../../NavigationAgent3D")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "parentView", "nav")]
+script = ExtResource("7_de7w8")
+parent = NodePath("../..")
+parentView = NodePath("../../View")
+nav = NodePath("../../NavigationAgent3D")

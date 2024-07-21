@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://ctpgtwfykr04i"]
+
+[ext_resource type="Texture2D" uid="uid://cuf6sfqhq01qw" path="res://Assets/Potion/textures/Potion_UV_default_AlbedoTransparency.png" id="1_umhc6"]
+[ext_resource type="Texture2D" uid="uid://bv6acv41q722q" path="res://Assets/Potion/textures/Potion_UV_default_Height.png" id="2_rbrmx"]
+[ext_resource type="Texture2D" uid="uid://c4lut1rgodfe2" path="res://Assets/Potion/textures/Potion_UV_default_MetallicSmoothness.png" id="3_tsmje"]
+[ext_resource type="Texture2D" uid="uid://c04c5tt8qpuhp" path="res://Assets/Potion/textures/Potion_UV_default_Normal.png" id="4_w88w1"]
+[ext_resource type="Texture2D" uid="uid://bxm3v4h2or7bg" path="res://Assets/Potion/textures/Potion_UV_default_Diffuse.png" id="5_stbs4"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_umhc6")
+metallic = 1.0
+metallic_texture = ExtResource("3_tsmje")
+roughness_texture = ExtResource("5_stbs4")
+normal_enabled = true
+normal_texture = ExtResource("4_w88w1")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_rbrmx")

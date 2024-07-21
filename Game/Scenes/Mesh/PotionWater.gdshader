@@ -1,16 +1,19 @@
 shader_type spatial;
 
+
 uniform sampler2D noise : repeat_enable;
 uniform sampler2D noiseXOffset : repeat_enable;
 uniform sampler2D noiseYOffset : repeat_enable;
 
 uniform float delta;
 
-uniform float liquidLevel;
-uniform float removeValue;
+uniform float waterLevel : hint_range(0.0, 1.0);
 
-uniform float xTilt : hint_range(-1.0, 1.0);
-uniform float yTilt : hint_range(-1.0, 1.0);
+uniform float spottedValue;
+uniform float deadTime;
+
+uniform float xTilt : hint_range(-10.0, 10.0);
+uniform float yTilt : hint_range(-10.0, 10.0);
 
 const float VERTEX_SCALER = 0.0003125;
 
@@ -18,14 +21,42 @@ void vertex() {
 	float scaledTime = TIME * 2.0;
 
 	float oldValue = VERTEX.z;
-	VERTEX.z *= 0.0;
+	vec3 oldNormal = NORMAL;
 	
-	VERTEX.z += (
+	VERTEX.z = waterLevel * 0.21; 
+	
+	//VERTEX.z *= 0.0;
+	//if ()
+	
+	//vec2 offset = vec2(0.25, 0.25);
+	//
+	float center = (
 		cos(VERTEX.y + scaledTime * 1.2458) * 0.5 + VERTEX.y * yTilt * 500.0 +
 		sin(VERTEX.x * 500.0 + scaledTime) * 0.45 + VERTEX.x * xTilt * 500.0
 	) * VERTEX_SCALER;
-	
+	VERTEX.z += center;
+	//
 	VERTEX.z = min(VERTEX.z, oldValue);
+	//// 1 -> 0 donc (1 - 0) / 1 = 1
+	//// -0.1 -> -0.2 donc (-0.1 - -0.2) / 0.1 = -0.1 + 0.2 = 0.1
+	
+	//VERTEX.z = oldValue;
+	float level = 0.0;
+	if (oldValue == 0.0) {
+		level = 0.0;
+	}
+	else {
+		level = abs((oldValue - VERTEX.z) / oldValue);
+	}
+		
+	NORMAL = normalize(mix(oldNormal, vec3(0.0, 0.0, 1.0), level));
+	//NORMAL = oldNormal;
+	//NORMAL = vec3(0.0, 0.0, 1.0);
+	//NORMAL = vec3(xTilt, 0.0, 1.0);
+	
+	//if (VERTEX.z >= -0.1) {
+		//NORMAL = vec3(0.0, 1.0, 0.0);
+	//}
 	
 }
 
@@ -46,14 +77,20 @@ void fragment() {
 	
 	float noiseValue = texture(noise, finalUv + offset + uvOffset).r;
 	
-	ALBEDO = mix(vec3(0.25, 0.25, 0.9), vec3(0.25, 0.6, 0.9), noiseValue);
-	// Called for every pixel the material is visible on.
-	//ALPHA = 0.8;
+	vec3 mainColor = vec3(0.25, 0.25, 0.9);
+	vec3 subColor = vec3(0.25, 0.6, 0.9);
 	
-	//ALBEDO = vec3(centredUvX, 0.0, 0.0);
+	vec3 deathColor = vec3(1.0, 0.0, 0.0);
+	vec3 subDeathColor = vec3(1.0, 0.0, 0.0);
+	
+	ALBEDO = mix(
+		mix(mainColor, deathColor, spottedValue),
+		mix(subColor, subDeathColor, spottedValue),
+	noiseValue);
+	
+	ALBEDO *= 1.5;
+	
+	// Called for every pixel the material is visible on.
+	//ALPHA = 0.9;
+	//ALBEDO = vec3(0.0, UV.x, 0.0);
 }
-
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
