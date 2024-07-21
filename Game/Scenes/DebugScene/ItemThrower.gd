@@ -4,6 +4,7 @@ extends Node3D
 
 var throwImpulse: float = 10.0
 var aiming: bool = false
+@export var action: String = "main_action"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -82,7 +83,7 @@ func throwItem():
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
 
 func _input(event):
-	if event.is_action_pressed("main_action"):
+	if event.is_action_pressed(action):
 		aiming = true
-	elif event.is_action_released("main_action"):
+	elif event.is_action_released(action):
 		throwItem()

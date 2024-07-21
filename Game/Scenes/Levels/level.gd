@@ -21,6 +21,10 @@ func init(i: int):
 	timer.wait_time = 10.0
 	timer.timeout.connect(func(): time_spent += WAIT_TIME)
 	add_child(timer)
+ 
+func restart_level():
+	var main = get_node("/root/Main")
+	main.load_level(main.current_level)
 
 func finish_level(body = null):
 	if body.is_in_group("Player") or body == null:

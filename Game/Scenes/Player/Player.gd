@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const DEATH_ANIMATION_DELAY = 3 # seconds
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -13,6 +14,8 @@ var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
 
 var isDead: bool = false
 var deadTime: float = 0.0
+
+signal killed # emitted when the character dies, after the death animation completes
 
 @onready var topViewport: Viewport = $"SubViewport"
 @onready var animation: AnimationTree = $AssetsHolder/Potion/AnimationTree
@@ -70,6 +73,10 @@ func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
 		spottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
+		
+		if deadTime > DEATH_ANIMATION_DELAY:
+			killed.emit()
+		
 		return
 
 	var topLightLevel: float = getLightLevel()
