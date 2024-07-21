@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpfaaotuxskv3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ms46p"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.5
+radial_segments = 10
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wrt4s"]
+points = PackedVector3Array(3.72529e-09, 0.125, 0.05, 0.0293807, 0.125, 0.0404464, -0.02939, 0.125, 0.0404464, 3.72529e-09, -0.125, 0.05, 0.0475528, 0.125, 0.0154464, 0.0293807, -0.125, 0.0404464, -0.0475528, 0.125, 0.0154464, -0.02939, -0.125, 0.0404464, 0.0475528, 0.125, -0.0154561, 0.0475528, -0.125, 0.0154464, -0.0475528, 0.125, -0.0154561, -0.0475528, -0.125, 0.0154464, 0.0293807, 0.125, -0.0404561, 0.0475528, -0.125, -0.0154561, -0.02939, 0.125, -0.0404561, -0.0475528, -0.125, -0.0154561, 3.72529e-09, 0.125, -0.05, 0.0293807, -0.125, -0.0404561, -0.02939, -0.125, -0.0404561, 3.72529e-09, -0.125, -0.05)
+
+[node name="Prototype_Torch" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.25, 0.25)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("CylinderMesh_ms46p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wrt4s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.45)
+omni_range = 6.5
+omni_attenuation = -2.0
