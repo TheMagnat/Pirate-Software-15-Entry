@@ -54,10 +54,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.225
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -8.40561, 3, -8.45065)
 
 [node name="Prototype_Torch3" parent="." instance=ExtResource("3_i0em4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -26.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.41054, -24.7347)
 
 [node name="Prototype_Torch4" parent="." instance=ExtResource("3_i0em4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3, -26.5)
 
 [node name="Prototype_Firecamp" parent="." instance=ExtResource("4_il2ib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3676, 5.09131, -18.3927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3676, 5.22382, -18.3927)
