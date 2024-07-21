@@ -25,6 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0445113, 0.17646, -0.003520
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(0.733109, 0.569428, -0.371886, 0.10983, 0.440504, 0.891005, 0.671182, -0.694049, 0.260398, -0.146988, -0.000320435, 0.0141357)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_toccc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -33,6 +34,7 @@ shape = SubResource("ConvexPolygonShape3D_jlto4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(-0.430459, -0.560985, 0.707107, 0.430459, 0.560985, 0.707106, -0.793353, 0.608761, -3.09086e-08, 0.04, -0.0299835, -0.0725021)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_toccc")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
@@ -41,6 +43,7 @@ shape = SubResource("ConvexPolygonShape3D_30vs5")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(-0.585513, 0.710284, -0.390731, -0.248535, 0.301498, 0.920505, 0.771624, 0.636078, -1.70794e-08, -0.05, -0.0533496, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_toccc")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
@@ -49,6 +52,7 @@ shape = SubResource("ConvexPolygonShape3D_g6ftp")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.125178, 0)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_toccc")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
@@ -57,5 +61,8 @@ shape = SubResource("ConvexPolygonShape3D_r5eb8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613205, 0)
+shadow_enabled = true
+shadow_normal_bias = 0.0
+shadow_blur = 1.5
 omni_range = 8.0
 omni_attenuation = -2.0

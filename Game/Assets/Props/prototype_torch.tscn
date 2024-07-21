@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpfaaotuxskv3"]
+[gd_scene load_steps=6 format=3 uid="uid://cpfaaotuxskv3"]
+
+[ext_resource type="Script" path="res://Assets/Props/flickering_flame.gd" id="1_kwxna"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ms46p"]
 top_radius = 0.08
@@ -9,12 +11,22 @@ radial_segments = 10
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wrt4s"]
 points = PackedVector3Array(3.72529e-09, 0.125, 0.05, 0.0293807, 0.125, 0.0404464, -0.02939, 0.125, 0.0404464, 3.72529e-09, -0.125, 0.05, 0.0475528, 0.125, 0.0154464, 0.0293807, -0.125, 0.0404464, -0.0475528, 0.125, 0.0154464, -0.02939, -0.125, 0.0404464, 0.0475528, 0.125, -0.0154561, 0.0475528, -0.125, 0.0154464, -0.0475528, 0.125, -0.0154561, -0.0475528, -0.125, 0.0154464, 0.0293807, 0.125, -0.0404561, 0.0475528, -0.125, -0.0154561, -0.02939, 0.125, -0.0404561, -0.0475528, -0.125, -0.0154561, 3.72529e-09, 0.125, -0.05, 0.0293807, -0.125, -0.0404561, -0.02939, -0.125, -0.0404561, 3.72529e-09, -0.125, -0.05)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mbkbu"]
+frequency = 0.1923
+fractal_octaves = 10
+domain_warp_frequency = -0.125
+domain_warp_fractal_octaves = 1
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_sn41k"]
+noise = SubResource("FastNoiseLite_mbkbu")
+
 [node name="Prototype_Torch" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.25, 0.25)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_ms46p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -22,5 +34,12 @@ shape = SubResource("ConvexPolygonShape3D_wrt4s")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.45)
+light_color = Color(1, 0.74902, 0.231373, 1)
+light_energy = 0.00796029
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_blur = 10.0
 omni_range = 6.5
-omni_attenuation = -2.0
+omni_attenuation = -3.86374
+script = ExtResource("1_kwxna")
+noise = SubResource("NoiseTexture3D_sn41k")
