@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=13 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
+[ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/StateMachineController.gd" id="2_b2anw"]
 [ext_resource type="Script" path="res://Scenes/Tool/StateMachine/StateMachine.gd" id="3_r687w"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/IdleState.gd" id="4_fqmb1"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SuspiciousState.gd" id="5_eg1kb"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/PatrolState.gd" id="6_j7gh3"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
+[ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/Audio/Effects/chokbar.wav" id="9_2j8lt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
 
@@ -39,13 +41,7 @@ collision_mask = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.97406)
 shape = SubResource("SphereShape3D_fv6ih")
 
-[node name="Torche" type="SpotLight3D" parent="."]
-light_energy = 32.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_size = 1.0
-spot_range = 9.422
-spot_angle = 50.14
+[node name="DeathActionable" parent="." instance=ExtResource("2_8yyng")]
 
 [node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("view", "stateMachine")]
 script = ExtResource("2_b2anw")
@@ -75,3 +71,10 @@ script = ExtResource("7_de7w8")
 parent = NodePath("../..")
 parentView = NodePath("../../View")
 nav = NodePath("../../NavigationAgent3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_2j8lt")
+bus = &"Effects"
+
+[connection signal="actioned" from="DeathActionable" to="." method="_on_death_actionable_actioned"]
+[connection signal="spotted" from="StateMachineController" to="." method="_on_state_machine_controller_spotted"]

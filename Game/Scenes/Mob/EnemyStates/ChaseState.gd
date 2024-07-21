@@ -1,7 +1,7 @@
 extends StateNode
 
 
-var rotationSpeed: float = 2
+var rotationSpeed: float = 20
 
 @export var parent: CharacterBody3D
 @export var target: Player

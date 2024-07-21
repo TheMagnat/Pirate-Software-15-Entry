@@ -66,7 +66,9 @@ func getThrowDirection(depth: float):
 	direction.x *= 6.0
 	direction.y *= 2.0
 	
-	return Vector3(direction.x, direction.y, depth).normalized()
+	var resultDir := Vector3(direction.x, direction.y, depth).normalized()
+	
+	return get_viewport().get_camera_3d().get_global_transform().basis * resultDir
 
 func throwItem():
 	aiming = false

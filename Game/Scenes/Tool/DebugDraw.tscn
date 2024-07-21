@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2ccpwhq1fid7"]
 
 [ext_resource type="Script" path="res://Scenes/Tool/DebugDraw.gd" id="1_j6sf0"]
-[ext_resource type="Shader" path="res://Scenes/DebugScene/PreviewLine.gdshader" id="2_ethv0"]
+[ext_resource type="Shader" path="res://Scenes/Tool/PreviewLine.gdshader" id="2_ethv0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_on5yx"]
 render_priority = 0

@@ -22,3 +22,12 @@ func suspiciousActivity(position: Vector3, suspiciousLevel: float):
 	
 	$StateMachine/Suspicious.updateTarget(position)
 	$StateMachine.transitionTo("Suspicious")
+
+func backstabbed():
+	queue_free()
+
+func _on_death_actionable_actioned():
+	backstabbed()
+
+func _on_state_machine_controller_spotted():
+	$AudioStreamPlayer3D.play()

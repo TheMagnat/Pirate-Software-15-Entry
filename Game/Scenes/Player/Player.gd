@@ -25,6 +25,7 @@ var animationBlendTime: float = 0.25
 
 # Parameters
 @onready var waterShaderHandler: WaterShaderHandler = $WaterShaderHandler
+@onready var shaderHandler: ShaderHandler = $ShaderHandler
 @onready var spottedSprite := $AssetsHolder/SpottedSprite
 
 @onready var playerCamera := $CameraHolder/PlayerCamera
@@ -36,9 +37,9 @@ func set_camera(cam: Camera3D):
 	camera.current = true
 
 func _ready():
-	#waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/InterieurFiole/RootNode/Int_Fiole.material_override
+	shaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/BrasGauche.material_override
 	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Oeuf/RootNode/Int_Potion.material_override
-	#waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Interieur2/RootNode/Sphere001.material_override
+	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
 
 func getLightLevel(top : bool = true) -> float:
@@ -61,6 +62,10 @@ func getLightLevel(top : bool = true) -> float:
 	
 	return sum / (width * height)
 
+var actionPossible: bool = false
+func setActionPossible(isPossible: bool):
+	actionPossible = isPossible
+	shaderHandler.setGrowingValue("actionState", int(isPossible))
 
 func dying():
 	isDead = true
@@ -164,6 +169,8 @@ func _process(_delta: float):
 			
 	$SubViewport/TopView.global_position.x = global_position.x
 	$SubViewport/TopView.global_position.z = global_position.z
+	$SubViewport/TopView.global_position.y = global_position.y + 1.5
+	
 
 func _physics_process(delta: float):
 	### Light computation Logic ###

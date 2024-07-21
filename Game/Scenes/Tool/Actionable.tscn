@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckjfa8q5vykds"]
+
+[ext_resource type="Script" path="res://Scenes/DebugScene/Actionable.gd" id="1_st40l"]
+[ext_resource type="Script" path="res://Scenes/DebugScene/TextViewport.gd" id="2_dtx5l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uglsg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_54xom"]
+viewport_path = NodePath("Text3D/TextViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_86l5f"]
+font_size = 32
+
+[node name="Actionable" type="Node3D"]
+script = ExtResource("1_st40l")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.99472)
+shape = SubResource("CapsuleShape3D_uglsg")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Text3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40448, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_54xom")
+
+[node name="TextViewport" type="SubViewport" parent="Text3D"]
+transparent_bg = true
+size = Vector2i(80, 45)
+script = ExtResource("2_dtx5l")
+
+[node name="Label" type="Label" parent="Text3D/TextViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_86l5f")
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]

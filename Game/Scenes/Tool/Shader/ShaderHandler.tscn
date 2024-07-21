@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xjmyvah4ga17"]
+
+[ext_resource type="Script" path="res://Scenes/Tool/Shader/ShaderHandler.gd" id="1_p11i6"]
+
+[node name="ShaderHandler" type="Node"]
+script = ExtResource("1_p11i6")

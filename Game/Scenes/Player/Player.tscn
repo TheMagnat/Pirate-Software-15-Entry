@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=11 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
 [ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
+[ext_resource type="PackedScene" uid="uid://xjmyvah4ga17" path="res://Scenes/Tool/Shader/ShaderHandler.tscn" id="6_pq1f3"]
 [ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
@@ -51,15 +52,12 @@ far = 50.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
 shape = SubResource("BoxShape3D_nngex")
 
-[node name="WaterShaderHandler" type="Node" parent="."]
-script = ExtResource("7_bm8x7")
-
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(9, 9)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 5.356, 0)
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.5, 0)
 keep_aspect = 0
 cull_mask = 1048573
 projection = 1
@@ -69,3 +67,10 @@ far = 50.0
 
 [node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
 transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.43034, 0, 0, 0)
+
+[node name="ShaderHandler" parent="." instance=ExtResource("6_pq1f3")]
+handledParameters = PackedStringArray("actionState")
+parametersSpeed = PackedFloat32Array(4)
+
+[node name="WaterShaderHandler" type="Node" parent="."]
+script = ExtResource("7_bm8x7")

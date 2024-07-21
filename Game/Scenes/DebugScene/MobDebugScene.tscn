@@ -179,3 +179,42 @@ item = ExtResource("6_j3ggf")
 action = "secondary_action"
 
 [node name="Mob" parent="." instance=ExtResource("6_80xx7")]
+
+[node name="Torche" type="SpotLight3D" parent="Mob"]
+light_energy = 3.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+shadow_enabled = true
+shadow_bias = 0.5
+shadow_normal_bias = 1.5
+distance_fade_shadow = 0.0
+spot_range = 9.762
+
+[node name="Mob2" parent="." instance=ExtResource("6_80xx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2421, 1.88216, 4.05053)
+
+[node name="Torche" type="SpotLight3D" parent="Mob2"]
+light_energy = 3.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+shadow_enabled = true
+shadow_bias = 0.5
+shadow_normal_bias = 1.5
+distance_fade_shadow = 0.0
+spot_range = 9.762
+
+[node name="Mob3" parent="." instance=ExtResource("6_80xx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95099, 1.88216, 0.846516)
+
+[node name="Torche" type="SpotLight3D" parent="Mob3"]
+light_energy = 3.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+shadow_enabled = true
+shadow_bias = 0.5
+shadow_normal_bias = 1.5
+distance_fade_shadow = 0.0
+spot_range = 9.762
