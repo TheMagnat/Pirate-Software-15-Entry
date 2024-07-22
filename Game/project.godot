@@ -17,13 +17,14 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://Assets/Audio/default_bus_layout.tres"
+buses/default_bus_layout="res://Assets/default_bus_layout.tres"
 
 [autoload]
 
 Save="*res://Scenes/Main/save.gd"
 Transition="*res://Scenes/Main/transition.tscn"
 DebugDraw="*res://Scenes/Tool/DebugDraw.tscn"
+Music="*res://Scenes/Main/music.tscn"
 
 [display]
 

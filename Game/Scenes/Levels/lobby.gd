@@ -3,6 +3,7 @@ extends Node3D
 @onready var player = $Player
 
 func _ready():
+	Music.play(Music.lobby)
 	player.set_camera($CameraInside)
 	$GoOut.body_entered.connect(check_go_out)
 

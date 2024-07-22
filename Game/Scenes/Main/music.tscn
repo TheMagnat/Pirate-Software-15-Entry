@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6jkgfqcpvlqd"]
+
+[ext_resource type="Script" path="res://Scenes/Main/music.gd" id="1_mk3sj"]
+[ext_resource type="AudioStream" uid="uid://y8jqku3c0eqp" path="res://Assets/Music/lobby.ogg" id="1_wo8bu"]
+[ext_resource type="AudioStream" uid="uid://bdty71s2ftabm" path="res://Assets/Music/mystery1.ogg" id="2_u18ap"]
+[ext_resource type="AudioStream" uid="uid://nkj8uukxjlgh" path="res://Assets/Music/action1.ogg" id="3_054ra"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_mk3sj")
+
+[node name="Lobby" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_wo8bu")
+bus = &"Music"
+
+[node name="Mystery1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u18ap")
+bus = &"Music"
+
+[node name="Action1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_054ra")
+bus = &"Music"

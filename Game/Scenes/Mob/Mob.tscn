@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SuspiciousState.gd" id="5_eg1kb"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/PatrolState.gd" id="6_j7gh3"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
-[ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/Audio/Effects/chokbar.wav" id="9_2j8lt"]
+[ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/SFX/chokbar.wav" id="9_2j8lt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
 
