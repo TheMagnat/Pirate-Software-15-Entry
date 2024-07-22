@@ -36,6 +36,8 @@ func quit():
 	get_tree().quit()
 
 func _ready():
+	Music.play(Music.lobby_vinyl)
+	
 	$Main/Continue.pressed.connect(play_continue)
 	$Main/NewGame.pressed.connect(you_sure)
 	$Main/Settings.pressed.connect(settings)

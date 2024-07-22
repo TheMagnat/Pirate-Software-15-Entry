@@ -2,6 +2,7 @@ extends Node
 
 ### just for easier access
 @onready var lobby := $Lobby
+@onready var lobby_vinyl := $LobbyVinyl
 @onready var mystery1 := $Mystery1
 @onready var action1 := $Action1
 
