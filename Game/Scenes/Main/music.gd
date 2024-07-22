@@ -16,6 +16,9 @@ func stop_playing():
 		t_out.finished.connect(current.stop)
 
 func play(stream: AudioStreamPlayer):
+	if current == stream:
+		return
+	
 	stop_playing()
 	
 	if current != null:
