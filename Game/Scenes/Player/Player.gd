@@ -4,6 +4,8 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DEATH_ANIMATION_DELAY = 3 # seconds
 
+var sneakMultiplier: float = 0.4
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -98,6 +100,7 @@ func lightLogic(delta: float):
 
 var base_direction := Vector3()
 var input_dir := Vector2()
+var sneaking: bool = false
 
 func getTilt(goal: Vector2):
 	var playerDirection: Vector3 = -$AssetsHolder.basis.z
@@ -109,9 +112,43 @@ func getTilt(goal: Vector2):
 	var yTilt: int = absGoalAngle > 1.0/5.0
 	
 	return Vector3(xTilt, yTilt, goalAngle)
+
+var leftPlay: bool = false
+var rightPlay: bool = false
+
+var footEmissionSuspiciousLevel: float = 3.0
+func emitSuspiciousSound():
+	for body in $FootSoundEmission.get_overlapping_bodies():
+		if body.is_in_group("Enemy"):
+			body.suspiciousActivity(global_position, footEmissionSuspiciousLevel)
+
+var sneakEmissionSuspiciousLevel: float = 0.5
+func emitSuspiciousSneakSound():
+	for body in $SneakSoundEmission.get_overlapping_bodies():
+		if body.is_in_group("Enemy"):
+			body.suspiciousActivity(global_position, sneakEmissionSuspiciousLevel)
+
+@onready var currentGroundStepSound: AudioStreamPlayer3D = $GrassStepPlayer
+func playFootStep():
+	var volumeValue: float
+	var pitchScale: float
+
+	if sneaking:
+		volumeValue = -27.0
+		pitchScale = 1.25
+		emitSuspiciousSneakSound()
+	else:
+		volumeValue = -17.0
+		pitchScale = 1.0
+		emitSuspiciousSound()
+
+	currentGroundStepSound.volume_db = volumeValue
+	currentGroundStepSound.pitch_scale = pitchScale
 	
+	currentGroundStepSound.play()
+
 func _process(_delta: float):
-	# Handle water tilt
+	# Handle water tilt and waliking sound
 	if velocity.x != 0 or velocity.z != 0:
 		var goal: Vector3 = (-velocity).normalized()
 		var tilt: Vector3 = getTilt(Vector2(goal.x, goal.z))
@@ -128,6 +165,25 @@ func _process(_delta: float):
 		# To prevent using nil value in Walking/time
 		var safeAnimationTime = animation["parameters/Walking/time"]
 		var animationTime: float = safeAnimationTime if safeAnimationTime else 0.0
+		
+		#Play walking sound every time the time hit 0.25 and 0.75
+		if animation["parameters/Blend2/blend_amount"] > 0.4:
+			# Left foot
+			if animationTime > 0.15 and animationTime < 0.4:
+				if not leftPlay:
+					playFootStep()
+					leftPlay = true
+			else:
+				leftPlay = false
+			
+			# Right foot
+			if animationTime > 0.65 and animationTime < 0.9:
+				if not rightPlay:
+					playFootStep()
+					rightPlay = true
+			else:
+				rightPlay = false
+		
 		var anyAnim: bool = true
 		if animationTime > 0.2 and animationTime < 0.3:
 			var front = -$AssetsHolder.basis.z
@@ -151,11 +207,22 @@ func _process(_delta: float):
 			if tilt.y:
 				waterShaderHandler.zIsTilted(1.0)
 	
+	# Handler animation blend
 	if input_dir:
-		if state != 1:
+		if sneaking and state != 2:
 			if animationTween: animationTween.kill()
 			animationTween = create_tween()
+			animationTween.set_parallel(true)
+			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 0.5, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.5, animationBlendTime)
+			state = 2
+			
+		elif not sneaking and state != 1:
+			if animationTween: animationTween.kill()
+			animationTween = create_tween()
+			animationTween.set_parallel(true)
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 1.0, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.0, animationBlendTime)
 			state = 1
 		
 		var newAngle = 3.0 * PI/2 - input_dir.angle()
@@ -170,7 +237,6 @@ func _process(_delta: float):
 	$SubViewport/TopView.global_position.x = global_position.x
 	$SubViewport/TopView.global_position.z = global_position.z
 	$SubViewport/TopView.global_position.y = global_position.y + 1.5
-	
 
 func _physics_process(delta: float):
 	### Light computation Logic ###
@@ -192,9 +258,12 @@ func _physics_process(delta: float):
 	base_direction = (transform.basis * Vector3(base_input_dir.x, 0, base_input_dir.y)).normalized()
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	sneaking = Input.is_action_pressed("sneak")
+	var speedMultiplier: float = sneakMultiplier if sneaking else 1.0
+	
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * speedMultiplier
+		velocity.z = direction.z * SPEED * speedMultiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)

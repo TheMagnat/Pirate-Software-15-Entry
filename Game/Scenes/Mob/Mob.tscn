@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=14 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/PatrolState.gd" id="6_j7gh3"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
 [ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/SFX/chokbar.wav" id="9_2j8lt"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SeekingState.gd" id="9_cgq4v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
 
@@ -72,9 +73,15 @@ parent = NodePath("../..")
 parentView = NodePath("../../View")
 nav = NodePath("../../NavigationAgent3D")
 
+[node name="Seeking" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
+script = ExtResource("9_cgq4v")
+parent = NodePath("../..")
+nav = NodePath("../../NavigationAgent3D")
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_2j8lt")
 bus = &"Effects"
+attenuation_filter_cutoff_hz = 20500.0
 
 [connection signal="actioned" from="DeathActionable" to="." method="_on_death_actionable_actioned"]
 [connection signal="spotted" from="StateMachineController" to="." method="_on_state_machine_controller_spotted"]

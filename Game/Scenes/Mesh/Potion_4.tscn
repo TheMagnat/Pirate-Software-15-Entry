@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b4vnvuheoq6i5"]
+[gd_scene load_steps=35 format=3 uid="uid://b4vnvuheoq6i5"]
 
 [ext_resource type="PackedScene" uid="uid://cn8bxkjjo353t" path="res://Scenes/Mesh/interieur_fiole.tscn" id="1_7mbwk"]
 [ext_resource type="Material" uid="uid://ctpgtwfykr04i" path="res://Assets/Potion/textures/PotionTexture.tres" id="2_311v4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jwe7v4egtkl7" path="res://Scenes/Mesh/interieur_fiole_2.tscn" id="2_g7j2k"]
 [ext_resource type="PackedScene" uid="uid://hti8387as4ml" path="res://Scenes/Mesh/Oeuf.tscn" id="2_u70rn"]
 [ext_resource type="Material" uid="uid://ct5cexbd6uw4f" path="res://Assets/Potion/textures/HandTexture.tres" id="6_esw2t"]
+[ext_resource type="PackedScene" uid="uid://c7hpi6hkigyyy" path="res://Scenes/Mesh/Knife.tscn" id="7_wg1c3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y7ck"]
 resource_name = "default"
@@ -462,15 +463,19 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ohyx"]
 animation = &"Walking"
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_fbtmm"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_kapno"]
-graph_offset = Vector2(-231, 84)
+graph_offset = Vector2(-1077.73, 0)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_ox8y1")
 nodes/Blend2/position = Vector2(120, 180)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_oqdwf")
 nodes/Idle/position = Vector2(-120, 160)
 nodes/Walking/node = SubResource("AnimationNodeAnimation_6ohyx")
-nodes/Walking/position = Vector2(-120, 320)
-node_connections = [&"Blend2", 0, &"Idle", &"Blend2", 1, &"Walking", &"output", 0, &"Blend2"]
+nodes/Walking/position = Vector2(-260, 360)
+nodes/WalkingTime/node = SubResource("AnimationNodeTimeScale_fbtmm")
+nodes/WalkingTime/position = Vector2(-60, 320)
+node_connections = [&"Blend2", 0, &"Idle", &"Blend2", 1, &"WalkingTime", &"WalkingTime", 0, &"Walking", &"output", 0, &"Blend2"]
 
 [node name="Potion" type="Node3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -478,7 +483,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="RootNode" type="Node3D" parent="."]
 
 [node name="Fiole" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(109.499, -0.874126, -1.02359, 1.02363, 0.000110999, 109.502, -0.874093, -109.503, 0.00828201, -0.0101211, 0.93614, -0.00233335)
+transform = Transform3D(109.499, -0.87423, -1.02359, 1.02363, 0.000104409, 109.502, -0.874198, -109.503, 0.00827639, -0.0101211, 0.93614, -0.00233335)
 layers = 2
 material_override = ExtResource("2_311v4")
 mesh = SubResource("ArrayMesh_3fea3")
@@ -504,35 +509,39 @@ transform = Transform3D(0.00913119, 8.52448e-05, -7.29304e-05, -7.29336e-05, -3.
 visible = false
 
 [node name="Cylinder" type="MeshInstance3D" parent="RootNode/Fiole"]
-transform = Transform3D(0.959172, 1.81656e-18, 0.282824, -1.73472e-18, 1, -5.39766e-19, -0.282824, 2.71061e-20, 0.959172, -0.00233912, 4.33681e-21, -7.59241e-05)
+transform = Transform3D(0.959172, 1.81655e-18, 0.282824, -1.73472e-18, 1, -5.39766e-19, -0.282824, 2.71083e-20, 0.959172, -0.00233912, 4.33681e-21, -7.59241e-05)
 layers = 2
 material_override = ExtResource("2_311v4")
 mesh = SubResource("ArrayMesh_gab6a")
 skeleton = NodePath("")
 
 [node name="Crane" type="MeshInstance3D" parent="RootNode/Fiole"]
-transform = Transform3D(0.999977, 1.73495e-18, 0.00680874, -1.73472e-18, 1, -3.89173e-20, -0.00680874, 2.71051e-20, 0.999976, 1.32959e-05, 4.33681e-21, 9.4078e-06)
+transform = Transform3D(0.999977, 1.73494e-18, 0.00680873, -1.73472e-18, 1, -3.89175e-20, -0.00680874, 2.71054e-20, 0.999976, 1.32959e-05, 4.33681e-21, 9.4078e-06)
 layers = 2
 material_override = ExtResource("2_311v4")
 mesh = SubResource("ArrayMesh_ne6q3")
 skeleton = NodePath("")
 
 [node name="BrasGauche" type="MeshInstance3D" parent="RootNode/Fiole"]
-transform = Transform3D(0.0231909, -0.000420699, -0.000112779, 0.000419082, 0.0231889, -0.000325159, 0.000118647, 0.000323064, 0.0231924, 6.0186e-05, 0.000217275, -0.00178918)
+transform = Transform3D(0.0231909, -0.000420703, -0.00011278, 0.000419086, 0.0231889, -0.000325161, 0.000118648, 0.000323066, 0.0231924, 6.0186e-05, 0.000217275, -0.00178918)
 layers = 2
 material_override = ExtResource("6_esw2t")
 mesh = SubResource("ArrayMesh_dgq71")
 skeleton = NodePath("")
 
+[node name="Knife" parent="RootNode/Fiole/BrasGauche" instance=ExtResource("7_wg1c3")]
+transform = Transform3D(0.203589, -0.11688, 0.316056, 0.329523, -0.00815686, -0.215285, 0.0704601, 0.375865, 0.0936097, -0.347286, -0.0718577, -0.00254738)
+rotation_order = 0
+
 [node name="BrasDroit" type="MeshInstance3D" parent="RootNode/Fiole"]
-transform = Transform3D(0.0231902, -0.00036146, -0.000304471, 0.000362173, 0.0231921, 5.19384e-05, 0.000303625, -5.66818e-05, 0.0231929, 0.000100066, 0.000194758, -0.00183199)
+transform = Transform3D(0.0231902, -0.000361461, -0.000304472, 0.000362173, 0.0231921, 5.19387e-05, 0.000303625, -5.66821e-05, 0.0231929, 0.000100066, 0.000194758, -0.00183199)
 layers = 2
 material_override = ExtResource("6_esw2t")
 mesh = SubResource("ArrayMesh_qt30r")
 skeleton = NodePath("")
 
 [node name="JambeDroite" type="MeshInstance3D" parent="RootNode/Fiole"]
-transform = Transform3D(0.0118468, 2.35468e-05, -2.9008e-05, -2.39218e-05, 0.0118468, -3.45376e-05, 6.09596e-05, 7.28763e-05, 0.00562382, -3.1504e-05, -1.98738e-05, -0.00709137)
+transform = Transform3D(0.0118468, 2.35472e-05, -2.90084e-05, -2.39222e-05, 0.0118468, -3.45376e-05, 6.09603e-05, 7.28763e-05, 0.00562382, -3.1504e-05, -1.98738e-05, -0.00709137)
 layers = 2
 material_override = ExtResource("2_311v4")
 mesh = SubResource("ArrayMesh_d1u6j")
@@ -549,9 +558,10 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_gtnff")
 }
-blend_times = [&"Idle", &"Walking", 3600.0, &"Walking", &"Idle", 3600.0]
+blend_times = [&"Walking", &"Idle", 3600.0, &"Idle", &"Walking", 3600.0]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_kapno")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 0.0
+parameters/WalkingTime/scale = 1.0

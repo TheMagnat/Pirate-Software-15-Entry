@@ -52,7 +52,7 @@ func enter():
 	timeSinceStart.start()
 	
 func exit():
-	pass
+	timeSinceStart.stop()
 	
 func updateTarget(target):
 	currentDirection = target - parent.global_position

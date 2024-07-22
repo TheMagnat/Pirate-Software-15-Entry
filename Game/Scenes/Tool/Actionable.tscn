@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/DebugScene/TextViewport.gd" id="2_dtx5l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uglsg"]
+radius = 0.796641
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_54xom"]
 viewport_path = NodePath("Text3D/TextViewport")

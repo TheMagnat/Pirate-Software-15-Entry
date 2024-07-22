@@ -166,7 +166,7 @@ mesh = SubResource("BoxMesh_hpvxh")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("1_gcm38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23405, 1.02518, 8.28492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83394, 0.976681, 8.65959)
 collision_mask = 15
 
 [node name="ItemThrowerBall" type="Node3D" parent="Player"]
@@ -192,7 +192,7 @@ distance_fade_shadow = 0.0
 spot_range = 9.762
 
 [node name="Mob2" parent="." instance=ExtResource("6_80xx7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2421, 1.88216, 4.05053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4248, 1.88216, -5.13941)
 
 [node name="Torche" type="SpotLight3D" parent="Mob2"]
 light_energy = 3.0
@@ -206,7 +206,7 @@ distance_fade_shadow = 0.0
 spot_range = 9.762
 
 [node name="Mob3" parent="." instance=ExtResource("6_80xx7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95099, 1.88216, 0.846516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.679, 1.88216, 4.72121)
 
 [node name="Torche" type="SpotLight3D" parent="Mob3"]
 light_energy = 3.0

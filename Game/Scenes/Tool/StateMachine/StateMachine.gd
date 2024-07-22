@@ -27,7 +27,7 @@ func _physics_process(delta):
 func transitionTo(newStateNodeName: String):
 	if currentStateNode.name == newStateNodeName:
 		return
-		
+	
 	var newStateNode = stateNodes.get(newStateNodeName)
 	
 	if !newStateNode:

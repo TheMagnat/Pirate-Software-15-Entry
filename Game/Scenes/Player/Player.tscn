@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=21 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
 [ext_resource type="PackedScene" uid="uid://xjmyvah4ga17" path="res://Scenes/Tool/Shader/ShaderHandler.tscn" id="6_pq1f3"]
 [ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
+[ext_resource type="AudioStream" uid="uid://dljsn7rq5kk5v" path="res://Assets/SFX/steps/step_grass1.ogg" id="7_eekrp"]
+[ext_resource type="AudioStream" uid="uid://cojkxv2a0qfd8" path="res://Assets/SFX/steps/step_grass2.ogg" id="8_gaafs"]
+[ext_resource type="AudioStream" uid="uid://dnfm1qb28qaos" path="res://Assets/SFX/steps/step_grass3.ogg" id="9_wg75q"]
+[ext_resource type="AudioStream" uid="uid://d12hp7b7vxg3q" path="res://Assets/SFX/steps/step_grass4.ogg" id="10_4ppvy"]
+[ext_resource type="AudioStream" uid="uid://bmlueuyo5ljut" path="res://Assets/SFX/steps/step_grass5.ogg" id="11_27m27"]
+[ext_resource type="AudioStream" uid="uid://boj5mgkp2hi5m" path="res://Assets/SFX/steps/step_grass6.ogg" id="12_6mif6"]
+[ext_resource type="AudioStream" uid="uid://dkubehmooiplf" path="res://Assets/SFX/steps/step_grass7.ogg" id="13_lak5j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
 render_priority = 0
@@ -23,6 +30,29 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
 size = Vector3(1, 0.62793, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qvij2"]
+radius = 16.088
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xy7vv"]
+radius = 1.24534
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lvwh6"]
+streams_count = 7
+stream_0/stream = ExtResource("7_eekrp")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_gaafs")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_wg75q")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("10_4ppvy")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("11_27m27")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("12_6mif6")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("13_lak5j")
+stream_6/weight = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -44,7 +74,7 @@ texture = SubResource("GradientTexture2D_qjbo3")
 [node name="CameraHolder" type="Node3D" parent="."]
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 cull_mask = 1048571
 far = 50.0
 
@@ -74,3 +104,23 @@ parametersSpeed = PackedFloat32Array(4)
 
 [node name="WaterShaderHandler" type="Node" parent="."]
 script = ExtResource("7_bm8x7")
+
+[node name="FootSoundEmission" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FootSoundEmission"]
+shape = SubResource("SphereShape3D_qvij2")
+
+[node name="SneakSoundEmission" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SneakSoundEmission"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679292, 0)
+shape = SubResource("SphereShape3D_xy7vv")
+
+[node name="GrassStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_lvwh6")
+volume_db = -10.0
+attenuation_filter_cutoff_hz = 20500.0

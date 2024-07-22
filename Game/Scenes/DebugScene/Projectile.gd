@@ -1,6 +1,7 @@
 extends RigidBody3D
 
-@export var suspectLevel: float = 1.0
+@export var suspectLevelOnGround: float = 1.0
+@export var suspectLevelOnHit: float = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,7 @@ func explode():
 func _on_body_entered(body):
 	for target in $Area3D.get_overlapping_bodies():
 		if target.is_in_group("Enemy"):
-			target.suspiciousActivity(global_position, suspectLevel)
+			target.suspiciousActivity(global_position, suspectLevelOnHit if body == target else suspectLevelOnGround)
 	
 	if not body.is_in_group("Enemy") and not body.is_in_group("Projectile"):
 		explode()

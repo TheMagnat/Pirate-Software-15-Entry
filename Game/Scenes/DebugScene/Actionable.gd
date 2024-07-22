@@ -20,7 +20,6 @@ func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shap
 	if body.is_in_group("Player"):
 		playerEnteredArea(body)
 
-
 func _on_area_3d_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body.is_in_group("Player"):
 		playerExitedArea(body)
