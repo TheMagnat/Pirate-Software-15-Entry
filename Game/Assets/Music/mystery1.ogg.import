@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/mystery1.ogg-33acb299bd3c271db0336ed24737a6fd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
