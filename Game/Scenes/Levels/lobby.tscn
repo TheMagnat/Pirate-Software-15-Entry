@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=14 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
+[ext_resource type="AudioStream" uid="uid://c24crydnw3rv1" path="res://Assets/Music/lobby_vinyl.ogg" id="4_nk1cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -126,3 +127,11 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoOut"]
 shape = SubResource("BoxShape3D_ibtih")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 8)
+stream = ExtResource("4_nk1cv")
+volume_db = 6.0
+unit_size = 0.75
+autoplay = true
+attenuation_filter_cutoff_hz = 2000.0
