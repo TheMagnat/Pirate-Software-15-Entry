@@ -1,9 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=20 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
-[ext_resource type="AudioStream" uid="uid://c24crydnw3rv1" path="res://Assets/Music/lobby_vinyl.ogg" id="4_nk1cv"]
+[ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="4_qy5y3"]
+[ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="5_snhk5"]
+[ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
+[ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
+[ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
+[ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -31,6 +36,21 @@ size = Vector3(1, 8, 19)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibtih"]
 size = Vector3(5, 8, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bg3yo"]
+streams_count = 6
+stream_0/stream = ExtResource("4_qy5y3")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_snhk5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_68riu")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_2g57s")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_x2nkr")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_vutj0")
+stream_5/weight = 1.0
 
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
@@ -128,9 +148,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoOut"]
 shape = SubResource("BoxShape3D_ibtih")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Radio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 8)
-stream = ExtResource("4_nk1cv")
-unit_size = 1.0
+stream = SubResource("AudioStreamRandomizer_bg3yo")
+volume_db = 6.0
+unit_size = 2.0
 autoplay = true
-attenuation_filter_cutoff_hz = 2000.0

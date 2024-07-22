@@ -6,6 +6,7 @@ func _ready():
 	Music.play(Music.lobby)
 	player.set_camera($CameraInside)
 	$GoOut.body_entered.connect(check_go_out)
+	$Radio.finished.connect($Radio.play)
 
 var CAMERA_OFFSET := 5.0
 func _process(_delta):
