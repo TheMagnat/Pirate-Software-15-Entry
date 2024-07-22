@@ -69,7 +69,7 @@ func setActionPossible(isPossible: bool):
 
 func dying():
 	isDead = true
-	# Afficher le menu
+	get_tree().create_timer(DEATH_ANIMATION_DELAY).timeout.connect(func(): killed.emit())
 
 func canBeSeen():
 	return spottedValue > 0.0
@@ -78,9 +78,6 @@ func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
 		spottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
-		
-		if deadTime > DEATH_ANIMATION_DELAY:
-			killed.emit()
 		
 		return
 
@@ -127,7 +124,10 @@ func _process(_delta: float):
 		# 0.0 gauche 0.2 gauche 0.5 droite 0.8 droite 0.0
 		# 0.2 gauche 0.3 et 0.7 droite 0.8
 		var goal2d: Vector2
-		var animationTime: float = animation["parameters/Walking/time"]
+		
+		# To prevent using nil value in Walking/time
+		var safeAnimationTime = animation["parameters/Walking/time"]
+		var animationTime: float = safeAnimationTime if safeAnimationTime else 0.0
 		var anyAnim: bool = true
 		if animationTime > 0.2 and animationTime < 0.3:
 			var front = -$AssetsHolder.basis.z

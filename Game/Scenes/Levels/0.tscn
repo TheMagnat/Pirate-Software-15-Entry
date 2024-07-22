@@ -42,9 +42,14 @@ mesh = SubResource("BoxMesh_sil8d")
 
 [node name="finish" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
 shape = SubResource("CylinderShape3D_6go4v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
 mesh = SubResource("CylinderMesh_r0cov")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 3, -1)

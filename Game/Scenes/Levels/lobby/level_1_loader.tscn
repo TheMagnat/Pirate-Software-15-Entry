@@ -16,6 +16,8 @@ bottom_radius = 2.0
 height = 0.5
 
 [node name="Level 1 loader" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_wabvc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
