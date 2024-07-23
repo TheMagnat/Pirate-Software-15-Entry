@@ -13,6 +13,7 @@ var suspicious: float = 0.0
 
 func _ready():
 	#$Voice.talk()
+	pass
 
 func _physics_process(delta):
 	suspicious = max(0.0, suspicious - suspiciousDecreaseSpeed * delta)
