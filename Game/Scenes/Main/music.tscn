@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6jkgfqcpvlqd"]
+[gd_scene load_steps=7 format=3 uid="uid://c6jkgfqcpvlqd"]
 
 [ext_resource type="Script" path="res://Scenes/Main/music.gd" id="1_mk3sj"]
 [ext_resource type="AudioStream" uid="uid://y8jqku3c0eqp" path="res://Assets/Music/lobby.ogg" id="1_wo8bu"]
 [ext_resource type="AudioStream" uid="uid://bdty71s2ftabm" path="res://Assets/Music/mystery1.ogg" id="2_u18ap"]
 [ext_resource type="AudioStream" uid="uid://nkj8uukxjlgh" path="res://Assets/Music/action1.ogg" id="3_054ra"]
-[ext_resource type="AudioStream" uid="uid://c24crydnw3rv1" path="res://Assets/Music/lobby_vinyl.ogg" id="3_hq3x8"]
+[ext_resource type="AudioStream" uid="uid://c24crydnw3rv1" path="res://Assets/Music/menu.ogg" id="3_hq3x8"]
+[ext_resource type="AudioStream" uid="uid://cc4y3wh2kbhye" path="res://Assets/Music/fairies.ogg" id="6_2fyxn"]
 
 [node name="Music" type="Node"]
 process_mode = 3
@@ -14,7 +15,7 @@ script = ExtResource("1_mk3sj")
 stream = ExtResource("1_wo8bu")
 bus = &"Music"
 
-[node name="LobbyVinyl" type="AudioStreamPlayer" parent="."]
+[node name="Menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hq3x8")
 bus = &"Music"
 
@@ -25,3 +26,6 @@ bus = &"Music"
 [node name="Action1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_054ra")
 bus = &"Music"
+
+[node name="Fairies" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2fyxn")
