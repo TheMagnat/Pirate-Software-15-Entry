@@ -29,3 +29,4 @@ bus = &"Music"
 
 [node name="Fairies" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2fyxn")
+bus = &"Music"
