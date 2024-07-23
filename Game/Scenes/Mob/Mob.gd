@@ -11,6 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var suspicious: float = 0.0
 @export var limitSuspiciousLevel: float = 10.0
 
+func _ready():
+	#$Voice.talk()
+
 func _physics_process(delta):
 	suspicious = max(0.0, suspicious - suspiciousDecreaseSpeed * delta)
 	

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cehxc8imvs687"]
+
+[ext_resource type="Script" path="res://Scenes/SFX/voice.gd" id="1_xkuf8"]
+
+[node name="Voice" type="AudioStreamPlayer3D"]
+script = ExtResource("1_xkuf8")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

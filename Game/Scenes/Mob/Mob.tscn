@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=16 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
 [ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/SFX/chokbar.wav" id="9_2j8lt"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SeekingState.gd" id="9_cgq4v"]
+[ext_resource type="PackedScene" uid="uid://cehxc8imvs687" path="res://Scenes/SFX/voice.tscn" id="11_akmrt"]
+[ext_resource type="AudioStream" uid="uid://b7lmpfertrq00" path="res://Assets/SFX/voices/voice_oboe.ogg" id="12_y5u5o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
 
@@ -82,6 +84,14 @@ nav = NodePath("../../NavigationAgent3D")
 stream = ExtResource("9_2j8lt")
 bus = &"Effects"
 attenuation_filter_cutoff_hz = 20500.0
+
+[node name="Voice" parent="." instance=ExtResource("11_akmrt")]
+stream = ExtResource("12_y5u5o")
+pitch_scale = 1.1
+max_distance = 20.0
+max_polyphony = 2
+voice_speed_min = 0.2
+voice_speed_max = 0.5
 
 [connection signal="actioned" from="DeathActionable" to="." method="_on_death_actionable_actioned"]
 [connection signal="spotted" from="StateMachineController" to="." method="_on_state_machine_controller_spotted"]
