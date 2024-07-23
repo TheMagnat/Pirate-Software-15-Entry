@@ -1,27 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://uiqmxktdm8b3"]
+[gd_scene load_steps=9 format=3 uid="uid://uiqmxktdm8b3"]
 
 [ext_resource type="Script" path="res://Scenes/Main/MainMenu.gd" id="1_8gul7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_rcew5"]
-font_size = 128
+[ext_resource type="Texture2D" uid="uid://ba6ql6n1vd4bc" path="res://Assets/logo/bottle_mid.png" id="2_o30bw"]
+[ext_resource type="Texture2D" uid="uid://mews5nspbb7l" path="res://Assets/logo/bottle_top.png" id="3_ikcou"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tclvk"]
 font_size = 32
 
+[sub_resource type="Shader" id="Shader_sx4u5"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+const float f = 0.2;
+const float hf = f * 0.5;
+
+
+void fragment() {
+	float t = TIME * 0.1;
+	float dispX = texture(noise, UV * 0.5 + vec2(cos(t * 0.151531), sin(t * 0.13414)) * 0.5).r;
+	float dispY = texture(noise, UV * 0.5 + vec2(cos(t * 0.6251531), sin(t * 0.43414)) * 0.5).r;
+	
+	COLOR = texture(TEXTURE, UV * vec2(1.0 + dispX * f - hf, 1.0 + dispY * f - hf));
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6v0g4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pfhxr"]
+width = 64
+noise = SubResource("FastNoiseLite_6v0g4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fboft"]
+shader = SubResource("Shader_sx4u5")
+shader_parameter/noise = SubResource("NoiseTexture2D_pfhxr")
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8gul7")
-
-[node name="Title" type="HBoxContainer" parent="."]
-offset_right = 1280.0
-offset_bottom = 175.0
-alignment = 1
-
-[node name="Label" type="Label" parent="Title"]
-layout_mode = 2
-text = "TITLE"
-label_settings = SubResource("LabelSettings_rcew5")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Main" type="VBoxContainer" parent="."]
 offset_left = 128.0
@@ -89,3 +102,13 @@ text = "Yes"
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "No"
+
+[node name="bottle_mid" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fboft")
+position = Vector2(960, 456)
+texture = ExtResource("2_o30bw")
+
+[node name="bottle_top" type="Sprite2D" parent="."]
+position = Vector2(954, 118)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ikcou")
