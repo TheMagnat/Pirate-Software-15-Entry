@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=21 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
+[ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="4_qy5y3"]
 [ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="5_snhk5"]
@@ -54,6 +55,9 @@ stream_5/weight = 1.0
 
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
+
+[node name="RadioGLB" parent="." instance=ExtResource("2_m6wle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60468, 0.0818385, -1.176)
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
 

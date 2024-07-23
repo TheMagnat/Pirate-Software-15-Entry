@@ -128,7 +128,8 @@ func emitSuspiciousSneakSound():
 		if body.is_in_group("Enemy"):
 			body.suspiciousActivity(global_position, sneakEmissionSuspiciousLevel)
 
-@onready var currentGroundStepSound: AudioStreamPlayer3D = $GrassStepPlayer
+#TODO: Selectionner en fonction du niveau ou du type de sol ?
+@onready var currentGroundStepSound: AudioStreamPlayer3D = $ConcreteStepPlayer
 func playFootStep():
 	var volumeValue: float
 	var pitchScale: float

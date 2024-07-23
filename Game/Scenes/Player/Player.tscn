@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=40 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
@@ -13,6 +13,23 @@
 [ext_resource type="AudioStream" uid="uid://bmlueuyo5ljut" path="res://Assets/SFX/steps/step_grass5.ogg" id="11_27m27"]
 [ext_resource type="AudioStream" uid="uid://boj5mgkp2hi5m" path="res://Assets/SFX/steps/step_grass6.ogg" id="12_6mif6"]
 [ext_resource type="AudioStream" uid="uid://dkubehmooiplf" path="res://Assets/SFX/steps/step_grass7.ogg" id="13_lak5j"]
+[ext_resource type="AudioStream" uid="uid://bs3t7fp8hohm1" path="res://Assets/SFX/steps/step_concrete1.ogg" id="14_0sv8c"]
+[ext_resource type="AudioStream" uid="uid://crgaxl2kpq4nd" path="res://Assets/SFX/steps/step_concrete2.ogg" id="15_7vm7y"]
+[ext_resource type="AudioStream" uid="uid://cpbyw4uqd8t7p" path="res://Assets/SFX/steps/step_concrete3.ogg" id="16_wsyuw"]
+[ext_resource type="AudioStream" uid="uid://x40n7jlhk1xc" path="res://Assets/SFX/steps/step_concrete4.ogg" id="17_6dwbu"]
+[ext_resource type="AudioStream" uid="uid://ca00aki0im6ow" path="res://Assets/SFX/steps/step_concrete5.ogg" id="18_65au2"]
+[ext_resource type="AudioStream" uid="uid://xokapajx3b64" path="res://Assets/SFX/steps/step_concrete6.ogg" id="19_danf2"]
+[ext_resource type="AudioStream" uid="uid://b1qs6ymqr3xvr" path="res://Assets/SFX/steps/step_metal1.ogg" id="20_ntyxb"]
+[ext_resource type="AudioStream" uid="uid://dtcsu6nac76rb" path="res://Assets/SFX/steps/step_metal2.ogg" id="21_traqb"]
+[ext_resource type="AudioStream" uid="uid://cqgyywqqu7rma" path="res://Assets/SFX/steps/step_metal11.ogg" id="22_pa0cl"]
+[ext_resource type="AudioStream" uid="uid://cfx2ecrdd6w5w" path="res://Assets/SFX/steps/step_metal3.ogg" id="23_hsdln"]
+[ext_resource type="AudioStream" uid="uid://d1dfv7n08yfey" path="res://Assets/SFX/steps/step_metal4.ogg" id="24_owb3o"]
+[ext_resource type="AudioStream" uid="uid://hubime1rhmus" path="res://Assets/SFX/steps/step_metal5.ogg" id="25_8uy8o"]
+[ext_resource type="AudioStream" uid="uid://dnymv3vrxrhe" path="res://Assets/SFX/steps/step_metal6.ogg" id="26_526r8"]
+[ext_resource type="AudioStream" uid="uid://cnr1gu4a0xlgk" path="res://Assets/SFX/steps/step_metal7.ogg" id="27_vm211"]
+[ext_resource type="AudioStream" uid="uid://c0nt288qtj0rt" path="res://Assets/SFX/steps/step_metal8.ogg" id="28_0yhj6"]
+[ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="29_8u3k5"]
+[ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="30_ld8dl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
 render_priority = 0
@@ -53,6 +70,46 @@ stream_5/stream = ExtResource("12_6mif6")
 stream_5/weight = 1.0
 stream_6/stream = ExtResource("13_lak5j")
 stream_6/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8n2cv"]
+streams_count = 6
+stream_0/stream = ExtResource("14_0sv8c")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_7vm7y")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_wsyuw")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("17_6dwbu")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("18_65au2")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("19_danf2")
+stream_5/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i2neh"]
+streams_count = 11
+stream_0/stream = ExtResource("20_ntyxb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("21_traqb")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("23_hsdln")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("24_owb3o")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("25_8uy8o")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("26_526r8")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("27_vm211")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("28_0yhj6")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("29_8u3k5")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("30_ld8dl")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("22_pa0cl")
+stream_10/weight = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -122,5 +179,15 @@ shape = SubResource("SphereShape3D_xy7vv")
 
 [node name="GrassStepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_lvwh6")
+volume_db = -10.0
+attenuation_filter_cutoff_hz = 20500.0
+
+[node name="ConcreteStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8n2cv")
+volume_db = -10.0
+attenuation_filter_cutoff_hz = 20500.0
+
+[node name="MetalStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_i2neh")
 volume_db = -10.0
 attenuation_filter_cutoff_hz = 20500.0

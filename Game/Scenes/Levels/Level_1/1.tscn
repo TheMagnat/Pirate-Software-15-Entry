@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbyatiyy23ddj"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/0.gd" id="1_ykvh3"]
+[ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="2_67p5b"]
+[ext_resource type="AudioStream" uid="uid://rdfrrej1nc86" path="res://Assets/SFX/ambience/ambience_night_forest.ogg" id="3_jlgag"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vppxe"]
+size = Vector3(1000, 20, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sil8d"]
+size = Vector3(1000, 20, 1000)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6go4v"]
+height = 1.0
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cufub"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.517647)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r0cov"]
+material = SubResource("StandardMaterial3D_cufub")
+top_radius = 2.0
+bottom_radius = 2.0
+height = 1.0
+
+[node name="Level0" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2248, 0.76962, -0.873228)
+script = ExtResource("1_ykvh3")
+
+[node name="Player" parent="." instance=ExtResource("2_67p5b")]
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D"]
+shape = SubResource("BoxShape3D_vppxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/StaticBody3D"]
+mesh = SubResource("BoxMesh_sil8d")
+
+[node name="finish" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
+shape = SubResource("CylinderShape3D_6go4v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
+mesh = SubResource("CylinderMesh_r0cov")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 3, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jlgag")
+autoplay = true

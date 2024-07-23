@@ -1,5 +1,10 @@
 extends Node
 
+### DEBUG ###
+var inDebug: bool = false
+var debug_level: String = "res://Scenes/Levels/Level_1/1.tscn"
+### END DEBUG ###
+
 const lobby_level := "res://Scenes/Levels/lobby.tscn"
 
 var current_level := ""
@@ -9,7 +14,12 @@ func _ready():
 	load_lobby()
 
 func load_lobby():
-	load_level(lobby_level)
+	# DEBUG
+	if inDebug:
+		load_level(debug_level)
+	else:
+		load_level(lobby_level)
+	
 	$Menu.show_menu(false)
 
 func _load_level(path: String, idx : int):
