@@ -30,10 +30,27 @@ func _exit_tree():
 	if enable_save:
 		save_game()
 
+func get_var(file: FileAccess, default):
+	if file == null:
+		return default.duplicate()
+	var v = file.get_var()
+	if typeof(v) != typeof(default):
+		return default.duplicate()
+	return v
+
+func _save_set_data(file: FileAccess):
+	resources = get_var(file, RESOURCES.duplicate())
+	unlockable = get_var(file, UNLOCKABLES.duplicate())
+	levels = get_var(file, LEVELS.duplicate())
+	if typeof(LEVELS[0]) != typeof(levels[0]):
+		levels = LEVELS.duplicate()
+	
+	# avoid reference to const value the dirty way
+	for i in levels.size():
+		levels[i] = levels[i].duplicate()
+
 func save_erase():
-	resources = RESOURCES.duplicate()
-	unlockable = UNLOCKABLES.duplicate()
-	levels = LEVELS.duplicate()
+	_save_set_data(null)
 
 func save_exists() -> bool:
 	return FileAccess.file_exists(SAVE_FILE)
@@ -45,25 +62,10 @@ func save_game():
 	file.store_var(levels)
 	file.close()
 
-
-func get_var(file: FileAccess, default):
-	var v = file.get_var()
-	if typeof(v) != typeof(default):
-		return default.duplicate()
-	return v
-
 func load_game():
 	if !save_exists():
 		save_erase()
 	else:
 		var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
-		resources = get_var(file, RESOURCES)
-		unlockable = get_var(file, UNLOCKABLES)
-		levels = get_var(file, LEVELS)
-		if typeof(LEVELS[0]) != typeof(levels[0]):
-			levels = LEVELS.duplicate()
-		
-		# avoid reference to const value the dirty way
-		for i in levels.size():
-			levels[i] = levels[i].duplicate()
+		_save_set_data(file)
 		file.close()
