@@ -10,7 +10,7 @@ font_size = 32
 [sub_resource type="Shader" id="Shader_sx4u5"]
 code = "shader_type canvas_item;
 
-uniform sampler2D noise;
+uniform sampler2D noise : repeat_enable;
 const float f = 0.2;
 const float hf = f * 0.5;
 
@@ -27,6 +27,7 @@ void fragment() {
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pfhxr"]
 width = 64
+seamless = true
 noise = SubResource("FastNoiseLite_6v0g4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fboft"]
