@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://tidograugwga"]
+
+[ext_resource type="Script" path="res://Assets/Props/flickering_flame.gd" id="1_se1vr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mbkbu"]
+frequency = 0.1923
+fractal_octaves = 10
+domain_warp_frequency = -0.125
+domain_warp_fractal_octaves = 1
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_sn41k"]
+noise = SubResource("FastNoiseLite_mbkbu")
+
+[node name="OmniLight3D" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.990894, 0.0861313)
+light_color = Color(1, 0.74902, 0.231373, 1)
+light_energy = 0.00796029
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_blur = 10.0
+omni_range = 6.5
+omni_attenuation = -3.86374
+script = ExtResource("1_se1vr")
+noise = SubResource("NoiseTexture3D_sn41k")
+max_energy = 0.11
+min_energy = 0.27

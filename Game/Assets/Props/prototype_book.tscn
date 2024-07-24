@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmkfmv8i8bk06"]
+
+[ext_resource type="Script" path="res://Assets/Props/prototype_book.gd" id="1_scq7r"]
+[ext_resource type="PackedScene" uid="uid://b3aoyco28g2co" path="res://Scenes/UI/craft_ui.tscn" id="2_usc0v"]
+[ext_resource type="Script" path="res://Assets/Props/craft_table.gd" id="3_57m76"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xmrvd"]
+size = Vector2(0.8, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_acpsf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krfu8"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_acpsf")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_totlh"]
+points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cej7s"]
+size = Vector3(0.8, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gv7up"]
+size = Vector2(8, 8)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6rixx"]
+size = Vector2(8, 8)
+
+[node name="Prototype_Book" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_scq7r")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_embed_subwindows = true
+size = Vector2i(346, 432)
+render_target_update_mode = 4
+
+[node name="CraftUI" parent="SubViewport" instance=ExtResource("2_usc0v")]
+
+[node name="Quad" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, -0.4, 0, 0)
+mesh = SubResource("PlaneMesh_xmrvd")
+surface_material_override/0 = SubResource("StandardMaterial3D_krfu8")
+
+[node name="Area3D" type="Area3D" parent="Quad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
+transform = Transform3D(1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_totlh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0.4, 0, 0)
+mesh = SubResource("BoxMesh_cej7s")
+
+[node name="plane1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.37442)
+visible = false
+mesh = SubResource("PlaneMesh_gv7up")
+
+[node name="plane2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.02826, 0.634949)
+visible = false
+mesh = SubResource("PlaneMesh_6rixx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.550049, 2.68622, 2.7356)
+visible = false
+light_energy = 8.0
+omni_range = 8.278
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0233154, 0.863892, 0.00643921)
+visible = false
+
+[node name="CraftTable" type="Node" parent="."]
+script = ExtResource("3_57m76")
+inventory = {
+"resource1": 4,
+"resource2": 2,
+"resource3": 4
+}
+
+[connection signal="craft_pressed" from="SubViewport/CraftUI" to="CraftTable" method="try_craft"]

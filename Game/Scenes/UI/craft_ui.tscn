@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3aoyco28g2co"]
+
+[ext_resource type="Script" path="res://Assets/Props/CraftUI.gd" id="1_l6uin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqr2"]
+bg_color = Color(0.890196, 0.784314, 0.670588, 1)
+
+[sub_resource type="Gradient" id="Gradient_ajgmc"]
+offsets = PackedFloat32Array(0, 0.207792, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.227273, 0.227273, 0.227273, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cc6te"]
+gradient = SubResource("Gradient_ajgmc")
+width = 250
+height = 130
+
+[node name="CraftUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.125
+offset_top = 6.4
+offset_right = 5.125
+offset_bottom = 6.4
+mouse_filter = 1
+script = ExtResource("1_l6uin")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 346.0
+offset_bottom = 432.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_egqr2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_cc6te")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.9
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+text = "Brew"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
