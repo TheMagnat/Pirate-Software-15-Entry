@@ -28,6 +28,8 @@ func onProcess(delta: float):
 
 func onPhysicProcess(delta: float):
 	
+	#print("Suspicious: ", timeSinceStart.time_left)
+	
 	# Update timers
 	timeSinceLastReset += delta
 	

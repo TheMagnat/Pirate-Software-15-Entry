@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ct5cexbd6uw4f"]
+
+[ext_resource type="Material" uid="uid://ctpgtwfykr04i" path="res://Assets/Models/Potion/textures/PotionTexture.tres" id="1_vvfoo"]
+[ext_resource type="Shader" path="res://Scenes/Mesh/Action.gdshader" id="2_ddl4l"]
+
+[resource]
+render_priority = 1
+next_pass = ExtResource("1_vvfoo")
+shader = ExtResource("2_ddl4l")
+shader_parameter/actionState = 0.0

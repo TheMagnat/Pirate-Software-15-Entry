@@ -22,7 +22,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [sub_resource type="BoxMesh" id="BoxMesh_hpvxh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tt3bo"]
-viewport_path = NodePath("Player/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [node name="DebugScene" type="Node3D"]
 

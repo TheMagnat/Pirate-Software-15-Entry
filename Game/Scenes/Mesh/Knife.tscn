@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7hpi6hkigyyy"]
 
-[ext_resource type="Texture2D" uid="uid://dfhbswtt8cjqf" path="res://Assets/Knife/DefaultMaterial_baseColor.png" id="1_o1ahj"]
-[ext_resource type="Texture2D" uid="uid://cp3qbmtjji13d" path="res://Assets/Knife/DefaultMaterial_occlusionRoughnessMetallic.png" id="2_saif4"]
-[ext_resource type="Texture2D" uid="uid://2sl4emt5wguv" path="res://Assets/Knife/DefaultMaterial_normal.png" id="3_hv75u"]
+[ext_resource type="Texture2D" uid="uid://dfhbswtt8cjqf" path="res://Assets/Models/Knife/DefaultMaterial_baseColor.png" id="1_o1ahj"]
+[ext_resource type="Texture2D" uid="uid://cp3qbmtjji13d" path="res://Assets/Models/Knife/DefaultMaterial_occlusionRoughnessMetallic.png" id="2_saif4"]
+[ext_resource type="Texture2D" uid="uid://2sl4emt5wguv" path="res://Assets/Models/Knife/DefaultMaterial_normal.png" id="3_hv75u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe6qj"]
 albedo_texture = ExtResource("1_o1ahj")

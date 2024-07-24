@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://hti8387as4ml"]
+[gd_scene load_steps=6 format=3 uid="uid://hti8387as4ml"]
 
-[ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="1_d7ymp"]
 [ext_resource type="Shader" path="res://Scenes/Mesh/PotionWater.gdshader" id="2_ytpdi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65wwh"]
@@ -54,8 +53,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b3ecn")
 
 [node name="Oeuf" type="Node3D"]
-
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_d7ymp")]
 
 [node name="RootNode" type="Node3D" parent="."]
 

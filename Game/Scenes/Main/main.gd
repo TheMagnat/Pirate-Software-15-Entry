@@ -2,7 +2,7 @@ extends Node
 
 ### DEBUG ###
 var inDebug: bool = false
-var debug_level: String = "res://Scenes/Levels/Level_1/1.tscn"
+var debug_level: String = "res://Scenes/Levels/1.tscn"
 ### END DEBUG ###
 
 const lobby_level := "res://Scenes/Levels/lobby.tscn"

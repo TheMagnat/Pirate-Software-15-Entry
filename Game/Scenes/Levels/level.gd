@@ -27,6 +27,6 @@ func restart_level():
 	main.load_level(main.current_level)
 
 func finish_level(body = null):
-	if body.is_in_group("Player") or body == null:
+	if (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)

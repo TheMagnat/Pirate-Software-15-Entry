@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=17 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SuspiciousState.gd" id="5_eg1kb"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/PatrolState.gd" id="6_j7gh3"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/ChaseState.gd" id="7_de7w8"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/TurretState.gd" id="8_cbdw7"]
+[ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/WalkToState.gd" id="8_pfinb"]
 [ext_resource type="AudioStream" uid="uid://bqlgjb3eytyrr" path="res://Assets/SFX/chokbar.wav" id="9_2j8lt"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SeekingState.gd" id="9_cgq4v"]
 [ext_resource type="PackedScene" uid="uid://cehxc8imvs687" path="res://Scenes/SFX/voice.tscn" id="11_akmrt"]
@@ -18,13 +20,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ff4gg"]
 size = Vector3(1, 1.97467, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_fv6ih"]
-radius = 5.27478
-
 [node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42463, 1.88216, -5.13941)
 collision_layer = 4
 collision_mask = 15
+velocity = Vector3(0, -58618.1, 0)
 script = ExtResource("1_mno22")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -36,19 +35,10 @@ mesh = SubResource("CapsuleMesh_qakwb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00283813, 0)
 shape = SubResource("BoxShape3D_ff4gg")
 
-[node name="View" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 7
-
-[node name="FrontShape" type="CollisionShape3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.97406)
-shape = SubResource("SphereShape3D_fv6ih")
-
 [node name="DeathActionable" parent="." instance=ExtResource("2_8yyng")]
 
-[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("view", "stateMachine")]
+[node name="StateMachineController" type="Node" parent="." node_paths=PackedStringArray("stateMachine")]
 script = ExtResource("2_b2anw")
-view = NodePath("../View")
 stateMachine = NodePath("../StateMachine")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialStateNode")]
@@ -65,14 +55,21 @@ parent = NodePath("../..")
 
 [node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
 script = ExtResource("6_j7gh3")
-checkpoints = PackedVector2Array(20.24, -4.55063, 20.24, 4.76809, 8.42463, 4.76809, 8.42463, -5.13941, 8.42463, -5.13941)
 parent = NodePath("../..")
 nav = NodePath("../../NavigationAgent3D")
 
-[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "parentView", "nav")]
+[node name="WalkTo" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
+script = ExtResource("8_pfinb")
+parent = NodePath("../..")
+nav = NodePath("../../NavigationAgent3D")
+
+[node name="Turret" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent")]
+script = ExtResource("8_cbdw7")
+parent = NodePath("../..")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
 script = ExtResource("7_de7w8")
 parent = NodePath("../..")
-parentView = NodePath("../../View")
 nav = NodePath("../../NavigationAgent3D")
 
 [node name="Seeking" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]

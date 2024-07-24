@@ -12,7 +12,7 @@ const UNLOCKABLES := {
 	"SMOKE": 0,
 }
 
-const LEVELS := [ [true, 0.0], [false, 0.0], [false, 0.0] ]
+const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0] ]
 
 
 const SAVE_FILE := "user://save.dat"

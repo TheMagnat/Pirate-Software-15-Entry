@@ -38,3 +38,6 @@ func transitionTo(newStateNodeName: String):
 	
 	currentStateNode = newStateNode
 	currentStateNode.enter()
+
+func getCurrentStateName():
+	return currentStateNode.name

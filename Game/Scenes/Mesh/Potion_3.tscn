@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://du7dcub4c7xxs"]
 
-[ext_resource type="PackedScene" uid="uid://di82jskwkwtiw" path="res://Assets/Potion/Potion_Walk.fbx" id="1_kj3vn"]
+[ext_resource type="PackedScene" uid="uid://di82jskwkwtiw" path="res://Assets/Models/Potion/Potion_Walk.fbx" id="1_kj3vn"]
 
 [node name="Potion" instance=ExtResource("1_kj3vn")]
 

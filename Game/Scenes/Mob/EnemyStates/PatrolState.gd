@@ -6,7 +6,6 @@ extends StateNode
 @export var checkpoints: PackedVector2Array
 var currentTarget: int = 0
 
-var transitionTime: float = 5
 var rotationSpeed: float = 2
 
 @export var parent: CharacterBody3D

@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=23 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
+[ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
+[ext_resource type="PackedScene" uid="uid://c6m8r0j6q3o4h" path="res://Assets/Models/TableDeChevet/TableDeChevetGBL.glb" id="2_s1ent"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="4_qy5y3"]
 [ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="5_snhk5"]
@@ -56,10 +58,20 @@ stream_5/weight = 1.0
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
 
-[node name="RadioGLB" parent="." instance=ExtResource("2_m6wle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60468, 0.0818385, -1.176)
+[node name="BibliothèqueGLB" parent="." instance=ExtResource("2_kj0j1")]
+transform = Transform3D(4.31, 0, 0, 0, 4.31, 0, 0, 0, 4.31, -8.91265, 0, 1.4495)
+
+[node name="TableEtRadio" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85106, 0, -0.710948)
+
+[node name="TableDeChevetGBL" parent="TableEtRadio" instance=ExtResource("2_s1ent")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="RadioGLB" parent="TableEtRadio" instance=ExtResource("2_m6wle")]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -126,15 +138,23 @@ skeleton = NodePath("../..")
 [node name="LevelLoaders" type="Node3D" parent="."]
 
 [node name="Level 1 loader" parent="LevelLoaders" instance=ExtResource("3_0mbah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93637, 0, -20)
+
+[node name="LevelLoaders2" type="Node3D" parent="."]
+
+[node name="Level 1 loader" parent="LevelLoaders2" instance=ExtResource("3_0mbah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173421, 0, -14.5113)
+index = 1
 
 [node name="CameraInside" type="Camera3D" parent="."]
 transform = Transform3D(0.766044, -0.321394, 0.55667, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663414, 9, 7, 8)
 cull_mask = 1048571
+far = 50.0
 
 [node name="CameraOutside" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 4)
 cull_mask = 1048571
+far = 50.0
 
 [node name="GoIn" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)

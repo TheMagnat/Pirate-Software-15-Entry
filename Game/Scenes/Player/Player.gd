@@ -10,9 +10,9 @@ var sneakMultiplier: float = 0.4
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
-@export var lightTreshold: float = 0.1 # Value from which we consider the player is spotted
+@export var lightTreshold: float = 0.05 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-@export var timeForFullSpot: float = 1.0 # Seconds
+@export var timeForFullSpot: float = 0.25 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
@@ -89,7 +89,7 @@ func lightLogic(delta: float):
 	if topLightLevel > lightTreshold:
 		spottedValue += ((topLightLevel - lightTreshold) * delta) / timeForFullSpot
 	else:
-		spottedValue -= delta / timeForFullSpot
+		spottedValue -= delta / (timeForFullSpot * 2.0)
 	
 	spottedValue = clamp(spottedValue, 0.0, 1.0)
 	
@@ -130,6 +130,14 @@ func emitSuspiciousSneakSound():
 
 #TODO: Selectionner en fonction du niveau ou du type de sol ?
 @onready var currentGroundStepSound: AudioStreamPlayer3D = $ConcreteStepPlayer
+func changeGroundSound(value):
+	if value == 0:
+		currentGroundStepSound = $GrassStepPlayer
+	elif value == 1:
+		currentGroundStepSound = $ConcreteStepPlayer
+	else:
+		currentGroundStepSound = $MetalStepPlayer
+	
 func playFootStep():
 	var volumeValue: float
 	var pitchScale: float
@@ -254,7 +262,7 @@ func _physics_process(delta: float):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var base_input_dir := Input.get_vector("left", "right", "up", "down")
+	var base_input_dir := Input.get_vector("left", "right", "up", "down") if not isDead else Vector2.ZERO
 	input_dir = base_input_dir.rotated(-camera.global_rotation.y)
 	base_direction = (transform.basis * Vector3(base_input_dir.x, 0, base_input_dir.y)).normalized()
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
