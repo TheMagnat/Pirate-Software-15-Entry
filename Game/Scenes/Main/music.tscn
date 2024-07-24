@@ -13,18 +13,22 @@ script = ExtResource("1_mk3sj")
 
 [node name="Lobby" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_wo8bu")
+volume_db = -3.0
 bus = &"Music"
 
 [node name="Menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_hq3x8")
+volume_db = -3.0
 bus = &"Music"
 
 [node name="Mystery1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_u18ap")
+volume_db = -3.0
 bus = &"Music"
 
 [node name="Action1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_054ra")
+volume_db = -3.0
 bus = &"Music"
 
 [node name="Fairies" type="AudioStreamPlayer" parent="."]
