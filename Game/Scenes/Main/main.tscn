@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=5 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
 [ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="2_vtowc"]
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/Main/button.tscn" id="4_nj5hc"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fnm52")
@@ -21,6 +22,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Menu/Control"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -30,23 +32,20 @@ width = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control"]
 layout_mode = 2
-offset_left = 512.0
-offset_right = 768.0
+offset_left = 485.0
+offset_right = 795.0
 offset_bottom = 720.0
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Lobby" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="Lobby" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Lobby"
 
-[node name="MainMenu" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="MainMenu" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
-[node name="Back" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="Back" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Back"
