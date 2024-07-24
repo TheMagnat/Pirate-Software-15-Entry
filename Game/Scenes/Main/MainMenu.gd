@@ -1,20 +1,18 @@
 extends Node2D
 
 const GAME_SCENE := preload("res://Scenes/Main/main.tscn")
-
-func _play():
-	print("starting game")
-	Transition.start(get_tree().change_scene_to_packed.bind(GAME_SCENE))
+const INTRO_SCENE := preload("res://Scenes/Cinematic/intro.tscn")
 
 func play_continue():
-	print("load save")
-	_play()
+	print("starting game")
+	Transition.start(get_tree().change_scene_to_packed.bind(GAME_SCENE))
 
 func play_new_game():
 	if Save.save_exists(): #game already exists
 		Save.save_erase()
 	
-	_play()
+	print("starting intro")
+	Transition.start(get_tree().change_scene_to_packed.bind(INTRO_SCENE))
 
 func settings():
 	$Main.hide()

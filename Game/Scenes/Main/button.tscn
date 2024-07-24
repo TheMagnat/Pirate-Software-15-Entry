@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kvqydjvck"]
+
+[ext_resource type="Script" path="res://Scenes/Main/button.gd" id="1_v5kls"]
+[ext_resource type="AudioStream" uid="uid://b4iiuv31fur2t" path="res://Assets/SFX/UI/select3.ogg" id="2_8tbts"]
+[ext_resource type="AudioStream" uid="uid://6cqsc0vv88ic" path="res://Assets/SFX/UI/select2.ogg" id="2_fhu7u"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 48
+script = ExtResource("1_v5kls")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8tbts")
+volume_db = -8.0
+pitch_scale = 3.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fhu7u")
+volume_db = -5.0

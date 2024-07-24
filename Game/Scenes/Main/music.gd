@@ -8,7 +8,7 @@ extends Node
 @onready var fairies := $Fairies
 
 var current : AudioStreamPlayer = null
-
+var base_volume := {}
 
 func stop_playing():
 	if current != null:
@@ -20,12 +20,15 @@ func play(stream: AudioStreamPlayer):
 	if current == stream:
 		return
 	
+	if !base_volume.has(stream):
+		base_volume[stream] = stream.volume_db
+	
 	stop_playing()
 	
 	if current != null:
-		stream.volume_db = -15
+		stream.volume_db = -15 + base_volume[stream]
 		var t_in := create_tween()
-		t_in.tween_property(stream, "volume_db", 0.0, 1.0)
+		t_in.tween_property(stream, "volume_db", base_volume[stream], 1.0)
 	stream.play()
 	current = stream
 

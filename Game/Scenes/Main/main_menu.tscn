@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://uiqmxktdm8b3"]
+[gd_scene load_steps=10 format=3 uid="uid://uiqmxktdm8b3"]
 
 [ext_resource type="Script" path="res://Scenes/Main/MainMenu.gd" id="1_8gul7"]
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/Main/button.tscn" id="2_deogi"]
 [ext_resource type="Texture2D" uid="uid://ba6ql6n1vd4bc" path="res://Assets/logo/bottle_mid.png" id="2_o30bw"]
 [ext_resource type="Texture2D" uid="uid://mews5nspbb7l" path="res://Assets/logo/bottle_top.png" id="3_ikcou"]
 
@@ -42,27 +43,30 @@ offset_left = 128.0
 offset_top = 175.0
 offset_right = 528.0
 offset_bottom = 720.0
+mouse_filter = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Continue" type="Button" parent="Main"]
+[node name="Continue" parent="Main" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_bottom = NodePath("../NewGame")
 text = "Continue"
 
-[node name="NewGame" type="Button" parent="Main"]
+[node name="NewGame" parent="Main" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../Settings")
 text = "New Game"
 
-[node name="Settings" type="Button" parent="Main"]
+[node name="Settings" parent="Main" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Quit")
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Main"]
+[node name="Quit" parent="Main" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../Settings")
 text = "Quit"
 
 [node name="Settings" type="VBoxContainer" parent="."]
@@ -71,19 +75,21 @@ offset_left = 128.0
 offset_top = 175.0
 offset_right = 528.0
 offset_bottom = 720.0
+mouse_filter = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Back" type="Button" parent="Settings"]
+[node name="Back" parent="Settings" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
 text = "Back"
 
 [node name="YouSure" type="VBoxContainer" parent="."]
+visible = false
 offset_left = 128.0
 offset_top = 175.0
 offset_right = 528.0
 offset_bottom = 720.0
+mouse_filter = 2
 theme_override_constants/separation = 24
 alignment = 1
 
@@ -94,14 +100,14 @@ Are you sure?"
 label_settings = SubResource("LabelSettings_tclvk")
 horizontal_alignment = 1
 
-[node name="Yes" type="Button" parent="YouSure"]
+[node name="Yes" parent="YouSure" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_bottom = NodePath("../No")
 text = "Yes"
 
-[node name="No" type="Button" parent="YouSure"]
+[node name="No" parent="YouSure" instance=ExtResource("2_deogi")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../Yes")
 text = "No"
 
 [node name="bottle_mid" type="Sprite2D" parent="."]
