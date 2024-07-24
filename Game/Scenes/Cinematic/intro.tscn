@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2lny0lysi34q"]
+
+[ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_sl0cv"]
+[ext_resource type="PackedScene" uid="uid://c01k4w5v13dy5" path="res://Scenes/Main/main.tscn" id="2_2r5w6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ftgpw"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_l5rsd"]
+resource_name = "intro"
+length = 10.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 6, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3byg5"]
+_data = {
+"intro": SubResource("Animation_l5rsd")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_sl0cv")
+next_scene = ExtResource("2_2r5w6")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 360)
+points = PackedVector2Array(0, 0, 1280, 0)
+width = 720.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = -23.0
+offset_right = 1280.0
+offset_bottom = 697.0
+text = "As I walk through the valley of the shadow of death"
+label_settings = SubResource("LabelSettings_ftgpw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 23.0
+offset_right = 1280.0
+offset_bottom = 743.0
+text = "I take a look at my life and realize there's nothing left"
+label_settings = SubResource("LabelSettings_ftgpw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3byg5")
+}
+autoplay = "intro"

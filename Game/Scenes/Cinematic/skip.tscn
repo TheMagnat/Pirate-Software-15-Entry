@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://f12kxc4i3pyw"]
+
+[ext_resource type="Texture2D" uid="uid://d4fuiyf4en8c3" path="res://Assets/Shapes/circle.png" id="1_6ac2d"]
+[ext_resource type="Script" path="res://Scenes/Cinematic/skip.gd" id="2_rsqaj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0s4r"]
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Skip" type="TextureProgressBar"]
+scale = Vector2(0.5, 0.5)
+step = 0.0
+fill_mode = 4
+texture_progress = ExtResource("1_6ac2d")
+script = ExtResource("2_rsqaj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(2, 2)
+text = "SKIP"
+label_settings = SubResource("LabelSettings_n0s4r")
+horizontal_alignment = 1
+vertical_alignment = 1
