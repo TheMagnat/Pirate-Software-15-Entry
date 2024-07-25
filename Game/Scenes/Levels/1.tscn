@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bbyatiyy23ddj"]
+[gd_scene load_steps=27 format=3 uid="uid://bbyatiyy23ddj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/0.gd" id="1_5iwtk"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="2_4ixrp"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="14_8nt75"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="15_uyvu6"]
 [ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="16_ia27f"]
-[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="20_lgxbf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sp5l8"]
 height = 1.56386
@@ -1705,8 +1704,6 @@ mesh = SubResource("CylinderMesh_r0cov")
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_77747")
 autoplay = true
-
-[node name="WorldEnvironment" parent="." instance=ExtResource("20_lgxbf")]
 
 [node name="MoonColor" parent="." instance=ExtResource("8_odmv7")]
 transform = Transform3D(-0.839487, -0.339152, 0.424544, -0.330211, 0.9389, 0.097096, -0.431534, -0.0586781, -0.900186, 0, 0, 0)
