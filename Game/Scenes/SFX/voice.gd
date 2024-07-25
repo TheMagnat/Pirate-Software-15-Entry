@@ -1,4 +1,4 @@
-extends AudioStreamPlayer3D
+class_name Voice extends AudioStreamPlayer3D
 
 @export var pitch_random := 0.25
 @export var voice_speed_min := 0.1
@@ -8,11 +8,14 @@ extends AudioStreamPlayer3D
 @onready var timer := $Timer
 
 func _talking():
-	pitch_scale = base_pitch + randf_range(-pitch_random, pitch_random)
-	play()
+	word()
 	timer.wait_time = randf_range(voice_speed_min, voice_speed_max)
 	timer.start()
 
+func word():
+	pitch_scale = base_pitch + randf_range(-pitch_random, pitch_random)
+	play()
+	
 func talk():
 	if !timer.timeout.is_connected(_talking):
 		timer.timeout.connect(_talking)

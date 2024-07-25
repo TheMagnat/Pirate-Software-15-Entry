@@ -1,15 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7hpi6hkigyyy"]
+[gd_scene load_steps=11 format=3 uid="uid://c7hpi6hkigyyy"]
 
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_gdi7t"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="1_nwmqn"]
 [ext_resource type="Texture2D" uid="uid://dfhbswtt8cjqf" path="res://Assets/Models/Knife/DefaultMaterial_baseColor.png" id="1_o1ahj"]
 [ext_resource type="Texture2D" uid="uid://cp3qbmtjji13d" path="res://Assets/Models/Knife/DefaultMaterial_occlusionRoughnessMetallic.png" id="2_saif4"]
 [ext_resource type="Texture2D" uid="uid://2sl4emt5wguv" path="res://Assets/Models/Knife/DefaultMaterial_normal.png" id="3_hv75u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe6qj"]
-albedo_texture = ExtResource("1_o1ahj")
-metallic = 1.0
-metallic_texture = ExtResource("2_saif4")
-normal_enabled = true
-normal_texture = ExtResource("3_hv75u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxx7f"]
+render_priority = 0
+shader = ExtResource("1_gdi7t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q21tc"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_jxx7f")
+shader = ExtResource("1_nwmqn")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_surface = ExtResource("2_saif4")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal_map = ExtResource("3_hv75u")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("1_o1ahj")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh0lt"]
 resource_name = "DefaultMaterial"
@@ -57,6 +72,6 @@ shadow_mesh = SubResource("ArrayMesh_nu45f")
 
 [node name="Couteau" type="MeshInstance3D" parent="RootNode"]
 transform = Transform3D(2.54, 0, 0, 0, 2.54, -1.11027e-07, 0, 1.11027e-07, 2.54, -0.00108676, 0, -9.93439e-16)
-material_override = SubResource("StandardMaterial3D_qe6qj")
+material_override = SubResource("ShaderMaterial_q21tc")
 mesh = SubResource("ArrayMesh_0ykik")
 skeleton = NodePath("")

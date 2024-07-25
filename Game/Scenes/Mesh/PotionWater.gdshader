@@ -31,8 +31,8 @@ void vertex() {
 	//vec2 offset = vec2(0.25, 0.25);
 	//
 	float center = (
-		cos(VERTEX.y + scaledTime * 1.2458) * 0.5 + VERTEX.y * yTilt * 500.0 +
-		sin(VERTEX.x * 500.0 + scaledTime) * 0.45 + VERTEX.x * xTilt * 500.0
+		cos(VERTEX.y + scaledTime * 1.2458) * 5.0 + VERTEX.y * yTilt * 500.0 +
+		sin(VERTEX.x * 25.0 + scaledTime) * 20.0 + VERTEX.x * xTilt * 500.0
 	) * VERTEX_SCALER;
 	VERTEX.z += center;
 	//

@@ -9,7 +9,7 @@ var sneakMultiplier: float = 0.4
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
+@export var safePlace: bool = false
 @export var lightTreshold: float = 0.05 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
 @export var timeForFullSpot: float = 0.25 # Seconds
@@ -39,7 +39,7 @@ func set_camera(cam: Camera3D):
 	camera.current = true
 
 func _ready():
-	shaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/BrasGauche.material_override
+	shaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/BrasGauche.material_override.next_pass.next_pass
 	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Oeuf/RootNode/Int_Potion.material_override
 	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
@@ -249,7 +249,7 @@ func _process(_delta: float):
 
 func _physics_process(delta: float):
 	### Light computation Logic ###
-	lightLogic(delta)
+	if not safePlace: lightLogic(delta)
 	
 	### Movement Logic ###
 	# Add the gravity.

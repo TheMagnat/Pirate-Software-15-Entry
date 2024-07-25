@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://e3c85f6wmycc"]
+[gd_scene load_steps=8 format=3 uid="uid://e3c85f6wmycc"]
 
 [ext_resource type="Texture2D" uid="uid://dmq1qk5vighuo" path="res://Assets/Models/Forest/Sans titre_0.png" id="1_tscao"]
 [ext_resource type="Texture2D" uid="uid://dcvr2mp57segy" path="res://Assets/Models/Forest/Sans titre_1.png" id="2_clibr"]
 [ext_resource type="Texture2D" uid="uid://bkostvt13ul2g" path="res://Assets/Models/Forest/Sans titre_2.png" id="3_4ijmb"]
+[ext_resource type="Material" uid="uid://bh0lv8c7p0cmo" path="res://Assets/Models/Forest/ForestCeilShading.tres" id="4_pbp4f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4yhx"]
 resource_name = "DefaultMaterial"
@@ -60,3 +61,4 @@ transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, 0, 116.4
 [node name="Lampadaire2" type="MeshInstance3D" parent="Lampadaire"]
 mesh = SubResource("ArrayMesh_3doki")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_pbp4f")

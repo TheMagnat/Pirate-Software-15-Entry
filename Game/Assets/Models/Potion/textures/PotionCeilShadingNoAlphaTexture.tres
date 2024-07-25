@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://bjb1wmn2s81v4"]
+
+[ext_resource type="Shader" path="res://Scenes/Mesh/Action.gdshader" id="1_1pdsd"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_bm6o6"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_ef45a"]
+[ext_resource type="Texture2D" uid="uid://cuf6sfqhq01qw" path="res://Assets/Models/Potion/textures/Potion_UV_default_AlbedoTransparency.png" id="3_5vfq4"]
+[ext_resource type="Texture2D" uid="uid://c04c5tt8qpuhp" path="res://Assets/Models/Potion/textures/Potion_UV_default_Normal.png" id="4_den7g"]
+[ext_resource type="Texture2D" uid="uid://c4lut1rgodfe2" path="res://Assets/Models/Potion/textures/Potion_UV_default_MetallicSmoothness.png" id="5_0vbws"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h4huf"]
+render_priority = 0
+shader = ExtResource("1_1pdsd")
+shader_parameter/actionState = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxea8"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_h4huf")
+shader = ExtResource("1_bm6o6")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_kxea8")
+shader = ExtResource("2_ef45a")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_surface = ExtResource("5_0vbws")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal_map = ExtResource("4_den7g")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("3_5vfq4")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

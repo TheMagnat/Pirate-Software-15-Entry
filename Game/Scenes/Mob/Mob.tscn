@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=45 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/StateMachineController.gd" id="2_b2anw"]
+[ext_resource type="PackedScene" uid="uid://tt5av83e77i4" path="res://Scenes/Mesh/Mobs/MobModel.tscn" id="2_yt6ug"]
 [ext_resource type="Script" path="res://Scenes/Tool/StateMachine/StateMachine.gd" id="3_r687w"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/IdleState.gd" id="4_fqmb1"]
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SuspiciousState.gd" id="5_eg1kb"]
@@ -14,25 +15,105 @@
 [ext_resource type="Script" path="res://Scenes/Mob/EnemyStates/SeekingState.gd" id="9_cgq4v"]
 [ext_resource type="PackedScene" uid="uid://cehxc8imvs687" path="res://Scenes/SFX/voice.tscn" id="11_akmrt"]
 [ext_resource type="AudioStream" uid="uid://b7lmpfertrq00" path="res://Assets/SFX/voices/voice_oboe.ogg" id="12_y5u5o"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_qakwb"]
+[ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="16_hatyn"]
+[ext_resource type="AudioStream" uid="uid://dljsn7rq5kk5v" path="res://Assets/SFX/steps/step_grass1.ogg" id="16_k0s4d"]
+[ext_resource type="AudioStream" uid="uid://cojkxv2a0qfd8" path="res://Assets/SFX/steps/step_grass2.ogg" id="17_lhhf1"]
+[ext_resource type="AudioStream" uid="uid://dnfm1qb28qaos" path="res://Assets/SFX/steps/step_grass3.ogg" id="18_b557v"]
+[ext_resource type="AudioStream" uid="uid://d12hp7b7vxg3q" path="res://Assets/SFX/steps/step_grass4.ogg" id="19_in7jc"]
+[ext_resource type="AudioStream" uid="uid://bmlueuyo5ljut" path="res://Assets/SFX/steps/step_grass5.ogg" id="20_rjwgi"]
+[ext_resource type="AudioStream" uid="uid://boj5mgkp2hi5m" path="res://Assets/SFX/steps/step_grass6.ogg" id="21_o7c88"]
+[ext_resource type="AudioStream" uid="uid://dkubehmooiplf" path="res://Assets/SFX/steps/step_grass7.ogg" id="22_vqeq3"]
+[ext_resource type="AudioStream" uid="uid://bs3t7fp8hohm1" path="res://Assets/SFX/steps/step_concrete1.ogg" id="23_nmbug"]
+[ext_resource type="AudioStream" uid="uid://crgaxl2kpq4nd" path="res://Assets/SFX/steps/step_concrete2.ogg" id="24_k1o62"]
+[ext_resource type="AudioStream" uid="uid://cpbyw4uqd8t7p" path="res://Assets/SFX/steps/step_concrete3.ogg" id="25_rc5y2"]
+[ext_resource type="AudioStream" uid="uid://x40n7jlhk1xc" path="res://Assets/SFX/steps/step_concrete4.ogg" id="26_0urrb"]
+[ext_resource type="AudioStream" uid="uid://ca00aki0im6ow" path="res://Assets/SFX/steps/step_concrete5.ogg" id="27_aq6m0"]
+[ext_resource type="AudioStream" uid="uid://xokapajx3b64" path="res://Assets/SFX/steps/step_concrete6.ogg" id="28_hmoqr"]
+[ext_resource type="AudioStream" uid="uid://b1qs6ymqr3xvr" path="res://Assets/SFX/steps/step_metal1.ogg" id="29_q4hho"]
+[ext_resource type="AudioStream" uid="uid://dtcsu6nac76rb" path="res://Assets/SFX/steps/step_metal2.ogg" id="30_tospa"]
+[ext_resource type="AudioStream" uid="uid://cqgyywqqu7rma" path="res://Assets/SFX/steps/step_metal11.ogg" id="31_q24qg"]
+[ext_resource type="AudioStream" uid="uid://cfx2ecrdd6w5w" path="res://Assets/SFX/steps/step_metal3.ogg" id="32_smibi"]
+[ext_resource type="AudioStream" uid="uid://d1dfv7n08yfey" path="res://Assets/SFX/steps/step_metal4.ogg" id="33_q8mhm"]
+[ext_resource type="AudioStream" uid="uid://hubime1rhmus" path="res://Assets/SFX/steps/step_metal5.ogg" id="34_yo810"]
+[ext_resource type="AudioStream" uid="uid://dnymv3vrxrhe" path="res://Assets/SFX/steps/step_metal6.ogg" id="35_ilsrq"]
+[ext_resource type="AudioStream" uid="uid://cnr1gu4a0xlgk" path="res://Assets/SFX/steps/step_metal7.ogg" id="36_iaw4c"]
+[ext_resource type="AudioStream" uid="uid://c0nt288qtj0rt" path="res://Assets/SFX/steps/step_metal8.ogg" id="37_qda3l"]
+[ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="38_06531"]
+[ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="39_4d0k3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ff4gg"]
-size = Vector3(1, 1.97467, 1)
+size = Vector3(1, 1.985, 0.891602)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r8vkl"]
+streams_count = 7
+stream_0/stream = ExtResource("16_k0s4d")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("17_lhhf1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("18_b557v")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("19_in7jc")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("20_rjwgi")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("21_o7c88")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("22_vqeq3")
+stream_6/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hlogi"]
+streams_count = 6
+stream_0/stream = ExtResource("23_nmbug")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("24_k1o62")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("25_rc5y2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("26_0urrb")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("27_aq6m0")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("28_hmoqr")
+stream_5/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ocp7"]
+streams_count = 11
+stream_0/stream = ExtResource("29_q4hho")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("30_tospa")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("32_smibi")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("33_q8mhm")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("34_yo810")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("35_ilsrq")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("36_iaw4c")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("37_qda3l")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("38_06531")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("39_4d0k3")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("31_q24qg")
+stream_10/weight = 1.0
 
 [node name="Mob" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 15
-velocity = Vector3(0, -58618.1, 0)
+velocity = Vector3(0, -66428.8, 0)
 script = ExtResource("1_mno22")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_qakwb")
+[node name="MobModel" parent="." instance=ExtResource("2_yt6ug")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00283813, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0007, 0.0541992)
 shape = SubResource("BoxShape3D_ff4gg")
 
 [node name="DeathActionable" parent="." instance=ExtResource("2_8yyng")]
@@ -49,9 +130,10 @@ initialStateNode = NodePath("Idle")
 script = ExtResource("4_fqmb1")
 parent = NodePath("../..")
 
-[node name="Suspicious" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent")]
+[node name="Suspicious" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "parentVoice")]
 script = ExtResource("5_eg1kb")
 parent = NodePath("../..")
+parentVoice = NodePath("../../Voice")
 
 [node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
 script = ExtResource("6_j7gh3")
@@ -67,9 +149,10 @@ nav = NodePath("../../NavigationAgent3D")
 script = ExtResource("8_cbdw7")
 parent = NodePath("../..")
 
-[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "parentVoice", "nav")]
 script = ExtResource("7_de7w8")
 parent = NodePath("../..")
+parentVoice = NodePath("../../Voice")
 nav = NodePath("../../NavigationAgent3D")
 
 [node name="Seeking" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "nav")]
@@ -77,18 +160,38 @@ script = ExtResource("9_cgq4v")
 parent = NodePath("../..")
 nav = NodePath("../../NavigationAgent3D")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="SpottedSoung" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_2j8lt")
-bus = &"Effects"
 attenuation_filter_cutoff_hz = 20500.0
 
 [node name="Voice" parent="." instance=ExtResource("11_akmrt")]
 stream = ExtResource("12_y5u5o")
 pitch_scale = 1.1
-max_distance = 20.0
+max_distance = 100.0
 max_polyphony = 2
 voice_speed_min = 0.2
 voice_speed_max = 0.5
+
+[node name="GrassStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_r8vkl")
+volume_db = -10.0
+max_distance = 100.0
+attenuation_filter_cutoff_hz = 15000.0
+
+[node name="ConcreteStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_hlogi")
+volume_db = -10.0
+max_distance = 100.0
+attenuation_filter_cutoff_hz = 15000.0
+
+[node name="MetalStepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6ocp7")
+volume_db = -10.0
+max_distance = 100.0
+attenuation_filter_cutoff_hz = 15000.0
+
+[node name="WaterShaderHandler" type="Node" parent="."]
+script = ExtResource("16_hatyn")
 
 [connection signal="actioned" from="DeathActionable" to="." method="_on_death_actionable_actioned"]
 [connection signal="spotted" from="StateMachineController" to="." method="_on_state_machine_controller_spotted"]

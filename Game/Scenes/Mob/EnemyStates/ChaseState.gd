@@ -7,12 +7,13 @@ var rotationSpeed: float = 20
 @export var target: Player
 var lastTargetPosition: Vector3
 @onready var parentView: Area3D = parent.view
+@export var parentVoice: Voice
 
 @export var nav: NavigationAgent3D
 
 var speed = 4
 var accel = 5
-var minTargetDist: float = 1
+var minTargetDist: float = 0.25
 
 func onPhysicProcess(delta: float):
 	
@@ -32,14 +33,15 @@ func onPhysicProcess(delta: float):
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	var new_transform = parent.transform.looking_at(parent.global_position + direction, Vector3.UP)
+	var new_transform = parent.transform.looking_at(parent.global_position + parent.global_position.direction_to(lastTargetPosition), Vector3.UP)
 	parent.transform  = parent.transform.interpolate_with(new_transform, rotationSpeed * delta)
 
 	parent.velocity = parent.velocity.lerp(direction * speed, accel * delta)
 	parent.move_and_slide()
 	
 func enter():
+	if parentVoice: parentVoice.talk()
 	lastTargetPosition = target.global_position
 	
 func exit():
-	pass
+	if parentVoice: parentVoice.shutup()

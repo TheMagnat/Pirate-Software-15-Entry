@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci3bher6koqui"]
+[gd_scene load_steps=9 format=3 uid="uid://ci3bher6koqui"]
 
 [ext_resource type="Texture2D" uid="uid://dmq1qk5vighuo" path="res://Assets/Models/Forest/Sans titre_0.png" id="1_oomwp"]
 [ext_resource type="Texture2D" uid="uid://dcvr2mp57segy" path="res://Assets/Models/Forest/Sans titre_1.png" id="2_x84e8"]
 [ext_resource type="Texture2D" uid="uid://bkostvt13ul2g" path="res://Assets/Models/Forest/Sans titre_2.png" id="3_05p5c"]
+[ext_resource type="Material" uid="uid://bh0lv8c7p0cmo" path="res://Assets/Models/Forest/ForestCeilShading.tres" id="4_yydco"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4yhx"]
 resource_name = "DefaultMaterial"
@@ -63,6 +64,7 @@ transform = Transform3D(0.692018, 0, 0, 0, 0.692018, -3.02491e-08, 0, 3.02491e-0
 [node name="PetitCaillou2" type="MeshInstance3D" parent="PetitCaillou"]
 mesh = SubResource("ArrayMesh_u3djf")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_yydco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PetitCaillou"]
 shape = SubResource("ConcavePolygonShape3D_qa5ef")

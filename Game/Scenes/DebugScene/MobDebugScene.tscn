@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="1_5sfwv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_gcm38"]
-[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_color.tscn" id="1_pggtl"]
+[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="1_pggtl"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/ItemThrower.gd" id="2_jeavh"]
 [ext_resource type="PackedScene" uid="uid://dpckh3ieawwn" path="res://Scenes/DebugScene/Ball.tscn" id="3_eus2a"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="6_80xx7"]

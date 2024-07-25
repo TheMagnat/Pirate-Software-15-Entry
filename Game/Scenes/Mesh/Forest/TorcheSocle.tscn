@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bueb4fmi8ug4q"]
+[gd_scene load_steps=8 format=3 uid="uid://bueb4fmi8ug4q"]
 
 [ext_resource type="Texture2D" uid="uid://dmq1qk5vighuo" path="res://Assets/Models/Forest/Sans titre_0.png" id="1_s5dv3"]
 [ext_resource type="Texture2D" uid="uid://dcvr2mp57segy" path="res://Assets/Models/Forest/Sans titre_1.png" id="2_h6ftk"]
 [ext_resource type="Texture2D" uid="uid://bkostvt13ul2g" path="res://Assets/Models/Forest/Sans titre_2.png" id="3_ujhog"]
+[ext_resource type="Material" uid="uid://bh0lv8c7p0cmo" path="res://Assets/Models/Forest/ForestCeilShading.tres" id="4_usjdy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4yhx"]
 resource_name = "DefaultMaterial"
@@ -60,3 +61,4 @@ transform = Transform3D(1, 0, 0, 0, 0.940429, -0.33999, 0, 0.33999, 0.940429, 0,
 [node name="TorcheSocle2" type="MeshInstance3D" parent="TorcheSocle"]
 mesh = SubResource("ArrayMesh_y7xaj")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_usjdy")

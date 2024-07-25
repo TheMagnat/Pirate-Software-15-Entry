@@ -1,11 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=26 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
 [ext_resource type="PackedScene" uid="uid://c6m8r0j6q3o4h" path="res://Assets/Models/TableDeChevet/TableDeChevetGBL.glb" id="2_s1ent"]
+[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_tb3w6"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
+[ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="3_8j163"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="3_ou0wo"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="4_qy5y3"]
 [ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="5_snhk5"]
 [ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
@@ -58,6 +61,14 @@ stream_5/weight = 1.0
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
 
+[node name="MoonSky" parent="." instance=ExtResource("2_tb3w6")]
+transform = Transform3D(-0.876379, -0.40972, -0.25316, -0.399538, 0.911998, -0.0928915, 0.268941, 0.0197392, -0.962954, 0, 0, 0)
+
+[node name="MoonColor" parent="." instance=ExtResource("3_8j163")]
+light_energy = 0.11
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_ou0wo")]
+
 [node name="BibliothèqueGLB" parent="." instance=ExtResource("2_kj0j1")]
 transform = Transform3D(4.31, 0, 0, 0, 4.31, 0, 0, 0, 4.31, -8.91265, 0, 1.4495)
 
@@ -72,6 +83,7 @@ transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+safePlace = true
 
 [node name="Geometry" type="Node3D" parent="."]
 

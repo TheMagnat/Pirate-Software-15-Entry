@@ -1,6 +1,7 @@
 extends StateNode
 
 @export var parent: CharacterBody3D
+@export var parentVoice: Voice
 
 @onready var currentDirection: Vector3
 var timeSinceLastReset: float = 0.0
@@ -49,6 +50,7 @@ func onPhysicProcess(delta: float):
 	parent.move_and_slide()
 
 func enter():
+	if parentVoice: parentVoice.word()
 	timeSinceLastReset = 0.0
 	timeForDirectionReset = randf_range(timeRangeForDirectionReset.x, timeRangeForDirectionReset.y)
 	timeSinceStart.start()

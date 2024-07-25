@@ -32,7 +32,7 @@ func transitionTo(newStateNodeName: String):
 	
 	if !newStateNode:
 		return
-		
+	
 	if currentStateNode:
 		currentStateNode.exit()
 	

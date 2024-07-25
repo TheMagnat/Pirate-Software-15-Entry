@@ -1,14 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=7 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
 [ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
-[ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="2_vtowc"]
-[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/Main/button.tscn" id="4_nj5hc"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_n4fce"]
+[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_81fdl"]
+
+[sub_resource type="Resource" id="Resource_sujj7"]
+script = ExtResource("3_81fdl")
+reload = false
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 5.0
+FishEye = false
+FishEyeAspect = 0.585
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = -0.265
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = true
+VignetteIntensity = 0.195
+VignetteOpacity = 0.715
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.1
+GlitchNoiseQuality = 250.0
+GlitchIntenity = -0.079
+GlitchOffset = 0.1
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = true
+GrainPower = 40
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(0, 0, 0, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.05
+SpeedLineSpeed = 20
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(1024, 1024)
+ScreenShake = false
+ScreenShakePower = 0.1
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fnm52")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("2_vtowc")]
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("2_n4fce")
+configuration = SubResource("Resource_sujj7")
+dynamically_update = false
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_1oyws")]
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -22,7 +101,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-mouse_filter = 1
 
 [node name="Line2D" type="Line2D" parent="Menu/Control"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -32,20 +110,23 @@ width = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Control"]
 layout_mode = 2
-offset_left = 485.0
-offset_right = 795.0
+offset_left = 512.0
+offset_right = 768.0
 offset_bottom = 720.0
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Lobby" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
+[node name="Lobby" type="Button" parent="Menu/Control/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Lobby"
 
-[node name="MainMenu" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
+[node name="MainMenu" type="Button" parent="Menu/Control/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
-[node name="Back" parent="Menu/Control/VBoxContainer" instance=ExtResource("4_nj5hc")]
+[node name="Back" type="Button" parent="Menu/Control/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Back"

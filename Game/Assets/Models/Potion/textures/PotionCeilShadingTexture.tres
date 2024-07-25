@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bkab01nl4p5hc"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_mfo18"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base.gdshader" id="2_yi08h"]
+[ext_resource type="Texture2D" uid="uid://cuf6sfqhq01qw" path="res://Assets/Models/Potion/textures/Potion_UV_default_AlbedoTransparency.png" id="3_d73h7"]
+[ext_resource type="Texture2D" uid="uid://c04c5tt8qpuhp" path="res://Assets/Models/Potion/textures/Potion_UV_default_Normal.png" id="4_uhy1x"]
+[ext_resource type="Texture2D" uid="uid://c4lut1rgodfe2" path="res://Assets/Models/Potion/textures/Potion_UV_default_MetallicSmoothness.png" id="5_0ofd8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxea8"]
+render_priority = 0
+shader = ExtResource("1_mfo18")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_kxea8")
+shader = ExtResource("2_yi08h")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_surface = ExtResource("5_0ofd8")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal_map = ExtResource("4_uhy1x")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("3_d73h7")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

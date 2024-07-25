@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://ccrqq88ocll1"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_me4en"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_8ig18"]
+[ext_resource type="Texture2D" uid="uid://88a51ijru8l2" path="res://Assets/Models/Mobs/Ennemi_UV_default_Diffuse.png" id="3_isjxj"]
+[ext_resource type="Texture2D" uid="uid://bylouq5twf48e" path="res://Assets/Models/Mobs/default_normal.png" id="4_okwib"]
+[ext_resource type="Texture2D" uid="uid://dc0bhols34a8m" path="res://Assets/Models/Mobs/default_occlusionRoughnessMetallic.png" id="6_6v5xq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mial8"]
+render_priority = 0
+shader = ExtResource("1_me4en")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_mial8")
+shader = ExtResource("2_8ig18")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_surface = ExtResource("6_6v5xq")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal_map = ExtResource("4_okwib")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.00351917, 0.00351917, 0.00351916, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("3_isjxj")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

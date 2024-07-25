@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx26x4g0u00b7"]
+[gd_scene load_steps=17 format=3 uid="uid://bx26x4g0u00b7"]
 
 [ext_resource type="Texture2D" uid="uid://c20la82jkog5h" path="res://Assets/Models/Bibliotheque/Livre_baseColor.png" id="1_14ny5"]
+[ext_resource type="Material" uid="uid://76emipynwvuh" path="res://Assets/Models/Bibliotheque/BibliothequeCeilShadingTexture.tres" id="1_qr46d"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_ymhrv"]
 [ext_resource type="Texture2D" uid="uid://yqlddr7kdexu" path="res://Assets/Models/Bibliotheque/Livre_normal.png" id="2_4x1p6"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base.gdshader" id="2_go3ta"]
 [ext_resource type="Texture2D" uid="uid://bp64h7wjhy0kc" path="res://Assets/Models/Bibliotheque/Livre_occlusionRoughnessMetallic.png" id="3_i0gyt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow15n"]
@@ -88,6 +91,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bsynp")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmvoy"]
+render_priority = 0
+shader = ExtResource("1_ymhrv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3q0xt"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tmvoy")
+shader = ExtResource("2_go3ta")
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_surface = ExtResource("3_i0gyt")
+shader_parameter/normal_scale = 1.0
+shader_parameter/normal_map = ExtResource("2_4x1p6")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.190762, 0.190762, 0.190762, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("1_14ny5")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_ujabw"]
 _surfaces = [{
 "aabb": AABB(0.00663253, -0.0021106, 0.252498, 0.128814, 0.531637, 0.196826),
@@ -127,11 +150,14 @@ shadow_mesh = SubResource("ArrayMesh_ujabw")
 [node name="Bibliothèque" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ndyu3")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_qr46d")
 
 [node name="Livre" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_o8arm")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_3q0xt")
 
 [node name="Balais" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_us2hb")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_qr46d")
