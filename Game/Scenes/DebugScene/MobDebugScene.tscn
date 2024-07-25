@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx0prvnvk6ip4"]
+[gd_scene load_steps=14 format=3 uid="uid://dx0prvnvk6ip4"]
 
-[ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="1_5sfwv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_gcm38"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="1_pggtl"]
+[ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="1_r72p3"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/ItemThrower.gd" id="2_jeavh"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_y57bg"]
 [ext_resource type="PackedScene" uid="uid://dpckh3ieawwn" path="res://Scenes/DebugScene/Ball.tscn" id="3_eus2a"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="6_80xx7"]
 [ext_resource type="PackedScene" uid="uid://dh1sxt6a08fe8" path="res://Scenes/DebugScene/DeployableWall.tscn" id="6_j3ggf"]
@@ -24,9 +25,11 @@ radius = 5.27478
 
 [node name="DebugScene" type="Node3D"]
 
-[node name="DirectionalLight3D" parent="." instance=ExtResource("1_pggtl")]
+[node name="MoonColor" parent="." instance=ExtResource("1_r72p3")]
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_5sfwv")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_y57bg")]
+
+[node name="MoonSky" parent="." instance=ExtResource("1_pggtl")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_0nuhe")
@@ -169,7 +172,7 @@ mesh = SubResource("BoxMesh_hpvxh")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("1_gcm38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83394, 0.976681, 8.65959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9098, 0.976681, 0.0653419)
 collision_mask = 15
 
 [node name="ItemThrowerBall" type="Node3D" parent="Player"]
@@ -185,12 +188,13 @@ action = "secondary_action"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7267, 2.04554, -2.32658)
 velocity = Vector3(0, -15130.4, 0)
 view = NodePath("View")
-firstState = "WalkTo"
+idleDuration = 0.0
 checkpoints = PackedVector2Array(8.42463, -5.13941, 19.2676, -5.13941, 19.2676, 5.4807, 9.5329, 5.4807)
 directions = PackedVector2Array(0, -1, 0.697578, 0.716509)
 walkToPosition = Vector2(11.7267, 26.6333)
 
 [node name="Torche" type="SpotLight3D" parent="Mob"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20207, -0.654907)
 light_energy = 3.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0

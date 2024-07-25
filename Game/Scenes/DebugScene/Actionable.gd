@@ -2,7 +2,7 @@ extends Node3D
 
 
 var inPlayer: Player = null
-signal actioned
+signal actioned(player: Player)
 
 func playerEnteredArea(playerBody: Player):
 	inPlayer = playerBody
@@ -14,7 +14,7 @@ func playerExitedArea(playerBody: Player):
 
 func _input(event):
 	if inPlayer and event.is_action_pressed("interact"):
-		actioned.emit()
+		actioned.emit(inPlayer)
 
 func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.is_in_group("Player"):

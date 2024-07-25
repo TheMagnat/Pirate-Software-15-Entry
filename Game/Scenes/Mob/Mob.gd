@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var suspicious: float = 0.0
 @export var limitSuspiciousLevel: float = 10.0
 
+# State machine part
 @export_category("StateMachine")
 @export_subgroup("States transition")
 @export_enum("Idle", "Turret", "WalkTo") var firstState: String = "Idle"
@@ -22,6 +23,9 @@ var suspicious: float = 0.0
 @export_subgroup("idle configuration")
 @export var idleDuration: float = 5.0
 @export var keepOriginalDirection: bool = false
+
+# Death handling
+const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
 
 ### Edit pattern section ###
 @export_category("Edit pattern")
@@ -162,11 +166,15 @@ func _process(delta):
 		elif animationTime > 0.7 and animationTime < 0.8:
 			waterShaderHandler.xIsTilted(-1.0)
 
-func backstabbed():
+func backstabbed(backstabber: Player):
+	var rigidMobInstance = RIGID_MOB.instantiate()
+	rigidMobInstance.transform = transform
+	rigidMobInstance.apply_central_impulse(backstabber.global_position.direction_to(global_position) * 5.0)
+	add_sibling(rigidMobInstance)
 	queue_free()
 
-func _on_death_actionable_actioned():
-	backstabbed()
+func _on_death_actionable_actioned(backstabber: Player):
+	backstabbed(backstabber)
 
 func _on_state_machine_controller_spotted():
 	$SpottedSoung.play()

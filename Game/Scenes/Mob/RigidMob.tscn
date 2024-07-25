@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlifyh1ikoj1i"]
+
+[ext_resource type="PackedScene" uid="uid://tt5av83e77i4" path="res://Scenes/Mesh/Mobs/MobModel.tscn" id="1_4hydf"]
+[ext_resource type="Script" path="res://Scenes/Mob/RigidMob.gd" id="1_p8epm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tdr6q"]
+custom_solver_bias = 0.061
+margin = 0.899
+points = PackedVector3Array(0.6, 0, -0.1, 0.6, 0, 0.1, -0.6, 0, 0.01, -0.6, 0, -0.01, 0.6, 2, 0.2, 0.6, 2, -0.2, -0.6, 2, 0.2, -0.6, 2, -0.2)
+
+[sub_resource type="Curve" id="Curve_eqf22"]
+max_value = 10.0
+_data = [Vector2(0.314642, 0), 0.0, 0.0, 0, 0, Vector2(0.76324, 3.8937), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2kpe"]
+curve = SubResource("Curve_eqf22")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ljdq4"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(0, 1, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.25
+emission_ring_inner_radius = 0.2
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -30.0
+tangential_accel_max = -10.0
+damping_min = 10.0
+damping_max = 11.0
+damping_curve = SubResource("CurveTexture_w2kpe")
+
+[sub_resource type="SphereMesh" id="SphereMesh_uttqk"]
+
+[node name="RigidMob" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 15
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_p8epm")
+
+[node name="MobModel" parent="." instance=ExtResource("1_4hydf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_tdr6q")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.76586)
+visible = false
+amount = 32
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_ljdq4")
+draw_pass_1 = SubResource("SphereMesh_uttqk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
