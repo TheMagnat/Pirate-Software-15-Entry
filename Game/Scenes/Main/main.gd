@@ -23,7 +23,7 @@ func load_lobby():
 	$Menu.show_menu(false)
 
 func _load_level(path: String, idx : int):
-	if !FileAccess.file_exists(path):
+	if !ResourceLoader.exists(path):
 		print("File '" + path + "' not found")
 		return
 	
