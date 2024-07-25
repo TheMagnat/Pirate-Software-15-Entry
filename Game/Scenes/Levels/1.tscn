@@ -95,7 +95,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, -0.00819492, -96.603
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 checkpoints = PackedVector2Array(20.1025, -98.1095, -0.46102, -76.884, 25.278, -61.5906, 39.8524, -76.69)
-toPosition = 4
 walkToPosition = Vector2(19.2027, -96.6034)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/Mob2"]

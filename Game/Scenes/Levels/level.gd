@@ -24,7 +24,7 @@ func init(i: int):
  
 func restart_level():
 	var main = get_node("/root/Main")
-	main.load_level(main.current_level)
+	main.load_level(main.current_level_idx)
 
 func finish_level(body = null):
 	if (body.is_in_group("Player") and not body.canBeSeen()) or body == null:

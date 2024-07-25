@@ -76,7 +76,7 @@ func _ready():
 	$StateMachine/Idle.setTimeForTransition(idleDuration)
 	$StateMachine/Idle.keepOriginalDirection = keepOriginalDirection
 	# Configure View
-	view.collision_mask = 0b111
+	view.collision_mask = 0b010
 	
 	#$Voice.talk()
 	
