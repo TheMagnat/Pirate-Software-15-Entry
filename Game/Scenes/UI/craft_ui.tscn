@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3aoyco28g2co"]
+[gd_scene load_steps=9 format=3 uid="uid://b3aoyco28g2co"]
 
 [ext_resource type="Script" path="res://Assets/Props/CraftUI.gd" id="1_l6uin"]
 
@@ -13,6 +13,22 @@ colors = PackedColorArray(0, 0, 0, 1, 0.227273, 0.227273, 0.227273, 1, 1, 1, 1, 
 gradient = SubResource("Gradient_ajgmc")
 width = 250
 height = 130
+
+[sub_resource type="Gradient" id="Gradient_fp0u6"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.0666667)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nyrou"]
+gradient = SubResource("Gradient_fp0u6")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_3poug"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.0666667)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rc3kg"]
+gradient = SubResource("Gradient_3poug")
+width = 1
 
 [node name="CraftUI" type="Control"]
 layout_mode = 3
@@ -43,22 +59,48 @@ grow_horizontal = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_cc6te")
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Craft" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9
-anchor_top = 0.9
-anchor_right = 0.9
-anchor_bottom = 0.95
+anchor_left = 0.8
+anchor_top = 0.85
+anchor_right = 0.8
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 text = "Brew"
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="NextPage" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_hover = SubResource("GradientTexture1D_nyrou")
+stretch_mode = 0
+
+[node name="PreviousPage" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 8.0
+grow_vertical = 2
+texture_hover = SubResource("GradientTexture1D_rc3kg")
+stretch_mode = 0
+
+[connection signal="pressed" from="Panel/Craft" to="." method="_on_craft_pressed"]
+[connection signal="pressed" from="Panel/NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="Panel/PreviousPage" to="." method="_on_previous_page_pressed"]
