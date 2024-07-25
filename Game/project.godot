@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GameJam15"
+config/name="Rogue In A Bottle"
 run/main_scene="res://Scenes/Main/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [audio]
 
