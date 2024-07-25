@@ -1,9 +1,9 @@
 extends OmniLight3D
 
 @export var noise: NoiseTexture3D
+@export var max_energy: float
+@export var min_energy: float
 var t := 0.0
-var max_energy := 0.017
-var min_energy := 0.005
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
