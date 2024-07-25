@@ -138,10 +138,6 @@ lights_and_shadows/positional_shadow/atlas_16_bits=false
 
 [shader_globals]
 
-diffuse_curve={
-"type": "sampler2D",
-"value": ""
-}
 fresnel_smoothness={
 "type": "float",
 "value": 0.05
@@ -157,4 +153,8 @@ specular_smoothness={
 outline_width={
 "type": "float",
 "value": 8.0
+}
+diffuse_curve={
+"type": "sampler2D",
+"value": ""
 }

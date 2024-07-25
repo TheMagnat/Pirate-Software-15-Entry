@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1047aafggjac"]
+[gd_scene load_steps=14 format=3 uid="uid://b1047aafggjac"]
 
 [ext_resource type="Texture2D" uid="uid://dmq1qk5vighuo" path="res://Assets/Models/Forest/Sans titre_0.png" id="1_8hgyr"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline-forest.gdshader" id="1_tgipy"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-forest.gdshader" id="2_66rov"]
 [ext_resource type="Texture2D" uid="uid://dcvr2mp57segy" path="res://Assets/Models/Forest/Sans titre_1.png" id="2_aylru"]
-[ext_resource type="Texture2D" uid="uid://bkostvt13ul2g" path="res://Assets/Models/Forest/Sans titre_2.png" id="3_t1ffx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3rp6d"]
 
@@ -29,8 +28,6 @@ shader = ExtResource("2_66rov")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/texture_surface = ExtResource("2_aylru")
-shader_parameter/normal_scale = 1.0
-shader_parameter/normal_map = ExtResource("3_t1ffx")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.00392157, 0.00392157, 0.00392157, 0.501961)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)

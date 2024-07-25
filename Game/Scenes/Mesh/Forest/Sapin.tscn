@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqtly38fifh0"]
+[gd_scene load_steps=10 format=3 uid="uid://bqtly38fifh0"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline-forest.gdshader" id="1_2qdq2"]
 [ext_resource type="Texture2D" uid="uid://dmq1qk5vighuo" path="res://Assets/Models/Forest/Sans titre_0.png" id="1_7gii5"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-forest.gdshader" id="2_j84nh"]
 [ext_resource type="Texture2D" uid="uid://dcvr2mp57segy" path="res://Assets/Models/Forest/Sans titre_1.png" id="2_ykktq"]
-[ext_resource type="Texture2D" uid="uid://bkostvt13ul2g" path="res://Assets/Models/Forest/Sans titre_2.png" id="3_a6r7x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o784k"]
 render_priority = 0
@@ -18,8 +17,6 @@ shader = ExtResource("2_j84nh")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/texture_surface = ExtResource("2_ykktq")
-shader_parameter/normal_scale = 1.0
-shader_parameter/normal_map = ExtResource("3_a6r7x")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.00566115, 0.00566115, 0.00566115, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
@@ -79,3 +76,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sapin/Sapin"]
 shape = SubResource("ConcavePolygonShape3D_epc54")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.68105, 0)
