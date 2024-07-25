@@ -143,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
 shape = SubResource("BoxShape3D_nngex")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(9, 9)
+size = Vector2i(3, 3)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]

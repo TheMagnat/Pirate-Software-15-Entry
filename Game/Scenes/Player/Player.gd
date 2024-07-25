@@ -44,15 +44,8 @@ func _ready():
 	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
 
-func getLightLevel(top : bool = true) -> float:
-	var img = null
-	if top:
-		img = topViewport.get_texture().get_image()
-
-	#TODO: Ajouter le ELSE si besoin
-	#else:
-		#img = _viewport_bottom.get_texture().get_data()
-	
+func getLightLevel() -> float:
+	var img: Image = topViewport.get_texture().get_image()
 	var sum: float = 0
 	var height: int = img.get_height()
 	var width: int = img.get_width()
@@ -76,6 +69,7 @@ func dying():
 func canBeSeen():
 	return spottedValue > 0.0
 
+var cumulatedTimeSinceLastLightLogic: float = 0.0
 func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
@@ -249,7 +243,12 @@ func _process(_delta: float):
 
 func _physics_process(delta: float):
 	### Light computation Logic ###
-	if not safePlace: lightLogic(delta)
+	if not safePlace:
+		if Engine.get_physics_frames() % 2 == 0:
+			lightLogic(cumulatedTimeSinceLastLightLogic + delta)
+			cumulatedTimeSinceLastLightLogic = 0
+		else:
+			cumulatedTimeSinceLastLightLogic += delta
 	
 	### Movement Logic ###
 	# Add the gravity.

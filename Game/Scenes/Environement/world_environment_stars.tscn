@@ -43,8 +43,8 @@ noise = SubResource("FastNoiseLite_hidec")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bys3"]
 shader = ExtResource("1_jfcyo")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
+shader_parameter/clouds_samples = 24
+shader_parameter/shadow_sample = 2
 shader_parameter/clouds_density = 0.4
 shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.05
@@ -69,6 +69,7 @@ shader_parameter/shooting_star_sampler = ExtResource("2_ngd2a")
 
 [sub_resource type="Sky" id="Sky_fihgm"]
 sky_material = SubResource("ShaderMaterial_3bys3")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_8txwq"]
 background_mode = 2
