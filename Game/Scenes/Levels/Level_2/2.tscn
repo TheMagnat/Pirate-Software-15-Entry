@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://cl4br0sqn70wh"]
+
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="1_ayfy8"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
+[ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
+[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="3_1gy3l"]
+[ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="4_cjn57"]
+[ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="5_6opc3"]
+[ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="6_b7y0l"]
+[ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="6_fsslc"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_u7mij"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltepv"]
+albedo_color = Color(0.156863, 0.470588, 0.392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vs6b7"]
+material = SubResource("StandardMaterial3D_ltepv")
+size = Vector3(500, 20, 100)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eqifq"]
+points = PackedVector3Array(-250, -10, -50, -250, -10, 50, -250, 10, -50, 250, -10, -50, -250, 10, 50, 250, -10, 50, 250, 10, -50, 250, 10, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xofox"]
+size = Vector3(500, 20, 300)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qfnb8"]
+points = PackedVector3Array(-250, -10, -150, -250, -10, 150, -250, 10, -150, 250, -10, -150, -250, 10, 150, 250, -10, 150, 250, 10, -150, 250, 10, 150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ta6u"]
+albedo_color = Color(0.406189, 0.239505, 0.0904901, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_56yfi"]
+material = SubResource("StandardMaterial3D_6ta6u")
+size = Vector3(12, 0.4, 5)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3gh3k"]
+points = PackedVector3Array(-6, -0.2, -2.5, -6, -0.2, 2.49951, 0, 0.2, -2.5, 6, -0.2, -2.5, 6, -0.2, 2.49951, 0, 0.2, 2.49951)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j7i6b"]
+size = Vector3(20, 10, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_std8i"]
+size = Vector3(1, 10, 30)
+
+[node name="2" type="Node3D"]
+script = ExtResource("1_nrngv")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_ayfy8")]
+
+[node name="Player" parent="." instance=ExtResource("1_swu07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00363469, -9.53674e-07, 14.2522)
+safePlace = true
+
+[node name="MoonColor" parent="." instance=ExtResource("3_1gy3l")]
+transform = Transform3D(-0.839487, -0.339152, 0.424544, -0.330211, 0.9389, 0.097096, -0.431534, -0.0586781, -0.900186, 0, 0, 0)
+
+[node name="DarkMoonLight" parent="." instance=ExtResource("4_cjn57")]
+transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.45671, -0.475671, 0.339366, -0.811522, 0, 0, 0)
+light_energy = 0.165
+directional_shadow_split_1 = 0.05
+directional_shadow_split_2 = 0.1
+directional_shadow_split_3 = 0.25
+directional_shadow_max_distance = 200.0
+
+[node name="Geometry" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_u7mij")
+
+[node name="Floor" type="StaticBody3D" parent="Geometry"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 62.283)
+mesh = SubResource("BoxMesh_vs6b7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 62.283)
+shape = SubResource("ConvexPolygonShape3D_eqifq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, -146.455)
+mesh = SubResource("BoxMesh_xofox")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Geometry/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, -146.455)
+shape = SubResource("ConvexPolygonShape3D_qfnb8")
+
+[node name="Bridge" type="StaticBody3D" parent="Geometry"]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry/Bridge"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.180172, 8.267)
+mesh = SubResource("PrismMesh_56yfi")
+skeleton = NodePath("../../Floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Bridge"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.180172, 8.267)
+shape = SubResource("ConvexPolygonShape3D_3gh3k")
+
+[node name="Barriere2" parent="Geometry/Bridge" instance=ExtResource("5_6opc3")]
+transform = Transform3D(-0.000166181, 0.000119981, 0.0249992, 0.00220335, 0.0249025, -0.000104871, -0.0249022, 0.00220258, -0.000176107, -2.45639, -0.0397215, 13.8052)
+
+[node name="Barriere3" parent="Geometry/Bridge" instance=ExtResource("5_6opc3")]
+transform = Transform3D(-0.000166181, 0.000119981, 0.0249992, 0.00220335, 0.0249025, -0.000104871, -0.0249022, 0.00220258, -0.000176107, 2.10908, -0.0397215, 13.8052)
+
+[node name="Barriere4" parent="Geometry/Bridge" instance=ExtResource("5_6opc3")]
+transform = Transform3D(-0.000166181, 0.000119981, 0.0249992, -0.00173239, 0.0249395, -0.000131211, -0.0249393, -0.00173321, -0.000157465, -2.45639, 0.187042, 4.9574)
+
+[node name="Barriere5" parent="Geometry/Bridge" instance=ExtResource("5_6opc3")]
+transform = Transform3D(-9.13215e-06, -0.00013058, -0.0249997, 0.00174389, 0.0249387, -0.000130899, 0.0249391, -0.00174391, -1.09277e-09, 2.5286, -0.0519133, 2.1333)
+
+[node name="Barriere" parent="Geometry/Bridge" instance=ExtResource("6_fsslc")]
+transform = Transform3D(-1.09278e-09, -2.77345e-18, 0.025, 0.0014208, 0.0249596, 6.21053e-11, -0.0249596, 0.0014208, -1.09102e-09, -2.46675, 0.299168, 9.52483)
+
+[node name="Barriere6" parent="Geometry/Bridge" instance=ExtResource("6_fsslc")]
+transform = Transform3D(-1.09278e-09, -2.77345e-18, 0.025, 0.0014208, 0.0249596, 6.21053e-11, -0.0249596, 0.0014208, -1.09102e-09, 2.09534, 0.299168, 9.52483)
+
+[node name="Barriere7" parent="Geometry/Bridge" instance=ExtResource("6_fsslc")]
+transform = Transform3D(-1.09129e-09, -5.71919e-11, 0.025, -0.0013084, 0.0249657, 0, -0.0249657, -0.0013084, -1.09278e-09, -2.45827, 0.261608, 6.40108)
+
+[node name="Barriere8" parent="Geometry/Bridge" instance=ExtResource("6_fsslc")]
+transform = Transform3D(-1.09129e-09, -5.71919e-11, 0.025, -0.0013084, 0.0249657, 0, -0.0249657, -0.0013084, -1.09278e-09, 2.12534, 0.270207, 6.38357)
+
+[node name="Tour" parent="Geometry" instance=ExtResource("6_b7y0l")]
+transform = Transform3D(-0.0109279, 0, 0.0224851, 0, 0.025, 0, -0.0224851, 0, -0.0109279, -19.434, 0, -0.382)
+
+[node name="OuterWall" type="StaticBody3D" parent="Geometry"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/OuterWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.412, 5, -4.953)
+mesh = SubResource("BoxMesh_j7i6b")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/OuterWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.849, 5, -5)
+mesh = SubResource("BoxMesh_j7i6b")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry/OuterWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.644, 5, -19.4686)
+mesh = SubResource("BoxMesh_std8i")
