@@ -44,6 +44,8 @@ func _ready():
 	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
 
+#var cumulatedTimeSinceLastLightLevelSample: float = 0.0
+var lastLightLevel: float = 0.0
 func getLightLevel() -> float:
 	var img: Image = topViewport.get_texture().get_image()
 	var sum: float = 0
@@ -69,19 +71,19 @@ func dying():
 func canBeSeen():
 	return spottedValue > 0.0
 
-var cumulatedTimeSinceLastLightLogic: float = 0.0
 func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
 		spottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
 		
 		return
-
-	var topLightLevel: float = getLightLevel()
+	
+	if Engine.get_physics_frames() % 5 == 0:
+		lastLightLevel = getLightLevel()
 	
 	# If true, player is in the light
-	if topLightLevel > lightTreshold:
-		spottedValue += ((topLightLevel - lightTreshold) * delta) / timeForFullSpot
+	if lastLightLevel > lightTreshold:
+		spottedValue += ((lastLightLevel - lightTreshold) * delta) / timeForFullSpot
 	else:
 		spottedValue -= delta / (timeForFullSpot * 2.0)
 	
@@ -243,12 +245,7 @@ func _process(_delta: float):
 
 func _physics_process(delta: float):
 	### Light computation Logic ###
-	if not safePlace:
-		if Engine.get_physics_frames() % 2 == 0:
-			lightLogic(cumulatedTimeSinceLastLightLogic + delta)
-			cumulatedTimeSinceLastLightLogic = 0
-		else:
-			cumulatedTimeSinceLastLightLogic += delta
+	if not safePlace: lightLogic(delta)
 	
 	### Movement Logic ###
 	# Add the gravity.

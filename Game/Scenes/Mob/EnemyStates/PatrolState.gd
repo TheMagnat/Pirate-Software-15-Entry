@@ -12,20 +12,6 @@ var rotationSpeed: float = 2
 
 @export var nav: NavigationAgent3D
 
-### Debug section ###
-@export_category("Debug")
-@export var reference: Node3D
-@export var addPosition: bool:
-	set(value):
-		checkpoints.push_back(Vector2(reference.global_position.x, reference.global_position.z))
-@export var toPosition: int:
-	set(value):
-		if value < 0 or value >= checkpoints.size(): return
-		reference.global_position.x = checkpoints[value].x
-		reference.global_position.z = checkpoints[value].y
-		toPosition = value
-### End debug section ###
-
 var speed = 4
 var accel = 5
 var minTargetDist: float = 1

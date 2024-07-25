@@ -2,13 +2,11 @@ extends Node
 
 ### DEBUG ###
 var inDebug: bool = false
-var debug_level: String = "res://Scenes/Levels/1.tscn"
 ### END DEBUG ###
 
-const lobby_level := "res://Scenes/Levels/lobby.tscn"
+@onready var resource_preloader: ResourcePreloader = $ResourcePreloader
 
-var current_level := ""
-
+var current_level_idx: int = -2
 func _ready():
 	Save.enable_save = true
 	load_lobby()
@@ -16,35 +14,34 @@ func _ready():
 func load_lobby():
 	# DEBUG
 	if inDebug:
-		load_level(debug_level)
+		load_level(1)
 	else:
-		load_level(lobby_level)
+		load_level(-1)
 	
 	$Menu.show_menu(false)
 
-func _load_level(path: String, idx : int):
-	if !ResourceLoader.exists(path):
-		print("File '" + path + "' not found")
+func _load_level(idx : int):
+	if not resource_preloader.has_resource(str(idx)):
+		print("Ressource '", idx, "' not found")
 		return
 	
 	for child in $Level.get_children():
 		child.queue_free()
 	
-	current_level = path
+	current_level_idx = idx
+	$Menu/Control/VBoxContainer/Lobby.visible = idx != -1
 	
-	$Menu/Control/VBoxContainer/Lobby.visible = path != lobby_level
-	
-	var level = load(path).instantiate()
-	if idx != -1 and path != lobby_level:
+	var level = resource_preloader.get_resource(str(idx)).instantiate()
+	if idx != -1:
 		level.init(idx)
 	$Level.add_child(level)
 	
 
-func load_level(path: String, idx := -1):
+func load_level(idx := -1):
 	if $Level.get_child_count() == 0:
-		_load_level(path, idx)
+		_load_level(idx)
 	else:
-		Transition.start(_load_level.bind(path, idx))
+		Transition.start(_load_level.bind(idx))
 
 func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
 	### Open the access to this level

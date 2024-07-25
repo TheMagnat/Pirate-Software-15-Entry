@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=10 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
 [ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_n4fce"]
 [ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_81fdl"]
+[ext_resource type="PackedScene" uid="uid://c4ky7ruq01ylx" path="res://Scenes/Levels/0.tscn" id="6_m04r7"]
+[ext_resource type="PackedScene" uid="uid://bbyatiyy23ddj" path="res://Scenes/Levels/1.tscn" id="7_qqo4p"]
+[ext_resource type="PackedScene" uid="uid://dv2gvj21gwufs" path="res://Scenes/Levels/lobby.tscn" id="8_xheip"]
 
 [sub_resource type="Resource" id="Resource_sujj7"]
 script = ExtResource("3_81fdl")
@@ -130,3 +133,6 @@ text = "Main Menu"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("-1", "0", "1"), [ExtResource("8_xheip"), ExtResource("6_m04r7"), ExtResource("7_qqo4p")]]

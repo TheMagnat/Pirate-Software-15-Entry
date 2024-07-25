@@ -18,6 +18,6 @@ func load_level(body):
 	if body.is_in_group("Player"):
 		if level_opened():
 			body_entered.disconnect(load_level)
-			get_node("/root/Main").load_level("res://Scenes/Levels/" + str(index) + ".tscn", index)
+			get_node("/root/Main").load_level(index)
 		else:
 			print("You cannot access this level yet")

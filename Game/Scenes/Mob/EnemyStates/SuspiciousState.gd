@@ -29,8 +29,6 @@ func onProcess(delta: float):
 
 func onPhysicProcess(delta: float):
 	
-	#print("Suspicious: ", timeSinceStart.time_left)
-	
 	# Update timers
 	timeSinceLastReset += delta
 	
@@ -41,7 +39,6 @@ func onPhysicProcess(delta: float):
 		var new2dDirection = Vector2.from_angle(angle)
 		
 		currentDirection = Vector3(new2dDirection.x, 0.0, new2dDirection.y)
-		#currentDirection = Vector3(randf_range(-1.0, 1.0), 0.0, randf_range(-1.0, 1.0))
 		
 	var new_transform = parent.transform.looking_at(parent.global_position + currentDirection, Vector3.UP)
 	parent.transform  = parent.transform.interpolate_with(new_transform, rotationSpeed * delta)
