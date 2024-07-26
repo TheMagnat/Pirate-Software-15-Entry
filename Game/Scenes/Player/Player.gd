@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var safePlace: bool = false
 @export var lightTreshold: float = 0.05 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-@export var timeForFullSpot: float = 0.25 # Seconds
+@export var timeForFullSpot: float = 0.4 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
@@ -75,7 +75,6 @@ func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
 		spottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
-		
 		return
 	
 	if Engine.get_physics_frames() % 5 == 0:
@@ -87,12 +86,13 @@ func lightLogic(delta: float):
 	else:
 		spottedValue -= delta / (timeForFullSpot * 2.0)
 	
-	spottedValue = clamp(spottedValue, 0.0, 1.0)
+	spottedValue = clampf(spottedValue, 0.0, 1.0)
 	
 	if spottedValue == 1.0:
 		dying()
 	
 	waterShaderHandler.shaderMaterial.set_shader_parameter("spottedValue", spottedValue)
+	$CanvasLayer/Sprite2D.material.set_shader_parameter("life", spottedValue);
 
 var base_direction := Vector3()
 var input_dir := Vector2()
@@ -246,6 +246,7 @@ func _process(_delta: float):
 func _physics_process(delta: float):
 	### Light computation Logic ###
 	if not safePlace: lightLogic(delta)
+	else: $CanvasLayer/Sprite2D.material.set_shader_parameter("life", 0.0);
 	
 	### Movement Logic ###
 	# Add the gravity.

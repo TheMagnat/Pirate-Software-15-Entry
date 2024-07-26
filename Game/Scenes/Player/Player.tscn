@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=46 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://c0nt288qtj0rt" path="res://Assets/SFX/steps/step_metal8.ogg" id="28_0yhj6"]
 [ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="29_8u3k5"]
 [ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="30_ld8dl"]
+[ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="31_xmexw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
 render_priority = 0
@@ -113,6 +114,42 @@ stream_10/weight = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pdvll"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Shader" id="Shader_2aaru"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform float life : hint_range(0.0, 1.0, 0.0);
+
+const float SIZE = 3.0;
+const float SPEED = 10.0;
+
+void fragment() {
+	float LIFE = life * life;
+	
+	float dist = distance(vec2(0.5, 0.5), UV);
+	vec4 vignette = vec4(dist * 0.3, 0.0, 0.0, LIFE * dist * 2.0);
+	
+	float dist2 = dist + 0.5;
+	vec3 noise1 = texture(noise, mod((UV * SIZE + vec2(TIME * 1.14314, TIME * 0.131531) * SPEED), vec2(1.0, 1.0))).rgb * 0.25 * dist2;
+	vec3 noise2 = texture(noise, mod((UV * SIZE - vec2(TIME * 0.5515314, TIME * 1.31513) * SPEED), vec2(1.0, 1.0))).rgb * 0.25 * dist2;
+	
+	COLOR = vignette + vec4(noise1 + noise2, LIFE * 0.2);
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l27o7"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00pcc"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_l27o7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rggqw"]
+shader = SubResource("Shader_2aaru")
+shader_parameter/life = null
+shader_parameter/noise = SubResource("NoiseTexture2D_00pcc")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -201,3 +238,11 @@ texture_filter = 1
 position = Vector2(104.125, 98.375)
 scale = Vector2(23.1389, 21.8611)
 texture = SubResource("ViewportTexture_pdvll")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_rggqw")
+scale = Vector2(1280, 720)
+texture = ExtResource("31_xmexw")
+centered = false
