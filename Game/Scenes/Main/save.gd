@@ -41,10 +41,20 @@ func get_var(file: FileAccess, default):
 		return default.duplicate()
 	return v
 
+func _add_missing(dict: Dictionary, basis: Dictionary):
+	for key in basis.keys():
+		if !(key in dict):
+			dict[key] = basis[key]
+
+
 func _save_set_data(file: FileAccess):
 	resources = get_var(file, RESOURCES.duplicate())
 	unlockable = get_var(file, UNLOCKABLES.duplicate())
 	levels = get_var(file, LEVELS.duplicate())
+	
+	_add_missing(resources, RESOURCES)
+	_add_missing(unlockable, UNLOCKABLES)
+	
 	if typeof(LEVELS[0]) != typeof(levels[0]):
 		levels = LEVELS.duplicate()
 	
