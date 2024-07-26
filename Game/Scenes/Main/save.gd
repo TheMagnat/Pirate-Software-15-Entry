@@ -1,15 +1,18 @@
 extends Node
 
 const RESOURCES := {
-	"water": 0,
-	"stone": 0,
-	"lead": 0,
+	"resource1": 99,
+	"resource2": 98,
+	"resource3": 3,
+	"resource4": 0,
 }
 
 const UNLOCKABLES := {
-	"TELEKINEZIS": 0,
-	"DASH": 0,
-	"SMOKE": 0,
+	0: 0,
+	1: 0,
+	2: 0,
+	3: 0,
+	4: 0,
 }
 
 const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0] ]
