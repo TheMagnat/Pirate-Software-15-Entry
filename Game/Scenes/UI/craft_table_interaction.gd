@@ -8,7 +8,6 @@ func _ready():
 	$Area3D.body_exited.connect(craft_table_exit)
 
 func crafting(s: bool):
-	print("yo")
 	enter_craft.emit(s)
 	_is_crafting = s
 

@@ -11,6 +11,8 @@ signal craft_pressed(recipe_index: int)
 signal turn_page(direction: int)
 
 func _ready():
+	$Panel/Craft.pressed.connect(_on_craft_pressed)
+	
 	$"Panel/VBoxContainer/Label".text = RecipeLabel
 	for key in Resources:
 		var resourceContainer = HBoxContainer.new()
@@ -49,9 +51,12 @@ func updateResources():
 
 func _on_craft_pressed():
 	craft_pressed.emit(RecipeIndex)
+	$Brew.play()
 
 func _on_next_page_pressed():
 	turn_page.emit(1)
+	$PageTurn.play()
 
 func _on_previous_page_pressed():
 	turn_page.emit(-1)
+	$PageTurn.play()

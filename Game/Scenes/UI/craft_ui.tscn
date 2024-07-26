@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3aoyco28g2co"]
+[gd_scene load_steps=18 format=3 uid="uid://b3aoyco28g2co"]
 
 [ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqr2"]
-bg_color = Color(0.890196, 0.784314, 0.670588, 1)
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_45yes"]
+[ext_resource type="AudioStream" uid="uid://clvwjd1q5q7bq" path="res://Assets/SFX/misc/bottle_fill1.ogg" id="3_1fe31"]
+[ext_resource type="AudioStream" uid="uid://bs538bytbae82" path="res://Assets/SFX/misc/bottle_fill2.ogg" id="4_siyph"]
+[ext_resource type="AudioStream" uid="uid://dgbrwssopwhl" path="res://Assets/SFX/UI/page_turn1.ogg" id="5_h8x1j"]
+[ext_resource type="AudioStream" uid="uid://m7gu1x3q6ya5" path="res://Assets/SFX/UI/page_turn2.ogg" id="6_18ubi"]
+[ext_resource type="AudioStream" uid="uid://xhn2advv8ybs" path="res://Assets/SFX/UI/page_turn3.ogg" id="7_hq46b"]
+[ext_resource type="AudioStream" uid="uid://drf4o4a2256vr" path="res://Assets/SFX/UI/page_turn4.ogg" id="8_2bexe"]
+[ext_resource type="Texture2D" uid="uid://dgjxgfsamarva" path="res://Assets/Textures/page.png" id="9_vbmge"]
 
 [sub_resource type="Gradient" id="Gradient_ajgmc"]
 offsets = PackedFloat32Array(0, 0.207792, 1)
@@ -30,6 +35,24 @@ colors = PackedColorArray(0, 0, 0, 0.0666667)
 gradient = SubResource("Gradient_3poug")
 width = 1
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ibmil"]
+streams_count = 2
+stream_0/stream = ExtResource("3_1fe31")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_siyph")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sn3a3"]
+streams_count = 4
+stream_0/stream = ExtResource("5_h8x1j")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_18ubi")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_hq46b")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_2bexe")
+stream_3/weight = 1.0
+
 [node name="CraftUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -40,12 +63,17 @@ offset_bottom = 6.4
 mouse_filter = 1
 script = ExtResource("1_83flf")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.75, 0.75, 0.6, 1)
+scale = Vector2(0.29, 0.23)
+texture = ExtResource("9_vbmge")
+centered = false
+
+[node name="Panel" type="Control" parent="."]
+anchors_preset = 0
 offset_right = 346.0
 offset_bottom = 432.0
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_egqr2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -67,15 +95,13 @@ texture = SubResource("GradientTexture2D_cc6te")
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="Craft" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8
-anchor_top = 0.85
-anchor_right = 0.8
-anchor_bottom = 0.85
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Craft" parent="Panel" instance=ExtResource("2_45yes")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 352.0
+offset_right = 384.0
+offset_bottom = 427.0
+scale = Vector2(0.5, 0.5)
 text = "Brew"
 
 [node name="NextPage" type="TextureButton" parent="Panel"]
@@ -101,6 +127,15 @@ grow_vertical = 2
 texture_hover = SubResource("GradientTexture1D_rc3kg")
 stretch_mode = 0
 
-[connection signal="pressed" from="Panel/Craft" to="." method="_on_craft_pressed"]
+[node name="Brew" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ibmil")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="PageTurn" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sn3a3")
+volume_db = -5.0
+pitch_scale = 1.5
+
 [connection signal="pressed" from="Panel/NextPage" to="." method="_on_next_page_pressed"]
 [connection signal="pressed" from="Panel/PreviousPage" to="." method="_on_previous_page_pressed"]
