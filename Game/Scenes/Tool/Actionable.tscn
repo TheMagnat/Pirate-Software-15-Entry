@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckjfa8q5vykds"]
 
-[ext_resource type="Script" path="res://Scenes/DebugScene/Actionable.gd" id="1_st40l"]
+[ext_resource type="Script" path="res://Scenes/Tool/Actionable.gd" id="1_7dvj0"]
 [ext_resource type="Script" path="res://Scenes/DebugScene/TextViewport.gd" id="2_dtx5l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uglsg"]
@@ -13,7 +13,7 @@ viewport_path = NodePath("Text3D/TextViewport")
 font_size = 32
 
 [node name="Actionable" type="Node3D"]
-script = ExtResource("1_st40l")
+script = ExtResource("1_7dvj0")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -42,6 +42,3 @@ offset_bottom = 23.0
 text = "
 "
 label_settings = SubResource("LabelSettings_86l5f")
-
-[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
-[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmkfmv8i8bk06"]
 
-[ext_resource type="Script" path="res://Assets/Props/craft_page_ui.gd" id="1_rbhua"]
-[ext_resource type="Script" path="res://Assets/Props/craft_table.gd" id="3_57m76"]
+[ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_rbhua"]
+[ext_resource type="Script" path="res://Scenes/UI/craft_table.gd" id="3_57m76"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgvpn"]
 size = Vector3(1.7, 0.1, 1.1)

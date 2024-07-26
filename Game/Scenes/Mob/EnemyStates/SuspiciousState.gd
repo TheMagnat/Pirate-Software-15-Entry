@@ -24,9 +24,6 @@ func _ready():
 	timeSinceStart.wait_time = timeForTransition
 	add_child(timeSinceStart)
 
-func onProcess(delta: float):
-	pass
-
 func onPhysicProcess(delta: float):
 	
 	# Update timers

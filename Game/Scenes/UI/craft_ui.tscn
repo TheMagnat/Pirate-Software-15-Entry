@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3aoyco28g2co"]
 
-[ext_resource type="Script" path="res://Assets/Props/CraftUI.gd" id="1_l6uin"]
+[ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqr2"]
 bg_color = Color(0.890196, 0.784314, 0.670588, 1)
@@ -38,7 +38,7 @@ offset_top = 6.4
 offset_right = 5.125
 offset_bottom = 6.4
 mouse_filter = 1
-script = ExtResource("1_l6uin")
+script = ExtResource("1_83flf")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

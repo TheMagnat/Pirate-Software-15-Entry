@@ -7,7 +7,7 @@ signal spotted
 var spottedValue: bool = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Engine.get_physics_frames() % 2 == 0:
 		for body in view.get_overlapping_bodies():
 			if body.is_in_group("Player") and body.canBeSeen():

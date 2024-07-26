@@ -18,9 +18,6 @@ var speed = 4
 var accel = 5
 var minTargetDist: float = 1
 
-func onProcess(delta: float):
-	pass
-
 func onPhysicProcess(delta: float):
 	cumulatedTimeSinceLastChange += delta
 	

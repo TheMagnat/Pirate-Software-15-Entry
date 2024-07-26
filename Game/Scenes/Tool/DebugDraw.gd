@@ -2,7 +2,7 @@ extends Node
 
 @onready var draw_debug = $MeshInstance3D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	draw_debug.mesh.clear_surfaces()
 	
 func draw_line(point_a: Vector3, point_b: Vector3, thickness: float = 10.0, color: Color = Color.RED):
@@ -43,8 +43,3 @@ func draw_line(point_a: Vector3, point_b: Vector3, thickness: float = 10.0, colo
 	#draw_debug.mesh.surface_add_vertex(point_b)
 	
 	draw_debug.mesh.surface_end()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

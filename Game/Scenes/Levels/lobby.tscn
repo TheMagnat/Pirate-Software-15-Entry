@@ -14,9 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
-[ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Assets/Props/prototype_book.tscn" id="13_vbn1g"]
-[ext_resource type="Script" path="res://Assets/Props/craft_table_interaction.gd" id="14_41dcu"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="14_faqqq"]
+[ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
+[ext_resource type="Script" path="res://Scenes/UI/craft_table_interaction.gd" id="16_7lv04"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -191,9 +191,9 @@ unit_size = 2.0
 autoplay = true
 max_distance = 120.0
 
-[node name="Prototype_Book" parent="." instance=ExtResource("13_vbn1g")]
+[node name="Prototype_Book" parent="." instance=ExtResource("15_iosmk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.29056, 0.522764, 6.82555)
-script = ExtResource("14_41dcu")
+script = ExtResource("16_7lv04")
 
 [node name="Actionable" parent="Prototype_Book" instance=ExtResource("14_faqqq")]
 

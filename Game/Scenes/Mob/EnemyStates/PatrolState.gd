@@ -16,9 +16,6 @@ var speed = 4
 var accel = 5
 var minTargetDist: float = 1
 
-func onProcess(delta: float):
-	pass
-
 func findNearestPoint():
 	var parent2dPosition := Vector2(parent.global_position.x, parent.global_position.z)
 	var nearest: int = 0

@@ -96,17 +96,17 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-func suspiciousActivity(position: Vector3, suspiciousLevel: float):
+func suspiciousActivity(pos: Vector3, suspiciousLevel: float):
 	suspicious += suspiciousLevel
 	
 	if $StateMachine.getCurrentStateName() == "Chase":
-		$StateMachine/Chase.lastTargetPosition = position
+		$StateMachine/Chase.lastTargetPosition = pos
 	else:
 		if suspicious > limitSuspiciousLevel:
-			$StateMachine/Seeking.updateTarget(position)
+			$StateMachine/Seeking.updateTarget(pos)
 			$StateMachine.transitionTo("Seeking")
 		else:
-			$StateMachine/Suspicious.updateTarget(position)
+			$StateMachine/Suspicious.updateTarget(pos)
 			$StateMachine.transitionTo("Suspicious")
 
 @onready var animation: AnimationTree = $MobModel/AnimationTree
@@ -134,7 +134,7 @@ func getGroundSound():
 	else:
 		return $MetalStepPlayer
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint(): return
 	
 	# To prevent using nil value in Walking/time
