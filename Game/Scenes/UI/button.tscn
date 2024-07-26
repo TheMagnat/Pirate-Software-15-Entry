@@ -1,13 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://7kvqydjvck"]
+[gd_scene load_steps=9 format=3 uid="uid://7kvqydjvck"]
 
 [ext_resource type="Script" path="res://Scenes/UI/button.gd" id="1_v5kls"]
 [ext_resource type="AudioStream" uid="uid://b4iiuv31fur2t" path="res://Assets/SFX/UI/select3.ogg" id="2_8tbts"]
 [ext_resource type="AudioStream" uid="uid://6cqsc0vv88ic" path="res://Assets/SFX/UI/select2.ogg" id="2_fhu7u"]
 
+[sub_resource type="Shader" id="Shader_arad0"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	VERTEX.y += cos(TIME  + VERTEX.x * 10.0) * 2.0;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grii3"]
+shader = SubResource("Shader_arad0")
+
+[sub_resource type="Theme" id="Theme_5onya"]
+default_font_size = 48
+
+[sub_resource type="Animation" id="Animation_mwuor"]
+resource_name = "idle"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5e67"]
+_data = {
+"idle": SubResource("Animation_mwuor")
+}
+
 [node name="Button" type="Button"]
+material = SubResource("ShaderMaterial_grii3")
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_font_sizes/font_size = 48
+theme = SubResource("Theme_5onya")
+theme_type_variation = &"FlatButton"
 script = ExtResource("1_v5kls")
 
 [node name="hover" type="AudioStreamPlayer" parent="."]
@@ -18,3 +42,9 @@ pitch_scale = 3.0
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fhu7u")
 volume_db = -5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x5e67")
+}
+autoplay = "idle"

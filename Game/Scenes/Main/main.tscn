@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=11 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
-[ext_resource type="Script" path="res://Scenes/UI/game_menu.gd" id="2_cec7k"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_n4fce"]
 [ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_81fdl"]
+[ext_resource type="Script" path="res://Scenes/UI/game_menu.gd" id="5_fdchf"]
 [ext_resource type="PackedScene" uid="uid://c4ky7ruq01ylx" path="res://Scenes/Levels/0.tscn" id="6_m04r7"]
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="6_ydcmf"]
 [ext_resource type="PackedScene" uid="uid://bbyatiyy23ddj" path="res://Scenes/Levels/1.tscn" id="7_qqo4p"]
 [ext_resource type="PackedScene" uid="uid://dv2gvj21gwufs" path="res://Scenes/Levels/lobby.tscn" id="8_xheip"]
 
@@ -97,7 +98,7 @@ dynamically_update = false
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 100
-script = ExtResource("2_cec7k")
+script = ExtResource("5_fdchf")
 
 [node name="Control" type="Control" parent="Menu"]
 layout_mode = 3
@@ -119,19 +120,16 @@ offset_bottom = 720.0
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Lobby" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="Lobby" parent="Menu/Control/VBoxContainer" instance=ExtResource("6_ydcmf")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Lobby"
 
-[node name="MainMenu" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="MainMenu" parent="Menu/Control/VBoxContainer" instance=ExtResource("6_ydcmf")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
-[node name="Back" type="Button" parent="Menu/Control/VBoxContainer"]
+[node name="Back" parent="Menu/Control/VBoxContainer" instance=ExtResource("6_ydcmf")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
