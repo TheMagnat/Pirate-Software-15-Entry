@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://da2088u7hq230"]
+
+[ext_resource type="PackedScene" uid="uid://bmm12tr56v1bc" path="res://Assets/Models/Forest/FeuDeCamp.glb" id="1_b6lai"]
+
+[node name="FeuDeCamp3" instance=ExtResource("1_b6lai")]

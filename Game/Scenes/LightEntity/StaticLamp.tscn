@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct72hstsh84vk"]
+
+[ext_resource type="Script" path="res://Scenes/LightEntity/flickering_flame.gd" id="1_v18v2"]
+[ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="2_bqf5f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4luqg"]
+frequency = 0.1957
+
+[node name="StaticLamp" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 5.71385
+shadow_bias = 0.2
+shadow_normal_bias = 1.5
+script = ExtResource("1_v18v2")
+noise = SubResource("FastNoiseLite_4luqg")
+max_energy = 9.0
+min_energy = 5.0
+
+[node name="Lampadaire" parent="." instance=ExtResource("2_bqf5f")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -3.5, -2.8)
