@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
 [ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
+[ext_resource type="Script" path="res://Scenes/Player/CameraLiberator.gd" id="4_bpjyo"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
 [ext_resource type="PackedScene" uid="uid://xjmyvah4ga17" path="res://Scenes/Tool/Shader/ShaderHandler.tscn" id="6_pq1f3"]
 [ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
@@ -30,7 +31,6 @@
 [ext_resource type="AudioStream" uid="uid://c0nt288qtj0rt" path="res://Assets/SFX/steps/step_metal8.ogg" id="28_0yhj6"]
 [ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="29_8u3k5"]
 [ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="30_ld8dl"]
-[ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="31_xmexw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
 render_priority = 0
@@ -53,7 +53,7 @@ size = Vector3(1, 0.62793, 1)
 radius = 16.088
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xy7vv"]
-radius = 1.24534
+radius = 1.135
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lvwh6"]
 streams_count = 7
@@ -173,7 +173,6 @@ texture = SubResource("GradientTexture2D_qjbo3")
 [node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 cull_mask = 1048571
-far = 200.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
@@ -235,8 +234,8 @@ attenuation_filter_cutoff_hz = 20500.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(104.125, 98.375)
-scale = Vector2(23.1389, 21.8611)
+position = Vector2(146.146, 119.604)
+scale = Vector2(96.5695, 79.5972)
 texture = SubResource("ViewportTexture_pdvll")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -244,5 +243,8 @@ texture = SubResource("ViewportTexture_pdvll")
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_rggqw")
 scale = Vector2(1280, 720)
-texture = ExtResource("31_xmexw")
 centered = false
+
+[node name="CameraLiberator" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_bpjyo")
+player = NodePath("..")

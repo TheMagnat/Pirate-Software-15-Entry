@@ -45,6 +45,9 @@ const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
 @export_subgroup("Turret")
 @export var directions: PackedVector2Array
 @export var walkToPosition: Vector2
+@export var tpToPosition: bool:
+	set(value):
+		global_position = Vector3(walkToPosition.x, global_position.y, walkToPosition.y) 
 @export var addDirection: bool:
 	set(value):
 		if not Engine.is_editor_hint() or not is_inside_tree(): return

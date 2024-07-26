@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Scenes/DebugScene/TextViewport.gd" id="2_dtx5l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uglsg"]
-radius = 0.796641
+radius = 1.16777
+height = 2.3359
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_54xom"]
 viewport_path = NodePath("Text3D/TextViewport")
@@ -20,7 +21,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01726, 0.99472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01726, 1.10308)
 shape = SubResource("CapsuleShape3D_uglsg")
 
 [node name="Marker3D" type="Marker3D" parent="."]

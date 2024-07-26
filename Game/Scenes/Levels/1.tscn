@@ -66,12 +66,12 @@ contained_resources = {
 nbEnemies = 6
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3625, -1.90735e-06, -137.943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2859, -1.54972e-06, 10.8209)
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
 [node name="Mob" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(-0.922538, 0, -0.385906, 0, 1, 0, 0.385906, 0, -0.922538, 1.104, 0, -28.364)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10413, 0, -28.3639)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 firstState = "Turret"
@@ -81,7 +81,7 @@ directions = PackedVector2Array(-0.191391, 0.981514, 0.674431, -0.738338)
 walkToPosition = Vector2(1.10413, -28.3639)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/Mob"]
-transform = Transform3D(0.995602, 0.0930936, 0.0105119, -0.0930419, 0.969394, 0.227197, 0.0109604, -0.227176, 0.973792, 0.211811, 0.691266, -0.780203)
+transform = Transform3D(0.997415, -0.0716514, 0.00540863, 0.0705029, 0.990402, 0.118881, -0.0138747, -0.118193, 0.992894, 0.0342188, 1.25319, -0.535294)
 light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 8.0
 light_bake_mode = 0
@@ -102,7 +102,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.39424
 shape = SubResource("CylinderShape3D_sp5l8")
 
 [node name="Mob2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, -0.00819492, -96.6034)
+transform = Transform3D(-0.997289, 0, -0.0735862, 0, 1, 0, 0.0735862, 0, -0.997289, 11.6675, 2.38419e-06, -38.3074)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 checkpoints = PackedVector2Array(20.1025, -98.1095, -0.46102, -76.884, 25.278, -61.5906, 39.8524, -76.69)
@@ -129,7 +129,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.39424
 shape = SubResource("CylinderShape3D_sp5l8")
 
 [node name="Mob3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.482, -0.00819486, -33.5463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, 0, -96.6034)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 checkpoints = PackedVector2Array(20.1025, -98.1095, -0.46102, -76.884, 25.278, -61.5906, 39.8524, -76.69)
@@ -157,7 +157,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.39424
 shape = SubResource("CylinderShape3D_sp5l8")
 
 [node name="MobStanding" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(0.990901, 0, 0.134592, 0, 1, 0, -0.134592, 0, 0.990901, -3.75636, -0.00819492, -40.7741)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75636, 0, -40.7741)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 suspiciousTransitionState = "WalkTo"
@@ -186,7 +186,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.01937
 shape = SubResource("BoxShape3D_lqn4o")
 
 [node name="MobStanding2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(0.69754, 0, 0.716546, 0, 1, 0, -0.716546, 0, 0.69754, 14.8585, -0.00819492, -138.947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8585, 0, -138.947)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 suspiciousTransitionState = "WalkTo"
@@ -216,7 +216,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0193787, 0.0698754, -6.558
 shape = SubResource("BoxShape3D_lqn4o")
 
 [node name="MobStanding3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(0.655559, 0, -0.755144, 0, 1, 0, 0.755144, 0, 0.655559, 28.8349, -0.00819492, -136.295)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8349, 0, -136.295)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 suspiciousTransitionState = "WalkTo"
@@ -1752,20 +1752,20 @@ directional_shadow_max_distance = 200.0
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -4.02436, 1.3448, -10.6266)
-light_energy = 1.7283
+light_energy = 2.00559
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.946193, 0, -0.323604, 0, 1, 0, 0.323604, 0, 0.946193, 1.40243, 1.3448, -8.61548)
-light_energy = 1.7283
+light_energy = 2.00559
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.7374, 2.08569, -43.1371)
-light_energy = 1.7283
+light_energy = 2.00559
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -1.83372e-09, -0.175556, 26.9167, 1.49712, -126.892)
-light_energy = 1.7283
+light_energy = 2.00559
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, 0, 0.0620763, 12.3763, 1.62484, -129.704)
-light_energy = 1.7283
+light_energy = 2.00559

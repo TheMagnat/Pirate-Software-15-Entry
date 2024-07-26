@@ -78,7 +78,13 @@ func lightLogic(delta: float):
 		return
 	
 	if Engine.get_physics_frames() % 5 == 0:
+		# Verify light level...
 		lastLightLevel = getLightLevel()
+		# And if there is a mob at sneak foot range
+		for body in $SneakSoundEmission.get_overlapping_bodies():
+			if body.is_in_group("Enemy"):
+				body.suspiciousActivity(global_position, 0.0)
+				lastLightLevel = 1.0
 	
 	# If true, player is in the light
 	if lastLightLevel > lightTreshold:

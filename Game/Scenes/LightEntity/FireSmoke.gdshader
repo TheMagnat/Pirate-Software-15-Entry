@@ -22,8 +22,9 @@ void vertex() {
 void fragment() {
 	float animationTime = COLOR.a;
 	float alphaMaskValue = texture(alphaMask, UV).r;
+	float spawnTransition = min(1.0, (1.0 - animationTime) * 100.0);
 	
 	//EMISSION = emissionColor * max(0.0, animationTime - 0.5) * emissionStr;
 	ALBEDO = mix(baseColor, emissionColor, animationTime);
-	ALPHA = round((animationTime * 1.75 + 0.5) * alphaMaskValue);
+	ALPHA = round((animationTime * 1.75 + 0.5) * alphaMaskValue) * spawnTransition;
 }
