@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxxe3v05f2odr"]
+
+[ext_resource type="Script" path="res://Scenes/UI/tutorial_text.gd" id="1_wn674"]
+
+[sub_resource type="Animation" id="Animation_adjy8"]
+resource_name = "idle"
+length = 20.0
+loop_mode = 1
+step = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.9, 1, 1), Vector3(1, 1, 1), Vector3(1, 0.9, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tysdy"]
+_data = {
+"idle": SubResource("Animation_adjy8")
+}
+
+[node name="TutorialText" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
+text = "Text"
+font_size = 512
+outline_size = 127
+script = ExtResource("1_wn674")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tysdy")
+}
+autoplay = "idle"
