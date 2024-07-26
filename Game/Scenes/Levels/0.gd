@@ -1,4 +1,4 @@
-extends "res://Scenes/Levels/level.gd"
+extends Level
 
 ## for now it's empty
 func _ready():

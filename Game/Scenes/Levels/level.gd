@@ -1,15 +1,33 @@
-extends Node3D
+class_name Level extends Node3D
 
 @export var open_levels : Array[int] = []
-@export var finish_resources := {}
+
+# Level information
+@export var level_name: String
+
+@export var main_ressource: String
+
+@export var contained_resources := {}
+var finish_resources := {}
+
+@export var nbEnemies: int = 0
+var killedEnemies: int = 0
+
+
 var idx := -1
 
 const WAIT_TIME := 10.0
 var timer := Timer.new()
 var time_spent := 0.0
 
+func initFinishRessources():
+	for ressource in contained_resources:
+		finish_resources[ressource] = 0
+
 func init(i: int):
 	idx = i
+	
+	initFinishRessources()
 	
 	if Save.levels[idx][1] <= 0.0:
 		print("No record set on this level")

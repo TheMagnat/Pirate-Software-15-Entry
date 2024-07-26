@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0kr04h7njb6"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/LevelEndScreen.gd" id="1_5ir8a"]
+
+[node name="LevelEndScreen" type="CanvasLayer"]
+script = ExtResource("1_5ir8a")
+
+[node name="ScreenContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -127.0
+offset_right = 151.5
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LevelName" type="Label" parent="ScreenContainer/TitleContainer"]
+layout_mode = 2
+text = "Forest"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScreenContainer/TitleContainer"]
+layout_mode = 2
+text = "Finished"
+
+[node name="Margin" type="MarginContainer" parent="ScreenContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="RessourcesSection" type="VBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+
+[node name="MainRessource" type="HBoxContainer" parent="ScreenContainer/RessourcesSection"]
+layout_mode = 2
+
+[node name="MainRessource" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
+layout_mode = 2
+text = "Night Stone"
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/RessourcesSection/MainRessource"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+
+[node name="MainRessource2" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
+layout_mode = 2
+text = "STOLEN !"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScreenContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 24
+
+[node name="EnemyKilled" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="EnemiesLabel" type="Label" parent="ScreenContainer/EnemyKilled"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Enemy Killed"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/EnemyKilled"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NbEnemies" type="Label" parent="ScreenContainer/EnemyKilled"]
+layout_mode = 2
+text = "3 / 3"
+
+[node name="KillNote" type="Label" parent="ScreenContainer"]
+layout_mode = 2
+text = "BLOODSHED"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 27
+
+[node name="TimeText" type="HBoxContainer" parent="ScreenContainer"]
+layout_mode = 2
+
+[node name="TimeText" type="Label" parent="ScreenContainer/TimeText"]
+layout_mode = 2
+text = "CARNAGE carried out in"
+
+[node name="Time" type="Label" parent="ScreenContainer/TimeText"]
+layout_mode = 2
+text = "05:34"
+
+[node name="Record" type="Label" parent="ScreenContainer"]
+layout_mode = 2
+text = "NEW RECORD !"
+horizontal_alignment = 2
