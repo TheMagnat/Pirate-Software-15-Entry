@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=26 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
@@ -14,9 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
-[ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="14_faqqq"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
-[ext_resource type="Script" path="res://Scenes/UI/craft_table_interaction.gd" id="16_7lv04"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -63,22 +61,25 @@ stream_5/weight = 1.0
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
 
-[node name="MoonSky" parent="." instance=ExtResource("2_tb3w6")]
-transform = Transform3D(-0.876379, -0.40972, -0.25316, -0.399538, 0.911998, -0.0928915, 0.268941, 0.0197392, -0.962954, 0, 0, 0)
+[node name="Decor" type="Node3D" parent="."]
 
-[node name="MoonColor" parent="." instance=ExtResource("3_8j163")]
+[node name="MoonSky" parent="Decor" instance=ExtResource("2_tb3w6")]
+transform = Transform3D(-0.876379, -0.409719, -0.25316, -0.399538, 0.911998, -0.0928915, 0.268941, 0.019739, -0.962954, 0, 0, 0)
+
+[node name="MoonColor" parent="Decor" instance=ExtResource("3_8j163")]
+transform = Transform3D(-0.866025, -0.342274, 0.364485, 0, 0.728969, 0.684547, -0.5, 0.592835, -0.631305, 0, 0, 0)
 light_energy = 0.11
 
-[node name="BibliothèqueGLB" parent="." instance=ExtResource("2_kj0j1")]
+[node name="BibliothèqueGLB" parent="Decor" instance=ExtResource("2_kj0j1")]
 transform = Transform3D(4.31, 0, 0, 0, 4.31, 0, 0, 0, 4.31, -8.91265, 0, 1.4495)
 
-[node name="TableEtRadio" type="Node3D" parent="."]
+[node name="TableEtRadio" type="Node3D" parent="Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85106, 0, -0.710948)
 
-[node name="TableDeChevetGBL" parent="TableEtRadio" instance=ExtResource("2_s1ent")]
+[node name="TableDeChevetGBL" parent="Decor/TableEtRadio" instance=ExtResource("2_s1ent")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="RadioGLB" parent="TableEtRadio" instance=ExtResource("2_m6wle")]
+[node name="RadioGLB" parent="Decor/TableEtRadio" instance=ExtResource("2_m6wle")]
 transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
@@ -159,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173421, 0, -14.5113)
 index = 1
 
 [node name="CameraInside" type="Camera3D" parent="."]
-transform = Transform3D(0.766044, -0.321394, 0.55667, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663414, 9, 7, 8)
+transform = Transform3D(0.766044, -0.321394, 0.556671, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663413, 8, 7, 8)
 cull_mask = 1048571
 far = 50.0
 
@@ -192,9 +193,4 @@ autoplay = true
 max_distance = 120.0
 
 [node name="Prototype_Book" parent="." instance=ExtResource("15_iosmk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.29056, 0.522764, 6.82555)
-script = ExtResource("16_7lv04")
-
-[node name="Actionable" parent="Prototype_Book" instance=ExtResource("14_faqqq")]
-
-[connection signal="actioned" from="Prototype_Book/Actionable" to="Prototype_Book" method="trigger_action"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.20399, 0.118732, 6.13628)

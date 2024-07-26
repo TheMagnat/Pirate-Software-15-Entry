@@ -1,18 +1,21 @@
 extends Node3D
 
+signal enter_craft(s: bool)
 var _is_crafting = false
 
-func trigger_action(_player: Player):
-	if(_is_crafting):
-		craft_table_exit()
-		$CraftTable.enabled = false
-	else:
-		craft_table_enter()
-		$CraftTable.enabled = true
-	_is_crafting = !_is_crafting
+func _ready():
+	$Area3D.body_entered.connect(craft_table_enter)
+	$Area3D.body_exited.connect(craft_table_exit)
 
-func craft_table_enter():
-	$Camera3D.make_current()
+func crafting(s: bool):
+	print("yo")
+	enter_craft.emit(s)
+	_is_crafting = s
 
-func craft_table_exit():
-	$"../CameraInside".make_current()
+func craft_table_enter(body):
+	if body.is_in_group("Player"):
+		crafting(true)
+
+func craft_table_exit(body):
+	if body.is_in_group("Player"):
+		crafting(false)
