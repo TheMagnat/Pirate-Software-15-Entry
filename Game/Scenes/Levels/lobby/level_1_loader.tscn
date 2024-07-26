@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://leyoxqhcfred"]
+[gd_scene load_steps=9 format=3 uid="uid://leyoxqhcfred"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/lobby/level_loader.gd" id="1_wabvc"]
+[ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="2_ib764"]
+[ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="3_0xvyq"]
+[ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="4_5yagc"]
+[ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="5_11rss"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ps74e"]
 height = 0.5
@@ -15,7 +19,7 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 0.5
 
-[node name="Level 1 loader" type="Area3D"]
+[node name="Level 0 loader" type="Area3D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_wabvc")
@@ -26,3 +30,18 @@ shape = SubResource("CylinderShape3D_ps74e")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_yw3x6")
 mesh = SubResource("CylinderMesh_wg1sm")
+
+[node name="ArbreRond" parent="." instance=ExtResource("2_ib764")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.97251, -1.32891, 0)
+
+[node name="ArbreCarre" parent="." instance=ExtResource("3_0xvyq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0571644, -1.42265, -4.49648)
+
+[node name="GrosCaillou" parent="." instance=ExtResource("4_5yagc")]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -3.01953, -0.999151, -5.20872)
+
+[node name="GrosCaillou2" parent="." instance=ExtResource("4_5yagc")]
+transform = Transform3D(-0.0473583, 0, 0.0160373, 0, 0.05, 0, -0.0160373, 0, -0.0473583, 2.91407, -0.815037, -1.78785)
+
+[node name="Sapin" parent="." instance=ExtResource("5_11rss")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.85791, -1.83311, -0.360811)
