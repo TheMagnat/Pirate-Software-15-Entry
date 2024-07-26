@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b2t8hp7tumhwg"
+path.s3tc="res://.godot/imported/FeuDeCamp_2.png-daa20f32a8d0e0f18a6b1d20ddea08a6.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "bc2f0d6e871bd3d136dbf4731f8f03c6"
+}
+
+[deps]
+
+source_file="res://Assets/Models/Forest/FeuDeCamp_2.png"
+dest_files=["res://.godot/imported/FeuDeCamp_2.png-daa20f32a8d0e0f18a6b1d20ddea08a6.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Models/Forest/FeuDeCamp_2.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

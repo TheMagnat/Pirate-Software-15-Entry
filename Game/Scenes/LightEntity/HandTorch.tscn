@@ -1,0 +1,106 @@
+[gd_scene load_steps=20 format=3 uid="uid://cufqj1pkxlprd"]
+
+[ext_resource type="Script" path="res://Scenes/LightEntity/flickering_flame.gd" id="1_fggfc"]
+[ext_resource type="Shader" path="res://Scenes/LightEntity/FireSmoke.gdshader" id="2_fcd55"]
+[ext_resource type="PackedScene" uid="uid://cnqnsmn2njyo3" path="res://Scenes/Mesh/Forest/Torche.tscn" id="3_b2d53"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4luqg"]
+frequency = 0.1957
+
+[sub_resource type="Gradient" id="Gradient_04r7j"]
+offsets = PackedFloat32Array(0.236066, 0.832787)
+colors = PackedColorArray(0.259294, 0.259294, 0.259294, 1, 0.77084, 0.770839, 0.770839, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_282ym"]
+frequency = 0.0162
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6p4jl"]
+color_ramp = SubResource("Gradient_04r7j")
+noise = SubResource("FastNoiseLite_282ym")
+
+[sub_resource type="Gradient" id="Gradient_4wy7x"]
+offsets = PackedFloat32Array(0.27541, 0.790164)
+colors = PackedColorArray(0.28485, 0.28485, 0.28485, 1, 0.775063, 0.775063, 0.775063, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2xd4f"]
+frequency = 0.0077
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i0vbs"]
+seamless = true
+color_ramp = SubResource("Gradient_4wy7x")
+noise = SubResource("FastNoiseLite_2xd4f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0rsn"]
+render_priority = 0
+shader = ExtResource("2_fcd55")
+shader_parameter/alpha = 0.63
+shader_parameter/baseColor = Color(0.645385, 0.000935902, 0.000513699, 1)
+shader_parameter/emissionColor = Color(1, 0.819608, 0, 1)
+shader_parameter/emissionStr = 2.0
+shader_parameter/displacementStr = 0.25
+shader_parameter/displacementMap = SubResource("NoiseTexture2D_i0vbs")
+shader_parameter/alphaMask = SubResource("NoiseTexture2D_6p4jl")
+
+[sub_resource type="Curve" id="Curve_b6et4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_coqe8"]
+curve = SubResource("Curve_b6et4")
+
+[sub_resource type="Curve" id="Curve_llc6r"]
+_data = [Vector2(0.0104167, 0.641784), 0.0, 0.0, 0, 0, Vector2(0.450521, 0.863226), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.0004, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u4moe"]
+curve = SubResource("Curve_llc6r")
+
+[sub_resource type="Curve" id="Curve_5m5li"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gxfpy"]
+curve = SubResource("Curve_5m5li")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1mv7k"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.2
+gravity = Vector3(0, 0.5, 0)
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 0.25
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_u4moe")
+alpha_curve = SubResource("CurveTexture_coqe8")
+turbulence_enabled = true
+turbulence_influence_over_life = SubResource("CurveTexture_gxfpy")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ius1e"]
+
+[node name="HandTorch" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.234, 0)
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 1.83296
+shadow_bias = 0.2
+shadow_normal_bias = 1.5
+script = ExtResource("1_fggfc")
+noise = SubResource("FastNoiseLite_4luqg")
+max_energy = 5.0
+min_energy = 1.0
+
+[node name="Torche" parent="." instance=ExtResource("3_b2d53")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -8.43406e-06, -0.0483329)
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.841, 0)
+material_override = SubResource("ShaderMaterial_b0rsn")
+amount = 16
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_1mv7k")
+draw_pass_1 = SubResource("SphereMesh_ius1e")

@@ -48,16 +48,17 @@ func _ready():
 var lastLightLevel: float = 0.0
 func getLightLevel() -> float:
 	var img: Image = topViewport.get_texture().get_image()
-	var sum: float = 0
 	var height: int = img.get_height()
 	var width: int = img.get_width()
+	var maxl: float = 0.0
 	for y in height:
 		for x in width:
 			var p = img.get_pixel(x, y)
 			var l = 0.2126 * p.r + 0.7152 * p.g + 0.0722 * p.b
-			sum += l
+			if l > maxl:
+				maxl = l
 	
-	return sum / (width * height)
+	return maxl
 
 var actionPossible: bool = false
 func setActionPossible(isPossible: bool):

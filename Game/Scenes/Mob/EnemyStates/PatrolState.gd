@@ -50,6 +50,7 @@ func onPhysicProcess(delta: float):
 	# Verify if we reached our target
 	if parent.global_position.distance_to(currentTargetPosition) <= minTargetDist:
 		currentTarget = (currentTarget+1) % checkpoints.size()
+		print(currentTarget)
 		get_parent().transitionTo("Idle")
 	
 func enter():

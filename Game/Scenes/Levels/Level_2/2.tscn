@@ -1,13 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://cl4br0sqn70wh"]
+[gd_scene load_steps=24 format=3 uid="uid://cl4br0sqn70wh"]
 
-[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="1_ayfy8"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
+[ext_resource type="PackedScene" uid="uid://vjbahhayd10k" path="res://Scenes/Environement/world_environment.tscn" id="2_5yddy"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="3_1gy3l"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="4_cjn57"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="5_6opc3"]
 [ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="6_b7y0l"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="6_fsslc"]
+[ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="8_hgw21"]
+[ext_resource type="PackedScene" uid="uid://bs7y1omtsrwac" path="res://Scenes/LightEntity/campfire.tscn" id="9_tcpmy"]
+[ext_resource type="PackedScene" uid="uid://ct72hstsh84vk" path="res://Scenes/LightEntity/StaticLamp.tscn" id="9_ukmlr"]
+[ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="10_t10m5"]
+[ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="11_oe1wc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_u7mij"]
 
@@ -43,26 +48,21 @@ subdivide_depth = 10
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3gh3k"]
 points = PackedVector3Array(-6, -0.2, -2.5, -6, -0.2, 2.49951, 0, 0.2, -2.5, 6, -0.2, -2.5, 6, -0.2, 2.49951, 0, 0.2, 2.49951)
 
-[sub_resource type="BoxMesh" id="BoxMesh_j7i6b"]
-size = Vector3(20, 10, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_std8i"]
-size = Vector3(1, 10, 30)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onw2g"]
+radius = 2.369
+height = 17.888
 
 [node name="2" type="Node3D"]
 script = ExtResource("1_nrngv")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_ayfy8")]
-
 [node name="Player" parent="." instance=ExtResource("1_swu07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00363469, -9.53674e-07, 14.2522)
-safePlace = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9268, -9.53674e-07, -45.7723)
 
 [node name="MoonColor" parent="." instance=ExtResource("3_1gy3l")]
 transform = Transform3D(-0.839487, -0.339152, 0.424544, -0.330211, 0.9389, 0.097096, -0.431534, -0.0586781, -0.900186, 0, 0, 0)
 
 [node name="DarkMoonLight" parent="." instance=ExtResource("4_cjn57")]
-transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.45671, -0.475671, 0.339366, -0.811522, 0, 0, 0)
+transform = Transform3D(-0.502517, -0.324828, 0.801226, -0.0752517, 0.939653, 0.333752, -0.861286, 0.107422, -0.496635, 0, 0, 0)
 light_energy = 0.165
 directional_shadow_split_1 = 0.05
 directional_shadow_split_2 = 0.1
@@ -128,16 +128,79 @@ transform = Transform3D(-1.09129e-09, -5.71919e-11, 0.025, -0.0013084, 0.0249657
 [node name="Tour" parent="Geometry" instance=ExtResource("6_b7y0l")]
 transform = Transform3D(-0.0109279, 0, 0.0224851, 0, 0.025, 0, -0.0224851, 0, -0.0109279, -19.434, 0, -0.382)
 
-[node name="OuterWall" type="StaticBody3D" parent="Geometry"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.52194)
+use_collision = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/OuterWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.412, 5, -4.953)
-mesh = SubResource("BoxMesh_j7i6b")
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -31.407)
+size = Vector3(50, 10, 50)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/OuterWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.849, 5, -5)
-mesh = SubResource("BoxMesh_j7i6b")
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75, -31.407)
+operation = 2
+size = Vector3(49, 9.5, 49)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry/OuterWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.644, 5, -19.4686)
-mesh = SubResource("BoxMesh_std8i")
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -6.5338)
+operation = 2
+size = Vector3(4, 5, 2)
+
+[node name="Room1" type="CSGBox3D" parent="Geometry/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6004, 4.75, -14.7132)
+size = Vector3(28.8145, 9.5, 15.678)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/CSGCombiner3D/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0629539, 0, 0.10136)
+operation = 2
+size = Vector3(28.1056, 9.5, 15.6858)
+
+[node name="Garden" type="Node3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2078, -3.8147e-06, 2.73527)
+
+[node name="Mob" parent="Geometry/Garden" node_paths=PackedStringArray("view") instance=ExtResource("8_hgw21")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5234, 3.8147e-06, -25.4068)
+view = NodePath("Area3D")
+checkpoints = PackedVector2Array(-30.6844, -22.6716, -42.6509, -22.6716)
+
+[node name="Area3D" type="Area3D" parent="Geometry/Garden/Mob"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Garden/Mob/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.634283, 1.50726, -9.02546)
+shape = SubResource("CapsuleShape3D_onw2g")
+
+[node name="StaticLamp" parent="Geometry/Garden" instance=ExtResource("9_ukmlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.06428, 3.60079, -58.5185)
+light_energy = 5.30343
+
+[node name="ArbreCarre" parent="Geometry/Garden" instance=ExtResource("10_t10m5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9839, -3.8147e-06, -60.1139)
+
+[node name="Tour" parent="Geometry/Garden" instance=ExtResource("6_b7y0l")]
+transform = Transform3D(0.0420878, 0, 0.0269929, 0, 0.05, 0, -0.0269929, 0, 0.0420878, 3.37531, 0, -44.8917)
+
+[node name="Torch2" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
+transform = Transform3D(7.39526, 0, 18.5825, 0, 20, 0, -18.5825, 0, 7.39526, 108.156, 50, 53.337)
+light_energy = 1.30343
+
+[node name="Torch" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
+transform = Transform3D(-17.1378, 0, 10.31, 0, 20, 0, -10.31, 0, -17.1378, 59.345, 50, -103.795)
+light_energy = 1.30343
+
+[node name="Campfire" parent="Geometry/Garden" instance=ExtResource("9_tcpmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1064, 3, -18.2549)
+light_energy = 4.37929
+min_energy = 4.0
+
+[node name="Mob2" parent="Geometry/Garden" node_paths=PackedStringArray("view") instance=ExtResource("8_hgw21")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.3035, 0, -30.4304)
+view = NodePath("Area3D")
+checkpoints = PackedVector2Array(-42.9043, -27.6951)
+
+[node name="Area3D" type="Area3D" parent="Geometry/Garden/Mob2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Garden/Mob2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.634283, 1.50726, -9.02546)
+shape = SubResource("CapsuleShape3D_onw2g")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_5yddy")]

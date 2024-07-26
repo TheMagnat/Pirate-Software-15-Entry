@@ -10,6 +10,7 @@ func _ready():
 func crafting(s: bool):
 	enter_craft.emit(s)
 	_is_crafting = s
+	$CraftTable.enabled = s
 
 func craft_table_enter(body):
 	if body.is_in_group("Player"):
