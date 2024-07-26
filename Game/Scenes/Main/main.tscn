@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
-[ext_resource type="Script" path="res://Scenes/Main/game_menu.gd" id="2_cec7k"]
+[ext_resource type="Script" path="res://Scenes/UI/game_menu.gd" id="2_cec7k"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_n4fce"]
 [ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_81fdl"]
 [ext_resource type="PackedScene" uid="uid://c4ky7ruq01ylx" path="res://Scenes/Levels/0.tscn" id="6_m04r7"]
