@@ -11,19 +11,39 @@ var last_event_time: float = -1.0
 @onready var node_quad = $Quad
 @onready var node_area = $Quad/Area3D
 
+var materialDone: bool = false
+func readyAfterFirstFrame():
+	var newMaterial := StandardMaterial3D.new()
+	newMaterial.resource_local_to_scene = true
+	newMaterial.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	newMaterial.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	newMaterial.albedo_texture = node_viewport.get_texture()
+	
+	node_quad.set_surface_override_material(0, newMaterial)
+	
+	# If the material is NOT set to use billboard settings, then avoid running billboard specific code
+	#if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
+		#set_process(false)
+	
+	RenderingServer.frame_post_draw.disconnect(readyAfterFirstFrame)
+	materialDone = true
+	
 func _ready():
+	RenderingServer.frame_post_draw.connect(readyAfterFirstFrame)
+	
 	node_area.mouse_entered.connect(_mouse_entered_area)
 	node_area.mouse_exited.connect(_mouse_exited_area)
 	node_area.input_event.connect(_mouse_input_event)
 
-	# If the material is NOT set to use billboard settings, then avoid running billboard specific code
-	if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
-		set_process(false)
+	## If the material is NOT set to use billboard settings, then avoid running billboard specific code
+	#if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
+		#set_process(false)
 
 
 func _process(_delta):
 	# NOTE: Remove this function if you don't plan on using billboard settings.
-	rotate_area_to_billboard()
+	#if materialDone: rotate_area_to_billboard()
+	pass
 
 
 func _mouse_entered_area():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmkfmv8i8bk06"]
+[gd_scene load_steps=10 format=3 uid="uid://cmkfmv8i8bk06"]
 
 [ext_resource type="Script" path="res://Scenes/UI/craft_table_interaction.gd" id="1_842uj"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_rbhua"]
@@ -13,28 +13,11 @@ size = Vector3(1.7, 2, 1.1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_xmrvd"]
 size = Vector2(0.8, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_acpsf"]
-viewport_path = NodePath("LeftPage/SubViewPort")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krfu8"]
-resource_local_to_scene = true
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_acpsf")
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_totlh"]
 points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ahefp"]
 size = Vector2(0.8, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_itlqo"]
-viewport_path = NodePath("RightPage/SubViewPort")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jll2m"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_itlqo")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxj2s"]
 points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
@@ -66,7 +49,6 @@ size = Vector2i(346, 432)
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, -0.4, 0, 0)
 mesh = SubResource("PlaneMesh_xmrvd")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_krfu8")
 
 [node name="Area3D" type="Area3D" parent="LeftPage/Quad"]
 
@@ -85,7 +67,6 @@ size = Vector2i(346, 432)
 transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0.4, 0, 0)
 mesh = SubResource("PlaneMesh_ahefp")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_jll2m")
 
 [node name="Area3D" type="Area3D" parent="RightPage/Quad"]
 

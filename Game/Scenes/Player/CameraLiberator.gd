@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var player: Player
+var activated: bool = true
 
 func findFirstMeshInstance(node: Node) -> Node:
 	# Check if the current node is MeshInstance3D
@@ -17,7 +18,11 @@ func findFirstMeshInstance(node: Node) -> Node:
 	return null
 
 var last_obstructing_objects = []
-func _physics_process(delta):
+func _physics_process(_delta):
+	if not activated: return
+	
+	if Engine.get_physics_frames() % 10 != 0:
+		return
 	
 	var currentCamera: Camera3D = get_viewport().get_camera_3d()
 	if not currentCamera:

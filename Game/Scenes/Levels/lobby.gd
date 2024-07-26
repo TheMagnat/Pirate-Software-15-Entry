@@ -11,10 +11,16 @@ func _ready():
 
 var cam_tween : Tween
 func enter_craft(b: bool):
+	
 	if cam_tween: cam_tween.kill()
 	cam_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
 	cam_tween.tween_property($CameraInside, "position", Vector3(-8.2, 0.9, 6.1) if b else Vector3(9, 7, 8), 0.5)
 	cam_tween.tween_property($CameraInside, "rotation", Vector3(-PI/2, PI/2, 0) if b else Vector3(-PI/6, PI/4.5, 0), 0.5)
+
+	if b:
+		$Player/CameraLiberator.activated = false
+	else:
+		cam_tween.tween_callback(func(): $Player/CameraLiberator.activated = true)
 
 var CAMERA_OFFSET := 5.0
 func _process(_delta):
