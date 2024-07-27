@@ -77,9 +77,12 @@ func setActionPossible(isPossible: bool):
 	actionPossible = isPossible
 	shaderHandler.setGrowingValue("actionState", int(isPossible))
 
-func dying():
+func dying(instant: bool = false):
 	isDead = true
-	get_tree().create_timer(DEATH_ANIMATION_DELAY).timeout.connect(func(): killed.emit())
+	if instant:
+		killed.emit()
+	else:
+		get_tree().create_timer(DEATH_ANIMATION_DELAY).timeout.connect(func(): killed.emit())
 
 func canBeSeen():
 	return spottedValue > lightTreshold
@@ -329,3 +332,6 @@ func _input(event):
 		camera_up(true)
 	if event.is_action_pressed("cam_down"):
 		camera_up(false)
+
+func _on_world_edge_2_body_entered(body):
+	dying(true)

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjw4ja0h7ugvj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_twbkr"]
+size = Vector3(42, 10, 1)
+subdivide_width = 1
+subdivide_height = 1
+subdivide_depth = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_2oy7j"]
+size = Vector3(8, 6, 1)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 5, -62)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_twbkr")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+operation = 2
+mesh = SubResource("BoxMesh_2oy7j")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+operation = 2
+mesh = SubResource("BoxMesh_2oy7j")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+operation = 2
+mesh = SubResource("BoxMesh_2oy7j")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+operation = 2
+mesh = SubResource("BoxMesh_2oy7j")
