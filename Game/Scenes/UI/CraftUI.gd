@@ -61,6 +61,7 @@ func updateResources():
 func _on_craft_pressed():
 	for resource in Resources:
 		if Save.resources[resource] < Resources[resource]:
+			$Panel/NotEnough/AnimationPlayer.play("warning")
 			return
 	
 	craft_pressed.emit(RecipeIndex)
