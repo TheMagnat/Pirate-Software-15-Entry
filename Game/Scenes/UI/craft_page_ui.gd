@@ -40,12 +40,6 @@ func _ready():
 		#set_process(false)
 
 
-func _process(_delta):
-	# NOTE: Remove this function if you don't plan on using billboard settings.
-	#if materialDone: rotate_area_to_billboard()
-	pass
-
-
 func _mouse_entered_area():
 	is_mouse_inside = true
 

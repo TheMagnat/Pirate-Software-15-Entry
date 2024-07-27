@@ -67,6 +67,7 @@ func _ready():
 func turn_page(direction: int):
 	var target = currentPage + (2 * direction)
 	if(target >=0 && target < recipes.size()):
+		$PageTurn.play()
 		currentPage = target
 		rightScene.queue_free()
 		leftScene.queue_free()

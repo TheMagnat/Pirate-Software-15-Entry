@@ -26,7 +26,7 @@ func _ready():
 	
 	$"Panel/VBoxContainer/Label".text = RecipeLabel
 	for key in Resources:
-		var resourceContainer = HBoxContainer.new()
+		var resourceContainer := HBoxContainer.new()
 		resourceContainer.anchors_preset = PRESET_TOP_WIDE
 		make_label("Resource", key, HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
 		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
@@ -49,8 +49,6 @@ func _on_craft_pressed():
 
 func _on_next_page_pressed():
 	turn_page.emit(1)
-	$PageTurn.play()
 
 func _on_previous_page_pressed():
 	turn_page.emit(-1)
-	$PageTurn.play()

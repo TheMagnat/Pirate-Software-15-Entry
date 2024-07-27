@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmkfmv8i8bk06"]
+[gd_scene load_steps=15 format=3 uid="uid://cmkfmv8i8bk06"]
 
 [ext_resource type="Script" path="res://Scenes/UI/craft_table_interaction.gd" id="1_842uj"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_rbhua"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_table.gd" id="3_57m76"]
+[ext_resource type="AudioStream" uid="uid://dgbrwssopwhl" path="res://Assets/SFX/UI/page_turn1.ogg" id="4_qh07j"]
+[ext_resource type="AudioStream" uid="uid://m7gu1x3q6ya5" path="res://Assets/SFX/UI/page_turn2.ogg" id="5_8br65"]
+[ext_resource type="AudioStream" uid="uid://xhn2advv8ybs" path="res://Assets/SFX/UI/page_turn3.ogg" id="6_y7i7e"]
+[ext_resource type="AudioStream" uid="uid://drf4o4a2256vr" path="res://Assets/SFX/UI/page_turn4.ogg" id="7_gj701"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_15e0w"]
 size = Vector3(2, 2, 2)
@@ -21,6 +25,17 @@ size = Vector2(0.8, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxj2s"]
 points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_skntt"]
+streams_count = 4
+stream_0/stream = ExtResource("4_qh07j")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_8br65")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_y7i7e")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_gj701")
+stream_3/weight = 1.0
 
 [node name="Prototype_Book" type="Node3D"]
 process_mode = 3
@@ -76,3 +91,8 @@ shape = SubResource("ConvexPolygonShape3D_mxj2s")
 
 [node name="CraftTable" type="Node" parent="."]
 script = ExtResource("3_57m76")
+
+[node name="PageTurn" type="AudioStreamPlayer" parent="CraftTable"]
+stream = SubResource("AudioStreamRandomizer_skntt")
+volume_db = -5.0
+pitch_scale = 1.5
