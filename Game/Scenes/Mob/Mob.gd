@@ -29,6 +29,9 @@ var suspicious: float = 0.0
 @export var startStargetPositionIndex: int = 0
 @export var neverIdle: bool = false
 @export var useDedicatedDirection: bool = false
+
+@export_subgroup("Suspicious configuration")
+@export var suspiciousDuration: float = 5.0
 ### End state machine param part ###
 
 # Death handling
@@ -110,6 +113,9 @@ func _ready():
 	$StateMachine/Patrol.neverIdle = neverIdle
 	$StateMachine/Patrol.useDedicatedDirection = useDedicatedDirection
 	if useDedicatedDirection: $StateMachine/Patrol.dedicatedDirection = dedicatedDirection
+	
+	# Configure Suspicious
+	$StateMachine/Suspicious.timeForTransition = suspiciousDuration
 	
 	# Initialize state machine when every state are setuped
 	$StateMachine.initialize()
