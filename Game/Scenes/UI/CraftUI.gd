@@ -1,10 +1,11 @@
 extends Control
 
-var RecipeIndex : int
-var RecipeLabel: String
-var Description: String
-var Resources: Dictionary
-var Artefacts: Array
+var index : int
+var label: String
+var texture: Texture2D
+var description: String
+var resources: Dictionary
+var artefacts: Array
 
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
@@ -33,33 +34,39 @@ const findsomethingtext := [
 func _ready():
 	$Panel/Craft.pressed.connect(_on_craft_pressed)
 	
+	$Panel/VBoxContainer/Sprite2D.texture = texture
+	print(texture)
+	if texture != null:
+		$Panel/VBoxContainer/Sprite2D.scale = Vector2(128.0, 128.0) / texture.get_height()
+	
+	$Panel/VBoxContainer/Description.material = $Panel/VBoxContainer/Description.material.duplicate()
 	$Panel/VBoxContainer/Description.mouse_entered.connect(show_description.bind(true))
 	$Panel/VBoxContainer/Description.mouse_exited.connect(show_description.bind(false))
-	$Panel/VBoxContainer/Description.text = Description
+	$Panel/VBoxContainer/Description.text = description
 	$Panel/VBoxContainer/Description.modulate.a = 0.0
 	
-	$"Panel/VBoxContainer/Label".text = RecipeLabel
-	for key in Resources:
+	$"Panel/VBoxContainer/Label".text = label
+	for key in resources:
 		var resourceContainer := HBoxContainer.new()
 		resourceContainer.anchors_preset = PRESET_TOP_WIDE
 		make_label("Resource", key, HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
 		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
-		make_label("Count", "/ " + str(Resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
+		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		$Panel/VBoxContainer.add_child(resourceContainer)
 		_displayedResources[key] = inventoryCountLabel
 	
-	$Panel/Level.visible = Save.unlockable[RecipeIndex] != 0
-	$Panel/Level.text = "Level " + str(Save.unlockable[RecipeIndex])
+	$Panel/Level.visible = Save.unlockable[index] != 0
+	$Panel/Level.text = "Level " + str(Save.unlockable[index])
 	
 	$Panel/FindSomething.visible = false
-	for artefact in Artefacts:
+	for artefact in artefacts:
 		if Save.resources[artefact] < 1:
 			$Panel/Craft.queue_free()
 			$Panel/FindSomething.visible = true
-			$Panel/FindSomething.text = findsomethingtext[RecipeIndex - 2]
+			$Panel/FindSomething.text = findsomethingtext[index - 2]
 			break
 	
-	if(RecipeIndex % 2 == 0):
+	if(index % 2 == 0):
 		$Panel/NextPage.queue_free()
 	else:
 		$Panel/PreviousPage.queue_free()
@@ -69,14 +76,14 @@ func updateResources():
 		_displayedResources[key].text = str(Save.resources[key])
 
 func _on_craft_pressed():
-	for resource in Resources:
-		if Save.resources[resource] < Resources[resource]:
+	for resource in resources:
+		if Save.resources[resource] < resources[resource]:
 			$Panel/NotEnough/AnimationPlayer.play("warning")
 			return
 	
 	$Panel/Level.visible = true
-	$Panel/Level.text = "Level " + str(Save.unlockable[RecipeIndex] + 1)
-	craft_pressed.emit(RecipeIndex)
+	$Panel/Level.text = "Level " + str(Save.unlockable[index] + 1)
+	craft_pressed.emit(index)
 	$Brew.play()
 
 var desc_tween: Tween

@@ -6,18 +6,19 @@ var leftScene: Control
 var rightScene: Control
 var currentPage = 0
 
-func gen_recipe(n: String, description: String, ingredients: Dictionary, artefacts: Array):
+func gen_recipe(n: String, texture: String, description: String, ingredients: Dictionary, artefacts: Array):
 	return {"displayName": n,
+			"texture": load(texture) if ResourceLoader.exists(texture) else null,
 			"description": description,
 			"ingredients": ingredients,
 			"artefacts": artefacts}
 
 var recipes := [
-	gen_recipe("Cat Walk", "Faster, but silent still", { "plants": 3, "copper": 3 }, []),
-	gen_recipe("Hardened Mixture", "Light shall burn less for life shall more be", { "plants": 2, "copper": 2, "gold": 2 }, []),
-	gen_recipe("Potion of disturbance", "When glass breaks, they will notice", { "plants": 4, "copper": 1, "gold": 1, }, ["artefact1"]),
-	gen_recipe("Ivy Wall", "From the ground, nature will raise", { "plants": 3, "copper": 2, "ruby": 2, }, ["artefact2"]),
-	gen_recipe("Shade Cloak", "I am nothing but shadow in the light", { "plants": 1, "copper": 1, "gold": 2, "ruby": 2, }, ["artefact3"])
+	gen_recipe("Cat Walk", "", "Faster, but silent still", { "plants": 3, "copper": 3 }, []),
+	gen_recipe("Hardened Mixture", "",  "Light shall burn less for life shall more be", { "plants": 2, "copper": 2, "gold": 2 }, []),
+	gen_recipe("Potion of disturbance", "res://Assets/Textures/potion.png",  "Glass breaks, eyes look", { "plants": 4, "copper": 1, "gold": 1, }, ["artefact1"]),
+	gen_recipe("Ivy Wall", "",  "From the ground, nature will raise", { "plants": 3, "copper": 2, "ruby": 2, }, ["artefact2"]),
+	gen_recipe("Shade Cloak", "",  "I am nothing but shadow in the light", { "plants": 1, "copper": 1, "gold": 2, "ruby": 2, }, ["artefact3"])
 ]
 
 signal craft_success
@@ -63,11 +64,13 @@ func _create_page(recipe, recipeIndex: int):
 	else:
 		sceneInstance = ui_scene.instantiate()
 		sceneInstance.name = "CraftUI"
-		sceneInstance.RecipeIndex = recipeIndex
-		sceneInstance.RecipeLabel = recipe.displayName
-		sceneInstance.Description = recipe.description
-		sceneInstance.Resources = recipe.ingredients
-		sceneInstance.Artefacts = recipe.artefacts
+		sceneInstance.index = recipeIndex
+		sceneInstance.label = recipe.displayName
+		sceneInstance.texture = recipe.texture
+		print(recipe.texture)
+		sceneInstance.description = recipe.description
+		sceneInstance.resources = recipe.ingredients
+		sceneInstance.artefacts = recipe.artefacts
 		sceneInstance.craft_pressed.connect(try_craft)
 		sceneInstance.turn_page.connect(turn_page)
 		craft_success.connect(sceneInstance.updateResources)
