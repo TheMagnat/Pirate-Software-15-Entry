@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cy01rqi4vv31d"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 5, 0)
+size = Vector3(29, 10, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 0)
+operation = 2
+size = Vector3(4, 6, 1)
