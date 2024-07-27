@@ -1,20 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3aoyco28g2co"]
+[gd_scene load_steps=20 format=3 uid="uid://b3aoyco28g2co"]
 
 [ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_45yes"]
 [ext_resource type="AudioStream" uid="uid://clvwjd1q5q7bq" path="res://Assets/SFX/misc/bottle_fill1.ogg" id="3_1fe31"]
 [ext_resource type="FontFile" uid="uid://c285m2lypsss1" path="res://Assets/Fonts/Lemon Tuesday.otf" id="3_e50dp"]
 [ext_resource type="AudioStream" uid="uid://bs538bytbae82" path="res://Assets/SFX/misc/bottle_fill2.ogg" id="4_siyph"]
+[ext_resource type="LabelSettings" uid="uid://cqub7j446ve4b" path="res://Ressources/LabelSettings.tres" id="5_k342e"]
 [ext_resource type="Texture2D" uid="uid://dgjxgfsamarva" path="res://Assets/Textures/page.png" id="9_vbmge"]
 
-[sub_resource type="Gradient" id="Gradient_ajgmc"]
-offsets = PackedFloat32Array(0, 0.207792, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.227273, 0.227273, 0.227273, 1, 1, 1, 1, 1)
+[sub_resource type="Shader" id="Shader_kmwbv"]
+code = "shader_type canvas_item;
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cc6te"]
-gradient = SubResource("Gradient_ajgmc")
-width = 250
-height = 130
+uniform float displacement;
+
+void vertex() {
+	VERTEX.y += cos(VERTEX.x + TIME) * displacement;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1q2d"]
+shader = SubResource("Shader_kmwbv")
+shader_parameter/displacement = 100.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ca0us"]
 font = ExtResource("3_e50dp")
@@ -125,15 +131,32 @@ grow_horizontal = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="Description" type="Label" parent="Panel/VBoxContainer"]
+material = SubResource("ShaderMaterial_c1q2d")
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_cc6te")
+mouse_filter = 0
+label_settings = ExtResource("5_k342e")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/Description"]
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "test"
 label_settings = SubResource("LabelSettings_ca0us")
 horizontal_alignment = 1
+
+[node name="Level" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 184.0
+offset_right = 335.0
+offset_bottom = 212.0
+text = "Level 0"
+label_settings = ExtResource("5_k342e")
 
 [node name="Craft" parent="Panel" instance=ExtResource("2_45yes")]
 layout_mode = 0

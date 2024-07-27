@@ -10,13 +10,13 @@ const RESOURCES := {
 	"artefact3": 0,
 }
 
-const UNLOCKABLES := {
-	0: 0,
-	1: 0,
-	2: 0,
-	3: 0,
-	4: 0,
-}
+const UNLOCKABLES := [
+	0, #cat walk
+	0, #hardened mixture
+	0, #potion of disturbance
+	0, #ivy wall
+	0 #shade cloak
+]
 
 const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0] ]
 
@@ -24,7 +24,7 @@ const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0] ]
 const SAVE_FILE := "user://save.dat"
 
 var resources := {}
-var unlockable := {}
+var unlockable := []
 var levels := []
 
 var enable_save := false
@@ -44,19 +44,27 @@ func get_var(file: FileAccess, default):
 		return default.duplicate()
 	return v
 
-func _add_missing(dict: Dictionary, basis: Dictionary):
+func _add_missing_dict(dict: Dictionary, basis: Dictionary):
 	for key in basis.keys():
 		if !(key in dict):
 			dict[key] = basis[key]
 
+func _add_missing_arr(arr: Array, basis: Array):
+	if arr.size() < basis.size():
+		for i in basis.size() - arr.size():
+			arr.append(basis[arr.size() + i ])
+	elif arr.size() > basis.size():
+		for i in arr.size() - basis.size():
+			arr.pop_back()
 
 func _save_set_data(file: FileAccess):
 	resources = get_var(file, RESOURCES.duplicate())
 	unlockable = get_var(file, UNLOCKABLES.duplicate())
 	levels = get_var(file, LEVELS.duplicate())
 	
-	_add_missing(resources, RESOURCES)
-	_add_missing(unlockable, UNLOCKABLES)
+	_add_missing_dict(resources, RESOURCES)
+	_add_missing_arr(unlockable, UNLOCKABLES)
+	_add_missing_arr(levels, LEVELS)
 	
 	if typeof(LEVELS[0]) != typeof(levels[0]):
 		levels = LEVELS.duplicate()
