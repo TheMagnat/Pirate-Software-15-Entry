@@ -4,6 +4,9 @@ extends StateNode
 
 
 @export var checkpoints: PackedVector2Array
+@export var useDedicatedDirection: bool = false
+@export var dedicatedDirection: PackedVector2Array
+
 var currentTarget: int = 0
 
 var rotationSpeed: float = 2
@@ -11,6 +14,9 @@ var rotationSpeed: float = 2
 @export var parent: CharacterBody3D
 
 @export var nav: NavigationAgent3D
+
+# Parameters
+@export var neverIdle: bool = false
 
 var speed = 4
 var accel = 5
@@ -41,17 +47,21 @@ func onPhysicProcess(delta: float):
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	var new_transform = parent.transform.looking_at(parent.global_position + direction, Vector3.UP)
-	parent.transform  = parent.transform.interpolate_with(new_transform, rotationSpeed * delta)
+	var new_transform = parent.global_transform.looking_at(parent.global_position + direction, Vector3.UP)
+	parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
 
 	parent.velocity = parent.velocity.lerp(direction * speed, accel * delta)
 	parent.move_and_slide()
 	
 	# Verify if we reached our target
 	if parent.global_position.distance_to(currentTargetPosition) <= minTargetDist:
+		if not neverIdle:
+			if useDedicatedDirection:
+				get_parent().get_node("Idle").keepOriginalDirection = true
+				get_parent().get_node("Idle").originalDirection = dedicatedDirection[currentTarget]
+			get_parent().transitionTo("Idle")
+		
 		currentTarget = (currentTarget+1) % checkpoints.size()
-		print(currentTarget)
-		get_parent().transitionTo("Idle")
 	
 func enter():
 	var nearestPoint: int = findNearestPoint()

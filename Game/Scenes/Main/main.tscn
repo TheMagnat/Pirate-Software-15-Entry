@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=12 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="6_ydcmf"]
 [ext_resource type="PackedScene" uid="uid://bbyatiyy23ddj" path="res://Scenes/Levels/1.tscn" id="7_qqo4p"]
 [ext_resource type="PackedScene" uid="uid://dv2gvj21gwufs" path="res://Scenes/Levels/lobby.tscn" id="8_xheip"]
+[ext_resource type="PackedScene" uid="uid://cl4br0sqn70wh" path="res://Scenes/Levels/Level_2/2.tscn" id="10_fr541"]
 
 [sub_resource type="Resource" id="Resource_sujj7"]
 script = ExtResource("3_81fdl")
@@ -133,4 +134,4 @@ layout_mode = 2
 text = "Back"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [PackedStringArray("-1", "0", "1"), [ExtResource("8_xheip"), ExtResource("6_m04r7"), ExtResource("7_qqo4p")]]
+resources = [PackedStringArray("-1", "0", "1", "2"), [ExtResource("8_xheip"), ExtResource("6_m04r7"), ExtResource("7_qqo4p"), ExtResource("10_fr541")]]

@@ -37,8 +37,8 @@ func onPhysicProcess(delta: float):
 		
 		currentDirection = Vector3(new2dDirection.x, 0.0, new2dDirection.y)
 		
-	var new_transform = parent.transform.looking_at(parent.global_position + currentDirection, Vector3.UP)
-	parent.transform  = parent.transform.interpolate_with(new_transform, rotationSpeed * delta)
+	var new_transform = parent.global_transform.looking_at(parent.global_position + currentDirection, Vector3.UP)
+	parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
 	
 	parent.velocity = parent.velocity.lerp(Vector3.ZERO, decelerationSpeed * delta)
 	parent.move_and_slide()

@@ -13,16 +13,24 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var suspicious: float = 0.0
 @export var limitSuspiciousLevel: float = 10.0
 
-# State machine part
+### State machine param part ###
 @export_category("StateMachine")
+
 @export_subgroup("States transition")
 @export_enum("Idle", "Turret", "WalkTo") var firstState: String = "Idle"
 @export_enum("Patrol", "Turret") var idleTransitionState: String = "Patrol"
 @export_enum("Patrol", "Turret", "WalkTo") var suspiciousTransitionState: String = "Patrol"
 @export_enum("Turret", "Idle") var walkToTransitionState: String = "Turret"
-@export_subgroup("idle configuration")
+
+@export_subgroup("Idle configuration")
 @export var idleDuration: float = 5.0
 @export var keepOriginalDirection: bool = false
+
+@export_subgroup("Patrol configuration")
+@export var startStargetPositionIndex: int = 0
+@export var neverIdle: bool = false
+@export var useDedicatedDirection: bool = false
+### End state machine param part ###
 
 # Death handling
 const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
@@ -42,6 +50,21 @@ const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
 		global_position.x = checkpoints[value].x
 		global_position.z = checkpoints[value].y
 		toPosition = value
+@export var dedicatedDirection: PackedVector2Array
+@export var addDedicatedDirection: bool:
+	set(value):
+		if not Engine.is_editor_hint() or not is_inside_tree(): return
+		var currentDir := -global_transform.basis.z
+		dedicatedDirection.push_back(Vector2(currentDir.x, currentDir.z))
+		walkToPosition = Vector2(global_position.x, global_position.z)
+@export var toDedicatedDirection: int:
+	set(value):
+		if not Engine.is_editor_hint() or not is_inside_tree(): return
+		if value < 0 or value >= dedicatedDirection.size(): return
+		var targetDirection := dedicatedDirection[value]
+		var targetDirection3d := Vector3(targetDirection.x, 0.0, targetDirection.y)
+		global_transform = global_transform.looking_at(global_position + targetDirection3d, Vector3.UP)
+		toDedicatedDirection = value
 @export_subgroup("Turret")
 @export var directions: PackedVector2Array
 @export var walkToPosition: Vector2
@@ -57,11 +80,10 @@ const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
 @export var toDirection: int:
 	set(value):
 		if not Engine.is_editor_hint() or not is_inside_tree(): return
-		print("Value: ", value)
 		if value < 0 or value >= directions.size(): return
 		var targetDirection := directions[value]
 		var targetDirection3d := Vector3(targetDirection.x, 0.0, targetDirection.y)
-		transform = transform.looking_at(global_position + targetDirection3d, Vector3.UP)
+		global_transform = global_transform.looking_at(global_position + targetDirection3d, Vector3.UP)
 		toDirection = value
 ### End debug section ###
 
@@ -70,7 +92,7 @@ func _ready():
 	if Engine.is_editor_hint(): return
 	
 	# Handle State Machine
-	$StateMachine.transitionTo(firstState)
+	$StateMachine.setInitialNode(firstState)
 	$StateMachine/Idle.transitionState = idleTransitionState
 	$StateMachine/Suspicious.transitionState = suspiciousTransitionState
 	$StateMachine/WalkTo.transitionState = walkToTransitionState
@@ -82,6 +104,16 @@ func _ready():
 	# Configure Idle
 	$StateMachine/Idle.setTimeForTransition(idleDuration)
 	$StateMachine/Idle.keepOriginalDirection = keepOriginalDirection
+	
+	# Configure Patrol
+	$StateMachine/Patrol.currentTarget = startStargetPositionIndex
+	$StateMachine/Patrol.neverIdle = neverIdle
+	$StateMachine/Patrol.useDedicatedDirection = useDedicatedDirection
+	if useDedicatedDirection: $StateMachine/Patrol.dedicatedDirection = dedicatedDirection
+	
+	# Initialize state machine when every state are setuped
+	$StateMachine.initialize()
+	
 	# Configure View
 	view.collision_mask = 0b010
 	
@@ -171,7 +203,7 @@ func _process(_delta):
 
 func backstabbed(backstabber: Player):
 	var rigidMobInstance = RIGID_MOB.instantiate()
-	rigidMobInstance.transform = transform
+	rigidMobInstance.global_transform = global_transform
 	rigidMobInstance.apply_central_impulse(backstabber.global_position.direction_to(global_position) * 5.0)
 	add_sibling(rigidMobInstance)
 	queue_free()

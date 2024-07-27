@@ -84,22 +84,24 @@ turbulence_influence_over_life = SubResource("CurveTexture_gxfpy")
 [sub_resource type="SphereMesh" id="SphereMesh_ius1e"]
 
 [node name="Torch" type="OmniLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9728, 0.22982)
+rotation_edit_mode = 2
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 1.04661
-shadow_bias = 0.2
-shadow_normal_bias = 1.5
+light_energy = 2.36121
+shadow_enabled = true
+shadow_bias = 0.3
+shadow_normal_bias = 1.25
 script = ExtResource("3_vq4oa")
 noise = SubResource("FastNoiseLite_4luqg")
 max_energy = 5.0
 min_energy = 1.0
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.870918, 0.242098)
+[node name="TorcheSocle" parent="." instance=ExtResource("1_bjigv")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.919628, -0.215418)
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="TorcheSocle"]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 34.8367, 9.68392)
 material_override = SubResource("ShaderMaterial_b0rsn")
 amount = 16
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_1mv7k")
 draw_pass_1 = SubResource("SphereMesh_ius1e")
-
-[node name="TorcheSocle" parent="." instance=ExtResource("1_bjigv")]

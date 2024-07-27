@@ -76,7 +76,7 @@ contained_resources = {
 nbEnemies = 6
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7723, 6.07967e-06, 11.2649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6853, 6.07967e-06, 10.884)
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
@@ -87,6 +87,10 @@ view = NodePath("Area3D")
 firstState = "Turret"
 idleTransitionState = "Turret"
 suspiciousTransitionState = "WalkTo"
+startStargetPositionIndex = null
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 directions = PackedVector2Array(-0.191391, 0.981514, 0.674431, -0.738338)
 walkToPosition = Vector2(1.10413, -28.3639)
 
@@ -115,7 +119,11 @@ shape = SubResource("CylinderShape3D_sp5l8")
 transform = Transform3D(-0.997289, 0, -0.0735862, 0, 1, 0, 0.0735862, 0, -0.997289, 11.6675, 2.38419e-06, -38.3074)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
+startStargetPositionIndex = null
 checkpoints = PackedVector2Array(20.1025, -98.1095, -0.46102, -76.884, 25.278, -61.5906, 39.8524, -76.69)
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 walkToPosition = Vector2(19.2027, -96.6034)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/Mob2"]
@@ -142,7 +150,11 @@ shape = SubResource("CylinderShape3D_sp5l8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, 0, -96.6034)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
+startStargetPositionIndex = null
 checkpoints = PackedVector2Array(20.1025, -98.1095, -0.46102, -76.884, 25.278, -61.5906, 39.8524, -76.69)
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 walkToPosition = Vector2(19.2027, -96.6034)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/Mob3"]
@@ -174,6 +186,10 @@ suspiciousTransitionState = "WalkTo"
 walkToTransitionState = "Idle"
 idleDuration = 0.0
 keepOriginalDirection = true
+startStargetPositionIndex = null
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 walkToPosition = Vector2(-3.75636, -40.7741)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/MobStanding"]
@@ -203,6 +219,10 @@ suspiciousTransitionState = "WalkTo"
 walkToTransitionState = "Idle"
 idleDuration = 0.0
 keepOriginalDirection = true
+startStargetPositionIndex = null
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 walkToPosition = Vector2(14.8585, -138.947)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/MobStanding2"]
@@ -233,6 +253,10 @@ suspiciousTransitionState = "WalkTo"
 walkToTransitionState = "Idle"
 idleDuration = 0.0
 keepOriginalDirection = true
+startStargetPositionIndex = null
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 walkToPosition = Vector2(28.8349, -136.295)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/MobStanding3"]
@@ -1772,21 +1796,21 @@ directional_shadow_split_3 = 0.25
 directional_shadow_max_distance = 200.0
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -4.02436, 1.3448, -10.6266)
-light_energy = 2.41151
+transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
+light_energy = 1.33957
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.946193, 0, -0.323604, 0, 1, 0, 0.323604, 0, 0.946193, 1.40243, 1.3448, -8.61548)
-light_energy = 2.41151
+transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
+light_energy = 1.33957
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.7374, 2.08569, -43.1371)
-light_energy = 2.41151
+transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
+light_energy = 1.33957
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -1.83372e-09, -0.175556, 26.9167, 1.49712, -126.892)
-light_energy = 2.41151
+transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
+light_energy = 1.33957
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, 0, 0.0620763, 12.3763, 1.62484, -129.704)
-light_energy = 2.41151
+transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
+light_energy = 1.33957

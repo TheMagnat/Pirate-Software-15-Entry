@@ -25,8 +25,8 @@ func onPhysicProcess(delta: float):
 	var targetDirection := directions[currentDirrection]
 	var targetDirection3d := Vector3(targetDirection.x, 0.0, targetDirection.y)
 	
-	var new_transform = parent.transform.looking_at(parent.global_position + targetDirection3d, Vector3.UP)
-	parent.transform  = parent.transform.interpolate_with(new_transform, rotationSpeed * delta)
+	var new_transform = parent.global_transform.looking_at(parent.global_position + targetDirection3d, Vector3.UP)
+	parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
 
 	# We're static, so slow the parent if he's moving
 	parent.velocity = parent.velocity.lerp(Vector3.ZERO, decelerationSpeed * delta)

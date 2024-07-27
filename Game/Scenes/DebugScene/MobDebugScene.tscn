@@ -189,7 +189,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7267, 2.04554, -2.32658)
 velocity = Vector3(0, -15130.4, 0)
 view = NodePath("View")
 idleDuration = 0.0
+startStargetPositionIndex = null
 checkpoints = PackedVector2Array(8.42463, -5.13941, 19.2676, -5.13941, 19.2676, 5.4807, 9.5329, 5.4807)
+dedicatedDirection = PackedVector2Array()
+addDedicatedDirection = false
+toDedicatedDirection = 0
 directions = PackedVector2Array(0, -1, 0.697578, 0.716509)
 walkToPosition = Vector2(11.7267, 26.6333)
 

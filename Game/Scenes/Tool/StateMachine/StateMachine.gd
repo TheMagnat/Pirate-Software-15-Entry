@@ -10,7 +10,14 @@ func _ready():
 	for child in get_children():
 		if child is StateNode:
 			stateNodes[child.name] = child
-	
+
+func setInitialNode(initialNodeString: String):
+	var newStateNode = stateNodes.get(initialNodeString)
+	if newStateNode:
+		initialStateNode = newStateNode
+
+# This need to be called when every state are setuped and before the node run (in the parent node ready for example)
+func initialize():
 	if initialStateNode:
 		initialStateNode.enter()
 		currentStateNode = initialStateNode
@@ -30,7 +37,7 @@ func transitionTo(newStateNodeName: String):
 	
 	var newStateNode = stateNodes.get(newStateNodeName)
 	
-	if !newStateNode:
+	if not newStateNode:
 		return
 	
 	if currentStateNode:

@@ -2,6 +2,7 @@ extends Node
 
 ### DEBUG ###
 var inDebug: bool = false
+var debugIndex: int = 2
 ### END DEBUG ###
 
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
@@ -16,7 +17,7 @@ func _ready():
 func load_lobby():
 	# DEBUG
 	if inDebug:
-		load_level(1)
+		load_level(debugIndex)
 	else:
 		load_level(-1)
 	
