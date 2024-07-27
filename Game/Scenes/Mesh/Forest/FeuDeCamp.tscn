@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bmm12tr56v1bc" path="res://Assets/Models/Forest/FeuDeCamp.glb" id="1_b6lai"]
 
 [node name="FeuDeCamp3" instance=ExtResource("1_b6lai")]
+
+[node name="FeuDeCamp2" parent="RootNode/FeuDeCamp" index="0"]
+cast_shadow = 0

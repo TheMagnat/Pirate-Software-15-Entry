@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cswmugqwlg0n"]
+[gd_scene load_steps=21 format=3 uid="uid://cswmugqwlg0n"]
 
 [ext_resource type="PackedScene" uid="uid://bueb4fmi8ug4q" path="res://Scenes/Mesh/Forest/TorcheSocle.tscn" id="1_bjigv"]
 [ext_resource type="Script" path="res://Scenes/LightEntity/flickering_flame.gd" id="3_vq4oa"]
+[ext_resource type="AudioStream" uid="uid://dmebd8nilsr70" path="res://Assets/SFX/fire/fire_burning.ogg" id="4_efb2n"]
 [ext_resource type="Shader" path="res://Scenes/LightEntity/FireSmoke.gdshader" id="8_61rui"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4luqg"]
@@ -86,7 +87,7 @@ turbulence_influence_over_life = SubResource("CurveTexture_gxfpy")
 [node name="Torch" type="OmniLight3D"]
 rotation_edit_mode = 2
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 2.36121
+light_energy = 1.47454
 shadow_enabled = true
 shadow_bias = 0.3
 shadow_normal_bias = 1.25
@@ -105,3 +106,12 @@ amount = 16
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_1mv7k")
 draw_pass_1 = SubResource("SphereMesh_ius1e")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 1.49012e-08)
+stream = ExtResource("4_efb2n")
+volume_db = -15.0
+autoplay = true
+stream_paused = true
+max_distance = 30.0
+attenuation_filter_cutoff_hz = 15000.0

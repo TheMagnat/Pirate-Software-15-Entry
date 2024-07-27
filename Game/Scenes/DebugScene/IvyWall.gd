@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var duration: float = 3.0
+@export var duration: float = 8.0
 
 var goalY: float
 

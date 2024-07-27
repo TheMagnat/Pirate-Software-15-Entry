@@ -3,5 +3,10 @@
 [node name="MoonColor" type="DirectionalLight3D"]
 transform = Transform3D(-0.866025, -0.342274, 0.364484, 0, 0.728969, 0.684547, -0.5, 0.592835, -0.631305, 0, 0, 0)
 light_color = Color(1, 0.917647, 0.67451, 1)
+light_energy = 0.165
 shadow_enabled = true
+directional_shadow_split_1 = 0.05
+directional_shadow_split_2 = 0.1
+directional_shadow_split_3 = 0.25
+directional_shadow_max_distance = 200.0
 sky_mode = 1
