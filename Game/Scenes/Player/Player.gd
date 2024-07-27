@@ -10,9 +10,9 @@ var sneakMultiplier: float = 0.4
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var safePlace: bool = false
-@export var lightTreshold: float = 0.05 # Value from which we consider the player is spotted
+@export var lightTreshold: float = 0.25 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-@export var timeForFullSpot: float = 0.4 # Seconds
+@export var timeForFullSpot: float = 0.8 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
@@ -28,7 +28,6 @@ var animationBlendTime: float = 0.25
 # Parameters
 @onready var waterShaderHandler: WaterShaderHandler = $WaterShaderHandler
 @onready var shaderHandler: ShaderHandler = $ShaderHandler
-@onready var spottedSprite := $AssetsHolder/SpottedSprite
 
 @onready var playerCamera := $CameraHolder/PlayerCamera
 @onready var camera := playerCamera
@@ -50,15 +49,26 @@ func getLightLevel() -> float:
 	var img: Image = topViewport.get_texture().get_image()
 	var height: int = img.get_height()
 	var width: int = img.get_width()
-	var maxl: float = 0.0
+	var maxl_1: float = 0.0
+	var maxl_2: float = 0.0
+	var maxl_3: float = 0.0
 	for y in height:
 		for x in width:
 			var p = img.get_pixel(x, y)
 			var l = 0.2126 * p.r + 0.7152 * p.g + 0.0722 * p.b
-			if l > maxl:
-				maxl = l
-	
-	return maxl
+			if l > maxl_3:
+				if l > maxl_2:
+					if l > maxl_1:
+						maxl_3 = maxl_2
+						maxl_2 = maxl_1
+						maxl_1 = l
+						continue
+					maxl_3 = maxl_2
+					maxl_2 = l
+					continue
+				maxl_3 = l
+				
+	return (maxl_1 + maxl_2 + maxl_3) / 3.0
 
 var actionPossible: bool = false
 func setActionPossible(isPossible: bool):
@@ -75,7 +85,6 @@ func canBeSeen():
 func lightLogic(delta: float):
 	if isDead:
 		deadTime += delta
-		spottedSprite.material_override.set_shader_parameter("deadTime", deadTime)
 		return
 	
 	if Engine.get_physics_frames() % 5 == 0:
@@ -297,7 +306,6 @@ func camera_up(up: bool):
 	cam_up_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
 	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "rotation:x", -PI/2 if up else -PI/12, 0.3)
 	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "position", CAMERA_UP_POS if up else CAMERA_SIDE_POS, 0.3)
-	cam_up_tween.tween_property(spottedSprite, "rotation:x", -PI/2 if up else 0.0, 0.3)
 
 var cam_side_tween : Tween
 var goal_rot_side := 0.0

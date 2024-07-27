@@ -1,8 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=43 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
-[ext_resource type="Shader" path="res://Scenes/Player/Spotted.gdshader" id="4_25lkd"]
 [ext_resource type="Script" path="res://Scenes/Player/CameraLiberator.gd" id="4_bpjyo"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
 [ext_resource type="PackedScene" uid="uid://xjmyvah4ga17" path="res://Scenes/Tool/Shader/ShaderHandler.tscn" id="6_pq1f3"]
@@ -31,20 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://c0nt288qtj0rt" path="res://Assets/SFX/steps/step_metal8.ogg" id="28_0yhj6"]
 [ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="29_8u3k5"]
 [ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="30_ld8dl"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xydlr"]
-render_priority = 0
-shader = ExtResource("4_25lkd")
-shader_parameter/spottedValue = 1.0
-shader_parameter/deadTime = null
-
-[sub_resource type="Gradient" id="Gradient_w6moc"]
-colors = PackedColorArray(0.821911, 2.62313e-06, 7.70092e-07, 1, 0.860243, 0.395413, 0.313954, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qjbo3"]
-gradient = SubResource("Gradient_w6moc")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="31_qwdlg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
 size = Vector3(1, 0.62793, 1)
@@ -160,19 +146,12 @@ script = ExtResource("1_xqvjk")
 
 [node name="Potion" parent="AssetsHolder" instance=ExtResource("2_cw1pp")]
 
-[node name="SpottedSprite" type="Sprite3D" parent="AssetsHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35594, 0)
-visible = false
-material_override = SubResource("ShaderMaterial_xydlr")
-cast_shadow = 0
-gi_mode = 0
-texture = SubResource("GradientTexture2D_qjbo3")
-
 [node name="CameraHolder" type="Node3D" parent="."]
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraHolder"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 cull_mask = 1048571
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
@@ -183,13 +162,10 @@ size = Vector2i(3, 3)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.5, 0)
-keep_aspect = 0
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.43518, 0)
 cull_mask = 1048573
-projection = 1
-current = true
+fov = 57.7
 size = 0.905
-far = 200.0
 
 [node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
 transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.43034, 0, 0, 0)
@@ -234,8 +210,8 @@ attenuation_filter_cutoff_hz = 20500.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(146.146, 119.604)
-scale = Vector2(96.5695, 79.5972)
+position = Vector2(143, 128)
+scale = Vector2(95.3333, 85.3333)
 texture = SubResource("ViewportTexture_pdvll")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -243,6 +219,7 @@ texture = SubResource("ViewportTexture_pdvll")
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_rggqw")
 scale = Vector2(1280, 720)
+texture = ExtResource("31_qwdlg")
 centered = false
 
 [node name="CameraLiberator" type="Node3D" parent="." node_paths=PackedStringArray("player")]
