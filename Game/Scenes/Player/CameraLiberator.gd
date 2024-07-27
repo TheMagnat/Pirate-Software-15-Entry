@@ -40,9 +40,13 @@ func _physics_process(_delta):
 			break # No more collisions/collided with player
 	
 	for elem in last_obstructing_objects:
-		findFirstMeshInstance(elem).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+		var instance := findFirstMeshInstance(elem)
+		if instance:
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	
 	for elem in obstructing_objects:
-		findFirstMeshInstance(elem).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY
+		var instance := findFirstMeshInstance(elem)
+		if instance:
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY
 		
 	last_obstructing_objects = obstructing_objects

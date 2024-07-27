@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=29 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
@@ -9,12 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="3_8j163"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="4_qy5y3"]
+[ext_resource type="PackedScene" uid="uid://cg4s7wr4yn5l2" path="res://Scenes/Mesh/Misc/Bibliotheque2.tscn" id="5_gnlwh"]
 [ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="5_snhk5"]
 [ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
+[ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="6_gj5ef"]
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
+size = Vector3(1, 6, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
 size = Vector3(1000, 2, 1000)
@@ -71,16 +76,27 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, 0, 0.728969, 0.684547, -
 light_energy = 0.11
 
 [node name="BibliothèqueGLB" parent="Decor" instance=ExtResource("2_kj0j1")]
-transform = Transform3D(4.31, 0, 0, 0, 4.31, 0, 0, 0, 4.31, -8.91265, 0, 1.4495)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.9, 0, 0)
+
+[node name="BibliothèqueGLB2" parent="Decor" instance=ExtResource("5_gnlwh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.9, 0, -3)
+
+[node name="BibliothèqueGLB3" parent="Decor" instance=ExtResource("6_gj5ef")]
+transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 6, 0, -3.9)
 
 [node name="TableEtRadio" type="Node3D" parent="Decor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85106, 0, -0.710948)
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 8.7, 0, -4)
 
 [node name="TableDeChevetGBL" parent="Decor/TableEtRadio" instance=ExtResource("2_s1ent")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="RadioGLB" parent="Decor/TableEtRadio" instance=ExtResource("2_m6wle")]
 transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decor/TableEtRadio"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decor/TableEtRadio/StaticBody3D"]
+shape = SubResource("BoxShape3D_lt1e3")
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)

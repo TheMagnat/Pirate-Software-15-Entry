@@ -2,6 +2,7 @@ extends Control
 
 var RecipeIndex : int
 var RecipeLabel: String
+var Description: String
 var Resources: Dictionary
 var Artefacts: Array
 
@@ -28,8 +29,14 @@ const findsomethingtext := [
 	"This needs something more...",
 ]
 
+
 func _ready():
 	$Panel/Craft.pressed.connect(_on_craft_pressed)
+	
+	$Panel/VBoxContainer/Description.mouse_entered.connect(show_description.bind(true))
+	$Panel/VBoxContainer/Description.mouse_exited.connect(show_description.bind(false))
+	$Panel/VBoxContainer/Description.text = Description
+	$Panel/VBoxContainer/Description.modulate.a = 0.0
 	
 	$"Panel/VBoxContainer/Label".text = RecipeLabel
 	for key in Resources:
@@ -40,6 +47,9 @@ func _ready():
 		make_label("Count", "/ " + str(Resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		$Panel/VBoxContainer.add_child(resourceContainer)
 		_displayedResources[key] = inventoryCountLabel
+	
+	$Panel/Level.visible = Save.unlockable[RecipeIndex] != 0
+	$Panel/Level.text = "Level " + str(Save.unlockable[RecipeIndex])
 	
 	$Panel/FindSomething.visible = false
 	for artefact in Artefacts:
@@ -64,8 +74,17 @@ func _on_craft_pressed():
 			$Panel/NotEnough/AnimationPlayer.play("warning")
 			return
 	
+	$Panel/Level.visible = true
+	$Panel/Level.text = "Level " + str(Save.unlockable[RecipeIndex] + 1)
 	craft_pressed.emit(RecipeIndex)
 	$Brew.play()
+
+var desc_tween: Tween
+func show_description(s: bool):
+	if desc_tween: desc_tween.kill()
+	desc_tween = create_tween().bind_node(self).set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	desc_tween.tween_property($Panel/VBoxContainer/Description, "modulate:a", 1.0 if s else 0.0, 0.5)
+	desc_tween.tween_method(func(x: float): $Panel/VBoxContainer/Description.material.set_shader_parameter("displacement", x), $Panel/VBoxContainer/Description.material.get_shader_parameter("displacement"), 2.0 if s else 100.0, 0.5)
 
 func _on_next_page_pressed():
 	turn_page.emit(1)
