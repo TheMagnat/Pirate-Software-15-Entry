@@ -32,7 +32,7 @@ func _load_level(idx : int):
 		child.queue_free()
 	
 	current_level_idx = idx
-	$Menu/Control/VBoxContainer/Lobby.visible = idx != -1
+	$Menu/Control/HBoxContainer/Main/Lobby.visible = idx != -1
 	
 	currentLevel = resource_preloader.get_resource(str(idx)).instantiate()
 	if idx != -1:

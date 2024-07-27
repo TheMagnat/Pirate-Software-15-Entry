@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ohhap3rygmcq"
-path="res://.godot/imported/entrance_room1.gltf-44a0cefde04a476788e4f29e08aa010c.scn"
+uid="uid://drbg2vv37n1ca"
+path="res://.godot/imported/GalleryDoor.gltf-86a4f664352250d2e926934eafc93ed1.scn"
 
 [deps]
 
-source_file="res://Scenes/Levels/Level_2/entrance_room1.gltf"
-dest_files=["res://.godot/imported/entrance_room1.gltf-44a0cefde04a476788e4f29e08aa010c.scn"]
+source_file="res://Scenes/Levels/Level_2/GalleryDoor.gltf"
+dest_files=["res://.godot/imported/GalleryDoor.gltf-86a4f664352250d2e926934eafc93ed1.scn"]
 
 [params]
 
@@ -29,6 +29,15 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:CSGMesh3D": {
+"import/skip_import": true
+},
+"PATH:CSGMesh3D2": {
+"import/skip_import": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

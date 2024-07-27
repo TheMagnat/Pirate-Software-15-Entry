@@ -41,7 +41,7 @@ func _ready():
 	$Main/Settings.pressed.connect(settings)
 	$Main/Quit.pressed.connect(quit)
 
-	$Settings/Back.pressed.connect(back)
+	$Settings.back.connect(back)
 	
 	$YouSure/Yes.pressed.connect(play_new_game)
 	$YouSure/No.pressed.connect(back)

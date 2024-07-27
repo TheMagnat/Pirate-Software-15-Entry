@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://uiqmxktdm8b3"]
+[gd_scene load_steps=11 format=3 uid="uid://uiqmxktdm8b3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu.gd" id="1_8gul7"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_deogi"]
 [ext_resource type="Texture2D" uid="uid://ba6ql6n1vd4bc" path="res://Assets/logo/bottle_mid.png" id="2_o30bw"]
+[ext_resource type="PackedScene" uid="uid://dup14c7te2t1d" path="res://Scenes/UI/settings.tscn" id="3_a2otm"]
 [ext_resource type="Texture2D" uid="uid://mews5nspbb7l" path="res://Assets/logo/bottle_top.png" id="3_ikcou"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tclvk"]
@@ -69,19 +70,11 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../Settings")
 text = "Quit"
 
-[node name="Settings" type="VBoxContainer" parent="."]
-visible = false
+[node name="Settings" parent="." instance=ExtResource("3_a2otm")]
 offset_left = 128.0
 offset_top = 175.0
 offset_right = 528.0
 offset_bottom = 720.0
-mouse_filter = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="Back" parent="Settings" instance=ExtResource("2_deogi")]
-layout_mode = 2
-text = "Back"
 
 [node name="YouSure" type="VBoxContainer" parent="."]
 visible = false

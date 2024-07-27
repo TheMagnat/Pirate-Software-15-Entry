@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dup14c7te2t1d"]
+
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="1_ain2r"]
+[ext_resource type="Script" path="res://Scenes/UI/settings.gd" id="1_mbtxv"]
+
+[sub_resource type="Shader" id="Shader_arad0"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	VERTEX.y += cos(TIME  + VERTEX.x * 10.0) * 2.0;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhdky"]
+shader = SubResource("Shader_arad0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppeuo"]
+font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgttq"]
+shader = SubResource("Shader_arad0")
+
+[node name="Settings" type="VBoxContainer"]
+offset_right = 400.0
+offset_bottom = 545.0
+alignment = 1
+script = ExtResource("1_mbtxv")
+
+[node name="Fullscreen" parent="." instance=ExtResource("1_ain2r")]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Volume" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Volume"]
+modulate = Color(0.862745, 0.862745, 0.862745, 1)
+material = SubResource("ShaderMaterial_lhdky")
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_ppeuo")
+
+[node name="HSlider" type="HSlider" parent="Volume"]
+material = SubResource("ShaderMaterial_pgttq")
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+
+[node name="Back" parent="." instance=ExtResource("1_ain2r")]
+layout_mode = 2
+text = "Back"
