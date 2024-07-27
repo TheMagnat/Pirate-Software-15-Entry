@@ -1,7 +1,7 @@
 extends StateNode
 
 
-var rotationSpeed: float = 2
+var rotationSpeed: float = 6
 var minTargetDist: float = 1
 
 var speed = 4
@@ -23,6 +23,8 @@ func _ready():
 
 func onPhysicProcess(delta: float):
 
+	var targetDirection: Vector3 = parent.global_position.direction_to(target)
+
 	# Update the navigation agent target position
 	nav.target_position = target
 	
@@ -31,7 +33,7 @@ func onPhysicProcess(delta: float):
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	var new_transform = parent.global_transform.looking_at(parent.global_position + direction, Vector3.UP)
+	var new_transform = parent.global_transform.looking_at(parent.global_position + targetDirection, Vector3.UP)
 	parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
 
 	parent.velocity = parent.velocity.lerp(direction * speed, accel * delta)
@@ -39,7 +41,7 @@ func onPhysicProcess(delta: float):
 	
 	# Verify if we reached our target
 	if parent.global_position.distance_to(target) <= minTargetDist:
-		get_parent().get_node("Suspicious").updateTarget(Vector3(target.x, parent.global_position.y, target.z))
+		get_parent().get_node("Suspicious").updateTarget(target)
 		get_parent().transitionTo("Suspicious")
 	
 func updateTarget(targetParam: Vector3):

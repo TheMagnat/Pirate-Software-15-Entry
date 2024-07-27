@@ -53,6 +53,7 @@ func exit():
 	timeSinceStart.stop()
 	
 func updateTarget(target):
+	target.y -= 1.0 # To compensate the position on the feet of the mobs
 	currentDirection = target - parent.global_position
 	timeSinceLastReset = 0.0
 	timeForDirectionReset = randf_range(timeRangeForDirectionReset.x, timeRangeForDirectionReset.y)

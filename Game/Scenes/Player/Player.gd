@@ -32,6 +32,8 @@ var animationBlendTime: float = 0.25
 @onready var playerCamera := $CameraHolder/PlayerCamera
 @onready var camera := playerCamera
 
+var heightCompensation := Vector3(0.0, 1.0, 0.0)
+
 func set_camera(cam: Camera3D):
 	camera.current = false
 	camera = cam
@@ -67,7 +69,7 @@ func getLightLevel() -> float:
 					maxl_2 = l
 					continue
 				maxl_3 = l
-				
+	
 	return (maxl_1 + maxl_2 + maxl_3) / 3.0
 
 var actionPossible: bool = false
@@ -93,7 +95,7 @@ func lightLogic(delta: float):
 		# And if there is a mob at sneak foot range
 		for body in $SneakSoundEmission.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
-				body.suspiciousActivity(global_position, 0.0)
+				body.suspiciousActivity(global_position + heightCompensation, 0.0)
 				lastLightLevel = 1.0
 	
 	# If true, player is in the light
@@ -132,13 +134,13 @@ var footEmissionSuspiciousLevel: float = 3.0
 func emitSuspiciousSound():
 	for body in $FootSoundEmission.get_overlapping_bodies():
 		if body.is_in_group("Enemy"):
-			body.suspiciousActivity(global_position, footEmissionSuspiciousLevel)
+			body.suspiciousActivity(global_position + heightCompensation, footEmissionSuspiciousLevel)
 
 var sneakEmissionSuspiciousLevel: float = 0.5
 func emitSuspiciousSneakSound():
 	for body in $SneakSoundEmission.get_overlapping_bodies():
 		if body.is_in_group("Enemy"):
-			body.suspiciousActivity(global_position, sneakEmissionSuspiciousLevel)
+			body.suspiciousActivity(global_position + heightCompensation, sneakEmissionSuspiciousLevel)
 
 #TODO: Selectionner en fonction du niveau ou du type de sol ?
 @onready var currentGroundStepSound: AudioStreamPlayer3D = $ConcreteStepPlayer

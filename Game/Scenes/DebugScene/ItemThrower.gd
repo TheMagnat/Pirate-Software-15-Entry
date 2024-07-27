@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var item: PackedScene
+@onready var player: Player = get_parent()
 
 var throwImpulse: float = 10.0
 var aiming: bool = false
@@ -24,7 +25,11 @@ func showPreview():
 	var lineStart: Vector3 = startPosition
 	var lineEnd: Vector3 = startPosition
 	
-	var colors = [Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0), Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0)]
+	var colors: Array
+	if dir.y < 0.0:
+		colors = [Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 0.0, 0.0, 1.0)]
+	else:
+		colors = [Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0), Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0)]
 	
 	for i in range(1, 50):
 		vel.y += g * timeStep
@@ -57,7 +62,7 @@ func getThrowImpulse():
 	return throwImpulse + direction.y * 0.0
 
 func getThrowStartPosition(dir: Vector3):
-	return global_position + Vector3.UP * 1.0 + dir * 1.0
+	return player.global_position + Vector3.UP * 1.0 + dir * 1.0
 
 func getThrowDirection(depth: float):
 	var direction: Vector2 = get_viewport().get_mouse_position() / Vector2(get_viewport().get_visible_rect().size)
@@ -76,11 +81,13 @@ func throwItem():
 	var newItem: RigidBody3D = item.instantiate()
 	
 	var direction = getThrowDirection(-1.0)
+	if direction.y < 0.0:
+		return
 	
 	var target = to_global(direction)
 	var globalDirection = (target - global_position).normalized()
 	
-	get_parent().get_parent().add_child(newItem)
+	add_child(newItem)
 	newItem.global_position = getThrowStartPosition(direction)
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
 
