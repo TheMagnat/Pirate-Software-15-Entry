@@ -1,8 +1,6 @@
 @tool
 class_name Mob extends CharacterBody3D
 
-
-const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,6 +25,7 @@ var suspicious: float = 0.0
 @export var keepOriginalDirection: bool = false
 
 @export_subgroup("Patrol configuration")
+@export var patrolSpeed: float = 4.0
 @export var startStargetPositionIndex: int = 0
 @export var neverIdle: bool = false
 @export var useDedicatedDirection: bool = false
@@ -106,6 +105,7 @@ func _ready():
 	$StateMachine/Idle.keepOriginalDirection = keepOriginalDirection
 	
 	# Configure Patrol
+	$StateMachine/Patrol.speed = patrolSpeed
 	$StateMachine/Patrol.currentTarget = startStargetPositionIndex
 	$StateMachine/Patrol.neverIdle = neverIdle
 	$StateMachine/Patrol.useDedicatedDirection = useDedicatedDirection

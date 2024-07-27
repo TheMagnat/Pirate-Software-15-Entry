@@ -18,7 +18,7 @@ var rotationSpeed: float = 2
 # Parameters
 @export var neverIdle: bool = false
 
-var speed = 4
+@export var speed: float = 4.0
 var accel = 5
 var minTargetDist: float = 1
 
