@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3aoyco28g2co"]
+[gd_scene load_steps=19 format=3 uid="uid://b3aoyco28g2co"]
 
 [ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_45yes"]
@@ -19,6 +19,54 @@ height = 130
 [sub_resource type="LabelSettings" id="LabelSettings_ca0us"]
 font = ExtResource("3_e50dp")
 font_size = 22
+
+[sub_resource type="Shader" id="Shader_vql40"]
+code = "shader_type canvas_item;
+
+uniform float displacement;
+
+void vertex() {
+	VERTEX.y += cos(VERTEX.x + TIME) * displacement;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekecx"]
+shader = SubResource("Shader_vql40")
+shader_parameter/displacement = 100.0
+
+[sub_resource type="Animation" id="Animation_wu663"]
+resource_name = "warning"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/NotEnough:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/NotEnough:material:shader_parameter/displacement")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 2),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [100.0, 0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4bbi"]
+_data = {
+"warning": SubResource("Animation_wu663")
+}
 
 [sub_resource type="Gradient" id="Gradient_fp0u6"]
 offsets = PackedFloat32Array(0)
@@ -96,6 +144,36 @@ offset_bottom = 432.0
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/font = ExtResource("3_e50dp")
 text = "Brew"
+
+[node name="NotEnough" type="Label" parent="Panel"]
+modulate = Color(0, 0, 0, 0)
+material = SubResource("ShaderMaterial_ekecx")
+layout_mode = 0
+offset_left = 32.0
+offset_top = 330.0
+offset_right = 316.0
+offset_bottom = 364.0
+text = "Not enough ressources"
+label_settings = SubResource("LabelSettings_ca0us")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/NotEnough"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_a4bbi")
+}
+
+[node name="FindSomething" type="Label" parent="Panel"]
+visible = false
+modulate = Color(0.521569, 0, 0, 1)
+layout_mode = 0
+offset_left = 26.0
+offset_top = 370.0
+offset_right = 310.0
+offset_bottom = 404.0
+rotation = -0.0349066
+text = "I need to find something first..."
+label_settings = SubResource("LabelSettings_ca0us")
 
 [node name="NextPage" type="TextureButton" parent="Panel"]
 custom_minimum_size = Vector2(30, 30)

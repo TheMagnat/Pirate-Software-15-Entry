@@ -1,10 +1,13 @@
 extends Node
 
 const RESOURCES := {
-	"resource1": 99,
-	"resource2": 98,
-	"resource3": 3,
-	"resource4": 0,
+	"plants": 99,
+	"copper": 98,
+	"gold": 3,
+	"ruby": 0,
+	"artefact1": 0,
+	"artefact2": 0,
+	"artefact3": 0,
 }
 
 const UNLOCKABLES := {

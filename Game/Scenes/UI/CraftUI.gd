@@ -1,8 +1,9 @@
 extends Control
 
-@export var RecipeIndex : int
-@export var RecipeLabel: String
-@export var Resources: Dictionary
+var RecipeIndex : int
+var RecipeLabel: String
+var Resources: Dictionary
+var Artefacts: Array
 
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
@@ -21,6 +22,12 @@ var _displayedResources = {}
 signal craft_pressed(recipe_index: int)
 signal turn_page(direction: int)
 
+const findsomethingtext := [
+	"I need to find something first...",
+	"There's something missing...",
+	"This needs something more...",
+]
+
 func _ready():
 	$Panel/Craft.pressed.connect(_on_craft_pressed)
 	
@@ -34,6 +41,14 @@ func _ready():
 		$Panel/VBoxContainer.add_child(resourceContainer)
 		_displayedResources[key] = inventoryCountLabel
 	
+	$Panel/FindSomething.visible = false
+	for artefact in Artefacts:
+		if Save.resources[artefact] < 1:
+			$Panel/Craft.queue_free()
+			$Panel/FindSomething.visible = true
+			$Panel/FindSomething.text = findsomethingtext[RecipeIndex - 2]
+			break
+	
 	if(RecipeIndex % 2 == 0):
 		$Panel/NextPage.queue_free()
 	else:
@@ -44,6 +59,11 @@ func updateResources():
 		_displayedResources[key].text = str(Save.resources[key])
 
 func _on_craft_pressed():
+	for resource in Resources:
+		if Save.resources[resource] < Resources[resource]:
+			$Panel/NotEnough/AnimationPlayer.play("warning")
+			return
+	
 	craft_pressed.emit(RecipeIndex)
 	$Brew.play()
 

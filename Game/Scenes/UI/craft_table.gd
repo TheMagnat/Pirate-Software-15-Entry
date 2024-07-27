@@ -5,54 +5,19 @@ var enabled = false
 var leftScene: Control
 var rightScene: Control
 var currentPage = 0
-var recipes = {
-	0: 
-	{
-		"displayName": "Elixir of Cleverness",
-		"ingredients" : 
-		{
-			"resource1": 1,
-			"resource2": 2,
-			"resource3": 3,
-		},
-	},
-	1: 
-	{
-		"displayName": "Wall",
-		"ingredients" : 
-		{
-			"resource1": 1,
-			"resource2": 2,
-		},
-	},
-	2: 
-	{
-		"displayName": "Shade Cloak",
-		"ingredients" : 
-		{
-			"resource1": 1,
-			"resource2": 2,
-			"resource3": 3,
-			"resource4": 4,
-		},
-	},
-	3: 
-	{
-		"displayName": "Energy Drink",
-		"ingredients" : 
-		{
-			"resource1": 3,
-		},
-	},
-	4: 
-	{
-		"displayName": "Youplala",
-		"ingredients" : 
-		{
-			"resource4": 10,
-		},
-	}
-}
+
+func gen_recipe(n: String, ingredients: Dictionary, artefacts: Array):
+	return {"displayName": n,
+			"ingredients": ingredients,
+			"artefacts": artefacts}
+
+var recipes := [
+	gen_recipe("Cat Walk",{ "plants": 3, "copper": 3 }, []),
+	gen_recipe("Hardened Mixture",{ "plants": 2, "copper": 2, "gold": 2 }, []),
+	gen_recipe("Potion of disturbance",{ "plants": 4, "copper": 1, "gold": 1, }, ["artefact1"]),
+	gen_recipe("Vine Wall",{ "plants": 3, "copper": 2, "ruby": 2, }, ["artefact2"]),
+	gen_recipe("Shade Cloak",{ "plants": 1, "copper": 1, "gold": 2, "ruby": 2, }, ["artefact3"])
+]
 
 signal craft_success
 
@@ -60,13 +25,13 @@ func _ready():
 	if(recipes[currentPage] != null):
 		leftScene = _create_page(recipes[currentPage], currentPage)
 		$"../LeftPage/SubViewPort".add_child(leftScene)
-	if(recipes[currentPage+1] != null):
-		rightScene = _create_page(recipes[currentPage+1], currentPage+1)
+	if(recipes[currentPage + 1] != null):
+		rightScene = _create_page(recipes[currentPage + 1], currentPage + 1)
 		$"../RightPage/SubViewPort".add_child(rightScene)
 
 func turn_page(direction: int):
 	var target = currentPage + (2 * direction)
-	if(target >=0 && target < recipes.size()):
+	if(target >= 0 && target < recipes.size()):
 		$PageTurn.play()
 		currentPage = target
 		rightScene.queue_free()
@@ -100,6 +65,7 @@ func _create_page(recipe, recipeIndex: int):
 		sceneInstance.RecipeIndex = recipeIndex
 		sceneInstance.RecipeLabel = recipe.displayName
 		sceneInstance.Resources = recipe.ingredients
+		sceneInstance.Artefacts = recipe.artefacts
 		sceneInstance.craft_pressed.connect(try_craft)
 		sceneInstance.turn_page.connect(turn_page)
 		craft_success.connect(sceneInstance.updateResources)
