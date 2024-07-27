@@ -13,6 +13,8 @@ var finish_resources := {}
 @export var nbEnemies: int = 0
 var killedEnemies: int = 0
 
+var isFinished: bool = false
+
 
 var idx := -1
 
@@ -44,7 +46,16 @@ func restart_level():
 	var main = get_node("/root/Main")
 	main.load_level(main.current_level_idx)
 
+func escape_level(body = null):
+	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
+		body.safePlace = true
+		isFinished = true
+		time_spent += timer.wait_time - timer.time_left
+		get_node("/root/Main").escape_level(idx, open_levels, time_spent, finish_resources)
+
 func finish_level(body = null):
-	if (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
+	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
+		body.safePlace = true
+		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)

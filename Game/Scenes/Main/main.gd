@@ -45,18 +45,23 @@ func load_level(idx := -1):
 	else:
 		Transition.start(_load_level.bind(idx))
 
+func escape_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
+	### Add retrieved resources
+	print("Resources gathered:")
+	for resource in resources.keys():
+		print("- ", resource, ": ", resources[resource])
+		if Save.resources.has(resource):
+			Save.resources[resource] += resources[resource]
+		else:
+			Save.resources[resource] = resources[resource]
+	
+	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
+	endScreen.fillScreen(currentLevel, true)
+	endScreen.addCallback(func(): load_lobby())
+	add_child(endScreen)
+	
 func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
-	# Create the finish level animation
-	var endLevelTransitionTween: Tween = create_tween().set_ease(Tween.EASE_OUT)
-	endLevelTransitionTween.tween_property(Engine, "time_scale", 0.75, 1.0)
-	endLevelTransitionTween.tween_callback(_finish_level.bind(idx, open_levels, time_spent, resources))
-	
-func _finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
-	
-	# Revert the game speed and show the level ending screen
-	Engine.time_scale = 1.0
-	#get_tree().paused = true
-	
+		
 	### Open the access to this level
 	for idx2 in open_levels:
 		print("Opened access to level " + str(idx2))
@@ -81,4 +86,3 @@ func _finish_level(idx: int, open_levels: Array, time_spent: float, resources: D
 	endScreen.fillScreen(currentLevel)
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
-	

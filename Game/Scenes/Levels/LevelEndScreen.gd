@@ -1,10 +1,15 @@
 class_name LevelEndScreen extends CanvasLayer
 
 
+var escape: bool = false
+
 var ressourceAnimationOrder = []
-func fillScreen(level: Level):
-	$ScreenContainer/TitleContainer/LevelName.text = level.level_name
-	$ScreenContainer/RessourcesSection/MainRessource/MainRessource.text = level.main_ressource
+func fillScreen(level: Level, escapeParam: bool = false):
+	escape = escapeParam
+	if escape:
+		$ScreenContainer/TitleContainer/LevelName.text = "Escaped from %s" % level.level_name
+	else:
+		$ScreenContainer/TitleContainer/LevelName.text = "%s Finished" % level.level_name
 	
 	for ressource in level.contained_resources:
 		var count: int = level.finish_resources[ressource]
@@ -54,28 +59,39 @@ func animationFinished():
 	callback.call()
 
 var animationTween: Tween
-func prepareNodeAndAnimation(toAnimate: Control, animationTime: float = 0.5):
+func prepareNodeAndAnimation(toAnimate: Control, show: bool = true, animationTime: float = 0.5):
 	toAnimate.modulate.a = 0.0
-	animationTween.tween_property(toAnimate, "modulate:a", 1.0, animationTime)
+	if show:
+		animationTween.tween_callback(func(): $AudioStreamPlayer.play())
+		animationTween.tween_property(toAnimate, "modulate:a", 1.0, animationTime)
+
+func createBlurTransition(transitionTime: float = 2.0):
+	$BlurV/Renderer.material.set_shader_parameter("strength", 0.0)
+	$BlurH/Renderer.material.set_shader_parameter("strength", 0.0)
+	animationTween.tween_property($BlurV/Renderer.material, "shader_parameter/strength", 1.0, transitionTime)
+	animationTween.parallel().tween_property($BlurH/Renderer.material, "shader_parameter/strength", 1.0, transitionTime)
 
 func startAnimation():
 	if animationTween:
 		animationTween.kill()
-		
-	animationTween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-
+	
+	animationTween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	
+	# Add the blur transition to the tween
+	createBlurTransition()
+	
 	prepareNodeAndAnimation($ScreenContainer/TitleContainer)
 	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource)
 
 	for ressource in ressourceAnimationOrder:
 		prepareNodeAndAnimation(ressource)
 
-	prepareNodeAndAnimation($ScreenContainer/EnemyKilled)
-	prepareNodeAndAnimation($ScreenContainer/KillNote)
-	prepareNodeAndAnimation($ScreenContainer/TimeText)
+	prepareNodeAndAnimation($ScreenContainer/EnemyKilled, not escape)
+	prepareNodeAndAnimation($ScreenContainer/KillNote, not escape)
+	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape)
 	
 	#TODO: Get condition to show
-	prepareNodeAndAnimation($ScreenContainer/Record)
+	prepareNodeAndAnimation($ScreenContainer/Record, not escape)
 	
 	# Sleep time
 	animationTween.tween_interval(2.0)

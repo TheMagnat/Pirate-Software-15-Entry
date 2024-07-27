@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/voice_vibraphone.ogg-11f2c1151c5958448ac4c3f2
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var safePlace: bool = false
 @export var lightTreshold: float = 0.25 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-@export var timeForFullSpot: float = 0.8 # Seconds
+@export var timeForFullSpot: float = 0.6 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
@@ -80,7 +80,7 @@ func dying():
 	get_tree().create_timer(DEATH_ANIMATION_DELAY).timeout.connect(func(): killed.emit())
 
 func canBeSeen():
-	return spottedValue > 0.0
+	return spottedValue > lightTreshold
 
 func lightLogic(delta: float):
 	if isDead:
