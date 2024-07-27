@@ -19,6 +19,7 @@ void vertex() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c1q2d"]
+resource_local_to_scene = true
 shader = SubResource("Shader_kmwbv")
 shader_parameter/displacement = 100.0
 
@@ -37,6 +38,7 @@ void vertex() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekecx"]
+resource_local_to_scene = true
 shader = SubResource("Shader_vql40")
 shader_parameter/displacement = 100.0
 
