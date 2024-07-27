@@ -22,9 +22,15 @@ func main_menu():
 
 func _ready():
 	$Control.visible = false
-	$Control/VBoxContainer/Lobby.pressed.connect(get_parent().load_lobby)
-	$Control/VBoxContainer/MainMenu.pressed.connect(main_menu)
-	$Control/VBoxContainer/Back.pressed.connect(show_menu.bind(false))
+	$Control/HBoxContainer/Main/Lobby.pressed.connect(get_parent().load_lobby)
+	$Control/HBoxContainer/Main/MainMenu.pressed.connect(main_menu)
+	$Control/HBoxContainer/Main/Settings.pressed.connect(show_settings.bind(true))
+	$Control/HBoxContainer/Settings.back.connect(show_settings.bind(false))
+	$Control/HBoxContainer/Main/Back.pressed.connect(show_menu.bind(false))
+
+func show_settings(s: bool):
+	$Control/HBoxContainer/Main.visible = !s
+	$Control/HBoxContainer/Settings.visible = s
 
 func show_menu(s: bool):
 	menu_tween_func(s)

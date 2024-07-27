@@ -22,10 +22,18 @@ const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0] ]
 
 
 const SAVE_FILE := "user://save.dat"
+const CONFIG_FILE := "user://config.dat"
 
 var resources := {}
 var unlockable := []
 var levels := []
+
+const DEFAULT_CONFIG := {
+	"fullscreen": false,
+	"volume": 1.0
+}
+
+var config := {}
 
 var enable_save := false
 
@@ -33,8 +41,7 @@ func _ready():
 	load_game()
 
 func _exit_tree():
-	if enable_save:
-		save_game()
+	save_game(enable_save)
 
 func get_var(file: FileAccess, default):
 	if file == null:
@@ -79,17 +86,45 @@ func save_erase():
 func save_exists() -> bool:
 	return FileAccess.file_exists(SAVE_FILE)
 
-func save_game():
-	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
-	file.store_var(resources)
-	file.store_var(unlockable)
-	file.store_var(levels)
+func save_game(save_progress: bool):
+	var file := FileAccess.open(CONFIG_FILE, FileAccess.WRITE)
+	file.store_var(config)
 	file.close()
+	
+	if save_progress:
+		file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+		file.store_var(resources)
+		file.store_var(unlockable)
+		file.store_var(levels)
+		file.close()
 
 func load_game():
+	if FileAccess.file_exists(CONFIG_FILE):
+		var file := FileAccess.open(CONFIG_FILE, FileAccess.READ)
+		config = file.get_var()
+		for key in DEFAULT_CONFIG.keys():
+			if !(key in config):
+				config[key] = DEFAULT_CONFIG[key]
+		
+		file.close()
+	else:
+		config = DEFAULT_CONFIG.duplicate()
+	
+	set_fullscreen(config.fullscreen)
+	set_volume(config.volume)
+	
 	if !save_exists():
 		save_erase()
 	else:
-		var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+		var file := FileAccess.open(SAVE_FILE, FileAccess.READ)
 		_save_set_data(file)
 		file.close()
+
+func set_fullscreen(f: bool):
+	config.fullscreen = f
+	get_window().mode = Window.MODE_FULLSCREEN if f else Window.MODE_WINDOWED
+
+func set_volume(v: float):
+	config.volume = v
+	AudioServer.set_bus_mute(0, v <= 0.0)
+	AudioServer.set_bus_volume_db(0, -(1.0 - v) * 30.0)
