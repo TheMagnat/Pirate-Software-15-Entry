@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlifyh1ikoj1i"]
+[gd_scene load_steps=13 format=3 uid="uid://dlifyh1ikoj1i"]
 
 [ext_resource type="PackedScene" uid="uid://tt5av83e77i4" path="res://Scenes/Mesh/Mobs/MobModel.tscn" id="1_4hydf"]
 [ext_resource type="Script" path="res://Scenes/Mob/RigidMob.gd" id="1_p8epm"]
+[ext_resource type="AudioStream" uid="uid://blvupx7xy6wi6" path="res://Assets/SFX/glass/glass_hit1.ogg" id="3_ssq56"]
+[ext_resource type="AudioStream" uid="uid://bmlucwmy1umq1" path="res://Assets/SFX/glass/glass_hit2.ogg" id="4_q7ex5"]
+[ext_resource type="AudioStream" uid="uid://bh2fmusr7bqcr" path="res://Assets/SFX/glass/glass_hit3.ogg" id="5_ph57a"]
+[ext_resource type="AudioStream" uid="uid://dfgfh15fk5c1" path="res://Assets/SFX/glass/glass_hit4.ogg" id="6_684on"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tdr6q"]
 custom_solver_bias = 0.061
@@ -38,6 +42,18 @@ damping_curve = SubResource("CurveTexture_w2kpe")
 
 [sub_resource type="SphereMesh" id="SphereMesh_uttqk"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_iayxf"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("3_ssq56")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_q7ex5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_ph57a")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_684on")
+stream_3/weight = 1.0
+
 [node name="RigidMob" type="RigidBody3D"]
 collision_layer = 0
 collision_mask = 15
@@ -60,5 +76,11 @@ amount = 32
 explosiveness = 0.95
 process_material = SubResource("ParticleProcessMaterial_ljdq4")
 draw_pass_1 = SubResource("SphereMesh_uttqk")
+
+[node name="HitPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_iayxf")
+max_distance = 100.0
+max_polyphony = 3
+attenuation_filter_cutoff_hz = 10000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -208,6 +208,7 @@ func _process(_delta):
 			waterShaderHandler.xIsTilted(-1.0)
 
 func backstabbed(backstabber: Player):
+	backstabber.get_node("SlashPlayer").play()
 	var rigidMobInstance = RIGID_MOB.instantiate()
 	rigidMobInstance.global_transform = global_transform
 	rigidMobInstance.apply_central_impulse(backstabber.global_position.direction_to(global_position) * 5.0)
