@@ -1,10 +1,12 @@
 extends Node3D
 
 @export var item: PackedScene
-@onready var player: Player = get_parent()
+@onready var player: Player = get_parent().get_parent()
 
 var aiming: bool = false
 @export var action: String = "secondary_action"
+
+var model: PackedScene = preload("res://Scenes/Player/Powers/IvyMesh.tscn")
 
 func _process(delta):
 	if aiming:
@@ -49,7 +51,7 @@ func getRotationAngle(spawnPosition: Vector3):
 	var spawnDirection: Vector3 = player.global_position.direction_to(spawnPosition)
 	return -Vector2(spawnDirection.x, spawnDirection.z).angle() + PI / 2
 	
-func spawnItem():
+func activateSpell():
 	aiming = false
 	
 	var spawnPosition = getSpawnPosition()
@@ -65,9 +67,3 @@ func spawnItem():
 	newItem.global_position = spawnPosition
 	newItem.rotate_y(getRotationAngle(spawnPosition))
 	newItem.startGrowing()
-	
-func _input(event):
-	if event.is_action_pressed(action):
-		aiming = true
-	elif event.is_action_released(action):
-		spawnItem()

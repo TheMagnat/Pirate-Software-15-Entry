@@ -1,11 +1,13 @@
 extends Node3D
 
 @export var item: PackedScene
-@onready var player: Player = get_parent()
+@onready var player: Player = get_parent().get_parent()
 
 var throwImpulse: float = 10.0
 var aiming: bool = false
 @export var action: String = "main_action"
+
+var model: PackedScene = preload("res://Scenes/Player/Powers/PotionMesh.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -75,7 +77,7 @@ func getThrowDirection(depth: float):
 	
 	return get_viewport().get_camera_3d().get_global_transform().basis * resultDir
 
-func throwItem():
+func activateSpell():
 	aiming = false
 	
 	var newItem: RigidBody3D = item.instantiate()
@@ -90,9 +92,3 @@ func throwItem():
 	add_child(newItem)
 	newItem.global_position = getThrowStartPosition(direction)
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
-
-func _input(event):
-	if event.is_action_pressed(action):
-		aiming = true
-	elif event.is_action_released(action):
-		throwItem()
