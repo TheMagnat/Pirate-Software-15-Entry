@@ -1,23 +1,22 @@
-[gd_scene load_steps=30 format=3 uid="uid://bbyatiyy23ddj"]
+[gd_scene load_steps=25 format=3 uid="uid://urrutg0cfqks"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level_1/1.gd" id="1_x4ps2"]
-[ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="2_4ixrp"]
-[ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="2_dfcjh"]
-[ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="3_3cdao"]
-[ext_resource type="AudioStream" uid="uid://rdfrrej1nc86" path="res://Assets/SFX/ambience/ambience_night_forest.ogg" id="3_77747"]
-[ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="4_3i1l6"]
-[ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="7_d25no"]
-[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="8_odmv7"]
-[ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="10_g5hn2"]
-[ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_figmp"]
-[ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="11_gtrbm"]
-[ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="13_jp1f7"]
-[ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="13_k4frq"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="14_3rnfn"]
-[ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="14_8nt75"]
-[ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="15_uyvu6"]
-[ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="16_ia27f"]
-[ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="18_awbfg"]
+[ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="3_a71l0"]
+[ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="4_808k4"]
+[ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="6_g47xe"]
+[ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="7_8iihn"]
+[ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="8_0whps"]
+[ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="9_50x6n"]
+[ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="10_7vad5"]
+[ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="11_5j1cf"]
+[ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_rvu17"]
+[ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="13_g75pj"]
+[ext_resource type="AudioStream" uid="uid://rdfrrej1nc86" path="res://Assets/SFX/ambience/ambience_night_forest.ogg" id="15_7nf4k"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="16_fbwv7"]
+[ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="16_nshbb"]
+[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="17_5ife8"]
+[ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="17_c70tb"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="18_5vgxu"]
+[ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="18_tjmb8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sp5l8"]
 height = 1.56386
@@ -40,42 +39,88 @@ subdivide_depth = 10
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lvrr5"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_6go4v"]
-height = 1.0
-radius = 2.0
+[sub_resource type="Resource" id="Resource_rt6ft"]
+script = ExtResource("17_5ife8")
+reload = false
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 5.0
+FishEye = false
+FishEyeAspect = 0.585
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = -0.265
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = true
+VignetteIntensity = 0.195
+VignetteOpacity = 0.715
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.1
+GlitchNoiseQuality = 250.0
+GlitchIntenity = -0.079
+GlitchOffset = 0.1
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = true
+GrainPower = 40
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(0, 0, 0, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.05
+SpeedLineSpeed = 20
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(1024, 1024)
+ScreenShake = false
+ScreenShakePower = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_027gr"]
-transparency = 1
-albedo_color = Color(1, 0, 0, 0.490196)
+[node name="Menu Level" type="Node3D"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_g6usg"]
-material = SubResource("StandardMaterial3D_027gr")
-top_radius = 2.0
-bottom_radius = 2.0
-height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvhud"]
-transparency = 1
-albedo_color = Color(0, 1, 0, 0.27451)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_jq5hp"]
-material = SubResource("StandardMaterial3D_bvhud")
-top_radius = 2.0
-bottom_radius = 2.0
-height = 1.0
-
-[node name="Level_1" type="Node3D"]
-script = ExtResource("1_x4ps2")
-open_levels = Array[int]([2])
-level_name = "Forest"
-main_ressource = "La chèvre de monsieur segain"
-
-[node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5045, 6.55651e-06, 11.2375)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.346166, 0, -0.938173, 0, 1, 0, 0.938173, 0, -0.346166, -6.23378, 4.61551, -88.1496)
+current = true
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
-[node name="Mob" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
+[node name="Mob" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("3_a71l0")]
 transform = Transform3D(-0.981514, 0, 0.191391, 0, 1, 0, -0.191391, 0, -0.981514, 1.10413, 0, -28.3639)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
@@ -106,7 +151,7 @@ collision_layer = 0
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.546398, -0.145944, -9.51187)
 shape = SubResource("CylinderShape3D_sp5l8")
 
-[node name="Mob2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
+[node name="Mob2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("3_a71l0")]
 transform = Transform3D(-0.997289, 0, -0.0735862, 0, 1, 0, 0.0735862, 0, -0.997289, 11.6675, 2.38419e-06, -38.3074)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
@@ -133,7 +178,7 @@ collision_layer = 0
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.394249, -0.145944, -9.29798)
 shape = SubResource("CylinderShape3D_sp5l8")
 
-[node name="Mob3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
+[node name="Mob3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("3_a71l0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2027, 0, -96.6034)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
@@ -161,7 +206,7 @@ collision_layer = 0
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.394249, -0.145944, -9.29798)
 shape = SubResource("CylinderShape3D_sp5l8")
 
-[node name="MobStanding" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
+[node name="MobStanding" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("3_a71l0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75636, 0, -40.7741)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
@@ -190,1278 +235,6 @@ collision_layer = 0
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0193701, 1.26331, -6.91742)
 shape = SubResource("BoxShape3D_lqn4o")
 
-[node name="MobStanding2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(0.380715, 0, 0.924692, 0, 1, 0, -0.924692, 0, 0.380715, 15.0174, 4.76837e-07, -139.772)
-velocity = Vector3(0, -328945, 0)
-view = NodePath("Area3D")
-suspiciousTransitionState = "WalkTo"
-walkToTransitionState = "Idle"
-idleDuration = 0.0
-keepOriginalDirection = true
-walkToPosition = Vector2(14.8585, -138.947)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/MobStanding2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144379, 1.15023, -0.621727)
-light_color = Color(0.752911, 0.75249, 0.403694, 1)
-light_bake_mode = 0
-shadow_enabled = true
-shadow_bias = 1.5
-shadow_normal_bias = 1.5
-spot_range = 11.338
-spot_attenuation = 1.07177e-05
-spot_angle = 62.9
-spot_angle_attenuation = 0.297304
-
-[node name="Area3D" type="Area3D" parent="LevelMobs/MobStanding2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94237, 0)
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelMobs/MobStanding2/Area3D"]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0193787, 0.0698754, -6.55819)
-shape = SubResource("BoxShape3D_lqn4o")
-
-[node name="MobStanding3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(0.307772, 0, -0.95146, 0, 1, 0, 0.95146, 0, 0.307772, 28.8349, 0, -136.295)
-velocity = Vector3(0, -328945, 0)
-view = NodePath("Area3D")
-suspiciousTransitionState = "WalkTo"
-walkToTransitionState = "Idle"
-idleDuration = 0.0
-keepOriginalDirection = true
-walkToPosition = Vector2(28.8349, -136.295)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="LevelMobs/MobStanding3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0768661, 1.09379, -0.690834)
-light_color = Color(0.752911, 0.75249, 0.403694, 1)
-light_bake_mode = 0
-shadow_enabled = true
-shadow_bias = 1.5
-shadow_normal_bias = 1.5
-spot_range = 11.338
-spot_attenuation = 1.07177e-05
-spot_angle = 62.9
-spot_angle_attenuation = 0.297304
-
-[node name="Area3D" type="Area3D" parent="LevelMobs/MobStanding3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774362, 0)
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelMobs/MobStanding3/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0193787, 0.0698754, -6.34348)
-shape = SubResource("BoxShape3D_lqn4o")
-
-[node name="LimitAssets" type="Node3D" parent="."]
-transform = Transform3D(4.725, 0, 0, 0, 4.725, 0, 0, 0, 4.725, -343.316, -3.80185, -160.385)
-
-[node name="MultiMeshInstance3D22" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="Sapin" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.9732, 0, 2.20642, 0, 3.70246, 0, -2.20642, 0, -2.9732, 203.175, 1.90735e-06, -140.351)
-
-[node name="@Node3D@75844" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.45953, 0, 2.55559, 0, 3.54688, 0, -2.55559, 0, 2.45953, 175.305, 0, -139.342)
-
-[node name="@Node3D@75845" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.20751, 0, 2.23704, 0, 3.91056, 0, -2.23704, 0, 3.20751, 152.861, -1.90735e-06, -158.691)
-
-[node name="@Node3D@75846" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.34868, 0, -0.764521, 0, 3.43485, 0, 0.764521, 0, -3.34868, 122.923, -3.8147e-06, -136.48)
-
-[node name="@Node3D@75847" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.44805, 0, -1.79714, 0, 3.88829, 0, 1.79714, 0, -3.44805, 204.195, 9.53674e-07, -177.556)
-
-[node name="@Node3D@75848" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.70755, 0, 2.62875, 0, 3.77375, 0, -2.62875, 0, -2.70755, 171.995, 0, -168.991)
-
-[node name="@Node3D@75849" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.63337, 0, 2.83616, 0, 3.27287, 0, -2.83616, 0, -1.63337, 138.142, -1.90735e-06, -175.848)
-
-[node name="@Node3D@75851" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.50194, 0, 0.0329316, 0, 3.5021, 0, -0.0329316, 0, 3.50194, 185.736, 0, -196.885)
-
-[node name="@Node3D@75852" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.45186, 0, -2.98957, 0, 3.86642, 0, 2.98957, 0, -2.45186, 141.353, 0, -203.715)
-
-[node name="@Node3D@75853" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.74145, 0, 2.41395, 0, 3.65277, 0, -2.41395, 0, -2.74145, 168.836, 0, -205.801)
-
-[node name="@Node3D@75854" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.99495, 0, 2.97582, 0, 3.13774, 0, -2.97582, 0, 0.99495, 191.467, 0, -208.528)
-
-[node name="@Node3D@75855" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.92919, 0, -0.718822, 0, 3.99441, 0, 0.718822, 0, 3.92919, 158.622, 3.8147e-06, -223.145)
-
-[node name="@Node3D@75856" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.11519, 0, -2.97931, 0, 3.18118, 0, 2.97931, 0, -1.11519, 114.686, -3.8147e-06, -239.46)
-
-[node name="@Node3D@75859" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.57035, 0, 0.0321928, 0, 3.57049, 0, -0.0321928, 0, 3.57035, 119.666, -1.90735e-06, -177.031)
-
-[node name="@Node3D@75860" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.20979, 0, -3.29144, 0, 3.50673, 0, 3.29144, 0, -1.20979, 174.633, 0, -232.62)
-
-[node name="@Node3D@75861" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.03666, 0, -1.44968, 0, 3.36495, 0, 1.44968, 0, 3.03666, 146.018, 0, -253.388)
-
-[node name="@Node3D@75862" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.361686, 0, 3.40141, 0, 3.42059, 0, -3.40141, 0, 0.361686, 117.36, 0, -268.308)
-
-[node name="@Node3D@75863" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.06203, 0, 3.24906, 0, 3.84816, 0, -3.24906, 0, 2.06203, 140.736, -7.62939e-06, -235.824)
-
-[node name="@Node3D@75864" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.58793, 0, 3.11151, 0, 3.49328, 0, -3.11151, 0, -1.58793, 169.095, 0, -260.948)
-
-[node name="@Node3D@75867" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.11509, 0, 2.98643, 0, 3.18782, 0, -2.98643, 0, -1.11509, 95.1815, 0, -265.523)
-
-[node name="@Node3D@75868" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.49885, 0, -2.97402, 0, 3.01556, 0, 2.97402, 0, 0.49885, 94.7654, 0, -290.659)
-
-[node name="@Node3D@75869" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.25961, 0, -0.451449, 0, 3.29072, 0, 0.451449, 0, 3.25961, 87.3777, 0, -233.218)
-
-[node name="@Node3D@75870" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.85665, 0, 3.17905, 0, 3.29245, 0, -3.17905, 0, 0.85665, 142.91, 0, -266.514)
-
-[node name="@Node3D@75871" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.288029, 0, -3.0027, 0, 3.01648, 0, 3.0027, 0, -0.288029, 78.1783, 0, -292.926)
-
-[node name="@Node3D@75872" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.07628, 0, 3.33715, 0, 3.50642, 0, -3.33715, 0, 1.07628, 44.0472, 0, -271.072)
-
-[node name="@Node3D@75873" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.18414, 0, 0.200562, 0, 3.19045, 0, -0.200562, 0, 3.18414, 48.3985, 0, -235.103)
-
-[node name="@Node3D@75874" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.24618, 0, 2.73804, 0, 3.5415, 0, -2.73804, 0, 2.24618, 57.6675, 1.90735e-06, -301.513)
-
-[node name="@Node3D@75875" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.39035, 0, 2.78952, 0, 3.11681, 0, -2.78952, 0, -1.39035, 10.495, 0, -288.596)
-
-[node name="@Node3D@75876" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.64104, 0, -2.23001, 0, 3.4566, 0, 2.23001, 0, -2.64104, -15.0912, 0, -300.633)
-
-[node name="@Node3D@75877" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.469429, 0, 3.05994, 0, 3.09574, 0, -3.05994, 0, 0.469429, -40.0293, 0, -298.542)
-
-[node name="@Node3D@75878" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.16982, 0, -0.704713, 0, 3.24721, 0, 0.704713, 0, -3.16982, 16.3007, 3.8147e-06, -258.648)
-
-[node name="@Node3D@75879" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.32739, 0, 3.18621, 0, 3.94571, 0, -3.18621, 0, -2.32739, -17.0047, 0, -264.968)
-
-[node name="@Node3D@75880" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.92022, 0, 0.49185, 0, 3.95096, 0, -0.49185, 0, 3.92022, -36.5771, 0, -271.104)
-
-[node name="@Node3D@75881" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.18846, 0, 2.81502, 0, 3.56563, 0, -2.81502, 0, 2.18846, 18.1273, 0, -241.265)
-
-[node name="@Node3D@75882" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.73476, 0, 0.345901, 0, 3.75075, 0, -0.345901, 0, -3.73476, -12.7664, 0, -239.276)
-
-[node name="@Node3D@75883" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.497133, 0, -3.56979, 0, 3.60424, 0, 3.56979, 0, -0.497133, -41.3721, 0, -240.992)
-
-[node name="@Node3D@75884" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.662228, 0, -3.63405, 0, 3.6939, 0, 3.63405, 0, -0.662228, -65.2971, 1.90735e-06, -293.381)
-
-[node name="@Node3D@75885" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.38202, 0, 3.64755, 0, 3.90059, 0, -3.64755, 0, 1.38202, -65.614, 0, -256.911)
-
-[node name="@Node3D@75886" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.6855, 0, -2.49746, 0, 3.01301, 0, 2.49746, 0, -1.6855, -61.8642, 0, -230.015)
-
-[node name="@Node3D@75887" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.39196, 0, 1.52447, 0, 3.71879, 0, -1.52447, 0, 3.39196, -8.02597, 0, -285.664)
-
-[node name="@Node3D@75888" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.29131, 0, -2.90738, 0, 3.18125, 0, 2.90738, 0, 1.29131, -84.061, 0, -192.963)
-
-[node name="@Node3D@75889" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.91741, 0, 0.623396, 0, 3.9667, 0, -0.623396, 0, -3.91741, -83.3464, 0, -252.256)
-
-[node name="@Node3D@75890" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.67361, 0, 2.87613, 0, 3.32762, 0, -2.87613, 0, 1.67361, -118.753, 0, -249.95)
-
-[node name="@Node3D@75891" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.0974, 0, -2.42363, 0, 3.20516, 0, 2.42363, 0, -2.0974, -82.5204, 3.8147e-06, -221.293)
-
-[node name="@Node3D@75892" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.23779, 0, 2.39879, 0, 3.28053, 0, -2.39879, 0, -2.23779, -112.531, 0, -222.045)
-
-[node name="@Node3D@75893" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.40208, 0, -0.0707039, 0, 3.40282, 0, 0.0707039, 0, -3.40208, -60.2005, 0, -202.557)
-
-[node name="@Node3D@75917" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.71373, 0, 0.978417, 0, 3.84045, 0, -0.978417, 0, -3.71373, -136.024, -3.8147e-06, -215.747)
-
-[node name="@Node3D@75918" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.63036, 0, -0.895567, 0, 3.73919, 0, 0.895567, 0, 3.63036, -95.5726, 0, -191.035)
-
-[node name="@Node3D@75926" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.002, 0, -2.75617, 0, 3.40653, 0, 2.75617, 0, -2.002, -83.0509, 0, -209.42)
-
-[node name="@Node3D@75927" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.15163, 0, 0.255696, 0, 3.16199, 0, -0.255696, 0, 3.15163, -119.695, 0, -180.192)
-
-[node name="@Node3D@75928" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.4666, 0, 1.23958, 0, 3.68156, 0, -1.23958, 0, -3.4666, -156.391, 0, -179.886)
-
-[node name="@Node3D@75929" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.30705, 0, -3.0394, 0, 3.30853, 0, 3.0394, 0, -1.30705, -83.4142, 0, -155.46)
-
-[node name="@Node3D@75930" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.33807, 0, 3.04434, 0, 3.83856, 0, -3.04434, 0, 2.33807, -143.305, 0, -149.752)
-
-[node name="@Node3D@75936" parent="LimitAssets/MultiMeshInstance3D22" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.19906, 0, 2.94884, 0, 3.1833, 0, -2.94884, 0, -1.19906, -130.428, 0, -195.398)
-
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreCarre" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.1373, 0, 0.383088, 0, 3.1606, 0, -0.383088, 0, -3.1373, -11.3776, 0, -315.564)
-
-[node name="@Node3D@76182" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.92476, 0, 2.63213, 0, 3.2608, 0, -2.63213, 0, -1.92476, -18.326, 0, -265.412)
-
-[node name="@Node3D@76183" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.56836, 0, -2.9323, 0, 3.32537, 0, 2.9323, 0, -1.56836, -53.6447, 0, -276.975)
-
-[node name="@Node3D@76184" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.516413, 0, -3.7444, 0, 3.77984, 0, 3.7444, 0, -0.516413, -23.3955, 0, -232.911)
-
-[node name="@Node3D@76185" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.0076, 0, -3.05142, 0, 3.21347, 0, 3.05142, 0, 1.0076, -28.0178, 1.90735e-06, -304.826)
-
-[node name="@Node3D@76186" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.43502, 0, -0.306371, 0, 3.44866, 0, 0.306371, 0, -3.43502, -74.3852, 0, -259.544)
-
-[node name="@Node3D@76187" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.407766, 0, -3.45806, 0, 3.48202, 0, 3.45806, 0, 0.407766, -105.256, 0, -204.657)
-
-[node name="@Node3D@76188" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.51917, 0, -3.54618, 0, 3.85788, 0, 3.54618, 0, 1.51917, -42.2449, 0, -234.779)
-
-[node name="@Node3D@76189" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.48153, 0, 2.09302, 0, 3.24634, 0, -2.09302, 0, -2.48153, -94.3605, 3.8147e-06, -229.687)
-
-[node name="@Node3D@76190" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.78861, 0, -2.83413, 0, 3.35133, 0, 2.83413, 0, -1.78861, -136.733, 0, -233.338)
-
-[node name="@Node3D@76191" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.23897, 0, -3.25568, 0, 3.95126, 0, 3.25568, 0, 2.23897, -54.5149, 0, -219.922)
-
-[node name="@Node3D@76192" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.5961, 0, 2.96958, 0, 3.94438, 0, -2.96958, 0, -2.5961, -100.007, 0, -164.842)
-
-[node name="@Node3D@76193" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.1493, 0, 3.6309, 0, 3.80846, 0, -3.6309, 0, -1.1493, -82.5846, 0, -181.122)
-
-[node name="@Node3D@76194" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.75456, 0, 2.44548, 0, 3.68348, 0, -2.44548, 0, -2.75456, -166.966, 0, -191.26)
-
-[node name="@Node3D@76195" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.14146, 0, -0.895641, 0, 3.26664, 0, 0.895641, 0, -3.14146, -114.363, 0, -135.638)
-
-[node name="@Node3D@76196" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.26937, 0, -1.68713, 0, 3.67902, 0, 1.68713, 0, -3.26937, -135.478, 3.8147e-06, -173.221)
-
-[node name="@Node3D@76197" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.36957, 0, -2.76673, 0, 3.64275, 0, 2.76673, 0, -2.36957, -90.3706, -1.90735e-06, -97.9977)
-
-[node name="@Node3D@76198" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.03089, 0, -0.397441, 0, 3.05684, 0, 0.397441, 0, 3.03089, -140.666, 3.8147e-06, -88.1874)
-
-[node name="@Node3D@76199" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.07642, 0, 1.04899, 0, 3.25035, 0, -1.04899, 0, -3.07642, -171.441, 0, -100.382)
-
-[node name="@Node3D@76200" parent="LimitAssets/MultiMeshInstance3D" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.47459, 0, -2.73104, 0, 3.68539, 0, 2.73104, 0, -2.47459, -136.142, 0, -103.99)
-
-[node name="MultiMeshInstance3D40" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreCarre" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.87824, 0, -1.27696, 0, 3.14879, 0, 1.27696, 0, 2.87824, -127.275, 0, -51.3764)
-
-[node name="@Node3D@76201" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.129365, 0, 3.72915, 0, 3.7314, 0, -3.72915, 0, -0.129365, -92.8038, -3.8147e-06, -66.8746)
-
-[node name="@Node3D@76202" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.18867, 0, -1.88134, 0, 3.7023, 0, 1.88134, 0, -3.18867, -175.504, 0, -72.0949)
-
-[node name="@Node3D@76203" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.860544, 0, -3.7957, 0, 3.89202, 0, 3.7957, 0, -0.860544, -101.985, 0, -41.7022)
-
-[node name="@Node3D@76204" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.58483, 0, -0.541897, 0, 3.62555, 0, 0.541897, 0, -3.58483, -169.503, 0, -30.2986)
-
-[node name="@Node3D@76205" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.7413, 0, 1.59039, 0, 3.16924, 0, -1.59039, 0, -2.7413, -135.278, -3.8147e-06, -24.7654)
-
-[node name="@Node3D@76206" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.04769, 0, -1.76632, 0, 3.52254, 0, 1.76632, 0, 3.04769, -131.407, 0, 3.778)
-
-[node name="@Node3D@76208" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.98606, 0, 1.72813, 0, 3.45007, 0, -1.72813, 0, -2.98606, -176.305, 1.90735e-06, -3.24353)
-
-[node name="@Node3D@76209" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.64348, 0, 0.635201, 0, 3.69844, 0, -0.635201, 0, 3.64348, -131.697, 0, 56.7365)
-
-[node name="@Node3D@76211" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.5923, 0, 3.40358, 0, 3.75763, 0, -3.40358, 0, -1.5923, -128.54, 0, 33.0939)
-
-[node name="@Node3D@76212" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.25415, 0, 0.360968, 0, 3.27411, 0, -0.360968, 0, -3.25415, -166.11, 0, 30.1327)
-
-[node name="@Node3D@76213" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.50982, 0, 0.685933, 0, 3.57622, 0, -0.685933, 0, -3.50982, -67.0607, 0, 81.891)
-
-[node name="@Node3D@76215" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.46818, 0, -0.252096, 0, 3.47733, 0, 0.252096, 0, -3.46818, -120.466, 0, 112.949)
-
-[node name="@Node3D@76216" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.62639, 0, -1.28463, 0, 3.8472, 0, 1.28463, 0, 3.62639, -98.7544, -3.8147e-06, 58.2934)
-
-[node name="@Node3D@76217" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.02093, 0, 1.34488, 0, 3.30677, 0, -1.34488, 0, -3.02093, -144.141, 0, 76.2411)
-
-[node name="@Node3D@76253" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.53213, 0, 2.03652, 0, 3.24948, 0, -2.03652, 0, 2.53213, -111.984, 0, 134.213)
-
-[node name="@Node3D@76261" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.58986, 0, 0.55522, 0, 3.63255, 0, -0.55522, 0, 3.58986, -10.88, 0, 79.5925)
-
-[node name="@Node3D@76262" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.83982, 0, -0.343051, 0, 3.85511, 0, 0.343051, 0, 3.83982, -23.307, 3.8147e-06, 126.961)
-
-[node name="@Node3D@76263" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.30932, 0, 3.46869, 0, 3.70758, 0, -3.46869, 0, 1.30932, -59.6543, 0, 115.813)
-
-[node name="@Node3D@76264" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.05286, 0, 3.40483, 0, 3.5639, 0, -3.40483, 0, -1.05286, -13.6904, 1.90735e-06, 166.765)
-
-[node name="@Node3D@76285" parent="LimitAssets/MultiMeshInstance3D40" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.09402, 0, 1.68409, 0, 3.52266, 0, -1.68409, 0, -3.09402, -53.4052, 9.53674e-07, 128.664)
-
-[node name="MultiMeshInstance3D43" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreCarre" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.7874, 0, 3.45483, 0, 3.88981, 0, -3.45483, 0, 1.7874, 153.924, 0, -100.787)
-
-[node name="@Node3D@76218" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.55817, 0, 2.25909, 0, 3.41287, 0, -2.25909, 0, 2.55817, 147.582, 0, -122.637)
-
-[node name="@Node3D@76219" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.26897, 0, 1.71486, 0, 3.69147, 0, -1.71486, 0, 3.26897, 182.954, 1.90735e-06, -97.2564)
-
-[node name="@Node3D@76220" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.35653, 0, 3.18507, 0, 3.20497, 0, -3.18507, 0, -0.35653, 172.735, 0, -142.774)
-
-[node name="@Node3D@76221" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.46686, 0, 0.499858, 0, 3.50271, 0, -0.499858, 0, -3.46686, 208.598, -1.90735e-06, -148.865)
-
-[node name="@Node3D@76224" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.8925, 0, -2.90559, 0, 3.46756, 0, 2.90559, 0, 1.8925, 166.19, 1.90735e-06, -221.89)
-
-[node name="@Node3D@76225" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.75259, 0, 1.96758, 0, 3.3835, 0, -1.96758, 0, -2.75259, 191.761, 0, -183.415)
-
-[node name="@Node3D@76226" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.25628, 0, 1.12317, 0, 3.44454, 0, -1.12317, 0, -3.25628, 149.482, 0, -174.957)
-
-[node name="@Node3D@76227" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.0101841, 0, 3.98734, 0, 3.98736, 0, -3.98734, 0, 0.0101841, 155.885, 0, -189.129)
-
-[node name="@Node3D@76228" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.51226, 0, 2.80647, 0, 3.76666, 0, -2.80647, 0, -2.51226, 115.611, 1.90735e-06, -188.941)
-
-[node name="@Node3D@76229" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.16418, 0, 3.01476, 0, 3.71112, 0, -3.01476, 0, -2.16418, 109.49, -3.8147e-06, -206.277)
-
-[node name="@Node3D@76231" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.8746, 0, 2.71657, 0, 3.95514, 0, -2.71657, 0, -2.8746, 100.757, 0, -230.787)
-
-[node name="@Node3D@76233" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.151475, 0, -3.64975, 0, 3.65289, 0, 3.64975, 0, 0.151475, 183.053, 0, -261.487)
-
-[node name="@Node3D@76234" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.30866, 0, 0.8874, 0, 3.42559, 0, -0.8874, 0, -3.30866, 167.791, 0, -270.728)
-
-[node name="@Node3D@76235" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.05487, 0, 2.72781, 0, 3.41518, 0, -2.72781, 0, 2.05487, 82.8459, 0, -260.513)
-
-[node name="@Node3D@76236" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.43535, 0, 3.31022, 0, 3.60802, 0, -3.31022, 0, 1.43535, 126.462, 0, -261.797)
-
-[node name="@Node3D@76237" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.169778, 0, 3.47526, 0, 3.4794, 0, -3.47526, 0, 0.169778, 122.41, 0, -303.446)
-
-[node name="@Node3D@76238" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.3227, 0, -1.55898, 0, 3.67025, 0, 1.55898, 0, 3.3227, 145.08, 0, -281.182)
-
-[node name="@Node3D@76239" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.83458, 0, 0.74722, 0, 3.90671, 0, -0.74722, 0, 3.83458, 106.977, 0, -265.329)
-
-[node name="@Node3D@76240" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.63563, 0, 2.366, 0, 3.54183, 0, -2.366, 0, 2.63563, 38.9527, 3.8147e-06, -255.642)
-
-[node name="@Node3D@76241" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.660551, 0, -3.71304, 0, 3.77134, 0, 3.71304, 0, 0.660551, 20.6553, 0, -259.38)
-
-[node name="@Node3D@76242" parent="LimitAssets/MultiMeshInstance3D43" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.07938, 0, 1.37625, 0, 3.37292, 0, -1.37625, 0, 3.07938, 11.8897, 0, -251.53)
-
-[node name="MultiMeshInstance3D44" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreCarre" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.830664, 0, -3.61856, 0, 3.71268, 0, 3.61856, 0, -0.830664, 151.301, 0, -2.10081)
-
-[node name="@Node3D@76243" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.06486, 0, -3.19226, 0, 3.36518, 0, 3.19226, 0, 1.06486, 186.382, 0, 47.0294)
-
-[node name="@Node3D@76244" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.745539, 0, -3.12941, 0, 3.21699, 0, 3.12941, 0, -0.745539, 128.308, 0, 44.5143)
-
-[node name="@Node3D@76245" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.205977, 0, 3.25381, 0, 3.26032, 0, -3.25381, 0, 0.205977, 109.804, 0, 40.8829)
-
-[node name="@Node3D@76246" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.12961, 0, -0.20175, 0, 3.1361, 0, 0.20175, 0, 3.12961, 132.746, 0, 87.3695)
-
-[node name="@Node3D@76247" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-0.767223, 0, -3.78306, 0, 3.86008, 0, 3.78306, 0, -0.767223, 199.595, 0, -63.2754)
-
-[node name="@Node3D@76248" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.9937, 0, -2.87327, 0, 3.49721, 0, 2.87327, 0, -1.9937, 152.379, 0, -54.9765)
-
-[node name="@Node3D@76249" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.79715, 0, -0.0594763, 0, 3.79761, 0, 0.0594763, 0, -3.79715, 120.131, 0, -54.0146)
-
-[node name="@Node3D@76250" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.90274, 0, -2.57824, 0, 3.88242, 0, 2.57824, 0, -2.90274, 143.412, 0, -22.8915)
-
-[node name="@Node3D@76251" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.5983, 0, -3.34408, 0, 3.7064, 0, 3.34408, 0, 1.5983, 161.441, 0, -26.3572)
-
-[node name="@Node3D@76252" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.45315, 0, -3.66501, 0, 3.94258, 0, 3.66501, 0, 1.45315, 163.613, 0, -71.5239)
-
-[node name="@Node3D@76265" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-3.21527, 0, -0.20733, 0, 3.22195, 0, 0.20733, 0, -3.21527, 13.0025, 0, 120.656)
-
-[node name="@Node3D@76361" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.77054, 0, 0.6043, 0, 3.81866, 0, -0.6043, 0, 3.77054, 56.471, 1.90735e-06, 80.9194)
-
-[node name="@Node3D@76362" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.33211, 0, -2.96907, 0, 3.25421, 0, 2.96907, 0, 1.33211, 91.3542, 0, 123.146)
-
-[node name="@Node3D@76363" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.5714, 0, 2.67887, 0, 3.10574, 0, -2.67887, 0, -1.5714, 56.4502, -3.8147e-06, 109.36)
-
-[node name="@Node3D@76364" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.87451, 0, -2.43411, 0, 3.76666, 0, 2.43411, 0, -2.87451, 41.5513, 1.90735e-06, 165.387)
-
-[node name="@Node3D@76376" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.55425, 0, -0.552204, 0, 3.59689, 0, 0.552204, 0, 3.55425, 35.1577, 0, 117.222)
-
-[node name="@Node3D@76377" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.28124, 0, -2.22336, 0, 3.96357, 0, 2.22336, 0, 3.28124, 80.4784, 0, 165.644)
-
-[node name="@Node3D@76386" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.79935, 0, 3.00405, 0, 3.10858, 0, -3.00405, 0, 0.79935, 94.7726, -1.90735e-06, 161.835)
-
-[node name="@Node3D@76391" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.10115, 0, -2.19249, 0, 3.03675, 0, 2.19249, 0, 2.10115, 156.709, 0, 115.139)
-
-[node name="@Node3D@76392" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.25267, 0, 2.74881, 0, 3.55393, 0, -2.74881, 0, -2.25267, 95.9269, 0, 143.877)
-
-[node name="@Node3D@76470" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.03722, 0, -3.7092, 0, 3.85149, 0, 3.7092, 0, -1.03722, 129.182, 0, 54.1063)
-
-[node name="@Node3D@76478" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-1.65162, 0, -2.74754, 0, 3.20575, 0, 2.74754, 0, -1.65162, 203.548, 0, -19.0713)
-
-[node name="@Node3D@76485" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(2.37141, 0, -2.11356, 0, 3.17659, 0, 2.11356, 0, 2.37141, 170.9, 0, -1.20195)
-
-[node name="@Node3D@76490" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.1057, 0, 3.29087, 0, 3.90689, 0, -3.29087, 0, -2.1057, 236.745, 0, 28.1567)
-
-[node name="@Node3D@76491" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(-2.89806, 0, -0.793824, 0, 3.00482, 0, 0.793824, 0, -2.89806, 138.305, 0, 39.1673)
-
-[node name="@Node3D@76496" parent="LimitAssets/MultiMeshInstance3D44" instance=ExtResource("13_k4frq")]
-transform = Transform3D(3.95773, 0, -0.169471, 0, 3.96136, 0, 0.169471, 0, 3.95773, 152.697, 3.8147e-06, 44.743)
-
-[node name="MultiMeshInstance3D48" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="Sapin" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.97825, 0, -0.231379, 0, 3.98498, 0, 0.231379, 0, -3.97825, -97.228, -1.90735e-06, -114.342)
-
-[node name="@Node3D@76286" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.00628103, 0, -3.85682, 0, 3.85682, 0, 3.85682, 0, 0.00628103, -124.88, 3.8147e-06, -113.2)
-
-[node name="@Node3D@76287" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.60144, 0, 2.86531, 0, 3.28247, 0, -2.86531, 0, -1.60144, -161.246, 1.90735e-06, -121.538)
-
-[node name="@Node3D@76288" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.32403, 0, 2.23121, 0, 3.22171, 0, -2.23121, 0, -2.32403, -104.034, 0, -80.5115)
-
-[node name="@Node3D@76289" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.28118, 0, -0.946505, 0, 3.41497, 0, 0.946505, 0, -3.28118, -129.38, 0, -81.0909)
-
-[node name="@Node3D@76290" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.39464, 0, 2.02018, 0, 3.13296, 0, -2.02018, 0, 2.39464, -154.522, 0, -89.2139)
-
-[node name="@Node3D@76291" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.68635, 0, -1.85638, 0, 3.26537, 0, 1.85638, 0, 2.68635, -108.921, 0, -58.8629)
-
-[node name="@Node3D@76292" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.08897, 0, -3.10682, 0, 3.29214, 0, 3.10682, 0, -1.08897, -134.707, 3.8147e-06, -65.1168)
-
-[node name="@Node3D@76293" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.93816, 0, 1.331, 0, 3.22558, 0, -1.331, 0, -2.93816, -159.505, 0, -58.2553)
-
-[node name="@Node3D@76295" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.36309, 0, -3.62605, 0, 3.87379, 0, 3.62605, 0, -1.36309, -134.57, -3.8147e-06, -46.094)
-
-[node name="@Node3D@76296" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.38116, 0, 3.36258, 0, 3.63519, 0, -3.36258, 0, -1.38116, -104.604, 1.90735e-06, -105.246)
-
-[node name="@Node3D@76297" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.37629, 0, -3.24473, 0, 3.52454, 0, 3.24473, 0, 1.37629, -100.711, 0, -35.5826)
-
-[node name="@Node3D@76298" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.31593, 0, 1.96827, 0, 3.03934, 0, -1.96827, 0, -2.31593, -166.548, 0, -42.2547)
-
-[node name="@Node3D@76299" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.23615, 0, -0.33695, 0, 3.25364, 0, 0.33695, 0, 3.23615, -109.8, 0, -21.505)
-
-[node name="@Node3D@76300" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.43164, 0, 0.906794, 0, 3.54942, 0, -0.906794, 0, 3.43164, -134.695, 3.8147e-06, -1.70465)
-
-[node name="@Node3D@76301" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.01348, 0, -0.204415, 0, 3.02041, 0, 0.204415, 0, -3.01348, -164.609, 0, 3.06721)
-
-[node name="@Node3D@76302" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.92615, 0, -2.61887, 0, 3.25093, 0, 2.61887, 0, -1.92615, -163.211, 0, -21.9793)
-
-[node name="@Node3D@76304" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.21029, 0, -3.66217, 0, 3.6682, 0, 3.66217, 0, 0.21029, -135.166, 0, 5.65068)
-
-[node name="@Node3D@76306" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.687015, 0, 3.08679, 0, 3.16232, 0, -3.08679, 0, -0.687015, -109.953, 0, 13.4963)
-
-[node name="@Node3D@76307" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.06841, 0, -2.48366, 0, 3.23216, 0, 2.48366, 0, -2.06841, -161.211, 0, 35.04)
-
-[node name="@Node3D@76308" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.50387, 0, -2.94581, 0, 3.30748, 0, 2.94581, 0, -1.50387, -135.237, 1.90735e-06, 33.9541)
-
-[node name="@Node3D@76309" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.23342, 0, 2.94137, 0, 3.69321, 0, -2.94137, 0, -2.23342, -127.79, 0, 59.7081)
-
-[node name="@Node3D@76310" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.15163, 0, 3.68249, 0, 3.68561, 0, -3.68249, 0, -0.15163, -158.29, 0, 56.211)
-
-[node name="@Node3D@76312" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.376256, 0, -3.32661, 0, 3.34782, 0, 3.32661, 0, -0.376256, -115.915, 0, 33.5366)
-
-[node name="@Node3D@76313" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.703516, 0, -3.88765, 0, 3.95079, 0, 3.88765, 0, -0.703516, -87.2246, -1.90735e-06, 78.628)
-
-[node name="@Node3D@76315" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.229416, 0, -3.37321, 0, 3.381, 0, 3.37321, 0, 0.229416, -149.077, 0, 67.2835)
-
-[node name="@Node3D@76316" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.18229, 0, 3.04779, 0, 3.74852, 0, -3.04779, 0, -2.18229, -84.6037, 0, 100.537)
-
-[node name="@Node3D@76317" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.08226, 0, 2.31908, 0, 3.11672, 0, -2.31908, 0, 2.08226, -116.417, 0, 106.374)
-
-[node name="@Node3D@76319" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.94999, 0, -1.76935, 0, 3.43992, 0, 1.76935, 0, -2.94999, -102.098, 0, 68.0438)
-
-[node name="@Node3D@76320" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.1126, 0, 2.59206, 0, 3.34393, 0, -2.59206, 0, 2.1126, -131.449, 0, 88.2829)
-
-[node name="@Node3D@76322" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.43101, 0, 0.981899, 0, 3.56874, 0, -0.981899, 0, -3.43101, -66.3773, 0, 126.739)
-
-[node name="@Node3D@76323" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.0528326, 0, 3.33225, 0, 3.33267, 0, -3.33225, 0, -0.0528326, -100.833, 0, 123.148)
-
-[node name="@Node3D@76324" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.25483, 0, 3.22311, 0, 3.45877, 0, -3.22311, 0, 1.25483, -132.188, 0, 123.491)
-
-[node name="@Node3D@76325" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.47578, 0, 3.13007, 0, 3.99084, 0, -3.13007, 0, 2.47578, -13.9931, 3.8147e-06, 93.3499)
-
-[node name="@Node3D@76326" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.88804, 0, -2.13789, 0, 3.59323, 0, 2.13789, 0, 2.88804, -57.6348, 0, 85.1964)
-
-[node name="@Node3D@76327" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.72941, 0, -2.78285, 0, 3.27645, 0, 2.78285, 0, -1.72941, -24.9323, 3.8147e-06, 122.934)
-
-[node name="@Node3D@76328" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.49305, 0, -2.67076, 0, 3.65353, 0, 2.67076, 0, 2.49305, -56.7841, 6.9766, 90.567)
-
-[node name="@Node3D@76329" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.658162, 0, -3.45594, 0, 3.51805, 0, 3.45594, 0, 0.658162, -39.454, 0, 93.8368)
-
-[node name="@Node3D@76356" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.01258, 0, 0.665792, 0, 3.08528, 0, -0.665792, 0, 3.01258, -3.09968, 0, 120.507)
-
-[node name="@Node3D@77042" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.42935, 0, -0.826195, 0, 3.52747, 0, 0.826195, 0, -3.42935, -62.2589, 0, 68.593)
-
-[node name="@Node3D@77043" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.45567, 0, -2.25852, 0, 3.33635, 0, 2.25852, 0, -2.45567, -43.1934, -1.90735e-06, 75.6386)
-
-[node name="@Node3D@77044" parent="LimitAssets/MultiMeshInstance3D48" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.69723, 0, -2.59056, 0, 3.09703, 0, 2.59056, 0, 1.69723, -88.1956, -1.90735e-06, 51.8015)
-
-[node name="MultiMeshInstance3D49" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="Sapin" parent="LimitAssets/MultiMeshInstance3D49" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.93833, 0, 0.679362, 0, 3.01584, 0, -0.679362, 0, 2.93833, -16.3717, -3.8147e-06, 140.941)
-
-[node name="@Node3D@76330" parent="LimitAssets/MultiMeshInstance3D49" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.09236, 0, 3.343, 0, 3.94381, 0, -3.343, 0, 2.09236, -55.6626, 0, 150.943)
-
-[node name="@Node3D@76357" parent="LimitAssets/MultiMeshInstance3D49" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.21628, 0, -1.12947, 0, 3.40883, 0, 1.12947, 0, -3.21628, -29.0171, -1.90735e-06, 153.224)
-
-[node name="MultiMeshInstance3D52" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="Sapin" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.88254, 0, 1.19294, 0, 3.11964, 0, -1.19294, 0, -2.88254, 161.365, 0, 1.32682)
-
-[node name="@Node3D@76331" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.10634, 0, 1.76145, 0, 3.571, 0, -1.76145, 0, -3.10634, 132.907, 0, 1.03147)
-
-[node name="@Node3D@76332" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.65808, 0, -3.0181, 0, 3.44356, 0, 3.0181, 0, -1.65808, 103.553, 0, 16.7805)
-
-[node name="@Node3D@76333" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.10192, 0, -0.885714, 0, 3.2259, 0, 0.885714, 0, 3.10192, 175.855, 0, 42.0178)
-
-[node name="@Node3D@76334" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.34262, 0, -3.34806, 0, 3.60723, 0, 3.34806, 0, 1.34262, 131.32, 3.8147e-06, 34.2995)
-
-[node name="@Node3D@76335" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.09821, 0, -1.73981, 0, 3.55329, 0, 1.73981, 0, 3.09821, 113.879, 0, 32.4056)
-
-[node name="@Node3D@76336" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.2846, 0, 2.42035, 0, 3.32828, 0, -2.42035, 0, 2.2846, 162.91, 0, 60.4083)
-
-[node name="@Node3D@76337" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.52622, 0, -0.11502, 0, 3.52809, 0, 0.11502, 0, -3.52622, 145.82, 0, 72.0415)
-
-[node name="@Node3D@76338" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.2725, 0, 1.80807, 0, 3.73876, 0, -1.80807, 0, 3.2725, 103.536, 0, 58.2569)
-
-[node name="@Node3D@76339" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.81737, 0, 2.73158, 0, 3.92417, 0, -2.73158, 0, -2.81737, 186.693, 0, -81.7272)
-
-[node name="@Node3D@76340" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.12515, 0, -2.22534, 0, 3.07708, 0, 2.22534, 0, -2.12515, 151.229, 0, -85.045)
-
-[node name="@Node3D@76341" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.13922, 0, 3.02635, 0, 3.02955, 0, -3.02635, 0, 0.13922, 131.261, 0, -86.5017)
-
-[node name="@Node3D@76342" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.54182, 0, -0.431811, 0, 3.56804, 0, 0.431811, 0, 3.54182, 188.406, 0, -49.1124)
-
-[node name="@Node3D@76343" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.60227, 0, -1.67796, 0, 3.09634, 0, 1.67796, 0, 2.60227, 162.805, 0, -55.2278)
-
-[node name="@Node3D@76344" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.45154, 0, -1.83065, 0, 3.90697, 0, 1.83065, 0, -3.45154, 126.716, 0, -59.8424)
-
-[node name="@Node3D@76345" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.909916, 0, 3.1807, 0, 3.30829, 0, -3.1807, 0, -0.909916, 177.966, 0, -26.5104)
-
-[node name="@Node3D@76346" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.17433, 0, 1.87488, 0, 3.68667, 0, -1.87488, 0, 3.17433, 153.637, 0, -21.7406)
-
-[node name="@Node3D@76347" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.25228, 0, 2.23768, 0, 3.94773, 0, -2.23768, 0, -3.25228, 134.573, 0, -34.5954)
-
-[node name="@Node3D@76349" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.76803, 0, -2.91894, 0, 3.41265, 0, 2.91894, 0, -1.76803, 127.845, -3.8147e-06, -111.21)
-
-[node name="@Node3D@76352" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.643892, 0, 3.61129, 0, 3.66825, 0, -3.61129, 0, 0.643892, 168.522, 0, -112.253)
-
-[node name="@Node3D@76353" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.24152, 0, 0.00837089, 0, 3.24153, 0, -0.00837089, 0, 3.24152, 146.87, 0, -112.475)
-
-[node name="@Node3D@76354" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.42728, 0, 3.58768, 0, 3.61303, 0, -3.58768, 0, -0.42728, 3.92623, 0, 98.5326)
-
-[node name="@Node3D@76355" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.36968, 0, 2.65002, 0, 3.555, 0, -2.65002, 0, -2.36968, 9.9207, 0, 114.773)
-
-[node name="@Node3D@76365" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.02071, 0, 0.361167, 0, 3.04222, 0, -0.361167, 0, 3.02071, 66.7382, 0, 88.5671)
-
-[node name="@Node3D@76366" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.961356, 0, -3.45677, 0, 3.58796, 0, 3.45677, 0, 0.961356, 52.9763, 0, 92.1425)
-
-[node name="@Node3D@76367" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.90008, 0, -1.5726, 0, 3.29902, 0, 1.5726, 0, 2.90008, 46.2453, 3.8147e-06, 128.436)
-
-[node name="@Node3D@76378" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.03307, 0, 2.32842, 0, 3.0911, 0, -2.32842, 0, -2.03307, 96.0445, 0, 88.232)
-
-[node name="@Node3D@76393" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.41392, 0, -3.06324, 0, 3.37381, 0, 3.06324, 0, -1.41392, 129.107, 0, 103.22)
-
-[node name="@Node3D@76394" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.574325, 0, 3.89477, 0, 3.93689, 0, -3.89477, 0, 0.574325, 100.572, 0, 115.601)
-
-[node name="@Node3D@76471" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(0.229597, 0, -3.03115, 0, 3.03984, 0, 3.03115, 0, 0.229597, 131.225, 0, 70.8702)
-
-[node name="@Node3D@76472" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.75608, 0, -0.45999, 0, 3.78414, 0, 0.45999, 0, 3.75608, 161.346, 0, 102.283)
-
-[node name="@Node3D@76476" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.24368, 0, 3.5308, 0, 3.74343, 0, -3.5308, 0, -1.24368, 120.426, 0, -30.7594)
-
-[node name="@Node3D@76479" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.41445, 0, -3.7281, 0, 3.9874, 0, 3.7281, 0, 1.41445, 183.557, 0, -14.335)
-
-[node name="@Node3D@76480" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-0.751451, 0, 3.43376, 0, 3.51503, 0, -3.43376, 0, -0.751451, 182.606, 0, 12.4106)
-
-[node name="@Node3D@76487" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.66049, 0, 0.67589, 0, 3.72237, 0, -0.67589, 0, 3.66049, 203.92, 0, 6.52558)
-
-[node name="@Node3D@76488" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.69633, 0, 2.61069, 0, 3.75312, 0, -2.61069, 0, -2.69633, 204.431, 0, 38.1124)
-
-[node name="@Node3D@76492" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.65496, 0, 1.43582, 0, 3.92687, 0, -1.43582, 0, -3.65496, 152.24, 0, 37.8913)
-
-[node name="@Node3D@76493" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.77445, 0, 2.6073, 0, 3.15384, 0, -2.6073, 0, -1.77445, 208.444, 3.8147e-06, 64.0314)
-
-[node name="@Node3D@76494" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-1.86037, 0, -3.26302, 0, 3.7561, 0, 3.26302, 0, -1.86037, 180.008, 0, 58.7217)
-
-[node name="@Node3D@77041" parent="LimitAssets/MultiMeshInstance3D52" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(3.18814, 0, 2.3442, 0, 3.95721, 0, -2.3442, 0, 3.18814, 23.4011, -1.90735e-06, 85.5054)
-
-[node name="MultiMeshInstance3D53" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="Sapin" parent="LimitAssets/MultiMeshInstance3D53" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.1622, 0, 2.90465, 0, 3.12853, 0, -2.90465, 0, 1.1622, 13.0288, 0, 149.999)
-
-[node name="@Node3D@76368" parent="LimitAssets/MultiMeshInstance3D53" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.72782, 0, -3.37048, 0, 3.78754, 0, 3.37048, 0, 1.72782, 75.4149, 0, 143.685)
-
-[node name="@Node3D@76369" parent="LimitAssets/MultiMeshInstance3D53" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-2.49855, 0, -2.94017, 0, 3.85842, 0, 2.94017, 0, -2.49855, 41.5632, 0, 158.343)
-
-[node name="@Node3D@76381" parent="LimitAssets/MultiMeshInstance3D53" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(-3.82805, 0, -0.369975, 0, 3.84589, 0, 0.369975, 0, -3.82805, 90.6979, 0, 156.352)
-
-[node name="@Node3D@76395" parent="LimitAssets/MultiMeshInstance3D53" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(1.60549, 0, -3.34047, 0, 3.70626, 0, 3.34047, 0, 1.60549, 130.722, 0, 144.101)
-
-[node name="MultiMeshInstance3D23" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreRond" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.195519, 0, -3.85166, 0, 3.85662, 0, 3.85166, 0, -0.195519, -122.865, 0, -82.3303)
-
-[node name="@Node3D@76396" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.880871, 0, 3.11131, 0, 3.2336, 0, -3.11131, 0, 0.880871, -94.2136, 0, -54.3376)
-
-[node name="@Node3D@76397" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.55426, 0, -0.52805, 0, 3.59327, 0, 0.52805, 0, 3.55426, -130.171, 0, -44.9984)
-
-[node name="@Node3D@76398" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.17335, 0, 2.86157, 0, 3.09279, 0, -2.86157, 0, -1.17335, -166.03, -9.53674e-07, -55.5752)
-
-[node name="@Node3D@76399" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.28966, 0, 2.06579, 0, 3.8845, 0, -2.06579, 0, 3.28966, -169.113, 0, -72.7814)
-
-[node name="@Node3D@76400" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.282771, 0, -3.74987, 0, 3.76052, 0, 3.74987, 0, 0.282771, -103.432, 0, -28.2289)
-
-[node name="@Node3D@76401" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.103152, 0, 3.42028, 0, 3.42184, 0, -3.42028, 0, -0.103152, -97.0806, 0, -75.7513)
-
-[node name="@Node3D@76402" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.08703, 0, -0.570973, 0, 3.13939, 0, 0.570973, 0, -3.08703, -102.569, 0, -5.00032)
-
-[node name="@Node3D@76403" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.93978, 0, -2.51564, 0, 3.17666, 0, 2.51564, 0, 1.93978, -140.848, 0, -1.06575)
-
-[node name="@Node3D@76404" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.92115, 0, 3.23851, 0, 3.36697, 0, -3.23851, 0, -0.92115, -140.866, 3.8147e-06, -32.401)
-
-[node name="@Node3D@76405" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.43644, 0, -2.61026, 0, 3.57067, 0, 2.61026, 0, 2.43644, -179.299, -1.90735e-06, -25.0726)
-
-[node name="@Node3D@76406" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.49079, 0, -3.11692, 0, 3.45509, 0, 3.11692, 0, -1.49079, -162.289, 0, 14.4881)
-
-[node name="@Node3D@76407" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.06433, 0, -3.53081, 0, 3.68774, 0, 3.53081, 0, 1.06433, -104.18, 9.53674e-07, 23.257)
-
-[node name="@Node3D@76408" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.80573, 0, 2.97018, 0, 3.47601, 0, -2.97018, 0, -1.80573, -140.49, 1.90735e-06, 26.9381)
-
-[node name="@Node3D@76409" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.12834, 0, 1.77928, 0, 3.59894, 0, -1.77928, 0, -3.12834, -171.076, 0, -17.6859)
-
-[node name="@Node3D@76410" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.04614, 0, -3.15322, 0, 3.75892, 0, 3.15322, 0, -2.04614, -105.843, 0, 43.2966)
-
-[node name="@Node3D@76411" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.950105, 0, -2.98039, 0, 3.12816, 0, 2.98039, 0, -0.950105, -158.453, 0, 42.9763)
-
-[node name="@Node3D@76412" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.45598, 0, 3.26314, 0, 3.57323, 0, -3.26314, 0, 1.45598, -91.5944, 0, 69.461)
-
-[node name="@Node3D@76413" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.15811, 0, 0.682319, 0, 3.23098, 0, -0.682319, 0, -3.15811, -160.827, 9.53674e-07, 66.0058)
-
-[node name="@Node3D@76414" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.46595, 0, 2.19286, 0, 3.29993, 0, -2.19286, 0, -2.46595, -104.93, 3.8147e-06, -0.208248)
-
-[node name="@Node3D@76416" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.87256, 0, 2.61891, 0, 3.8872, 0, -2.61891, 0, 2.87256, -109.108, 0, 77.8717)
-
-[node name="@Node3D@76417" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.17516, 0, 1.93812, 0, 3.71994, 0, -1.93812, 0, -3.17516, -140.679, 0, 29.8736)
-
-[node name="@Node3D@76418" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.63139, 0, -1.7326, 0, 3.15058, 0, 1.7326, 0, 2.63139, -79.7401, 0, 105.963)
-
-[node name="@Node3D@76419" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.42248, 0, -2.19515, 0, 3.26911, 0, 2.19515, 0, 2.42248, -116.472, 0, 116.044)
-
-[node name="@Node3D@76420" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.800615, 0, 3.70366, 0, 3.7892, 0, -3.70366, 0, 0.800615, -141.55, 0, 114.403)
-
-[node name="@Node3D@76421" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.79718, 0, 2.42591, 0, 3.7026, 0, -2.42591, 0, 2.79718, -73.2411, 0, 56.8197)
-
-[node name="@Node3D@76422" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.09728, 0, -2.16067, 0, 3.01116, 0, 2.16067, 0, 2.09728, -137.294, -1.90735e-06, 51.0439)
-
-[node name="@Node3D@76423" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.94418, 0, -3.01369, 0, 3.58638, 0, 3.01369, 0, -1.94418, -150.717, -1.90735e-06, 88.0415)
-
-[node name="@Node3D@76425" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.927601, 0, -3.39954, 0, 3.52382, 0, 3.39954, 0, 0.927601, -66.2852, 0, 137.291)
-
-[node name="@Node3D@76426" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.0862103, 0, -3.82182, 0, 3.82279, 0, 3.82182, 0, 0.0862103, -100.23, 0, 134.252)
-
-[node name="@Node3D@76427" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.39061, 0, 2.40132, 0, 3.38841, 0, -2.40132, 0, -2.39061, -135.207, 0, 132.393)
-
-[node name="@Node3D@76428" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.530217, 0, 3.08492, 0, 3.13015, 0, -3.08492, 0, -0.530217, -22.1786, 0, 83.2907)
-
-[node name="@Node3D@76429" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.64202, 0, 2.61461, 0, 3.08746, 0, -2.61461, 0, 1.64202, -51.9743, 0, 85.9664)
-
-[node name="@Node3D@76430" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.36221, 0, 2.8423, 0, 3.15187, 0, -2.8423, 0, 1.36221, -23.1996, 0, 112.077)
-
-[node name="@Node3D@76431" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.1428, 0, 2.81578, 0, 3.03885, 0, -2.81578, 0, 1.1428, -22.2465, 0, 144.685)
-
-[node name="@Node3D@76432" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.63654, 0, 3.48706, 0, 3.852, 0, -3.48706, 0, 1.63654, -52.6329, 0, 148.813)
-
-[node name="@Node3D@76433" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.52772, 0, 2.68799, 0, 3.0918, 0, -2.68799, 0, 1.52772, -59.1867, 1.90735e-06, 126.389)
-
-[node name="@Node3D@76434" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.21375, 0, 1.60804, 0, 3.5936, 0, -1.60804, 0, -3.21375, -33.1536, 0, 79.9886)
-
-[node name="@Node3D@76435" parent="LimitAssets/MultiMeshInstance3D23" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.31123, 0, 2.005, 0, 3.05971, 0, -2.005, 0, 2.31123, -39.5048, 0, 158.196)
-
-[node name="MultiMeshInstance3D57" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreRond" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.71626, 0, 0.496559, 0, 3.74929, 0, -0.496559, 0, 3.71626, 174.035, 0, 10.5916)
-
-[node name="@Node3D@76436" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.0761423, 0, 3.30607, 0, 3.30695, 0, -3.30607, 0, 0.0761423, 146.398, 0, 10.3247)
-
-[node name="@Node3D@76437" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.35184, 0, 1.66165, 0, 3.74111, 0, -1.66165, 0, -3.35184, 113.285, 0, 4.02824)
-
-[node name="@Node3D@76438" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.98445, 0, -2.23322, 0, 3.7275, 0, 2.23322, 0, -2.98445, 170.462, 0, 41.8138)
-
-[node name="@Node3D@76439" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.32143, 0, 1.46955, 0, 3.63201, 0, -1.46955, 0, 3.32143, 140.408, 0, 36.516)
-
-[node name="@Node3D@76440" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.01532, 0, 2.90777, 0, 3.07993, 0, -2.90777, 0, 1.01532, 100.214, 0, 29.1393)
-
-[node name="@Node3D@76441" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.89896, 0, -0.872807, 0, 3.0275, 0, 0.872807, 0, -2.89896, 174.45, 0, 73.7039)
-
-[node name="@Node3D@76442" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.91214, 0, 0.832666, 0, 3.99977, 0, -0.832666, 0, -3.91214, 149.924, 0, 79.276)
-
-[node name="@Node3D@76443" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.87418, 0, -2.19648, 0, 3.61738, 0, 2.19648, 0, 2.87418, 114.966, 1.90735e-06, 67.3583)
-
-[node name="@Node3D@76444" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.321389, 0, 3.63322, 0, 3.64741, 0, -3.63322, 0, 0.321389, 199.194, 0, -62.2107)
-
-[node name="@Node3D@76445" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.11735, 0, 3.51302, 0, 3.68643, 0, -3.51302, 0, -1.11735, 162.71, 0, -63.0979)
-
-[node name="@Node3D@76446" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.3125, 0, -1.23039, 0, 3.53363, 0, 1.23039, 0, -3.3125, 117.348, 0, -64.1177)
-
-[node name="@Node3D@76447" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.36141, 0, 0.5655, 0, 3.40864, 0, -0.5655, 0, 3.36141, 191.342, 0, -20.5936)
-
-[node name="@Node3D@76448" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.548902, 0, 3.85641, 0, 3.89528, 0, -3.85641, 0, -0.548902, 150.877, 0, -28.4099)
-
-[node name="@Node3D@76449" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.38067, 0, 3.65113, 0, 3.90346, 0, -3.65113, 0, 1.38067, 128.629, 0, -29.5169)
-
-[node name="@Node3D@76450" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.3216, 0, -3.07452, 0, 3.34653, 0, 3.07452, 0, 1.3216, 191.64, 0, -22.0177)
-
-[node name="@Node3D@76451" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.22063, 0, -2.0903, 0, 3.04967, 0, 2.0903, 0, -2.22063, 193.289, 0, -31.7851)
-
-[node name="@Node3D@76452" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.30668, 0, 0.17549, 0, 3.31134, 0, -0.17549, 0, 3.30668, 9.41396, 9.53674e-07, 82.8318)
-
-[node name="@Node3D@76453" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.91078, 0, 0.279503, 0, 3.92076, 0, -0.279503, 0, 3.91078, 10.4633, 0, 128.55)
-
-[node name="@Node3D@76454" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.42144, 0, 0.331453, 0, 3.43746, 0, -0.331453, 0, -3.42144, 16.1594, 0, 150.72)
-
-[node name="@Node3D@76455" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.66923, 0, -1.98685, 0, 3.32751, 0, 1.98685, 0, -2.66923, 36.5103, 0, 123.839)
-
-[node name="@Node3D@76456" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.71196, 0, -3.2518, 0, 3.67492, 0, 3.2518, 0, 1.71196, 78.6005, 0, 83.0317)
-
-[node name="@Node3D@76457" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.71676, 0, 2.81957, 0, 3.91545, 0, -2.81957, 0, 2.71676, 38.1533, 1.90735e-06, 81.4217)
-
-[node name="@Node3D@76459" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.40817, 0, 2.78041, 0, 3.67831, 0, -2.78041, 0, 2.40817, 77.1723, 0, 124.542)
-
-[node name="@Node3D@76460" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.72689, 0, 2.62251, 0, 3.14002, 0, -2.62251, 0, 1.72689, 72.1613, -1.90735e-06, 153.489)
-
-[node name="@Node3D@76461" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.18895, 0, -0.110406, 0, 3.19086, 0, 0.110406, 0, 3.18895, 51.4613, 3.8147e-06, 155.298)
-
-[node name="@Node3D@76462" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.333175, 0, -3.88076, 0, 3.89504, 0, 3.88076, 0, 0.333175, 99.3772, 0, 84.4748)
-
-[node name="@Node3D@76463" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.62685, 0, 0.402167, 0, 3.64908, 0, -0.402167, 0, -3.62685, 94.7019, 0, 110.361)
-
-[node name="@Node3D@76464" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.41273, 0, 1.13193, 0, 3.59555, 0, -1.13193, 0, -3.41273, 107.897, 0, 151.511)
-
-[node name="@Node3D@76465" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.19163, 0, 2.96882, 0, 3.19905, 0, -2.96882, 0, 1.19163, 127.294, 0, 116.792)
-
-[node name="@Node3D@76466" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.149869, 0, 3.3269, 0, 3.33028, 0, -3.3269, 0, -0.149869, 49.567, 0, 107.665)
-
-[node name="@Node3D@76467" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.77063, 0, 0.405953, 0, 3.79242, 0, -0.405953, 0, -3.77063, 53.352, 0, 144.64)
-
-[node name="@Node3D@76468" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.566948, 0, 3.90682, 0, 3.94774, 0, -3.90682, 0, 0.566948, 147.652, 0, 79.5567)
-
-[node name="@Node3D@76469" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.32899, 0, 2.98095, 0, 3.78289, 0, -2.98095, 0, 2.32899, 146.018, 0, 140.195)
-
-[node name="@Node3D@76473" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.12959, 0, 2.48416, 0, 3.99567, 0, -2.48416, 0, 3.12959, 101.607, 0, 66.0079)
-
-[node name="@Node3D@76474" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.39282, 0, 2.61599, 0, 3.54528, 0, -2.61599, 0, 2.39282, 131.927, 0, 135.247)
-
-[node name="@Node3D@76482" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.117245, 0, -3.90415, 0, 3.90591, 0, 3.90415, 0, 0.117245, 134.966, 0, 10.7976)
-
-[node name="@Node3D@76483" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.9903, 0, -3.18095, 0, 3.7523, 0, 3.18095, 0, 1.9903, 202.82, 0, 44.8792)
-
-[node name="@Node3D@76484" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.87796, 0, -1.83685, 0, 3.41418, 0, 1.83685, 0, -2.87796, 141.13, 0, 45.1563)
-
-[node name="@Node3D@76489" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.09772, 0, -0.544589, 0, 3.14523, 0, 0.544589, 0, 3.09772, 212.166, 0, 59.0639)
-
-[node name="@Node3D@76495" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.88119, 0, 1.97216, 0, 3.49152, 0, -1.97216, 0, -2.88119, 146.066, 0, 65.4069)
-
-[node name="@Node3D@76497" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.27083, 0, 0.843691, 0, 3.37789, 0, -0.843691, 0, 3.27083, 223.47, 0, -1.69563)
-
-[node name="@Node3D@76498" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.76625, 0, -1.80787, 0, 3.30463, 0, 1.80787, 0, 2.76625, 159.829, 0, -3.11417)
-
-[node name="@Node3D@76499" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.5457, 0, 0.169149, 0, 3.54974, 0, -0.169149, 0, -3.5457, 229.122, 3.8147e-06, 36.1492)
-
-[node name="@Node3D@76500" parent="LimitAssets/MultiMeshInstance3D57" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.68784, 0, 1.12993, 0, 3.85706, 0, -1.12993, 0, 3.68784, 149.681, 0, 64.5678)
-
-[node name="MultiMeshInstance3D3" type="MultiMeshInstance3D" parent="LimitAssets"]
-transform = Transform3D(0.21164, 0, 0, 0, 0.21164, 0, 0, 0, 0.21164, 72.6595, 0.50389, 33.9439)
-
-[node name="ArbreRond" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.00731234, 0, -3.14104, 0, 3.14105, 0, 3.14104, 0, -0.00731234, -4.30404, 0, -299.131)
-
-[node name="@Node3D@76953" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.05143, 0, -2.90398, 0, 3.08847, 0, 2.90398, 0, 1.05143, -53.0328, 0, -294.629)
-
-[node name="@Node3D@76954" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.2786, 0, -0.833859, 0, 3.38298, 0, 0.833859, 0, 3.2786, -17.1918, 0, -261.918)
-
-[node name="@Node3D@76955" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.46859, 0, 0.219755, 0, 3.47554, 0, -0.219755, 0, -3.46859, -55.3157, 0, -270.71)
-
-[node name="@Node3D@76956" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.711442, 0, -3.39981, 0, 3.47345, 0, 3.39981, 0, 0.711442, -23.1289, 0, -228.615)
-
-[node name="@Node3D@76957" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.94308, 0, -0.909435, 0, 3.08039, 0, 0.909435, 0, 2.94308, -45.2688, 0, -227.283)
-
-[node name="@Node3D@76958" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.19931, 0, -1.27452, 0, 3.44384, 0, 1.27452, 0, 3.19931, -23.8739, 0, -290.124)
-
-[node name="@Node3D@76959" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.53889, 0, -3.46941, 0, 3.79539, 0, 3.46941, 0, -1.53889, -1.50294, -1.90735e-06, -230.4)
-
-[node name="@Node3D@76960" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.40155, 0, 2.53927, 0, 3.49505, 0, -2.53927, 0, -2.40155, -69.985, 0, -300.793)
-
-[node name="@Node3D@76961" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.694477, 0, 3.41708, 0, 3.48693, 0, -3.41708, 0, -0.694477, -89.4019, 0, -248.38)
-
-[node name="@Node3D@76962" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.371341, 0, -3.03838, 0, 3.06099, 0, 3.03838, 0, -0.371341, -75.0737, 1.90735e-06, -233.283)
-
-[node name="@Node3D@76963" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.94104, 0, 0.562125, 0, 3.98092, 0, -0.562125, 0, 3.94104, -54.6167, 0, -253.672)
-
-[node name="@Node3D@76964" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.677057, 0, 3.12511, 0, 3.19761, 0, -3.12511, 0, -0.677057, -122.118, 0, -262.721)
-
-[node name="@Node3D@76965" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.84594, 0, 2.04288, 0, 3.50325, 0, -2.04288, 0, -2.84594, -127.62, 0, -225.345)
-
-[node name="@Node3D@76966" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.53521, 0, -2.81895, 0, 3.79128, 0, 2.81895, 0, 2.53521, -52.3269, 0, -201.386)
-
-[node name="@Node3D@76967" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.60248, 0, 2.62976, 0, 3.07954, 0, -2.62976, 0, 1.60248, -129.505, 0, -200.487)
-
-[node name="@Node3D@76968" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.28506, 0, 2.84687, 0, 3.12347, 0, -2.84687, 0, 1.28506, -56.8489, 0, -221.295)
-
-[node name="@Node3D@76969" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.59326, 0, -1.21447, 0, 3.79294, 0, 1.21447, 0, 3.59326, -67.3441, 0, -178.387)
-
-[node name="@Node3D@76970" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.34048, 0, 3.17967, 0, 3.45068, 0, -3.17967, 0, -1.34048, -137.22, 0, -179.78)
-
-[node name="@Node3D@76971" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.39017, 0, -3.51931, 0, 3.78392, 0, 3.51931, 0, -1.39017, -84.3245, 0, -211.401)
-
-[node name="@Node3D@76972" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.5169, 0, 1.47616, 0, 3.81413, 0, -1.47616, 0, 3.5169, -155.505, 0, -214.724)
-
-[node name="@Node3D@76973" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.688461, 0, -3.37987, 0, 3.44928, 0, 3.37987, 0, -0.688461, -147.602, 0, -137.777)
-
-[node name="@Node3D@76974" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.14798, 0, 3.05305, 0, 3.26174, 0, -3.05305, 0, -1.14798, -78.4481, 0, -136.531)
-
-[node name="@Node3D@76975" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.23521, 0, 3.0025, 0, 3.24665, 0, -3.0025, 0, -1.23521, -98.4536, 0, -126.362)
-
-[node name="@Node3D@76976" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.53174, 0, -2.86444, 0, 3.24827, 0, 2.86444, 0, 1.53174, -131.486, 3.8147e-06, -116.913)
-
-[node name="@Node3D@76977" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.06764, 0, -0.86978, 0, 3.18857, 0, 0.86978, 0, 3.06764, -160.674, 0, -128.526)
-
-[node name="@Node3D@76978" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.01854, 0, 3.324, 0, 3.47655, 0, -3.324, 0, -1.01854, -93.7366, 0, -86.468)
-
-[node name="@Node3D@76979" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.93434, 0, -1.24254, 0, 3.18657, 0, 1.24254, 0, -2.93434, -155.734, 3.8147e-06, -96.0938)
-
-[node name="@Node3D@76980" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.9686, 0, 1.06504, 0, 3.15387, 0, -1.06504, 0, -2.9686, -93.3586, 0, -110.698)
-
-[node name="@Node3D@76981" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.221877, 0, -3.67354, 0, 3.68023, 0, 3.67354, 0, 0.221877, 191.36, 0, -89.3045)
-
-[node name="@Node3D@76982" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.08599, 0, -1.89497, 0, 3.62136, 0, 1.89497, 0, -3.08599, 145.083, 0, -89.2718)
-
-[node name="@Node3D@76983" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.36084, 0, -2.789, 0, 3.10329, 0, 2.789, 0, 1.36084, 120.412, 0, -90.9073)
-
-[node name="@Node3D@76984" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.92163, 0, 1.0281, 0, 3.09724, 0, -1.0281, 0, -2.92163, 195.439, 0, -110.006)
-
-[node name="@Node3D@76985" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.31293, 0, 1.96099, 0, 3.84981, 0, -1.96099, 0, -3.31293, 163.521, 0, -103.685)
-
-[node name="@Node3D@76986" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.19547, 0, -1.8126, 0, 3.67376, 0, 1.8126, 0, 3.19547, 122.38, -3.8147e-06, -117.394)
-
-[node name="@Node3D@76987" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.27597, 0, -1.29382, 0, 3.52221, 0, 1.29382, 0, 3.27597, 193.978, 0, -137.437)
-
-[node name="@Node3D@76988" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.54286, 0, -0.900529, 0, 3.65551, 0, 0.900529, 0, -3.54286, 162.662, 0, -150.598)
-
-[node name="@Node3D@76990" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.82078, 0, 0.875568, 0, 3.91982, 0, -0.875568, 0, -3.82078, 181.608, 0, -104.256)
-
-[node name="@Node3D@76991" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.48399, 0, -2.70494, 0, 3.67246, 0, 2.70494, 0, -2.48399, 194.341, 0, -172.113)
-
-[node name="@Node3D@76992" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.18678, 0, 2.75835, 0, 3.00283, 0, -2.75835, 0, 1.18678, 170.959, 0, -170.111)
-
-[node name="@Node3D@76993" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.96146, 0, 0.900737, 0, 3.09541, 0, -0.900737, 0, 2.96146, 130.727, 0, -175.862)
-
-[node name="@Node3D@76994" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.694184, 0, -3.06761, 0, 3.14517, 0, 3.06761, 0, -0.694184, 201.387, 0, -201.919)
-
-[node name="@Node3D@76995" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.0744, 0, 3.13831, 0, 3.31712, 0, -3.13831, 0, -1.0744, 164.971, 0, -200.93)
-
-[node name="@Node3D@76996" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.12616, 0, 3.1311, 0, 3.32746, 0, -3.1311, 0, -1.12616, 136.654, 0, -202.237)
-
-[node name="@Node3D@76997" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.50027, 0, 2.63074, 0, 3.02846, 0, -2.63074, 0, -1.50027, 201.177, 0, -149.019)
-
-[node name="@Node3D@76999" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.29796, 0, -1.22074, 0, 3.51663, 0, 1.22074, 0, -3.29796, 189.645, 0, -225.647)
-
-[node name="@Node3D@77000" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.10754, 0, -3.6337, 0, 3.79874, 0, 3.6337, 0, -1.10754, 131.96, 0, -144.292)
-
-[node name="@Node3D@77001" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.94764, 0, -0.843015, 0, 3.06582, 0, 0.843015, 0, 2.94764, 157.079, 0, -228.119)
-
-[node name="@Node3D@77002" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.47308, 0, 3.1391, 0, 3.46755, 0, -3.1391, 0, -1.47308, 179.562, 1.90735e-06, -240.782)
-
-[node name="@Node3D@77003" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.23013, 0, 2.85044, 0, 3.10455, 0, -2.85044, 0, 1.23013, 156.233, 0, -246.693)
-
-[node name="@Node3D@77004" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.85019, 0, -0.0277416, 0, 3.85029, 0, 0.0277416, 0, -3.85019, 121.577, 3.8147e-06, -220.301)
-
-[node name="@Node3D@77005" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.53452, 0, -0.859086, 0, 3.63743, 0, 0.859086, 0, -3.53452, 170.994, 0, -255.39)
-
-[node name="@Node3D@77006" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.51553, 0, 1.77908, 0, 3.08108, 0, -1.77908, 0, 2.51553, 150.483, 0, -258.371)
-
-[node name="@Node3D@77007" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.03491, 0, -3.32357, 0, 3.48097, 0, 3.32357, 0, -1.03491, 109.998, 0, -280.096)
-
-[node name="@Node3D@77008" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.81758, 0, -1.71652, 0, 3.29927, 0, 1.71652, 0, 2.81758, 136.005, 0, -285.432)
-
-[node name="@Node3D@77009" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.30381, 0, 3.12294, 0, 3.38418, 0, -3.12294, 0, -1.30381, 133.604, 0, -263.762)
-
-[node name="@Node3D@77010" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.45145, 0, 3.17177, 0, 3.4881, 0, -3.17177, 0, -1.45145, 99.5378, 0, -219.174)
-
-[node name="@Node3D@77011" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.47622, 0, -2.27934, 0, 3.36557, 0, 2.27934, 0, 2.47622, 154.355, 1.90735e-06, -297.659)
-
-[node name="@Node3D@77012" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.43429, 0, 1.78945, 0, 3.02124, 0, -1.78945, 0, -2.43429, 94.1633, -3.8147e-06, -299.788)
-
-[node name="@Node3D@77013" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.85592, 0, 1.56288, 0, 3.25559, 0, -1.56288, 0, -2.85592, 90.8565, 0, -226.043)
-
-[node name="@Node3D@77014" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-2.97549, 0, -1.36891, 0, 3.27528, 0, 1.36891, 0, -2.97549, 150.421, 0, -301.216)
-
-[node name="@Node3D@77015" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.99023, 0, -3.46502, 0, 3.99592, 0, 3.46502, 0, 1.99023, 68.4563, 0, -295.862)
-
-[node name="@Node3D@77016" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-0.800926, 0, -3.91389, 0, 3.995, 0, 3.91389, 0, -0.800926, 138.804, 0, -228.479)
-
-[node name="@Node3D@77017" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.52812, 0, -2.97234, 0, 3.90207, 0, 2.97234, 0, 2.52812, 111.401, 0, -252.541)
-
-[node name="@Node3D@77018" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.67008, 0, -0.641293, 0, 3.72569, 0, 0.641293, 0, 3.67008, 73.7909, 0, -274.287)
-
-[node name="@Node3D@77019" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(2.75476, 0, -2.1811, 0, 3.51368, 0, 2.1811, 0, 2.75476, 54.6692, 0, -274.963)
-
-[node name="@Node3D@77020" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(0.653797, 0, -3.26813, 0, 3.33288, 0, 3.26813, 0, 0.653797, 114.358, 0, -230.99)
-
-[node name="@Node3D@77021" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(3.54384, 0, -0.273283, 0, 3.55436, 0, 0.273283, 0, 3.54384, 22.4069, 0, -296.973)
-
-[node name="@Node3D@77022" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.81598, 0, -3.42986, 0, 3.88094, 0, 3.42986, 0, -1.81598, 17.3003, 0, -268.94)
-
-[node name="@Node3D@77023" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.87888, 0, 3.06708, 0, 3.59683, 0, -3.06708, 0, 1.87888, 8.70472, -1.90735e-06, -256.775)
-
-[node name="@Node3D@77024" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.97617, 0, -2.98019, 0, 3.57587, 0, 2.98019, 0, 1.97617, 22.0336, 0, -230.328)
-
-[node name="@Node3D@77025" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-3.1917, 0, -0.702854, 0, 3.26817, 0, 0.702854, 0, -3.1917, 47.4531, 3.8147e-06, -226.639)
-
-[node name="@Node3D@77026" parent="LimitAssets/MultiMeshInstance3D3" instance=ExtResource("3_3cdao")]
-transform = Transform3D(1.52866, 0, 3.57297, 0, 3.88624, 0, -3.57297, 0, 1.52866, 56.1077, 0, -231.202)
-
 [node name="Geometry" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_3sqmu")
 
@@ -1479,187 +252,181 @@ shape = SubResource("WorldBoundaryShape3D_lvrr5")
 
 [node name="LevelAssets" type="Node3D" parent="Geometry"]
 
-[node name="GrosCaillou" parent="Geometry/LevelAssets" instance=ExtResource("10_g5hn2")]
-transform = Transform3D(0.0139089, 0, 0.035822, 0, 0.0340553, 0, -0.0286927, 0, 0.0173649, 33.9678, -0.101079, -83.7588)
+[node name="GrosCaillou" parent="Geometry/LevelAssets" instance=ExtResource("7_8iihn")]
+transform = Transform3D(0.0139089, 0, 0.035822, 0, 0.0340553, 0, -0.0286927, 0, 0.0173649, 7.64978, -0.101079, -82.6194)
 
-[node name="GrosCaillou2" parent="Geometry/LevelAssets" instance=ExtResource("10_g5hn2")]
-transform = Transform3D(-0.0031575, 0, 0.0396133, 0, 0.0340553, 0, -0.0317294, 0, -0.00394204, 16.6792, 0.10923, -141.481)
-
-[node name="Sapin" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(1.85242, 0, 1.01027, 0, 2.11, 0, -1.01027, 0, 1.85242, -6.56078, -1.36149, -0.694239)
 
-[node name="Sapin2" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin2" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(1.85242, 0, 1.01027, 0, 2.11, 0, -1.01027, 0, 1.85242, 4.66901, -1.36149, -4.42493)
 
-[node name="Sapin3" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin3" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.10505, -0.138178, -0.0422493, 0.139696, 2.10387, 0.0794795, 0.0369217, -0.08209, 2.10808, 14.9391, -1.36149, -18.372)
 
-[node name="Sapin4" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin4" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.05809, -0.153247, 0.439169, 0.139696, 2.10387, 0.0794795, -0.443666, -0.0484482, 2.06226, 13.2015, -1.36149, -23.732)
 
-[node name="Sapin12" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
-transform = Transform3D(2.05809, -0.153247, 0.439169, 0.139696, 2.10387, 0.0794795, -0.443666, -0.0484482, 2.06226, 2.04422, -1.36149, -54.4476)
+[node name="Sapin12" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
+transform = Transform3D(0.566791, 0.0522168, -1.91769, 0.132413, 2.99128, 0.0753359, 1.91343, -0.222471, 0.562839, 2.77208, -1.36149, -71.4969)
 
-[node name="Sapin10" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin10" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.05809, -0.153247, 0.439169, 0.139696, 2.10387, 0.0794795, -0.443666, -0.0484482, 2.06226, -7.83116, -1.36149, -40.7937)
 
-[node name="Sapin5" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin5" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.0744, -0.151156, 0.355146, 0.139696, 2.10387, 0.0794795, -0.359808, -0.0546253, 2.07838, 9.43414, -1.36149, -27.1071)
 
-[node name="Sapin13" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin13" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.0744, -0.151156, 0.355146, 0.139696, 2.10387, 0.0794795, -0.359808, -0.0546253, 2.07838, 0.535028, -1.36149, -42.3262)
 
-[node name="Sapin6" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin6" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(-1.36881, 0.15128, -1.59862, 0.139696, 2.10387, 0.0794795, 1.59968, -0.0542793, -1.37484, 4.70879, -1.36149, -29.51)
 
-[node name="Sapin8" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin8" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(2.05039, -0.117866, -0.483849, 0.139696, 2.10387, 0.0794795, 0.478003, -0.109268, 2.05224, 1.73662, -1.36149, -9.94325)
 
-[node name="Sapin9" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin9" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(1.48187, -0.154837, 1.49405, 0.139696, 2.10387, 0.0794795, -1.49554, 0.0430973, 1.48782, -4.94614, -1.36149, -11.761)
 
-[node name="Sapin11" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin11" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(1.48187, -0.154837, 1.49405, 0.139696, 2.10387, 0.0794795, -1.49554, 0.0430973, 1.48782, -11.475, -1.36149, -10.8914)
 
-[node name="Sapin7" parent="Geometry/LevelAssets" instance=ExtResource("4_3i1l6")]
+[node name="Sapin7" parent="Geometry/LevelAssets" instance=ExtResource("4_808k4")]
 transform = Transform3D(-2.07271, 0.151407, -0.364755, 0.139696, 2.10387, 0.0794795, 0.369399, 0.0539256, -2.07671, -0.409544, -1.36149, -32.3992)
 
 [node name="LevelAssets2" type="Node3D" parent="Geometry"]
 
-[node name="GrosCaillou" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(0.037, 0, 0, 0, 0.037, 0, 0, 0, 0.037, -13.9718, -0.252328, 6.849)
 
-[node name="GrosCaillou6" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou6" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 3.14068, -0.361207, -23.4178)
 
-[node name="GrosCaillou2" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou2" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(-0.024282, 0, -0.0279175, 0, 0.037, 0, 0.0279175, 0, -0.024282, -17.2452, 0, 10.4355)
 
-[node name="GrosCaillou3" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou3" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(0.0290871, 0, 0.0228679, 0, 0.037, 0, -0.0228679, 0, 0.0290871, -21.255, -0.252328, 7.4351)
 
-[node name="GrosCaillou4" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou4" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(0.0238039, 0, -0.0283262, 0, 0.037, 0, 0.0283262, 0, 0.0238039, -27.5361, -0.252328, 9.34095)
 
-[node name="GrosCaillou7" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou7" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(-0.0274128, 0, 0.0248503, 0, 0.037, 0, -0.0248503, 0, -0.0274128, -25.7835, -0.252328, 11.3972)
 
-[node name="GrosCaillou5" parent="Geometry/LevelAssets2" instance=ExtResource("10_g5hn2")]
+[node name="GrosCaillou5" parent="Geometry/LevelAssets2" instance=ExtResource("7_8iihn")]
 transform = Transform3D(-0.00182098, 0, 0.0369552, 0, 0.037, 0, -0.0369552, 0, -0.00182098, -33.7829, -0.252328, 9.65098)
 
-[node name="Barriere" parent="Geometry/LevelAssets2" instance=ExtResource("11_figmp")]
+[node name="Barriere" parent="Geometry/LevelAssets2" instance=ExtResource("8_0whps")]
 transform = Transform3D(0.0245656, 0, 0.00463995, 0, 0.025, 0, -0.00463995, 0, 0.0245656, -8.27964, 0.00782253, -10.9569)
 
-[node name="Barriere2" parent="Geometry/LevelAssets2" instance=ExtResource("11_figmp")]
+[node name="Barriere2" parent="Geometry/LevelAssets2" instance=ExtResource("8_0whps")]
 transform = Transform3D(0.0160957, 0, -0.0191292, 0, 0.025, 0, 0.0191292, 0, 0.0160957, -13.9633, 0.00782253, -13.118)
 
-[node name="Barriere4" parent="Geometry/LevelAssets2" instance=ExtResource("11_figmp")]
+[node name="Barriere4" parent="Geometry/LevelAssets2" instance=ExtResource("8_0whps")]
 transform = Transform3D(0.0249984, 0, -0.000282302, 0, 0.025, 0, 0.000282302, 0, 0.0249984, -23.8393, 0.00782253, -15.4897)
 
-[node name="Tour" parent="Geometry/LevelAssets2" instance=ExtResource("11_gtrbm")]
+[node name="Tour" parent="Geometry/LevelAssets2" instance=ExtResource("9_50x6n")]
 transform = Transform3D(0.0376933, 0, 0.0133871, 0, 0.04, 0, -0.0133871, 0, 0.0376933, -33.5978, 0.0115558, -5.93617)
 
-[node name="PetitCaillou" parent="Geometry/LevelAssets2" instance=ExtResource("13_jp1f7")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -30.1698, 0, -1.4889)
+[node name="PetitCaillou" parent="Geometry/LevelAssets2" instance=ExtResource("10_7vad5")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 1.8179, 0, -93.1223)
 
-[node name="BarriereCasse" parent="Geometry/LevelAssets2" instance=ExtResource("14_8nt75")]
+[node name="BarriereCasse" parent="Geometry/LevelAssets2" instance=ExtResource("11_5j1cf")]
 transform = Transform3D(0.0242132, 0, -0.00622274, 0, 0.025, 0, 0.00622274, 0, 0.0242132, -18.2531, -0.007855, -15.4309)
 
-[node name="Barriere3" parent="Geometry/LevelAssets2" instance=ExtResource("15_uyvu6")]
+[node name="Barriere3" parent="Geometry/LevelAssets2" instance=ExtResource("12_rvu17")]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -21.6031, 0.0173175, -15.4377)
 
-[node name="Barriere5" parent="Geometry/LevelAssets2" instance=ExtResource("11_figmp")]
+[node name="Barriere5" parent="Geometry/LevelAssets2" instance=ExtResource("8_0whps")]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -14.4832, 0.00782253, -40.6976)
 
-[node name="BarriereCasse2" parent="Geometry/LevelAssets2" instance=ExtResource("14_8nt75")]
+[node name="BarriereCasse2" parent="Geometry/LevelAssets2" instance=ExtResource("11_5j1cf")]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -12.6479, -0.007855, -40.9372)
 
-[node name="Barriere6" parent="Geometry/LevelAssets2" instance=ExtResource("15_uyvu6")]
+[node name="Barriere6" parent="Geometry/LevelAssets2" instance=ExtResource("12_rvu17")]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 2.31296, 0.0173175, -42.1427)
 
-[node name="Barriere7" parent="Geometry/LevelAssets2" instance=ExtResource("11_figmp")]
+[node name="Barriere7" parent="Geometry/LevelAssets2" instance=ExtResource("8_0whps")]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 7.29282, 0.00782253, -42.0409)
 
-[node name="ArbreRond" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(2.21, 0, 0, 0, 2.21, 0, 0, 0, 2.21, 12.4969, -0.718828, -44.7411)
 
-[node name="ArbreRond2" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond2" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(2.21, 0, 0, 0, 2.21, 0, 0, 0, 2.21, 15.1356, -0.718829, -66.0024)
 
-[node name="ArbreRond3" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
-transform = Transform3D(-1.89729, 0, -1.1333, 0, 2.21, 0, 1.1333, 0, -1.89729, 6.8316, -0.718831, -66.5798)
-
-[node name="ArbreRond17" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond17" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(0.176893, 0, -2.20291, 0, 2.21, 0, 2.20291, 0, 0.176893, 2.24617, -0.718831, -88.9305)
 
-[node name="ArbreRond18" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond18" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(0.176893, 0, -2.20291, 0, 2.21, 0, 2.20291, 0, 0.176893, 16.9969, -0.718833, -91.8305)
 
-[node name="ArbreRond9" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond9" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-2.15625, 0, 0.48443, 0, 2.21, 0, -0.48443, 0, -2.15625, 17.0547, -0.718833, -79.6757)
 
-[node name="ArbreRond10" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond10" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.76026, 0, 1.33626, 0, 2.21, 0, -1.33626, 0, -1.76026, 6.8184, -0.718833, -79.8904)
 
-[node name="ArbreRond21" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond21" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-2.13832, 0, 0.558305, 0, 2.21, 0, -0.558305, 0, -2.13832, -2.36593, -0.718833, -96.3749)
 
-[node name="ArbreRond22" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond22" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.24144, 0, 1.82837, 0, 2.21, 0, -1.82837, 0, -1.24144, 9.51388, -0.718833, -90.749)
 
-[node name="ArbreRond23" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond23" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.24144, 0, 1.82837, 0, 2.21, 0, -1.82837, 0, -1.24144, 25.8248, -0.718833, -98.6695)
 
-[node name="ArbreRond24" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond24" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.05459, 0, 1.94215, 0, 2.21, 0, -1.94215, 0, -1.05459, 19.0418, -0.718833, -105.69)
 
-[node name="ArbreRond25" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond25" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.05459, 0, 1.94215, 0, 2.21, 0, -1.94215, 0, -1.05459, 28.6933, -0.718833, -111.179)
 
-[node name="ArbreRond26" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond26" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.05459, 0, 1.94215, 0, 2.21, 0, -1.94215, 0, -1.05459, 8.02558, -0.718833, -102.595)
 
-[node name="ArbreRond11" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond11" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-2.01834, 0, 0.900227, 0, 2.21, 0, -0.900227, 0, -2.01834, -9.00313, -0.718833, -78.7237)
 
-[node name="ArbreRond12" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond12" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-2.01834, 0, 0.900227, 0, 2.21, 0, -0.900227, 0, -2.01834, -5.98027, -0.718835, -67.9762)
 
-[node name="ArbreRond4" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond4" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.89729, 0, -1.1333, 0, 2.21, 0, 1.1333, 0, -1.89729, 21.1623, -0.718829, -55.9447)
 
-[node name="ArbreRond5" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond5" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.89729, 0, -1.1333, 0, 2.21, 0, 1.1333, 0, -1.89729, 11.9477, -0.718829, -54.8187)
 
-[node name="ArbreRond6" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond6" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-2.20486, 0, -0.150621, 0, 2.21, 0, 0.150621, 0, -2.20486, 23.0615, -0.718829, -70.7993)
 
-[node name="ArbreRond7" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond7" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.89729, 0, -1.1333, 0, 2.21, 0, 1.1333, 0, -1.89729, 30.3767, -0.718825, -64.8008)
 
-[node name="ArbreRond13" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond13" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(0.382546, 0, -2.17664, 0, 2.21, 0, 2.17664, 0, 0.382546, 37.7543, -0.718825, -69.9149)
 
-[node name="ArbreRond14" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond14" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(0.382546, 0, -2.17664, 0, 2.21, 0, 2.17664, 0, 0.382546, 46.5434, -0.718825, -79.439)
 
-[node name="ArbreRond15" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond15" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(2.05741, 0, -0.806952, 0, 2.21, 0, 0.806952, 0, 2.05741, 38.5382, -0.718825, -83.8773)
 
-[node name="ArbreRond16" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond16" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(2.05741, 0, -0.806952, 0, 2.21, 0, 0.806952, 0, 2.05741, 26.4662, -0.718824, -88.6226)
 
-[node name="ArbreRond8" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond8" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.49814, 0, 1.62471, 0, 2.21, 0, -1.62471, 0, -1.49814, 30.7583, -0.718827, -77.907)
 
-[node name="ArbreRond19" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond19" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.49814, 0, 1.62471, 0, 2.21, 0, -1.62471, 0, -1.49814, 35.7943, -0.718827, -96.6831)
 
-[node name="ArbreRond20" parent="Geometry/LevelAssets2" instance=ExtResource("3_3cdao")]
+[node name="ArbreRond20" parent="Geometry/LevelAssets2" instance=ExtResource("6_g47xe")]
 transform = Transform3D(-1.8598, 0, 1.19383, 0, 2.21, 0, -1.19383, 0, -1.8598, 47.0982, -0.718825, -92.4025)
 
-[node name="Lampadaire" parent="Geometry" instance=ExtResource("16_ia27f")]
-transform = Transform3D(-0.00570622, 0, 0.0243401, 0, 0.025, 0, -0.0243401, 0, -0.00570622, -2.37815, 2.38419e-07, -27.0878)
+[node name="Lampadaire" parent="Geometry" instance=ExtResource("13_g75pj")]
+transform = Transform3D(-0.0080872, 0, 0.0236558, 0, 0.025, 0, -0.0236558, 0, -0.0080872, -5.01935, 2.38419e-07, -82.9232)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Geometry/Lampadaire"]
 transform = Transform3D(40, 0, -9.53674e-07, 0, 40, 0, 0, 0, 40, 1.33679, 145.941, 108.031)
@@ -1670,7 +437,7 @@ light_specular = 2.35
 omni_range = 5.924
 omni_attenuation = 0.0947323
 
-[node name="Lampadaire2" parent="Geometry" instance=ExtResource("16_ia27f")]
+[node name="Lampadaire2" parent="Geometry" instance=ExtResource("13_g75pj")]
 transform = Transform3D(-0.00307358, 0, 0.0248104, 0, 0.025, 0, -0.0248104, 0, -0.00307358, 14.1565, 2.38419e-07, -73.608)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Geometry/Lampadaire2"]
@@ -1682,134 +449,29 @@ light_specular = 2.35
 omni_range = 15.0
 omni_attenuation = 0.0947323
 
-[node name="ZoneFinale" type="Node3D" parent="Geometry"]
-
-[node name="Barriere" parent="Geometry/ZoneFinale" instance=ExtResource("11_figmp")]
-transform = Transform3D(0.0247115, 0, -0.00378713, 0, 0.025, 0, 0.00378713, 0, 0.0247115, 14.6352, 0, -129.643)
-
-[node name="Barriere2" parent="Geometry/ZoneFinale" instance=ExtResource("15_uyvu6")]
-transform = Transform3D(0.021809, 0, 0.0122216, 0, 0.025, 0, -0.0122216, 0, 0.021809, 16.411, 0, -129.454)
-
-[node name="BarriereCasse" parent="Geometry/ZoneFinale" instance=ExtResource("14_8nt75")]
-transform = Transform3D(0.0116871, 0, -0.0221001, 0, 0.025, 0, 0.0221001, 0, 0.0116871, 22.5595, -4.76837e-07, -130.72)
-
-[node name="Barriere3" parent="Geometry/ZoneFinale" instance=ExtResource("11_figmp")]
-transform = Transform3D(0.0244901, 0, 0.00502353, 0, 0.025, 0, -0.00502353, 0, 0.0244901, 25.6559, 0, -128.659)
-
-[node name="GrosCaillou" parent="Geometry/ZoneFinale" instance=ExtResource("10_g5hn2")]
-transform = Transform3D(0.0281443, 0, -0.0103874, 0, 0.03, 0, 0.0103874, 0, 0.0281443, 22.7577, -0.443433, -127.504)
-
-[node name="ArbreCarre" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.77023, 0, -0.70378, 0, 1.905, 0, 0.70378, 0, 1.77023, 28.1477, -0.98, -126.915)
-
-[node name="ArbreCarre9" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.73408, 0, 0.788659, 0, 1.905, 0, -0.788659, 0, 1.73408, 32.7631, -0.980002, -120.103)
-
-[node name="ArbreCarre2" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(0.745812, 0, 1.75294, 0, 1.905, 0, -1.75294, 0, 0.745812, 11.0218, -0.98, -129.854)
-
-[node name="ArbreCarre10" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.76584, 0, -0.714735, 0, 1.905, 0, 0.714735, 0, 1.76584, 19.321, -0.98, -126.197)
-
-[node name="ArbreCarre3" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.904, 0, 0.0616319, 0, 1.905, 0, -0.0616319, 0, 1.904, 26.6672, -0.98, -144.502)
-
-[node name="ArbreCarre4" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.38894, 0, -1.3038, 0, 1.905, 0, 1.3038, 0, 1.38894, 42.1155, -0.98, -139.883)
-
-[node name="ArbreCarre5" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.38894, 0, -1.3038, 0, 1.905, 0, 1.3038, 0, 1.38894, 42.1155, -0.98, -139.883)
-
-[node name="ArbreCarre6" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.66999, 0, -0.916604, 0, 1.905, 0, 0.916604, 0, 1.66999, 42.2678, -0.98, -160.617)
-
-[node name="ArbreCarre7" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.66999, 0, -0.916604, 0, 1.905, 0, 0.916604, 0, 1.66999, 25.0163, -0.98, -159.024)
-
-[node name="ArbreCarre8" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
-transform = Transform3D(1.8745, 0, -0.339506, 0, 1.905, 0, 0.339506, 0, 1.8745, 9.93724, -0.98, -156.736)
-
-[node name="WASD" parent="Geometry" node_paths=PackedStringArray("player") instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.955747, 0.29419, 1.28595e-08, 0, -4.37114e-08, 1, 0.29419, -0.955747, -4.1777e-08, -7.42997, 0.001, 5.66112)
-text = "W 
-A S D"
-player = NodePath("../../Player")
-
-[node name="QE" parent="Geometry" node_paths=PackedStringArray("player") instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.999595, 0.028445, 1.24337e-09, 0, -4.37114e-08, 1, 0.028445, -0.999595, -4.36937e-08, -1.41623, 0.001, 1.84014)
-text = "Q      E"
-font_size = 196
-player = NodePath("../../Player")
-
-[node name="Light" parent="Geometry" node_paths=PackedStringArray("player") instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.988468, 0.151433, 6.61936e-09, 0, -4.37114e-08, 1, 0.151433, -0.988468, -4.32073e-08, -0.955529, 0.001, -3.93531)
-text = "The light isn't
-your ally"
-font_size = 224
-player = NodePath("../../Player")
-
-[node name="Shift" parent="Geometry" node_paths=PackedStringArray("player") instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.867887, -0.496762, -2.17142e-08, 1.24468e-15, -4.37114e-08, 1, -0.496762, -0.867887, -3.79365e-08, 9.11965, 0.001, -12.3585)
-text = "Don't make noise
-press Shift"
-font_size = 196
-player = NodePath("../../Player")
-
-[node name="SpaceBar" parent="Geometry" node_paths=PackedStringArray("player") instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.996333, 0.0855561, 3.73977e-09, -4.38968e-16, -4.37114e-08, 1, 0.0855561, -0.996333, -4.35511e-08, -4.433, 0.001, -36.306)
-text = "Space to
-pierce his heart"
-font_size = 196
-player = NodePath("../../Player")
-
-[node name="finish" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7188, 1.43051e-06, -137.136)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
-shape = SubResource("CylinderShape3D_6go4v")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
-mesh = SubResource("CylinderMesh_g6usg")
-
-[node name="escape" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.591, 1.90735e-06, 19.6442)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="escape"]
-shape = SubResource("CylinderShape3D_6go4v")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="escape"]
-mesh = SubResource("CylinderMesh_jq5hp")
-
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_77747")
+stream = ExtResource("15_7nf4k")
+volume_db = -5.0
+pitch_scale = 0.75
 autoplay = true
 
-[node name="MoonColor" parent="." instance=ExtResource("8_odmv7")]
+[node name="MoonColor" parent="." instance=ExtResource("16_nshbb")]
 transform = Transform3D(-0.839652, -0.339738, 0.423747, -0.330576, 0.938721, 0.0975829, -0.430933, -0.0581449, -0.900509, 0, 0, 0)
 
-[node name="DarkMoonLight" parent="." instance=ExtResource("7_d25no")]
+[node name="DarkMoonLight" parent="." instance=ExtResource("17_c70tb")]
 transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.45671, -0.475671, 0.339366, -0.811522, 0, 0, 0)
 
-[node name="Torch" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 1.37596
+[node name="Torch2" parent="." instance=ExtResource("18_tjmb8")]
+transform = Transform3D(0.519355, 0, -0.854559, 0, 1, 0, 0.854559, 0, 0.519355, 0.678937, 2.29575, -87.6496)
+light_energy = 1.81267
 
-[node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 1.37596
-
-[node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
+[node name="Torch3" parent="." instance=ExtResource("18_tjmb8")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 1.37596
+light_energy = 1.81267
 
-[node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 1.37596
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("16_fbwv7")
+configuration = SubResource("Resource_rt6ft")
+dynamically_update = false
 
-[node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
-transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 1.37596
+[node name="WorldEnvironment" parent="." instance=ExtResource("18_5vgxu")]

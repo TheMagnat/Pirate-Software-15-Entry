@@ -1,13 +1,42 @@
-[gd_scene load_steps=11 format=3 uid="uid://uiqmxktdm8b3"]
+[gd_scene load_steps=16 format=3 uid="uid://uiqmxktdm8b3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu.gd" id="1_8gul7"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_deogi"]
 [ext_resource type="Texture2D" uid="uid://ba6ql6n1vd4bc" path="res://Assets/logo/bottle_mid.png" id="2_o30bw"]
 [ext_resource type="PackedScene" uid="uid://dup14c7te2t1d" path="res://Scenes/UI/settings.tscn" id="3_a2otm"]
 [ext_resource type="Texture2D" uid="uid://mews5nspbb7l" path="res://Assets/logo/bottle_top.png" id="3_ikcou"]
+[ext_resource type="PackedScene" uid="uid://urrutg0cfqks" path="res://Scenes/Levels/menu_level.tscn" id="6_7a3lf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tclvk"]
 font_size = 32
+
+[sub_resource type="Shader" id="Shader_yr6kl"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise : repeat_enable;
+const float f = 0.2;
+const float hf = f * 0.5;
+uniform vec4 color : source_color;
+
+void fragment() {
+	float t = TIME * 0.1;
+	float dispX = texture(noise, UV * 0.5 + vec2(cos(t * 0.151531), sin(t * 0.13414)) * 0.5).r;
+	float dispY = texture(noise, UV * 0.5 + vec2(cos(t * 0.6251531), sin(t * 0.43414)) * 0.5).r;
+	
+	COLOR = color * texture(TEXTURE, UV * vec2(1.0 + dispX * f - hf, 1.0 + dispY * f - hf));
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qil5x"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rw2d4"]
+width = 64
+seamless = true
+noise = SubResource("FastNoiseLite_qil5x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un00g"]
+shader = SubResource("Shader_yr6kl")
+shader_parameter/color = Color(1, 1, 1, 0.219608)
+shader_parameter/noise = SubResource("NoiseTexture2D_rw2d4")
 
 [sub_resource type="Shader" id="Shader_sx4u5"]
 code = "shader_type canvas_item;
@@ -15,26 +44,27 @@ code = "shader_type canvas_item;
 uniform sampler2D noise : repeat_enable;
 const float f = 0.2;
 const float hf = f * 0.5;
-
+uniform vec4 color : source_color;
 
 void fragment() {
 	float t = TIME * 0.1;
 	float dispX = texture(noise, UV * 0.5 + vec2(cos(t * 0.151531), sin(t * 0.13414)) * 0.5).r;
 	float dispY = texture(noise, UV * 0.5 + vec2(cos(t * 0.6251531), sin(t * 0.43414)) * 0.5).r;
 	
-	COLOR = texture(TEXTURE, UV * vec2(1.0 + dispX * f - hf, 1.0 + dispY * f - hf));
+	COLOR = color * texture(TEXTURE, UV * vec2(1.0 + dispX * f - hf, 1.0 + dispY * f - hf));
 }"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6v0g4"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jakep"]
+frequency = 0.0129
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pfhxr"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wwftn"]
 width = 64
-seamless = true
-noise = SubResource("FastNoiseLite_6v0g4")
+noise = SubResource("FastNoiseLite_jakep")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fboft"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8tdm"]
 shader = SubResource("Shader_sx4u5")
-shader_parameter/noise = SubResource("NoiseTexture2D_pfhxr")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_wwftn")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8gul7")
@@ -104,7 +134,12 @@ focus_neighbor_top = NodePath("../Yes")
 text = "No"
 
 [node name="bottle_mid" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_fboft")
+material = SubResource("ShaderMaterial_un00g")
+position = Vector2(960, 456)
+texture = ExtResource("2_o30bw")
+
+[node name="bottle_mid2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t8tdm")
 position = Vector2(960, 456)
 texture = ExtResource("2_o30bw")
 
@@ -112,3 +147,5 @@ texture = ExtResource("2_o30bw")
 position = Vector2(954, 118)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_ikcou")
+
+[node name="Menu Level" parent="." instance=ExtResource("6_7a3lf")]

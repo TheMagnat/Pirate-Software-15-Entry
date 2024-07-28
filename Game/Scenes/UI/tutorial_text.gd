@@ -1,7 +1,6 @@
 extends Label3D
 
 # Render distance part
-@export var useRenderDistance: bool = false
 @export var player: Player
 @export var distance: float = 5.0
 
@@ -40,4 +39,3 @@ func _ready():
 	initialScale = scale
 	speedScale = randf_range(1.0, 2.0)
 	startAnimation()
-	set_process(useRenderDistance)
