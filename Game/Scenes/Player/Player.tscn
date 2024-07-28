@@ -252,5 +252,7 @@ centered = false
 script = ExtResource("4_bpjyo")
 player = NodePath("..")
 
-[node name="SlashPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="SlashPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jcm78")
+volume_db = -2.0
+pitch_scale = 1.25
