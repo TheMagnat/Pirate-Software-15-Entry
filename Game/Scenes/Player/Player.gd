@@ -122,6 +122,8 @@ func lightLogic(delta: float):
 		spottedValue -= delta / (time * 2.0)
 	
 	spottedValue = clampf(spottedValue, 0.0, 1.0)
+	$Boiling.volume_db = (-1.0 + spottedValue) * 40.0
+	$Boiling.pitch_scale = 1.5 - spottedValue * 0.7
 	
 	if spottedValue == 1.0:
 		dying()

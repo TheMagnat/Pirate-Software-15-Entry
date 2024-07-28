@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=52 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://wrm2b1vw3b18" path="res://Assets/SFX/knife/knife_hit2.ogg" id="33_b4dxe"]
 [ext_resource type="AudioStream" uid="uid://qx8b8rnpfc5f" path="res://Assets/SFX/knife/knife_hit3.ogg" id="34_jwje2"]
 [ext_resource type="AudioStream" uid="uid://bhyxubhsqw200" path="res://Assets/SFX/knife/knife_hit4.ogg" id="35_g30xl"]
+[ext_resource type="AudioStream" uid="uid://cfh47wse60mms" path="res://Assets/SFX/misc/boiling_water.ogg" id="39_l8k25"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
 size = Vector3(1, 0.62793, 1)
@@ -256,3 +257,8 @@ player = NodePath("..")
 stream = SubResource("AudioStreamRandomizer_jcm78")
 volume_db = -2.0
 pitch_scale = 1.25
+
+[node name="Boiling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_l8k25")
+volume_db = -40.0
+autoplay = true
