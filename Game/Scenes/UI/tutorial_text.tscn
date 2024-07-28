@@ -1,30 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxxe3v05f2odr"]
+[gd_scene load_steps=3 format=3 uid="uid://bxxe3v05f2odr"]
 
 [ext_resource type="FontFile" uid="uid://cj3nq2ds8l2bx" path="res://Assets/Fonts/AshesAshesMedium-5wYa.ttf" id="1_2w3nl"]
 [ext_resource type="Script" path="res://Scenes/UI/tutorial_text.gd" id="1_wn674"]
-
-[sub_resource type="Animation" id="Animation_adjy8"]
-resource_name = "idle"
-length = 20.0
-loop_mode = 1
-step = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10, 15),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.9, 1, 1), Vector3(1, 1, 1), Vector3(1, 0.9, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tysdy"]
-_data = {
-"idle": SubResource("Animation_adjy8")
-}
 
 [node name="TutorialText" type="Label3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
@@ -34,9 +11,3 @@ font = ExtResource("1_2w3nl")
 font_size = 256
 outline_size = 64
 script = ExtResource("1_wn674")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_tysdy")
-}
-autoplay = "idle"
