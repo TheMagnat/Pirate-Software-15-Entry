@@ -18,7 +18,6 @@ func _ready():
 		body_entered.connect(load_level)
 	else:
 		var msg := TUTORIAL_TEXT.instantiate()
-		msg.useRenderDistance = true
 		msg.player = get_node("/root/Main/Level/lobby/Player")
 		msg.position.y = 2.0
 		msg.position.z = 3.0
