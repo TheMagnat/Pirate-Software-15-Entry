@@ -37,6 +37,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://Assets/Fonts/JustinsScript-x35Om.otf"
+
 [input]
 
 left={
