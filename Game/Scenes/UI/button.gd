@@ -5,5 +5,5 @@ func _ready():
 	pressed.connect($click.play)
 
 func _play():
-	if not disabled:
+	if visible:
 		$hover.play()

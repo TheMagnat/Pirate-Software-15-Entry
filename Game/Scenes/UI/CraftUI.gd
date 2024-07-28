@@ -61,7 +61,7 @@ func _ready():
 	$Panel/FindSomething.visible = false
 	for artefact in artefacts:
 		if Save.resources[artefact] < 1 && Save.unlockable[index] < 1:
-			$Panel/Craft.disabled = true
+			$Panel/Craft.visible = false
 			$Panel/FindSomething.visible = true
 			$Panel/FindSomething.text = findsomethingtext[index]
 			break
