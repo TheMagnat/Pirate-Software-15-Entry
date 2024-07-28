@@ -13,6 +13,8 @@ var model: PackedScene = preload("res://Scenes/Player/Powers/PotionMesh.tscn")
 func _process(delta):
 	if aiming:
 		showPreview()
+	else:
+		$Sprite3D.hide()
 	
 func showPreview():
 	var dir: Vector3 = getThrowDirection(-1.0)
@@ -33,6 +35,7 @@ func showPreview():
 	else:
 		colors = [Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0), Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0)]
 	
+	var lineWidth: float = 10.0
 	for i in range(1, 50):
 		vel.y += g * timeStep
 		lineEnd = lineStart
@@ -42,10 +45,13 @@ func showPreview():
 		
 		var ray := raycastQuery(lineStart, lineEnd)
 		if not ray.is_empty():
-			DebugDraw.draw_line(lineStart, ray.position, 20.0, colors[i%2])
+			DebugDraw.draw_line(lineStart, ray.position, lineWidth, colors[i%2])
+			$Sprite3D.show()
+			$Sprite3D.global_position = ray.position + ray.normal * 0.1
+			$Sprite3D.global_transform = $Sprite3D.global_transform.looking_at($Sprite3D.global_position + ray.normal, Vector3.LEFT)
 			break
 		
-		DebugDraw.draw_line(lineStart, lineEnd, 20.0, colors[i%2])
+		DebugDraw.draw_line(lineStart, lineEnd, lineWidth, colors[i%2])
 		
 		lineStart = lineEnd
 

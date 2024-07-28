@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0fak7ocrtu6n"]
+[gd_scene load_steps=6 format=3 uid="uid://c0fak7ocrtu6n"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemThrower.gd" id="1_3eaj6"]
 [ext_resource type="PackedScene" uid="uid://dpckh3ieawwn" path="res://Scenes/DebugScene/Ball.tscn" id="2_q64jq"]
+[ext_resource type="Shader" path="res://Scenes/Player/Powers/ThrowTargetAim.gdshader" id="3_j2pcc"]
+[ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_1cnq2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_natb3"]
+render_priority = 0
+shader = ExtResource("3_j2pcc")
+shader_parameter/can = 1.0
 
 [node name="Thrower" type="Node3D"]
 top_level = true
 script = ExtResource("1_3eaj6")
 item = ExtResource("2_q64jq")
+
+[node name="Sprite3D" type="Node3D" parent="."]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(600, 0, 0, 0, 600, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_natb3")
+cast_shadow = 0
+texture = ExtResource("4_1cnq2")

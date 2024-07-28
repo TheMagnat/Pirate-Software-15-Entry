@@ -21,7 +21,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sp5l8"]
 height = 1.56386
-radius = 8.58282
+radius = 9.22619
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqn4o"]
 size = Vector3(18.3705, 1.43164, 11.9759)
@@ -82,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5045, 6.55651e-06, 11.237
 [node name="LevelMobs" type="Node3D" parent="."]
 
 [node name="Mob" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10413, 0, -28.3639)
+transform = Transform3D(-0.981514, 0, 0.191391, 0, 1, 0, -0.191391, 0, -0.981514, 1.10413, 0, -28.3639)
 velocity = Vector3(0, -328945, 0)
 view = NodePath("Area3D")
 firstState = "Turret"
@@ -109,7 +109,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.938
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelMobs/Mob/Area3D"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.394249, -0.145944, -9.29798)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.546398, -0.145944, -9.51187)
 shape = SubResource("CylinderShape3D_sp5l8")
 
 [node name="Mob2" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
@@ -1797,20 +1797,20 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.4
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 2.51607
+light_energy = 1.95467
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 2.51607
+light_energy = 1.95467
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 2.51607
+light_energy = 1.95467
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 2.51607
+light_energy = 1.95467
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 2.51607
+light_energy = 1.95467

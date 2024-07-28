@@ -16,7 +16,7 @@ script = ExtResource("1_idlvx")
 item = ExtResource("2_p0qkf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(300, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 5.283, 0, 12.744)
+transform = Transform3D(300, 0, 0, 0, -4.37114e-06, 1, 0, -100, -4.37114e-08, 5.283, 0, 12.744)
 visible = false
 material_override = SubResource("ShaderMaterial_e76wu")
 cast_shadow = 0
