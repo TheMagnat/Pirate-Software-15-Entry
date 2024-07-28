@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxxe3v05f2odr"]
+[gd_scene load_steps=5 format=3 uid="uid://bxxe3v05f2odr"]
 
+[ext_resource type="FontFile" uid="uid://cj3nq2ds8l2bx" path="res://Assets/Fonts/AshesAshesMedium-5wYa.ttf" id="1_2w3nl"]
 [ext_resource type="Script" path="res://Scenes/UI/tutorial_text.gd" id="1_wn674"]
 
 [sub_resource type="Animation" id="Animation_adjy8"]
@@ -27,9 +28,11 @@ _data = {
 
 [node name="TutorialText" type="Label3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
+modulate = Color(0.721569, 0.694118, 0.662745, 1)
 text = "Text"
+font = ExtResource("1_2w3nl")
 font_size = 256
-outline_size = 96
+outline_size = 64
 script = ExtResource("1_wn674")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
