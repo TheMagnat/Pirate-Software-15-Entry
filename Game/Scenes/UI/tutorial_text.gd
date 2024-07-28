@@ -16,8 +16,6 @@ func startFadeAnimation():
 	fadingTween.tween_property(self, "outline_modulate:a", int(isShowing), 2.0)
 
 func _process(delta):
-	if not useRenderDistance: return
-	
 	var newIsShowing = false
 	if player.global_position.distance_to(global_position) < distance:
 		newIsShowing = true
@@ -42,3 +40,4 @@ func _ready():
 	initialScale = scale
 	speedScale = randf_range(1.0, 2.0)
 	startAnimation()
+	set_process(useRenderDistance)
