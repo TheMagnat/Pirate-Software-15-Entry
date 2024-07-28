@@ -1737,28 +1737,35 @@ transform = Transform3D(1.8745, 0, -0.339506, 0, 1.905, 0, 0.339506, 0, 1.8745, 
 
 [node name="WASD" parent="Geometry" instance=ExtResource("14_3rnfn")]
 transform = Transform3D(0.955747, 0.29419, 1.28595e-08, 0, -4.37114e-08, 1, 0.29419, -0.955747, -4.1777e-08, -7.42997, 0.001, 5.66112)
+modulate = Color(0.713726, 0.607843, 1, 1)
 text = "W 
 A S D"
 
 [node name="QE" parent="Geometry" instance=ExtResource("14_3rnfn")]
 transform = Transform3D(0.999595, 0.028445, 1.24337e-09, 0, -4.37114e-08, 1, 0.028445, -0.999595, -4.36937e-08, -1.41623, 0.001, 1.84014)
+modulate = Color(0.713726, 0.607843, 1, 1)
 text = "Q      E"
 font_size = 196
 
 [node name="Light" parent="Geometry" instance=ExtResource("14_3rnfn")]
 transform = Transform3D(0.988468, 0.151433, 6.61936e-09, 0, -4.37114e-08, 1, 0.151433, -0.988468, -4.32073e-08, -0.955529, 0.001, -3.93531)
+modulate = Color(0.713726, 0.607843, 1, 1)
 text = "The light isn't
 your ally"
 font_size = 224
 
 [node name="Shift" parent="Geometry" instance=ExtResource("14_3rnfn")]
-transform = Transform3D(0.880577, -0.473904, -2.0715e-08, -4.38968e-16, -4.37114e-08, 1, -0.473904, -0.880577, -3.84912e-08, 8.35816, 0.001, -11.9519)
-text = "Shift"
+transform = Transform3D(0.867887, -0.496762, -2.17142e-08, 1.24468e-15, -4.37114e-08, 1, -0.496762, -0.867887, -3.79365e-08, 9.11965, 0.001, -12.3585)
+modulate = Color(0.713726, 0.607843, 1, 1)
+text = "Don't make noise
+press Shift"
 font_size = 196
 
 [node name="SpaceBar" parent="Geometry" instance=ExtResource("14_3rnfn")]
 transform = Transform3D(0.996333, 0.0855561, 3.73977e-09, -4.38968e-16, -4.37114e-08, 1, 0.0855561, -0.996333, -4.35511e-08, -4.433, 0.001, -36.306)
-text = "SpaceBar"
+modulate = Color(0.713726, 0.607843, 1, 1)
+text = "Space to
+pierce his heart"
 font_size = 196
 
 [node name="finish" type="Area3D" parent="."]

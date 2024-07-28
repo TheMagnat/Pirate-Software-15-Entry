@@ -27,9 +27,11 @@ func setAllowedSpells(allowedSpellsParam: PackedInt32Array):
 					print("Pas encore dev")
 		
 		currentSpell = spellList[currentSpellIndex]
-		loadSpellMesh()
+		if player: loadSpellMesh()
 		
 func loadSpellMesh():
+	if not currentSpell: return
+	
 	if currentSpellModel:
 		currentSpellModel.queue_free()
 	

@@ -26,10 +26,24 @@ func initFinishRessources():
 	for ressource in contained_resources:
 		finish_resources[ressource] = 0
 
+func initPlayerSpells():
+	# Load unlocked spells
+	var unlockedSpells := PackedInt32Array()
+	
+	if Save.unlockable[2] > 0: unlockedSpells.push_back(0)
+	if Save.unlockable[3] > 0: unlockedSpells.push_back(1)
+	if Save.unlockable[4] > 0: unlockedSpells.push_back(2)
+	
+	$Player/SpellHolder.setAllowedSpells(unlockedSpells)
+	
+	### DEBUG ###
+	$Player/SpellHolder.setAllowedSpells([0, 1])
+
 func init(i: int):
 	idx = i
 	
 	initFinishRessources()
+	initPlayerSpells()
 	
 	if Save.levels[idx][1] <= 0.0:
 		print("No record set on this level")

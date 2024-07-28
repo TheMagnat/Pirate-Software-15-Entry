@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c01k4w5v13dy5"]
+[gd_scene load_steps=14 format=3 uid="uid://c01k4w5v13dy5"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_fnm52"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_1oyws"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/game_menu.gd" id="5_fdchf"]
 [ext_resource type="PackedScene" uid="uid://c4ky7ruq01ylx" path="res://Scenes/Levels/0.tscn" id="6_m04r7"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="6_ydcmf"]
-[ext_resource type="PackedScene" uid="uid://dup14c7te2t1d" path="res://Scenes/UI/settings.tscn" id="7_0fd3a"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/settings.tscn" id="7_0fd3a"]
 [ext_resource type="PackedScene" uid="uid://bbyatiyy23ddj" path="res://Scenes/Levels/1.tscn" id="7_qqo4p"]
 [ext_resource type="PackedScene" uid="uid://dv2gvj21gwufs" path="res://Scenes/Levels/lobby.tscn" id="8_xheip"]
 [ext_resource type="PackedScene" uid="uid://cl4br0sqn70wh" path="res://Scenes/Levels/Level_2/2.tscn" id="10_fr541"]

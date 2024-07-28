@@ -44,7 +44,9 @@ func _ready():
 	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Oeuf/RootNode/Int_Potion.material_override
 	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
-
+	
+	$SpellHolder.loadSpellMesh()
+	
 #var cumulatedTimeSinceLastLightLevelSample: float = 0.0
 var lastLightLevel: float = 0.0
 func getLightLevel() -> float:

@@ -1,15 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs7y1omtsrwac"]
+[gd_scene load_steps=16 format=3 uid="uid://bs7y1omtsrwac"]
 
 [ext_resource type="Script" path="res://Scenes/LightEntity/flickering_flame.gd" id="1_y36mo"]
 [ext_resource type="PackedScene" uid="uid://da2088u7hq230" path="res://Scenes/Mesh/Forest/FeuDeCamp.tscn" id="2_eyf3o"]
+[ext_resource type="Shader" path="res://Scenes/LightEntity/FireSmoke.gdshader" id="3_bpyif"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4luqg"]
 frequency = 0.1957
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_taxou"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dfhms"]
+seamless = true
+noise = SubResource("FastNoiseLite_taxou")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0lhr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jnb5r"]
+seamless = true
+noise = SubResource("FastNoiseLite_r0lhr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oxmh"]
+render_priority = 0
+shader = ExtResource("3_bpyif")
+shader_parameter/alpha = 1.0
+shader_parameter/baseColor = Color(1, 0, 0, 1)
+shader_parameter/emissionColor = Color(0.709413, 0.709413, 0, 1)
+shader_parameter/endColor = Color(0.224963, 0.211983, 0.217717, 1)
+shader_parameter/emissionStr = 4.0
+shader_parameter/displacementStr = 0.25
+shader_parameter/displacementMap = SubResource("NoiseTexture2D_jnb5r")
+shader_parameter/alphaMask = SubResource("NoiseTexture2D_dfhms")
+
+[sub_resource type="Curve" id="Curve_4lhiw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bucjl"]
+curve = SubResource("Curve_4lhiw")
+
+[sub_resource type="Curve" id="Curve_ay250"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rwab7"]
+curve = SubResource("Curve_ay250")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afwbb"]
+emission_shape = 1
+emission_sphere_radius = 1.15
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 0.2
+initial_velocity_max = 1.0
+gravity = Vector3(0, 1.5, 0)
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 0.5
+scale_max = 0.6
+alpha_curve = SubResource("CurveTexture_bucjl")
+turbulence_enabled = true
+turbulence_influence_over_life = SubResource("CurveTexture_rwab7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_78lop"]
+
 [node name="Campfire" type="OmniLight3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 6.45068
+light_energy = 5.44692
 shadow_bias = 0.2
 shadow_normal_bias = 1.5
 omni_range = 8.0
@@ -20,3 +77,12 @@ min_energy = 5.0
 
 [node name="FeuDeCamp3" parent="." instance=ExtResource("2_eyf3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.99769, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="FeuDeCamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20593, 0)
+material_override = SubResource("ShaderMaterial_2oxmh")
+amount = 32
+lifetime = 3.0
+speed_scale = 1.2
+process_material = SubResource("ParticleProcessMaterial_afwbb")
+draw_pass_1 = SubResource("SphereMesh_78lop")

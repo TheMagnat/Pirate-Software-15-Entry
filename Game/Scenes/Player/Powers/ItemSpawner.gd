@@ -23,7 +23,7 @@ func showPreview():
 		$Sprite3D.material_override.set_shader_parameter("can", 0.0)
 	else:
 		$Sprite3D.rotation.y = getRotationAngle(position)
-		$Sprite3D.global_position = position
+		$Sprite3D.global_position = position + Vector3.UP * 0.1
 		
 		if player.global_position.distance_to(position) < 3:
 			$Sprite3D.material_override.set_shader_parameter("can", 0.0)
@@ -43,7 +43,7 @@ func getSpawnPosition():
 	var result = space_state.intersect_ray(query)
 	
 	if result:
-		return result.position + Vector3.UP * 0.01
+		return result.position
 	
 	return null
 

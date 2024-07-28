@@ -6,6 +6,7 @@ render_mode unshaded;
 uniform float alpha = 1.0;
 uniform vec3 baseColor : source_color;
 uniform vec3 emissionColor : source_color;
+uniform vec3 endColor : source_color;
 uniform float emissionStr = 4.0;
 uniform sampler2D displacementMap;
 uniform float displacementStr = 1.0;
@@ -24,7 +25,15 @@ void fragment() {
 	float alphaMaskValue = texture(alphaMask, UV).r;
 	float spawnTransition = min(1.0, (1.0 - animationTime) * 100.0);
 	
-	//EMISSION = emissionColor * max(0.0, animationTime - 0.5) * emissionStr;
-	ALBEDO = mix(baseColor, emissionColor, animationTime);
+	if (animationTime > 0.66) {
+		ALBEDO = mix(baseColor, emissionColor, (animationTime - 0.66) * 3.0);
+	}
+	else if (animationTime > 0.33) {
+		ALBEDO = mix(endColor, baseColor, (animationTime - 0.33) * 3.0);
+	}
+	else {
+		ALBEDO = endColor;
+	}
+	
 	ALPHA = round((animationTime * 1.75 + 0.5) * alphaMaskValue) * spawnTransition;
 }
