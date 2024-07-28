@@ -216,6 +216,25 @@ func backstabbed(backstabber: Player):
 	add_sibling(rigidMobInstance)
 	queue_free()
 
+var eyeLevel := Vector3(0.0, 1.0, 0.0) 
+func checkBodyCanBeSeen(body: CharacterBody3D):
+	var space_state = get_world_3d().direct_space_state
+	
+	var query =  PhysicsRayQueryParameters3D.create(global_position + eyeLevel, body.global_position + eyeLevel, 0b11011)
+	query.hit_from_inside = false
+	var result = space_state.intersect_ray(query)
+	
+	if not result:
+		DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
+		return true
+	else:
+		if result.collider == body:
+			DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
+		else:
+			DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0)
+	
+	return result.collider == body
+
 func _on_death_actionable_actioned(backstabber: Player):
 	backstabbed(backstabber)
 

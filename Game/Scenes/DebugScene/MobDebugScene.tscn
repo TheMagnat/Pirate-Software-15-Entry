@@ -171,7 +171,7 @@ mesh = SubResource("BoxMesh_hpvxh")
 skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("1_gcm38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35065, 0, 3.44583)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.57028, 0, 5.67431)
 collision_mask = 15
 
 [node name="Mob" parent="." node_paths=PackedStringArray("view") instance=ExtResource("6_80xx7")]

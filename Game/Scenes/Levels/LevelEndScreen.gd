@@ -11,13 +11,15 @@ func fillScreen(level: Level, escapeParam: bool = false):
 	else:
 		$ScreenContainer/TitleContainer/LevelName.text = "%s Finished" % level.level_name
 	
+	$ScreenContainer/RessourcesSection/MainRessource/MainRessource.text = level.main_ressource.capitalize()
+	
 	for ressource in level.contained_resources:
 		var count: int = level.finish_resources[ressource]
 		var total: int = level.contained_resources[ressource]
 		
 		# Create the ressource control
 		var ressourceLabel := Label.new()
-		ressourceLabel.text = ressource
+		ressourceLabel.text = ressource.capitalize()
 		
 		var margin := MarginContainer.new()
 		margin.size_flags_horizontal = Control.SIZE_EXPAND

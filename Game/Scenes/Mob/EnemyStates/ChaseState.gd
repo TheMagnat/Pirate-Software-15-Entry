@@ -13,17 +13,18 @@ var lastTargetPosition: Vector3
 
 var speed = 4
 var accel = 5
-var minTargetDist: float = 0.25
+var minTargetDist: float = 1.0
 
 func onPhysicProcess(delta: float):
 	
-	# If we reached the last target position and we can't see it anymore, go back to Idle
-	if lastTargetPosition.distance_to(parent.global_position) < minTargetDist and (not target.canBeSeen() or target not in parentView.get_overlapping_bodies()):
-		get_parent().transitionTo("Idle")
+	# If the target can't be seen...
+	if (not target.canBeSeen() or target not in parentView.get_overlapping_bodies() or not parent.checkBodyCanBeSeen(target)):
+		# If we reached the last target position, go back to Suspicious
+		if lastTargetPosition.distance_to(parent.global_position) < minTargetDist:
+			get_parent().transitionTo("Suspicious")
 	else:
-		# get current target position
+		# Here we can see the target, get its position
 		lastTargetPosition = target.global_position
-	
 	
 	# Update the navigation agent target position
 	nav.target_position = lastTargetPosition

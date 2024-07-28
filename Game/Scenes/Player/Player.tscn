@@ -39,8 +39,9 @@
 [ext_resource type="AudioStream" uid="uid://qx8b8rnpfc5f" path="res://Assets/SFX/knife/knife_hit3.ogg" id="34_jwje2"]
 [ext_resource type="AudioStream" uid="uid://bhyxubhsqw200" path="res://Assets/SFX/knife/knife_hit4.ogg" id="35_g30xl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nngex"]
-size = Vector3(1, 0.62793, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3y8l1"]
+radius = 0.624949
+height = 1.29514
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qvij2"]
 radius = 16.088
@@ -178,10 +179,11 @@ script = ExtResource("2_nrs8g")
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 cull_mask = 1048571
 current = true
+far = 1000.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343628, 0)
-shape = SubResource("BoxShape3D_nngex")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649918, 0)
+shape = SubResource("CapsuleShape3D_3y8l1")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(3, 3)
@@ -192,6 +194,7 @@ transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.7
 cull_mask = 1048573
 fov = 57.7
 size = 0.905
+far = 1000.0
 
 [node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
 transform = Transform3D(1.89925, 0, 0, 0, 1.22609, 0, 0, 0, 2.43034, 0, 0, 0)

@@ -48,7 +48,11 @@ func getSpawnPosition():
 	return null
 
 func getRotationAngle(spawnPosition: Vector3):
-	var spawnDirection: Vector3 = player.global_position.direction_to(spawnPosition)
+	# Relative to Player :
+	#var spawnDirection: Vector3 = player.global_position.direction_to(spawnPosition)
+	
+	# Relative to Camera :
+	var spawnDirection: Vector3 = -get_viewport().get_camera_3d().global_transform.basis.z
 	return -Vector2(spawnDirection.x, spawnDirection.z).angle() + PI / 2
 	
 func activateSpell():
