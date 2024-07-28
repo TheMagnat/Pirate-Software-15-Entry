@@ -1,10 +1,19 @@
 class_name Player extends CharacterBody3D
 
+enum {
+	CatWalk,
+	HardenedMixture,
+	PotionOfDisturbance,
+	IvyWall,
+	ShadeCloak
+}
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DEATH_ANIMATION_DELAY = 1.5 # seconds
 
-var sneakMultiplier: float = 0.4
+const catWalkMultiplier: float = 0.15
+const sneakMultiplier: float = 0.4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -12,7 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var safePlace: bool = false
 @export var lightTreshold: float = 0.25 # Value from which we consider the player is spotted
 var spottedValue: float = 0.0 # When 1.0 is reached, the player is spotted
-@export var timeForFullSpot: float = 1.0 # Seconds
+@export var timeForFullSpot: float = 0.6 # Seconds
 
 var isDead: bool = false
 var deadTime: float = 0.0
@@ -106,10 +115,11 @@ func lightLogic(delta: float):
 				lastLightLevel = 1.0
 	
 	# If true, player is in the light
+	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture])
 	if lastLightLevel > lightTreshold:
-		spottedValue += ((lastLightLevel - lightTreshold) * delta) / timeForFullSpot
+		spottedValue += ((lastLightLevel - lightTreshold) * delta) / time
 	else:
-		spottedValue -= delta / (timeForFullSpot * 2.0)
+		spottedValue -= delta / (time * 2.0)
 	
 	spottedValue = clampf(spottedValue, 0.0, 1.0)
 	
@@ -239,12 +249,13 @@ func _process(_delta: float):
 	
 	# Handler animation blend
 	if input_dir:
+		var animSpeed : float = 1.0 + catWalkMultiplier * Save.unlockable[CatWalk]
 		if sneaking and state != 2:
 			if animationTween: animationTween.kill()
 			animationTween = create_tween()
 			animationTween.set_parallel(true)
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 0.5, animationBlendTime)
-			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.5, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.5 * animSpeed, animationBlendTime)
 			state = 2
 			
 		elif not sneaking and state != 1:
@@ -252,7 +263,7 @@ func _process(_delta: float):
 			animationTween = create_tween()
 			animationTween.set_parallel(true)
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 1.0, animationBlendTime)
-			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.0, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", animSpeed, animationBlendTime)
 			state = 1
 		
 		var newAngle = 3.0 * PI/2 - input_dir.angle()
@@ -290,7 +301,7 @@ func _physics_process(delta: float):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	sneaking = Input.is_action_pressed("sneak")
-	var speedMultiplier: float = sneakMultiplier if sneaking else 1.0
+	var speedMultiplier: float = (sneakMultiplier if sneaking else 1.0) + catWalkMultiplier * Save.unlockable[CatWalk]
 	
 	if direction:
 		velocity.x = direction.x * SPEED * speedMultiplier

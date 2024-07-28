@@ -7,6 +7,8 @@ const RESOURCES := {
 	"ruby": 99,
 	"sapphire": 0,
 	"topaz": 0,
+	"night stone": 0,
+	"blood stone": 0,
 	"artefact1": 0,
 	"artefact2": 0,
 	"artefact3": 0,
