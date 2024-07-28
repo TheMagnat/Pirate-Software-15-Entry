@@ -48,13 +48,20 @@ func showPreview():
 			DebugDraw.draw_line(lineStart, ray.position, lineWidth, colors[i%2])
 			$Sprite3D.show()
 			$Sprite3D.global_position = ray.position + ray.normal * 0.1
-			$Sprite3D.global_transform = $Sprite3D.global_transform.looking_at($Sprite3D.global_position + ray.normal, Vector3.LEFT)
-			break
+			
+			if Vector3.LEFT.is_equal_approx(-ray.normal):
+				$Sprite3D.rotation = Vector3(0.0, PI / 2.0, 0.0)
+			else:
+				$Sprite3D.global_transform = $Sprite3D.global_transform.looking_at($Sprite3D.global_position + ray.normal, Vector3.LEFT)
+			return
 		
 		DebugDraw.draw_line(lineStart, lineEnd, lineWidth, colors[i%2])
 		
 		lineStart = lineEnd
-
+	
+	# Probably aiming the void, hide the sprite
+	$Sprite3D.hide()
+	
 func raycastQuery(pointA: Vector3, pointB: Vector3) -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
 	
