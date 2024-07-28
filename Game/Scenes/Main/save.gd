@@ -1,10 +1,12 @@
 extends Node
 
 const RESOURCES := {
-	"plants": 99,
-	"copper": 98,
-	"gold": 3,
-	"ruby": 0,
+	"amethyst": 3,
+	"diamond": 0,
+	"jade": 98,
+	"ruby": 99,
+	"sapphire": 0,
+	"topaz": 0,
 	"artefact1": 0,
 	"artefact2": 0,
 	"artefact3": 0,

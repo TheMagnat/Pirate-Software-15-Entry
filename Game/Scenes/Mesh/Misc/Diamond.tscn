@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbdi0joxnnp0g"]
+
+[ext_resource type="Script" path="res://Scenes/Mesh/Misc/pickable.gd" id="1_0tkao"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="2_xsdv7"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="3_gesy6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujb2u"]
+size = Vector3(0.539917, 1.01904, 0.439941)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eise4"]
+render_priority = 0
+shader = ExtResource("2_xsdv7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fh5kn"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_eise4")
+shader = ExtResource("3_gesy6")
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/color = Color(0, 0.901961, 1, 1)
+shader_parameter/specular = Color(0.301961, 0.301961, 0.301961, 0.286275)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.243137)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bjwfv"]
+_surfaces = [{
+"aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 3, 0, 1, 0, 2, 0, 4, 0, 1, 0, 5, 0, 2, 0, 0, 0, 5, 0, 0, 0, 3, 0, 5, 0, 3, 0, 4, 0, 5, 0, 4, 0, 2, 0),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 250, 255, 197, 127, 0, 0, 255, 127, 253, 127, 0, 0, 0, 0, 0, 0, 0, 0, 197, 127, 0, 0, 255, 255, 250, 255, 197, 127, 0, 0, 255, 255, 0, 0, 197, 127, 0, 0, 255, 127, 253, 127, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fn0m6"]
+resource_name = "Root Scene_Pyramid001"
+_surfaces = [{
+"aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 127, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 3, 0, 1, 0, 2, 0, 4, 0, 1, 0, 5, 0, 7, 0, 6, 0, 8, 0, 10, 0, 9, 0, 11, 0, 13, 0, 12, 0, 14, 0, 16, 0, 15, 0),
+"material": SubResource("ShaderMaterial_fh5kn"),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray(0, 0, 250, 255, 197, 127, 243, 229, 255, 127, 253, 127, 0, 0, 255, 255, 0, 0, 0, 0, 197, 127, 243, 229, 255, 255, 250, 255, 197, 127, 243, 229, 255, 255, 0, 0, 197, 127, 243, 229, 255, 127, 253, 127, 255, 255, 78, 203, 0, 0, 250, 255, 197, 127, 78, 203, 0, 0, 0, 0, 197, 127, 78, 203, 255, 127, 253, 127, 255, 255, 255, 255, 255, 255, 250, 255, 197, 127, 255, 255, 0, 0, 250, 255, 197, 127, 255, 255, 255, 127, 253, 127, 255, 255, 78, 203, 255, 255, 0, 0, 197, 127, 78, 203, 255, 255, 250, 255, 197, 127, 78, 203, 255, 127, 253, 127, 255, 255, 175, 176, 0, 0, 0, 0, 197, 127, 175, 176, 255, 255, 0, 0, 197, 127, 175, 176, 181, 251, 131, 87, 255, 255, 255, 127, 123, 40, 182, 123, 131, 215, 72, 132, 73, 4, 123, 168, 182, 92, 72, 163, 182, 92, 72, 163, 182, 92, 72, 163, 255, 127, 211, 179, 255, 127, 211, 179, 255, 127, 211, 179, 72, 35, 72, 35, 72, 35, 72, 35, 72, 35, 72, 35, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bjwfv")
+
+[node name="Diamond" type="Node3D"]
+script = ExtResource("1_0tkao")
+itemKey = "diamond"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10352e-05, 0.512939, 0.00317383)
+shape = SubResource("BoxShape3D_ujb2u")
+
+[node name="Pyramid001" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.54, 0, 0, 0, 0, 2.54, 0, -2.54, 0, 0, 0.471095, 0)
+mesh = SubResource("ArrayMesh_fn0m6")
+skeleton = NodePath("")
