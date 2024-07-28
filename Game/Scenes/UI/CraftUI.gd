@@ -6,6 +6,7 @@ var texture: Texture2D
 var description: String
 var resources: Dictionary
 var artefacts: Array
+var max_level: int
 
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
@@ -35,7 +36,6 @@ func _ready():
 	$Panel/Craft.pressed.connect(_on_craft_pressed)
 	
 	$Panel/VBoxContainer/Sprite2D.texture = texture
-	print(texture)
 	if texture != null:
 		$Panel/VBoxContainer/Sprite2D.scale = Vector2(128.0, 128.0) / texture.get_height()
 	
@@ -66,6 +66,9 @@ func _ready():
 			$Panel/FindSomething.text = findsomethingtext[index - 2]
 			break
 	
+	if max_level != 0 && Save.unlockable[index] >= max_level:
+		$Panel/Craft.queue_free()
+	
 	if(index % 2 == 0):
 		$Panel/NextPage.queue_free()
 	else:
@@ -76,14 +79,17 @@ func updateResources():
 		_displayedResources[key].text = str(Save.resources[key])
 
 func _on_craft_pressed():
-	for resource in resources:
-		if Save.resources[resource] < resources[resource]:
-			$Panel/NotEnough/AnimationPlayer.play("warning")
-			return
-	
+	craft_pressed.emit(index, max_level, self)
+
+func craft_resources_limit():
+	$Panel/NotEnough/AnimationPlayer.play("warning")
+
+func craft_max_level():
+	$Panel/Craft.queue_free()
+
+func craft_success():
 	$Panel/Level.visible = true
-	$Panel/Level.text = "Level " + str(Save.unlockable[index] + 1)
-	craft_pressed.emit(index)
+	$Panel/Level.text = "Level " + str(Save.unlockable[index])
 	$Brew.play()
 
 var desc_tween: Tween
