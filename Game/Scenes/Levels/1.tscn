@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbyatiyy23ddj"]
+[gd_scene load_steps=30 format=3 uid="uid://bbyatiyy23ddj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1/1.gd" id="1_x4ps2"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="2_4ixrp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="11_gtrbm"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="13_jp1f7"]
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="13_k4frq"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="14_3rnfn"]
 [ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="14_8nt75"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="15_uyvu6"]
 [ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="16_ia27f"]
@@ -222,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94237, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelMobs/MobStanding2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0193787, 0.0698754, -6.55819)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0193787, 0.0698754, -6.55819)
 shape = SubResource("BoxShape3D_lqn4o")
 
 [node name="MobStanding3" parent="LevelMobs" node_paths=PackedStringArray("view") instance=ExtResource("2_4ixrp")]
@@ -1734,6 +1735,32 @@ transform = Transform3D(1.66999, 0, -0.916604, 0, 1.905, 0, 0.916604, 0, 1.66999
 [node name="ArbreCarre8" parent="Geometry/ZoneFinale" instance=ExtResource("13_k4frq")]
 transform = Transform3D(1.8745, 0, -0.339506, 0, 1.905, 0, 0.339506, 0, 1.8745, 9.93724, -0.98, -156.736)
 
+[node name="WASD" parent="Geometry" instance=ExtResource("14_3rnfn")]
+transform = Transform3D(0.955747, 0.29419, 1.28595e-08, 0, -4.37114e-08, 1, 0.29419, -0.955747, -4.1777e-08, -7.42997, 0.001, 5.66112)
+text = "W 
+A S D"
+
+[node name="QE" parent="Geometry" instance=ExtResource("14_3rnfn")]
+transform = Transform3D(0.999595, 0.028445, 1.24337e-09, 0, -4.37114e-08, 1, 0.028445, -0.999595, -4.36937e-08, -1.41623, 0.001, 1.84014)
+text = "Q      E"
+font_size = 196
+
+[node name="Light" parent="Geometry" instance=ExtResource("14_3rnfn")]
+transform = Transform3D(0.988468, 0.151433, 6.61936e-09, 0, -4.37114e-08, 1, 0.151433, -0.988468, -4.32073e-08, -0.955529, 0.001, -3.93531)
+text = "The light isn't
+your ally"
+font_size = 224
+
+[node name="Shift" parent="Geometry" instance=ExtResource("14_3rnfn")]
+transform = Transform3D(0.880577, -0.473904, -2.0715e-08, -4.38968e-16, -4.37114e-08, 1, -0.473904, -0.880577, -3.84912e-08, 8.35816, 0.001, -11.9519)
+text = "Shift"
+font_size = 196
+
+[node name="LeftClick" parent="Geometry" instance=ExtResource("14_3rnfn")]
+transform = Transform3D(0.996333, 0.0855561, 3.73977e-09, -4.38968e-16, -4.37114e-08, 1, 0.0855561, -0.996333, -4.35511e-08, -4.433, 0.001, -36.306)
+text = "Left Click"
+font_size = 196
+
 [node name="finish" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7188, 1.43051e-06, -137.136)
 collision_layer = 0
@@ -1768,20 +1795,20 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.4
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 1.6516
+light_energy = 2.58404
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 1.6516
+light_energy = 2.58404
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 1.6516
+light_energy = 2.58404
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 1.6516
+light_energy = 2.58404
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 1.6516
+light_energy = 2.58404

@@ -28,8 +28,8 @@ _data = {
 [node name="TutorialText" type="Label3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
 text = "Text"
-font_size = 512
-outline_size = 127
+font_size = 256
+outline_size = 96
 script = ExtResource("1_wn674")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
