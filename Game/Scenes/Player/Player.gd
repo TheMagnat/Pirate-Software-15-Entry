@@ -13,6 +13,8 @@ const JUMP_VELOCITY = 4.5
 const DEATH_ANIMATION_DELAY = 1.5 # seconds
 
 const catWalkMultiplier: float = 0.15
+const mixtureMultiplier: float = 1.0
+
 const sneakMultiplier: float = 0.4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -115,7 +117,7 @@ func lightLogic(delta: float):
 				lastLightLevel = 1.0
 	
 	# If true, player is in the light
-	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture])
+	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture] * mixtureMultiplier)
 	if lastLightLevel > lightTreshold:
 		spottedValue += ((lastLightLevel - lightTreshold) * delta) / time
 	else:
