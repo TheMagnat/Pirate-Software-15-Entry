@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bx26x4g0u00b7"]
+[gd_scene load_steps=18 format=3 uid="uid://bx26x4g0u00b7"]
 
 [ext_resource type="Texture2D" uid="uid://c20la82jkog5h" path="res://Assets/Models/Bibliotheque/Livre_baseColor.png" id="1_14ny5"]
 [ext_resource type="Material" uid="uid://76emipynwvuh" path="res://Assets/Models/Bibliotheque/BibliothequeCeilShadingTexture.tres" id="1_qr46d"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://yqlddr7kdexu" path="res://Assets/Models/Bibliotheque/Livre_normal.png" id="2_4x1p6"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base.gdshader" id="2_go3ta"]
 [ext_resource type="Texture2D" uid="uid://bp64h7wjhy0kc" path="res://Assets/Models/Bibliotheque/Livre_occlusionRoughnessMetallic.png" id="3_i0gyt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfrww"]
+size = Vector3(0.218567, 0.724167, 0.721619)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow15n"]
 resource_name = "Bois"
@@ -143,7 +146,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ujabw")
 
-[node name="BibliothèqueGLB" type="Node3D"]
+[node name="BibliothèqueGLB" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114441, 0.352303, 0.0970764)
+shape = SubResource("BoxShape3D_sfrww")
 
 [node name="Bibliothèque" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ndyu3")

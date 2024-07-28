@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg4s7wr4yn5l2"]
+[gd_scene load_steps=16 format=3 uid="uid://cg4s7wr4yn5l2"]
 
 [ext_resource type="Material" uid="uid://76emipynwvuh" path="res://Assets/Models/Bibliotheque/BibliothequeCeilShadingTexture.tres" id="1_ittcm"]
 [ext_resource type="Texture2D" uid="uid://c20la82jkog5h" path="res://Assets/Models/Bibliotheque/Livre_baseColor.png" id="2_h4nel"]
@@ -46,6 +46,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_enbi4")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hne8k"]
+points = PackedVector3Array(-0.0858, 0.0129665, -0.2423, 0.1102, 0.673214, 0.232253, 0.1102, 0.673214, -0.232368, -0.0858, 0.687034, 0.242186, 0.1102, 0.0267855, 0.232253, -0.0858, 0.0129665, 0.242186, -0.0858, 0.687034, -0.2423, 0.1102, 0.0267855, -0.232368)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5sln"]
 resource_name = "Livre"
@@ -109,12 +112,15 @@ shader_parameter/base_texture = ExtResource("2_h4nel")
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
-[node name="BibliothèqueGLB" type="Node3D"]
+[node name="BibliothèqueGLB" type="StaticBody3D"]
 
 [node name="Bibliothèque" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ndyu3")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_ittcm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_hne8k")
 
 [node name="Livre" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_o8arm")

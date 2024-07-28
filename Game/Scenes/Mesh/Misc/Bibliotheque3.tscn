@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dghqnjpepetuk"]
+[gd_scene load_steps=6 format=3 uid="uid://dghqnjpepetuk"]
 
 [ext_resource type="Material" uid="uid://76emipynwvuh" path="res://Assets/Models/Bibliotheque/BibliothequeCeilShadingTexture.tres" id="1_jby68"]
 
@@ -42,9 +42,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_enbi4")
 
-[node name="BibliothèqueGLB" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7eimk"]
+points = PackedVector3Array(-0.0858, 0.0129665, -0.2423, 0.1102, 0.673214, 0.232253, 0.1102, 0.673214, -0.232368, -0.0858, 0.687034, 0.242186, 0.1102, 0.0267855, 0.232253, -0.0858, 0.0129665, 0.242186, -0.0858, 0.687034, -0.2423, 0.1102, 0.0267855, -0.232368)
+
+[node name="BibliothèqueGLB" type="StaticBody3D"]
 
 [node name="Bibliothèque" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ndyu3")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_jby68")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_7eimk")

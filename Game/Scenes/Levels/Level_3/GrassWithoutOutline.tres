@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cuubtkfugp6vf"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_gyne7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqaej"]
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_iqaej")
+shader = ExtResource("2_gyne7")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/color = Color(0.156863, 0.470588, 0.392157, 1)
+shader_parameter/specular = Color(0.00184107, 0.00184107, 0.00184107, 0.5)
+shader_parameter/fresnel = Color(0.00566115, 0.00566115, 0.00566115, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

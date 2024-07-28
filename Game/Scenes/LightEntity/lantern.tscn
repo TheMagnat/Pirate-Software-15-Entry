@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjwo3gmvrmvv0"]
+
+[ext_resource type="Script" path="res://Scenes/LightEntity/flickering_flame.gd" id="1_dinnr"]
+[ext_resource type="PackedScene" uid="uid://cfrx85gk5dkg5" path="res://Scenes/Mesh/Forest/Lanterne.tscn" id="2_bqx5n"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4luqg"]
+frequency = 0.1957
+
+[node name="Lantern" type="OmniLight3D"]
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 5.32498
+shadow_bias = 0.2
+shadow_normal_bias = 1.5
+omni_range = 8.0
+script = ExtResource("1_dinnr")
+noise = SubResource("FastNoiseLite_4luqg")
+max_energy = 9.0
+min_energy = 5.0
+
+[node name="Lanterne" parent="." instance=ExtResource("2_bqx5n")]
