@@ -11,14 +11,14 @@ var max_level: int
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
 func make_label(n: String, text: String, alignment: HorizontalAlignment, container: HBoxContainer) -> Label:
-	var label := Label.new()
-	label.name = n
-	label.text = text
-	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	label.horizontal_alignment = alignment
-	label.label_settings = LABEL_SETTINGS
-	container.add_child(label)
-	return label
+	var lbl := Label.new()
+	lbl.name = n
+	lbl.text = text
+	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lbl.horizontal_alignment = alignment
+	lbl.label_settings = LABEL_SETTINGS
+	container.add_child(lbl)
+	return lbl
 
 var _displayedResources = {}
 
