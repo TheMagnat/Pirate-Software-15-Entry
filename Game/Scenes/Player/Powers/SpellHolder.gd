@@ -41,8 +41,8 @@ func loadSpellMesh():
 	currentSpellModel.position += Vector3(0.35, -0.05, 0.05)
 	
 func changeCurrentSpell(forward: bool = true):
-	if not spellList:
-		return
+	if not spellList: return
+	if currentSpell: currentSpell.aiming = false
 		
 	currentSpellIndex += 1 if forward else -1
 	currentSpellIndex %= allowedSpells.size()
