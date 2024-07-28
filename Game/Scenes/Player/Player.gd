@@ -19,6 +19,8 @@ var deadTime: float = 0.0
 
 signal killed # emitted when the character dies, after the death animation completes
 
+signal pickup_item(item: String, count: int)
+
 @onready var topViewport: Viewport = $"SubViewport"
 @onready var animation: AnimationTree = $AssetsHolder/Potion/AnimationTree
 @onready var animationTween: Tween

@@ -17,7 +17,7 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		
 		# Create the ressource control
 		var ressourceLabel := Label.new()
-		ressourceLabel.text = ressource
+		ressourceLabel.text = ressource.capitalize()
 		
 		var margin := MarginContainer.new()
 		margin.size_flags_horizontal = Control.SIZE_EXPAND
