@@ -164,14 +164,15 @@ shape = SubResource("BoxShape3D_awf8h")
 mesh = SubResource("BoxMesh_lyaao")
 skeleton = NodePath("../..")
 
-[node name="LevelLoaders" type="Node3D" parent="."]
+[node name="LevelLoader2" type="Node3D" parent="."]
 
-[node name="Level 1 loader" parent="LevelLoaders" instance=ExtResource("3_0mbah")]
+[node name="Level2 loader" parent="LevelLoader2" instance=ExtResource("3_0mbah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93637, 0, -20)
+index = 2
 
-[node name="LevelLoaders2" type="Node3D" parent="."]
+[node name="LevelLoader1" type="Node3D" parent="."]
 
-[node name="Level 1 loader" parent="LevelLoaders2" instance=ExtResource("3_0mbah")]
+[node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("3_0mbah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173421, 0, -14.5113)
 index = 1
 
