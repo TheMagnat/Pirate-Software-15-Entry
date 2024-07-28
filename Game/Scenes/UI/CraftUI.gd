@@ -49,7 +49,7 @@ func _ready():
 	for key in resources:
 		var resourceContainer := HBoxContainer.new()
 		resourceContainer.anchors_preset = PRESET_TOP_WIDE
-		make_label("Resource", key, HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
+		make_label("Resource", key.capitalize(), HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
 		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		$Panel/VBoxContainer.add_child(resourceContainer)
@@ -60,10 +60,10 @@ func _ready():
 	
 	$Panel/FindSomething.visible = false
 	for artefact in artefacts:
-		if Save.resources[artefact] < 1:
-			$Panel/Craft.queue_free()
+		if Save.resources[artefact] < 1 && Save.unlockable[index] < 1:
+			$Panel/Craft.disabled = true
 			$Panel/FindSomething.visible = true
-			$Panel/FindSomething.text = findsomethingtext[index - 2]
+			$Panel/FindSomething.text = findsomethingtext[index]
 			break
 	
 	if max_level != 0 && Save.unlockable[index] >= max_level:

@@ -15,7 +15,6 @@ var killedEnemies: int = 0
 
 var isFinished: bool = false
 
-
 var idx := -1
 
 const WAIT_TIME := 10.0
@@ -78,7 +77,7 @@ func finish_level(body = null):
 		body.safePlace = true
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)
+		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources, main_ressource)
 
 func add_to_inventory(key: String, count: int):
 	finish_resources[key] += count
