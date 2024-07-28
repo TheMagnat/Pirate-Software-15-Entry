@@ -14,11 +14,11 @@ func gen_recipe(n: String, texture: String, description: String, ingredients: Di
 			"artefacts": artefacts}
 
 var recipes := [
-	gen_recipe("Cat Walk", "", "Faster, but silent still", { "plants": 3, "copper": 3 }, []),
-	gen_recipe("Hardened Mixture", "",  "Light shall burn less for life shall more be", { "plants": 2, "copper": 2, "gold": 2 }, []),
-	gen_recipe("Potion of disturbance", "res://Assets/Textures/potion.png",  "Glass breaks, eyes look", { "plants": 4, "copper": 1, "gold": 1, }, ["artefact1"]),
-	gen_recipe("Ivy Wall", "",  "From the ground, nature will raise", { "plants": 3, "copper": 2, "ruby": 2, }, ["artefact2"]),
-	gen_recipe("Shade Cloak", "",  "I am nothing but shadow in the light", { "plants": 1, "copper": 1, "gold": 2, "ruby": 2, }, ["artefact3"])
+	gen_recipe("Cat Walk", "", "Be a shadow so the night rewards you", { "night stone": 1, "amethyst": 2, "jade": 1, "sapphire": 1 }, []),
+	gen_recipe("Hardened Mixture", "",  "Your enemies's life will empower you", { "blood stone": 1, "diamond": 2, "ruby": 2, "topaz": 1 }, []),
+	gen_recipe("Potion of disturbance", "res://Assets/Textures/potion.png",  "Glass breaks, eyes look", { "diamond": 2, "sapphire": 2 }, ["artefact1"]),
+	gen_recipe("Ivy Wall", "",  "From the ground, nature will raise", { "diamond": 1, "jade": 2, "topaz": 2, }, ["artefact2"]),
+	gen_recipe("Shade Cloak", "",  "I am nothing but shadow in the light", { "amethyst": 3, "diamond": 1, "ruby": 2, "sapphire": 1 }, ["artefact3"])
 ]
 
 signal craft_success

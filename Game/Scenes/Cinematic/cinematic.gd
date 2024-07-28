@@ -11,6 +11,7 @@ func _ready():
 	add_child(skip)
 	
 	$AnimationPlayer.animation_finished.connect(func(_anim_name : String): go_next())
+	Music.play(Music.mystery1)
 
 func go_next():
 	skip.skip.disconnect(go_next)

@@ -69,12 +69,6 @@ script = ExtResource("1_x4ps2")
 open_levels = Array[int]([2])
 level_name = "Forest"
 main_ressource = "La chèvre de monsieur segain"
-contained_resources = {
-"Diams": 1,
-"RedStone": 3,
-"Spermo": 69
-}
-nbEnemies = 6
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5045, 6.55651e-06, 11.2375)

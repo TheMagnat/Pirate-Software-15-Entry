@@ -7,10 +7,10 @@ class_name Level extends Node3D
 
 @export var main_ressource: String
 
-@export var contained_resources := {}
+var contained_resources := {}
 var finish_resources := {}
 
-@export var nbEnemies: int = 0
+var nbEnemies: int = 0
 var killedEnemies: int = 0
 
 var isFinished: bool = false
@@ -22,9 +22,13 @@ const WAIT_TIME := 10.0
 var timer := Timer.new()
 var time_spent := 0.0
 
-func initFinishRessources():
-	for ressource in contained_resources:
-		finish_resources[ressource] = 0
+func initResources():
+	for child in find_children("*", "Pickable"):
+		if not contained_resources.has(child.itemKey):
+			contained_resources[child.itemKey] = 0
+		contained_resources[child.itemKey] += child.itemCount
+	for resource in contained_resources:
+		finish_resources[resource] = 0
 
 func initPlayerSpells():
 	# Load unlocked spells
@@ -42,9 +46,11 @@ func initPlayerSpells():
 func init(i: int):
 	idx = i
 	
-	initFinishRessources()
+	initResources()
 	initPlayerSpells()
-	
+	for child in find_children("*", "Mob"):
+		nbEnemies += 1
+		
 	if Save.levels[idx][1] <= 0.0:
 		print("No record set on this level")
 	else:
@@ -73,3 +79,6 @@ func finish_level(body = null):
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)
+
+func add_to_inventory(key: String, count: int):
+	finish_resources[key] += count

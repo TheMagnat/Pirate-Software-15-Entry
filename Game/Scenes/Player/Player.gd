@@ -1,10 +1,19 @@
 class_name Player extends CharacterBody3D
 
+enum {
+	CatWalk,
+	HardenedMixture,
+	PotionOfDisturbance,
+	IvyWall,
+	ShadeCloak
+}
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DEATH_ANIMATION_DELAY = 1.5 # seconds
 
-var sneakMultiplier: float = 0.4
+const catWalkMultiplier: float = 0.15
+const sneakMultiplier: float = 0.4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -18,6 +27,8 @@ var isDead: bool = false
 var deadTime: float = 0.0
 
 signal killed # emitted when the character dies, after the death animation completes
+
+signal pickup_item(item: String, count: int)
 
 @onready var topViewport: Viewport = $"SubViewport"
 @onready var animation: AnimationTree = $AssetsHolder/Potion/AnimationTree
@@ -104,12 +115,15 @@ func lightLogic(delta: float):
 				lastLightLevel = 1.0
 	
 	# If true, player is in the light
+	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture])
 	if lastLightLevel > lightTreshold:
-		spottedValue += ((lastLightLevel - lightTreshold) * delta) / timeForFullSpot
+		spottedValue += ((lastLightLevel - lightTreshold) * delta) / time
 	else:
-		spottedValue -= delta / (timeForFullSpot * 2.0)
+		spottedValue -= delta / (time * 2.0)
 	
 	spottedValue = clampf(spottedValue, 0.0, 1.0)
+	$Boiling.volume_db = (-1.0 + spottedValue) * 40.0
+	$Boiling.pitch_scale = 1.5 - spottedValue * 0.7
 	
 	if spottedValue == 1.0:
 		dying()
@@ -237,12 +251,13 @@ func _process(_delta: float):
 	
 	# Handler animation blend
 	if input_dir:
+		var animSpeed : float = 1.0 + catWalkMultiplier * Save.unlockable[CatWalk]
 		if sneaking and state != 2:
 			if animationTween: animationTween.kill()
 			animationTween = create_tween()
 			animationTween.set_parallel(true)
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 0.5, animationBlendTime)
-			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.5, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.5 * animSpeed, animationBlendTime)
 			state = 2
 			
 		elif not sneaking and state != 1:
@@ -250,7 +265,7 @@ func _process(_delta: float):
 			animationTween = create_tween()
 			animationTween.set_parallel(true)
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 1.0, animationBlendTime)
-			animationTween.tween_property(animation, "parameters/WalkingTime/scale", 1.0, animationBlendTime)
+			animationTween.tween_property(animation, "parameters/WalkingTime/scale", animSpeed, animationBlendTime)
 			state = 1
 		
 		var newAngle = 3.0 * PI/2 - input_dir.angle()
@@ -288,7 +303,7 @@ func _physics_process(delta: float):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	sneaking = Input.is_action_pressed("sneak")
-	var speedMultiplier: float = sneakMultiplier if sneaking else 1.0
+	var speedMultiplier: float = (sneakMultiplier if sneaking else 1.0) + catWalkMultiplier * Save.unlockable[CatWalk]
 	
 	if direction:
 		velocity.x = direction.x * SPEED * speedMultiplier
@@ -301,18 +316,6 @@ func _physics_process(delta: float):
 	#TODO: Handle y position if player y can change
 
 const CAMERA_SIDE_POS := Vector3(0, 2, 4)
-const CAMERA_UP_POS := Vector3(0, 6, 0)
-
-var cam_up_tween : Tween
-var is_up := false
-func camera_up(up: bool):
-	if camera != playerCamera || up == is_up: return
-	
-	is_up = up
-	if cam_up_tween: cam_up_tween.kill()
-	cam_up_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
-	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "rotation:x", -PI/2 if up else -PI/12, 0.3)
-	cam_up_tween.tween_property($CameraHolder/PlayerCamera, "position", CAMERA_UP_POS if up else CAMERA_SIDE_POS, 0.3)
 
 var cam_side_tween : Tween
 var goal_rot_side := 0.0
@@ -325,15 +328,12 @@ func camera_side(side: float):
 	cam_side_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	cam_side_tween.tween_property($CameraHolder, "rotation:y", goal_rot_side, 0.25)
 	#cam_side_tween.tween_property($AssetsHolder, "rotation:y", goal_rot_side, 0.25)
+
 func _input(event):
 	if event.is_action_pressed("cam_left"):
 		camera_side(-1.0)
 	if event.is_action_pressed("cam_right"):
 		camera_side(1.0)
-	if event.is_action_pressed("cam_up"):
-		camera_up(true)
-	if event.is_action_pressed("cam_down"):
-		camera_up(false)
 
 func _on_world_edge_2_body_entered(body):
 	dying(true)
