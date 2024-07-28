@@ -60,8 +60,8 @@ func enter():
 
 func setTimeForTransition(newTime):
 	timeForTransition = newTime
-	timeSinceStart.wait_time = timeForTransition
 	if timeForTransition > 0.0 and not timeSinceStart.is_stopped():
+		timeSinceStart.wait_time = timeForTransition
 		timeSinceStart.start()
 	else:
 		timeSinceStart.stop()

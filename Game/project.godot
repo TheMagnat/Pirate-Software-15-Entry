@@ -134,6 +134,7 @@ sneak={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=3
 lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3
 

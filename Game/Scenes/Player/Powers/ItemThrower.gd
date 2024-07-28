@@ -31,8 +31,10 @@ func showPreview():
 	
 	var colors: Array
 	if dir.y < 0.0:
+		$Sprite3D/Sprite3D.material_override.set_shader_parameter("can", 0.0)
 		colors = [Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 0.0, 0.0, 1.0)]
 	else:
+		$Sprite3D/Sprite3D.material_override.set_shader_parameter("can", 1.0)
 		colors = [Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0), Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0)]
 	
 	var lineWidth: float = 10.0

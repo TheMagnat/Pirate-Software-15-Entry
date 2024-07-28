@@ -24,12 +24,11 @@ func initialize():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if currentStateNode:
-		currentStateNode.onProcess(delta)
+	currentStateNode.onProcess(delta)
 
 func _physics_process(delta):
-	if currentStateNode:
-		currentStateNode.onPhysicProcess(delta)
+	#if Engine.get_physics_frames() % 2 == 0:
+	currentStateNode.onPhysicProcess(delta)
 
 func transitionTo(newStateNodeName: String):
 	if currentStateNode.name == newStateNodeName:
