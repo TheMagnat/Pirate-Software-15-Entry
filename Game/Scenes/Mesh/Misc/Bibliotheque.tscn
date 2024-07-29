@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://76emipynwvuh" path="res://Assets/Models/Bibliotheque/BibliothequeCeilShadingTexture.tres" id="1_qr46d"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_ymhrv"]
 [ext_resource type="Texture2D" uid="uid://yqlddr7kdexu" path="res://Assets/Models/Bibliotheque/Livre_normal.png" id="2_4x1p6"]
-[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base.gdshader" id="2_go3ta"]
 [ext_resource type="Texture2D" uid="uid://bp64h7wjhy0kc" path="res://Assets/Models/Bibliotheque/Livre_occlusionRoughnessMetallic.png" id="3_i0gyt"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="6_2co5m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfrww"]
 size = Vector3(0.218567, 0.724167, 0.721619)
@@ -101,7 +101,7 @@ shader = ExtResource("1_ymhrv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3q0xt"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_tmvoy")
-shader = ExtResource("2_go3ta")
+shader = ExtResource("6_2co5m")
 shader_parameter/metallic = 0.554
 shader_parameter/roughness = 1.0
 shader_parameter/texture_surface = ExtResource("3_i0gyt")

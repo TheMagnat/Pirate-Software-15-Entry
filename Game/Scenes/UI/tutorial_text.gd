@@ -4,7 +4,7 @@ extends Label3D
 @export var player: Player
 @export var distance: float = 5.0
 
-var isShowing: bool = true
+var isShowing: bool = false
 var fadingTween: Tween
 func startFadeAnimation():
 	if fadingTween:
@@ -36,6 +36,10 @@ func startAnimation():
 	tween.tween_property(self, "scale:y", 0.1 * initialScale.y, 5.0 / speedScale).as_relative()
 
 func _ready():
+	# Start hidden
+	modulate.a = 0.0
+	outline_modulate.a = 0.0
+	
 	initialScale = scale
 	speedScale = randf_range(1.0, 2.0)
 	startAnimation()

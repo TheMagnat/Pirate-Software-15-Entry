@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=30 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
-[ext_resource type="PackedScene" uid="uid://c6m8r0j6q3o4h" path="res://Assets/Models/TableDeChevet/TableDeChevetGBL.glb" id="2_s1ent"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_tb3w6"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="3_0mbah"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="3_8j163"]
@@ -14,9 +13,17 @@
 [ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
 [ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="6_gj5ef"]
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
+[ext_resource type="PackedScene" uid="uid://dtuj72gxe5pbh" path="res://Scenes/Mesh/Misc/table_de_chevet_gbl.tscn" id="7_l0u7l"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
+[ext_resource type="Material" uid="uid://dsa8mykfrhvxt" path="res://Scenes/Levels/Level_3/GrassMaterial.tres" id="10_jjtlf"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
+[ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
+[ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="20_yhcoy"]
+[ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="21_3s03c"]
+[ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="22_ruaxr"]
+[ext_resource type="PackedScene" uid="uid://rmvra5b8e5e8" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="24_ixqxq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
 size = Vector3(1, 6, 1)
@@ -25,28 +32,13 @@ size = Vector3(1, 6, 1)
 size = Vector3(1000, 2, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b22rr"]
+material = ExtResource("10_jjtlf")
 size = Vector3(1000, 2, 1000)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pdndt"]
-size = Vector3(1, 8, 15)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jm04x"]
-size = Vector3(1, 8, 15)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wa3f6"]
-size = Vector3(1, 8, 7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_aygdw"]
-size = Vector3(1, 8, 7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_awf8h"]
-size = Vector3(1, 8, 19)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lyaao"]
-size = Vector3(1, 8, 19)
+subdivide_width = 50
+subdivide_depth = 50
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibtih"]
-size = Vector3(5, 8, 1)
+size = Vector3(7.16333, 8, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bg3yo"]
 streams_count = 6
@@ -72,26 +64,26 @@ script = ExtResource("1_upkuv")
 transform = Transform3D(-0.876379, -0.409719, -0.25316, -0.399538, 0.911998, -0.0928915, 0.268941, 0.019739, -0.962954, 0, 0, 0)
 
 [node name="MoonColor" parent="Decor" instance=ExtResource("3_8j163")]
-transform = Transform3D(-0.866025, -0.342274, 0.364485, 0, 0.728969, 0.684547, -0.5, 0.592835, -0.631305, 0, 0, 0)
+transform = Transform3D(-0.688354, -0.496553, 0.528775, 0, 0.728969, 0.684547, -0.725374, 0.471211, -0.501789, 0, 0, 0)
 light_energy = 0.11
 
 [node name="BibliothèqueGLB" parent="Decor" instance=ExtResource("2_kj0j1")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.9, 0, 0)
+transform = Transform3D(3.69669, 0, 3.36668, 0, 5, 0, -3.36668, 0, 3.69669, -6.51525, -9.53674e-07, 6.25509)
 
 [node name="BibliothèqueGLB2" parent="Decor" instance=ExtResource("5_gnlwh")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.9, 0, -3)
+transform = Transform3D(4.74512, 0, -1.57601, 0, 5, 0, 1.57601, 0, 4.74512, -7.89632, -4.76837e-07, -2.92796)
 
 [node name="BibliothèqueGLB3" parent="Decor" instance=ExtResource("6_gj5ef")]
-transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 6, 0, -3.9)
+transform = Transform3D(3.61348, 0, -4.78986, 0, 6, 0, 4.78986, 0, 3.61348, -5.49683, -4.76837e-07, -6.33207)
 
 [node name="TableEtRadio" type="Node3D" parent="Decor"]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 8.7, 0, -4)
 
-[node name="TableDeChevetGBL" parent="Decor/TableEtRadio" instance=ExtResource("2_s1ent")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+[node name="TableDeChevetGBL2" parent="Decor/TableEtRadio" instance=ExtResource("7_l0u7l")]
+transform = Transform3D(1.56093, 0, -2.56193, 0, 3, 0, 2.56193, 0, 1.56093, -0.977848, 0, 1.01188)
 
 [node name="RadioGLB" parent="Decor/TableEtRadio" instance=ExtResource("2_m6wle")]
-transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
+transform = Transform3D(0.177032, 0, -0.290275, 0, 0.34, 0, 0.290275, 0, 0.177032, -0.977315, 1.284, 1.01152)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Decor/TableEtRadio"]
 
@@ -99,7 +91,7 @@ transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 1.284, 0)
 shape = SubResource("BoxShape3D_lt1e3")
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+transform = Transform3D(0.986432, 0, -0.16417, 0, 1, 0, 0.16417, 0, 0.986432, -2.39737, 0, 5.77828)
 safePlace = true
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -114,88 +106,44 @@ shape = SubResource("BoxShape3D_a87f0")
 mesh = SubResource("BoxMesh_b22rr")
 skeleton = NodePath("../..")
 
-[node name="wall1" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 2)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/wall1"]
-shape = SubResource("BoxShape3D_pdndt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall1"]
-mesh = SubResource("BoxMesh_jm04x")
-skeleton = NodePath("../..")
-
-[node name="wall2" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 2)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/wall2"]
-shape = SubResource("BoxShape3D_pdndt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall2"]
-mesh = SubResource("BoxMesh_jm04x")
-skeleton = NodePath("../..")
-
-[node name="wall3" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 4, -5)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/wall3"]
-shape = SubResource("BoxShape3D_wa3f6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall3"]
-mesh = SubResource("BoxMesh_aygdw")
-skeleton = NodePath("../..")
-
-[node name="wall4" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 4, -5)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/wall4"]
-shape = SubResource("BoxShape3D_wa3f6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall4"]
-mesh = SubResource("BoxMesh_aygdw")
-skeleton = NodePath("../..")
-
-[node name="wall5" type="StaticBody3D" parent="Geometry"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 9)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/wall5"]
-shape = SubResource("BoxShape3D_awf8h")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/wall5"]
-mesh = SubResource("BoxMesh_lyaao")
-skeleton = NodePath("../..")
-
 [node name="LevelLoader2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2706, 0, 0.235756)
 
 [node name="Level2 loader" parent="LevelLoader2" instance=ExtResource("3_0mbah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93637, 0, -20)
+transform = Transform3D(0.84663, 0, -0.532182, 0, 1, 0, 0.532182, 0, 0.84663, 30.4098, 0, -37.1901)
 index = 2
 
 [node name="LevelLoader1" type="Node3D" parent="."]
+transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 1.5256, 0, -9.40647)
 
 [node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("3_0mbah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173421, 0, -14.5113)
+transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, -0.0985675, 0, -14.3132)
 index = 1
 
+[node name="Level 3 loader" parent="." instance=ExtResource("23_hf785")]
+transform = Transform3D(0.935203, 0, 0.354111, 0, 1, 0, -0.354111, 0, 0.935203, -9.90051, 0, -45.2612)
+
 [node name="CameraInside" type="Camera3D" parent="."]
-transform = Transform3D(0.766044, -0.321394, 0.556671, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663413, 8, 7, 8)
+transform = Transform3D(0.766044, -0.321394, 0.55667, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663414, 5.7, 5.7, 6.1)
 cull_mask = 1048571
 far = 50.0
 
 [node name="CameraOutside" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 4)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 3.93802, 6, 4)
 cull_mask = 1048571
 far = 50.0
 
 [node name="GoIn" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -8.4504)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoIn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968018, 0, -0.420855)
 shape = SubResource("BoxShape3D_ibtih")
 
 [node name="GoOut" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -10.4504)
 collision_layer = 0
 collision_mask = 2
 
@@ -203,11 +151,68 @@ collision_mask = 2
 shape = SubResource("BoxShape3D_ibtih")
 
 [node name="Radio" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04061, 3.788, 0.981275)
 stream = SubResource("AudioStreamRandomizer_bg3yo")
 unit_size = 2.0
 autoplay = true
 max_distance = 120.0
 
 [node name="Prototype_Book" parent="." instance=ExtResource("15_iosmk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.20399, 0.118732, 6.13628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458816, 1.33982, -0.205706)
+
+[node name="CamPos" type="Marker3D" parent="Prototype_Book"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0362802, 0.781268, 0.00399017)
+
+[node name="Maison" parent="." instance=ExtResource("19_f15xt")]
+transform = Transform3D(-0.605, 0, -9.13525e-08, 0, 0.605, 0, 9.13525e-08, 0, -0.605, 0, 0.347492, 0)
+
+[node name="PotionMesh" parent="." instance=ExtResource("20_yhcoy")]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408, -6.51394)
+
+[node name="IvyMesh" parent="." instance=ExtResource("21_3s03c")]
+transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673, -5.79186)
+
+[node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
+transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.034728, -0.14218, -8.71555, 2.63982, 0.665581)
+rotation_edit_mode = 0
+light_energy = 1.64965
+omni_range = 5.657
+max_energy = 3.0
+
+[node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
+transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236838, 0.988124, -0.0363922, -0.149287, 9.24446, 3.17858, 0.665581)
+rotation_edit_mode = 0
+light_energy = 1.64965
+omni_range = 7.527
+omni_attenuation = 0.757858
+max_energy = 3.0
+
+[node name="TutorialText" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.115787, 0, 0.563221, 0, 0.575, 0, -0.563221, 0, 0.115787, -6.13927, 2.01259, 3.89038)
+text = "Dire un truc
+marrant ici"
+player = NodePath("../Player")
+distance = 3.0
+
+[node name="TutorialText3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.370816, 0, 0.439455, 0, 0.575, 0, -0.439455, 0, 0.370816, -6.06012, 2.5227, -3.64817)
+text = "Un truc à
+dire peut être ?"
+player = NodePath("../Player")
+distance = 3.0
+
+[node name="TutorialText2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.548112, 0, -0.173777, 0, 0.575, 0, 0.173777, 0, 0.548112, 4.95066, 2.23082, -5.09738)
+text = "Dire un autre
+truc marrant
+sur la radio"
+player = NodePath("../Player")
+distance = 3.0
+
+[node name="TutorialText4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.820231, 0, -0.181165, 0, 0.84, 0, 0.181165, 0, 0.820231, 5.78674, 2.8826, -26.9237)
+text = "Is all this
+pain really
+worth it"
+player = NodePath("../Player")
+distance = 6.0
