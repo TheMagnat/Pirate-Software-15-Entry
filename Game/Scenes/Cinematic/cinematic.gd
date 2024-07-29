@@ -3,7 +3,9 @@ extends Node2D
 const skip_button := preload("res://Scenes/Cinematic/skip.tscn")
 
 @export var next_scene : PackedScene
+@export var play_music := true
 @onready var skip := skip_button.instantiate()
+
 
 func _ready():
 	skip.position = Vector2(1280 - 128, 720 - 128)
@@ -11,7 +13,8 @@ func _ready():
 	add_child(skip)
 	
 	$AnimationPlayer.animation_finished.connect(func(_anim_name : String): go_next())
-	Music.play(Music.mystery1)
+	if play_music:
+		Music.play(Music.mystery1)
 
 func go_next():
 	skip.skip.disconnect(go_next)

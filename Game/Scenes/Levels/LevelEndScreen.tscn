@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd0kr04h7njb6"]
+[gd_scene load_steps=9 format=3 uid="uid://dd0kr04h7njb6"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelEndScreen.gd" id="1_5ir8a"]
 [ext_resource type="Shader" path="res://Scenes/Levels/LevelEndScreen.gdshader" id="2_rhbay"]
+[ext_resource type="FontFile" uid="uid://cj3nq2ds8l2bx" path="res://Assets/Fonts/AshesAshesMedium-5wYa.ttf" id="3_p8gmm"]
 [ext_resource type="AudioStream" uid="uid://bs3lxxutgv7q" path="res://Assets/SFX/voices/voice_vibraphone.ogg" id="3_rghnx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ejkw"]
@@ -17,6 +18,10 @@ shader = ExtResource("2_rhbay")
 shader_parameter/step = Vector2(1, 0)
 shader_parameter/radius = 15.0
 shader_parameter/strength = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkh2e"]
+font = ExtResource("3_p8gmm")
+font_size = 48
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_38o5u"]
 playback_mode = 1
@@ -54,20 +59,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.5
-offset_top = -127.0
-offset_right = 151.5
-offset_bottom = 127.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TitleContainer" type="HBoxContainer" parent="ScreenContainer"]
-layout_mode = 2
 alignment = 1
 
-[node name="LevelName" type="Label" parent="ScreenContainer/TitleContainer"]
+[node name="Level" type="Label" parent="ScreenContainer"]
 layout_mode = 2
 text = "Forest"
+label_settings = SubResource("LabelSettings_pkh2e")
 horizontal_alignment = 1
 
 [node name="Margin" type="MarginContainer" parent="ScreenContainer"]
@@ -76,21 +79,24 @@ theme_override_constants/margin_top = 20
 
 [node name="RessourcesSection" type="VBoxContainer" parent="ScreenContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="MainRessource" type="HBoxContainer" parent="ScreenContainer/RessourcesSection"]
 layout_mode = 2
+alignment = 1
 
-[node name="MainRessource" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
+[node name="Text" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
 layout_mode = 2
 text = "Night Stone"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/RessourcesSection/MainRessource"]
+[node name="Name" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
+modulate = Color(0.392157, 1, 0, 1)
 layout_mode = 2
-theme_override_constants/margin_left = 28
-
-[node name="MainRessource2" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
-layout_mode = 2
-text = "STOLEN !"
+text = "Night Stone"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="ScreenContainer"]
 layout_mode = 2
@@ -105,20 +111,24 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
-text = "Enemy Killed"
+text = "Enemies Killed"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/EnemyKilled"]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="NbEnemies" type="Label" parent="ScreenContainer/EnemyKilled"]
 layout_mode = 2
 text = "3 / 3"
+label_settings = SubResource("LabelSettings_pkh2e")
 
 [node name="KillNote" type="Label" parent="ScreenContainer"]
 layout_mode = 2
 text = "BLOODSHED"
+label_settings = SubResource("LabelSettings_pkh2e")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ScreenContainer"]
@@ -127,18 +137,28 @@ theme_override_constants/margin_top = 27
 
 [node name="TimeText" type="HBoxContainer" parent="ScreenContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="TimeText" type="Label" parent="ScreenContainer/TimeText"]
 layout_mode = 2
 text = "CARNAGE carried out in"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/TimeText"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
 
 [node name="Time" type="Label" parent="ScreenContainer/TimeText"]
 layout_mode = 2
 text = "05:34"
+label_settings = SubResource("LabelSettings_pkh2e")
 
 [node name="Record" type="Label" parent="ScreenContainer"]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 text = "NEW RECORD !"
+label_settings = SubResource("LabelSettings_pkh2e")
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,5 +1,7 @@
 extends Node
 
+const END_SCREEN := preload("res://Scenes/Levels/LevelEndScreen.tscn")
+
 ### DEBUG ###
 var inDebug: bool = false
 var debugIndex: int = 2
@@ -63,13 +65,14 @@ func escape_level():
 		else:
 			Save.resources[resource] = resources[resource]
 	
-	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
+	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel, true)
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
 	
 func finish_level():
-		
+	var new_record := false
+	
 	### Open the access to this level
 	for idx2 in currentLevel.open_levels:
 		print("Opened access to level " + str(idx2))
@@ -82,6 +85,7 @@ func finish_level():
 	if Save.levels[idx][1] <= 0.0 or time_spent < Save.levels[idx][1]:
 		print("New record!!")
 		Save.levels[idx][1] = time_spent
+		new_record = true
 	
 	### Add retrieved resources
 	var resources = currentLevel.finish_resources
@@ -96,7 +100,8 @@ func finish_level():
 	Save.resources[artifact] += 1
 	print("Added artifact:", artifact)
 	
-	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
+	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel)
+	endScreen.new_record = new_record
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
