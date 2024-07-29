@@ -33,9 +33,9 @@ func initPlayerSpells():
 	# Load unlocked spells
 	var unlockedSpells := PackedInt32Array()
 	
-	if Save.unlockable[2] > 0: unlockedSpells.push_back(0)
-	if Save.unlockable[3] > 0: unlockedSpells.push_back(1)
-	if Save.unlockable[4] > 0: unlockedSpells.push_back(2)
+	if Save.unlockable[0] > 0: unlockedSpells.push_back(0)
+	if Save.unlockable[1] > 0: unlockedSpells.push_back(1)
+	if Save.unlockable[2] > 0: unlockedSpells.push_back(2)
 	
 	$Player/SpellHolder.setAllowedSpells(unlockedSpells)
 	
