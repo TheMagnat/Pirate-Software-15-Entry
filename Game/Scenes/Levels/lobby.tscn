@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=37 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
@@ -27,6 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="22_ruaxr"]
 [ext_resource type="PackedScene" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
 [ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="24_ixqxq"]
+[ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_may71"]
+[ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="25_dls45"]
+[ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_npve2"]
+[ext_resource type="PackedScene" uid="uid://cey4unhlm1rc5" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_udnd3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
 size = Vector3(1, 6, 1)
@@ -146,7 +150,7 @@ transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372
 index = 1
 
 [node name="Level 2 loader" parent="." instance=ExtResource("12_uxqpr")]
-transform = Transform3D(-0.396812, 0, -0.9179, 0, 1, 0, 0.9179, 0, -0.396812, 10.2246, 0.128363, -36.6911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
 index = 2
 
 [node name="Level 3 loader" parent="." instance=ExtResource("23_hf785")]
@@ -195,6 +199,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0362802, 0.781268, 0.003990
 [node name="Maison" parent="." instance=ExtResource("19_f15xt")]
 transform = Transform3D(-0.605, 0, -9.13525e-08, 0, 0.605, 0, 9.13525e-08, 0, -0.605, 0, 0.347492, 0)
 
+[node name="Tabouret" parent="Maison" instance=ExtResource("24_may71")]
+transform = Transform3D(0.931666, 0, 0.363316, 0, 1, 0, -0.363316, 0, 0.931666, 4.51152, 0, -11.746)
+
+[node name="Tabouret2" parent="Maison" instance=ExtResource("24_may71")]
+transform = Transform3D(0.75215, 0, 0.658991, 0, 1, 0, -0.658991, 0, 0.75215, -11.5112, -7.7486e-07, -2.02165)
+
+[node name="Tabouret3" parent="Maison" instance=ExtResource("24_may71")]
+transform = Transform3D(0.783119, 0, -0.621872, 0, 1, 0, 0.621872, 0, 0.783119, -12.4603, -7.7486e-07, 4.16037)
+
+[node name="TableGBL" parent="Maison" instance=ExtResource("25_npve2")]
+transform = Transform3D(4.175, 0, 0, 0, 3.34, 0, 0, 0, 1.67, -10.581, -0.575926, 1.54244)
+
+[node name="BottleSquare" parent="Maison/TableGBL" instance=ExtResource("26_udnd3")]
+transform = Transform3D(0.0864161, 0, -0.0503216, 0, 0.0999999, 0, 0.0503216, 0, 0.086416, 0.0855312, 0.51464, 0.350296)
+
+[node name="ArbreRond" parent="Maison" instance=ExtResource("25_dls45")]
+transform = Transform3D(-0.0483831, 0, 0.497654, 0, 0.5, 0, -0.497654, 0, -0.0483831, 13.7126, 2.44807, -4.7626)
+
+[node name="TableDeChevetGBL3" parent="Maison" instance=ExtResource("7_l0u7l")]
+transform = Transform3D(-7.29278, 0, -1.46267, 0, 7.43802, 0, 1.46267, 0, -7.29278, 13.8907, -0.574367, -4.86444)
+
 [node name="PotionMesh" parent="." instance=ExtResource("20_yhcoy")]
 transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408, -6.51394)
 
@@ -204,37 +229,38 @@ transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.41903
+light_energy = 1.14722
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.41903
+light_energy = 1.14722
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
 
 [node name="TutorialText" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
 transform = Transform3D(0.115787, 0, 0.563221, 0, 0.575, 0, -0.563221, 0, 0.115787, -6.13927, 2.01259, 3.89038)
-text = "Dire un truc
-marrant ici"
+text = "Those
+usually
+covers
+secrets"
 player = NodePath("../Player")
 distance = 3.0
 
 [node name="TutorialText3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
 transform = Transform3D(0.370816, 0, 0.439455, 0, 0.575, 0, -0.439455, 0, 0.370816, -6.06012, 2.5227, -3.64817)
-text = "Un truc à
-dire peut être ?"
+text = "A glimpse
+of dust..."
 player = NodePath("../Player")
 distance = 3.0
 
 [node name="TutorialText2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
 transform = Transform3D(0.548112, 0, -0.173777, 0, 0.575, 0, 0.173777, 0, 0.548112, 4.95066, 2.23082, -5.09738)
-text = "Dire un autre
-truc marrant
-sur la radio"
+text = "Sounds
+familiar..."
 player = NodePath("../Player")
 distance = 3.0
 
