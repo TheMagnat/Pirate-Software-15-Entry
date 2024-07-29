@@ -1,15 +1,8 @@
-extends Node3D
+extends Spell
 
 @export var item: PackedScene
-@onready var player: Player = get_parent().get_parent()
-
 var throwImpulse: float = 10.0
-var aiming: bool = false
-@export var action: String = "main_action"
 
-var model: PackedScene = preload("res://Scenes/Player/Powers/PotionMesh.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if aiming:
 		showPreview()
@@ -30,7 +23,7 @@ func showPreview():
 	var lineEnd: Vector3 = startPosition
 	
 	var colors: Array
-	if dir.y < 0.0:
+	if dir.y < 0.0 or on_cooldown:
 		$Sprite3D/Sprite3D.material_override.set_shader_parameter("can", 0.0)
 		colors = [Color(1.0, 0.0, 0.0, 1.0), Color(1.0, 0.0, 0.0, 1.0)]
 	else:

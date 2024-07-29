@@ -19,7 +19,8 @@ const UNLOCKABLES := [
 	0, #ivy wall
 	0, #shade cloak
 	0, #cat walk
-	0 #hardened mixture
+	0, #hardened mixture
+	0  #casting speed
 ]
 
 const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0], [false, 0.0] ]

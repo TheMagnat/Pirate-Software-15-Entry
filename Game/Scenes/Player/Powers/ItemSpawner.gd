@@ -1,12 +1,6 @@
-extends Node3D
+extends Spell
 
 @export var item: PackedScene
-@onready var player: Player = get_parent().get_parent()
-
-var aiming: bool = false
-@export var action: String = "secondary_action"
-
-var model: PackedScene = preload("res://Scenes/Player/Powers/IvyMesh.tscn")
 
 func _process(delta):
 	if aiming:
@@ -17,15 +11,15 @@ func _process(delta):
 func showPreview():
 	$Sprite3D.show()
 	
-	var position = getSpawnPosition()
+	var pos = getSpawnPosition()
 	
-	if not position:
+	if not pos:
 		$Sprite3D.material_override.set_shader_parameter("can", 0.0)
 	else:
-		$Sprite3D.rotation.y = getRotationAngle(position)
-		$Sprite3D.global_position = position + Vector3.UP * 0.1
+		$Sprite3D.rotation.y = getRotationAngle(pos)
+		$Sprite3D.global_position = pos + Vector3.UP * 0.1
 		
-		if player.global_position.distance_to(position) < 3:
+		if player.global_position.distance_to(pos) < 3 or on_cooldown:
 			$Sprite3D.material_override.set_shader_parameter("can", 0.0)
 		else:
 			$Sprite3D.material_override.set_shader_parameter("can", 1.0)
