@@ -11,5 +11,8 @@ func _ready():
 
 func _on_body_entered(body: Node3D):
 	if(body is Player):
+		$Area3D.body_entered.disconnect(_on_body_entered)
 		body.pickup_item.emit(itemKey, itemCount)
-		queue_free()
+		var t := create_tween()
+		t.tween_property(self, "scale", Vector3(0, 0, 0), 1)
+		t.finished.connect(queue_free)
