@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd0kr04h7njb6"]
+[gd_scene load_steps=7 format=3 uid="uid://dd0kr04h7njb6"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelEndScreen.gd" id="1_5ir8a"]
 [ext_resource type="Shader" path="res://Scenes/Levels/LevelEndScreen.gdshader" id="2_rhbay"]
-[ext_resource type="AudioStream" uid="uid://drossq8wrr8cw" path="res://Assets/SFX/voices/voice_yoho.ogg" id="3_0s7ki"]
-[ext_resource type="AudioStream" uid="uid://dl72k11hj1osg" path="res://Assets/SFX/voices/voice_yo.ogg" id="3_a8hk8"]
+[ext_resource type="AudioStream" uid="uid://bs3lxxutgv7q" path="res://Assets/SFX/voices/voice_vibraphone.ogg" id="3_rghnx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ejkw"]
 resource_local_to_scene = true
@@ -22,11 +21,8 @@ shader_parameter/strength = 1.0
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_38o5u"]
 playback_mode = 1
 random_pitch = 1.3
-streams_count = 2
-stream_0/stream = ExtResource("3_a8hk8")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("3_0s7ki")
-stream_1/weight = 0.25
+streams_count = 1
+stream_0/stream = ExtResource("3_rghnx")
 
 [node name="LevelEndScreen" type="CanvasLayer"]
 script = ExtResource("1_5ir8a")
