@@ -53,6 +53,8 @@ func showPreview():
 			
 			if Vector3.LEFT.is_equal_approx(-ray.normal):
 				$Sprite3D.rotation = Vector3(0.0, PI / 2.0, 0.0)
+			elif Vector3.RIGHT.is_equal_approx(ray.normal):
+				$Sprite3D.rotation = Vector3(0.0, -PI / 2.0, 0.0)
 			else:
 				$Sprite3D.global_transform = $Sprite3D.global_transform.looking_at($Sprite3D.global_position + ray.normal, Vector3.LEFT)
 			return
