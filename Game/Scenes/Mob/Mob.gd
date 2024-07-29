@@ -180,7 +180,7 @@ func _process(_delta):
 	if Engine.is_editor_hint(): return
 	
 	# To prevent using nil value in Walking/time
-	var safeAnimationTime = animation["parameters/Walking/time"]
+	var safeAnimationTime = animation["parameters/Walking/current_position"]
 	var animationTime: float = safeAnimationTime if safeAnimationTime else 0.0
 	
 	#Play walking sound every time the time hit 0.25 and 0.75

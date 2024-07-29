@@ -21,17 +21,25 @@ radius = 10.0
 random_pitch = 1.1
 streams_count = 4
 stream_0/stream = ExtResource("2_aevrp")
+stream_0/weight = 0.0
 stream_1/stream = ExtResource("3_533nn")
+stream_1/weight = 0.0
 stream_2/stream = ExtResource("4_w34au")
+stream_2/weight = 0.0
 stream_3/stream = ExtResource("5_c7x0j")
+stream_3/weight = 0.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bnav5"]
 random_pitch = 1.1
 streams_count = 4
 stream_0/stream = ExtResource("6_odopj")
+stream_0/weight = 0.0
 stream_1/stream = ExtResource("7_5eeo7")
+stream_1/weight = 0.0
 stream_2/stream = ExtResource("8_ntofx")
+stream_2/weight = 0.0
 stream_3/stream = ExtResource("9_sbbag")
+stream_3/weight = 0.0
 
 [node name="Ball" type="RigidBody3D" groups=["Projectile"]]
 collision_layer = 8

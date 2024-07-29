@@ -11,6 +11,7 @@ var current_level_idx: int = -2
 var currentLevel = null
 
 func _ready():
+	#get_viewport().debug_draw = 9
 	Save.enable_save = true
 	load_lobby()
 
@@ -23,6 +24,7 @@ func load_lobby():
 	
 	$Menu.show_menu(false)
 
+var shadowAtlasIndex: int = 1
 func _load_level(idx : int):
 	if not resource_preloader.has_resource(str(idx)):
 		print("Ressource '", idx, "' not found")
@@ -31,6 +33,13 @@ func _load_level(idx : int):
 	for child in $Level.get_children():
 		child.queue_free()
 	
+	# Don't ask question, this fix some shadow atlas bugs...
+	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_4)
+	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex+1)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_16)
+	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex+2)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_4)
+	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex+3)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_16)
+	shadowAtlasIndex += 1
+	
 	current_level_idx = idx
 	$Menu/Control/HBoxContainer/Main/Lobby.visible = idx != -1
 	
@@ -38,7 +47,6 @@ func _load_level(idx : int):
 	if idx != -1:
 		currentLevel.init(idx)
 	$Level.add_child(currentLevel)
-	
 
 func load_level(idx := -1):
 	if $Level.get_child_count() == 0:
