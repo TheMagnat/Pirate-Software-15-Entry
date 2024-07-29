@@ -6,6 +6,7 @@ enum {
 	ShadeCloak,
 	CatWalk,
 	HardenedMixture,
+	CastingSpeed
 }
 
 const SPEED = 5.0

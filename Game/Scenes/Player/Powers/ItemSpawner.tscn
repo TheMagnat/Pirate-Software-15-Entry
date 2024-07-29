@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccxx8s4foejsx"]
+[gd_scene load_steps=7 format=3 uid="uid://ccxx8s4foejsx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemSpawner.gd" id="1_idlvx"]
 [ext_resource type="PackedScene" uid="uid://ouxsdxifmyue" path="res://Scenes/DebugScene/IvyWall.tscn" id="2_p0qkf"]
+[ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="3_ax5pc"]
 [ext_resource type="Shader" path="res://Scenes/DebugScene/CircleAim.gdshader" id="3_mylme"]
 [ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_8ta70"]
 
@@ -14,6 +15,9 @@ shader_parameter/can = 1.0
 top_level = true
 script = ExtResource("1_idlvx")
 item = ExtResource("2_p0qkf")
+model = ExtResource("3_ax5pc")
+cooldown = 8.0
+cooldown_decrease_per_level = 1.5
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(300, 0, 0, 0, -4.37114e-06, 1, 0, -100, -4.37114e-08, 5.283, 0, 12.744)
