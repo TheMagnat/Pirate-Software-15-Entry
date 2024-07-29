@@ -11,14 +11,14 @@ var max_level: int
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
 func make_label(n: String, text: String, alignment: HorizontalAlignment, container: HBoxContainer) -> Label:
-	var label := Label.new()
-	label.name = n
-	label.text = text
-	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	label.horizontal_alignment = alignment
-	label.label_settings = LABEL_SETTINGS
-	container.add_child(label)
-	return label
+	var lbl := Label.new()
+	lbl.name = n
+	lbl.text = text
+	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lbl.horizontal_alignment = alignment
+	lbl.label_settings = LABEL_SETTINGS
+	container.add_child(lbl)
+	return lbl
 
 var _displayedResources = {}
 
@@ -49,7 +49,7 @@ func _ready():
 	for key in resources:
 		var resourceContainer := HBoxContainer.new()
 		resourceContainer.anchors_preset = PRESET_TOP_WIDE
-		make_label("Resource", key, HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
+		make_label("Resource", key.capitalize(), HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
 		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
 		$Panel/VBoxContainer.add_child(resourceContainer)
@@ -60,10 +60,10 @@ func _ready():
 	
 	$Panel/FindSomething.visible = false
 	for artefact in artefacts:
-		if Save.resources[artefact] < 1:
-			$Panel/Craft.queue_free()
+		if Save.resources[artefact] < 1 && Save.unlockable[index] < 1:
+			$Panel/Craft.visible = false
 			$Panel/FindSomething.visible = true
-			$Panel/FindSomething.text = findsomethingtext[index - 2]
+			$Panel/FindSomething.text = findsomethingtext[index]
 			break
 	
 	if max_level != 0 && Save.unlockable[index] >= max_level:

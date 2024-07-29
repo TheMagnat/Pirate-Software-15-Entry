@@ -1,25 +1,25 @@
 extends Node
 
 const RESOURCES := {
-	"amethyst": 3,
+	"amethyst": 0,
 	"diamond": 0,
-	"jade": 98,
-	"ruby": 99,
+	"jade": 0,
+	"ruby": 0,
 	"sapphire": 0,
 	"topaz": 0,
-	"night stone": 0,
-	"blood stone": 0,
-	"artefact1": 0,
-	"artefact2": 0,
-	"artefact3": 0,
+	"golden_fist": 0,
+	"secret_heart": 0,
+	"shade_cloak": 0,
+	"night_stone": 0,
+	"blood_stone": 0,
 }
 
 const UNLOCKABLES := [
-	0, #cat walk
-	0, #hardened mixture
 	0, #potion of disturbance
 	0, #ivy wall
-	0 #shade cloak
+	0, #shade cloak
+	0, #cat walk
+	0 #hardened mixture
 ]
 
 const LEVELS := [ [true, 0.0], [true, 0.0], [false, 0.0], [false, 0.0] ]

@@ -1,18 +1,18 @@
 class_name Player extends CharacterBody3D
 
 enum {
-	CatWalk,
-	HardenedMixture,
 	PotionOfDisturbance,
 	IvyWall,
-	ShadeCloak
+	ShadeCloak,
+	CatWalk,
+	HardenedMixture,
 }
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DEATH_ANIMATION_DELAY = 1.5 # seconds
 
-const catWalkMultiplier: float = 0.15
+const catWalkMultiplier: float = 0.2
 const mixtureMultiplier: float = 1.0
 
 const sneakMultiplier: float = 0.4

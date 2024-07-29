@@ -61,7 +61,7 @@ func escape_level(idx: int, open_levels: Array, time_spent: float, resources: Di
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
 	
-func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
+func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary, artifact: String):
 		
 	### Open the access to this level
 	for idx2 in open_levels:
@@ -82,6 +82,8 @@ func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Di
 			Save.resources[resource] += resources[resource]
 		else:
 			Save.resources[resource] = resources[resource]
+	Save.resources[artifact] += 1
+	print("Added artifact:", artifact)
 	
 	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
 	endScreen.fillScreen(currentLevel)

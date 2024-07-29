@@ -10,8 +10,7 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		$ScreenContainer/TitleContainer/LevelName.text = "Escaped from %s" % level.level_name
 	else:
 		$ScreenContainer/TitleContainer/LevelName.text = "%s Finished" % level.level_name
-	
-	$ScreenContainer/RessourcesSection/MainRessource/MainRessource.text = level.main_ressource.capitalize()
+		$ScreenContainer/RessourcesSection/MainRessource/MainRessource.text = level.main_ressource.capitalize()
 	
 	for ressource in level.contained_resources:
 		var count: int = level.finish_resources[ressource]

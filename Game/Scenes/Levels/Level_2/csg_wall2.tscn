@@ -24,6 +24,6 @@ operation = 2
 mesh = SubResource("BoxMesh_8v5iu")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6, 4)
 operation = 2
 mesh = SubResource("BoxMesh_04a33")

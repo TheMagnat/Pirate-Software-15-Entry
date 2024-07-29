@@ -15,7 +15,6 @@ var killedEnemies: int = 0
 
 var isFinished: bool = false
 
-
 var idx := -1
 
 const WAIT_TIME := 10.0
@@ -34,9 +33,9 @@ func initPlayerSpells():
 	# Load unlocked spells
 	var unlockedSpells := PackedInt32Array()
 	
-	if Save.unlockable[2] > 0: unlockedSpells.push_back(0)
-	if Save.unlockable[3] > 0: unlockedSpells.push_back(1)
-	if Save.unlockable[4] > 0: unlockedSpells.push_back(2)
+	if Save.unlockable[0] > 0: unlockedSpells.push_back(0)
+	if Save.unlockable[1] > 0: unlockedSpells.push_back(1)
+	if Save.unlockable[2] > 0: unlockedSpells.push_back(2)
 	
 	$Player/SpellHolder.setAllowedSpells(unlockedSpells)
 	
@@ -78,7 +77,7 @@ func finish_level(body = null):
 		body.safePlace = true
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources)
+		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources, main_ressource)
 
 func add_to_inventory(key: String, count: int):
 	finish_resources[key] += count
