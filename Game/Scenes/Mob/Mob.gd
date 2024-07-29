@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var suspiciousDecreaseSpeed: float = 0.25 # Per seconds
 var suspicious: float = 0.0
 @export var limitSuspiciousLevel: float = 10.0
+@export var currentGroundStepSoundIndex: int = 0
 
 ### State machine param part ###
 @export_category("StateMachine")
@@ -165,7 +166,7 @@ func handleAnimation():
 		animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 0.0, animationBlendTime)
 
 @onready var currentGroundStepSound: AudioStreamPlayer3D = getGroundSound()
-var currentGroundStepSoundIndex: int = 0
+
 var leftPlay: bool = false
 var rightPlay: bool = false
 func getGroundSound():
@@ -175,6 +176,14 @@ func getGroundSound():
 		return $ConcreteStepPlayer
 	else:
 		return $MetalStepPlayer
+
+func changeGroundSound(value):
+	if value == 0:
+		currentGroundStepSound = $GrassStepPlayer
+	elif value == 1:
+		currentGroundStepSound = $ConcreteStepPlayer
+	else:
+		currentGroundStepSound = $MetalStepPlayer
 
 func _process(_delta):
 	if Engine.is_editor_hint(): return

@@ -42,14 +42,18 @@ func initPlayerSpells():
 	### DEBUG ###
 	$Player/SpellHolder.setAllowedSpells([0, 1])
 
+func initMobs():
+	for child in find_children("*", "Mob"):
+		nbEnemies += 1
+		child.get_node("DeathActionable").actioned.connect(func (body: Player): killedEnemies += 1)
+
 func init(i: int):
 	idx = i
 	
 	initResources()
 	initPlayerSpells()
-	for child in find_children("*", "Mob"):
-		nbEnemies += 1
-		
+	initMobs()
+	
 	if Save.levels[idx][1] <= 0.0:
 		print("No record set on this level")
 	else:
@@ -63,21 +67,21 @@ func init(i: int):
  
 func restart_level():
 	var main = get_node("/root/Main")
-	main.load_level(main.current_level_idx)
+	main.load_level(idx)
 
 func escape_level(body = null):
 	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
 		body.safePlace = true
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").escape_level(idx, open_levels, time_spent, finish_resources)
+		get_node("/root/Main").escape_level()
 
 func finish_level(body = null):
 	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
 		body.safePlace = true
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level(idx, open_levels, time_spent, finish_resources, main_ressource)
+		get_node("/root/Main").finish_level()
 
 func add_to_inventory(key: String, count: int):
 	finish_resources[key] += count
