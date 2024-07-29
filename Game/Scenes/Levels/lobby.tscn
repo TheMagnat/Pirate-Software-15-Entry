@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=33 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
@@ -13,16 +13,19 @@
 [ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
 [ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="6_gj5ef"]
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
-[ext_resource type="PackedScene" uid="uid://dtuj72gxe5pbh" path="res://Scenes/Mesh/Misc/table_de_chevet_gbl.tscn" id="7_l0u7l"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/table_de_chevet_gbl.tscn" id="7_l0u7l"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
 [ext_resource type="Material" uid="uid://dsa8mykfrhvxt" path="res://Scenes/Levels/Level_3/GrassMaterial.tres" id="10_jjtlf"]
+[ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_8lecc"]
+[ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_i6qbk"]
+[ext_resource type="PackedScene" uid="uid://dx8wdf8i8cmsk" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="12_uxqpr"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
-[ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
 [ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="20_yhcoy"]
 [ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="21_3s03c"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="22_ruaxr"]
-[ext_resource type="PackedScene" uid="uid://rmvra5b8e5e8" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
 [ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="24_ixqxq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
@@ -43,17 +46,11 @@ size = Vector3(7.16333, 8, 1)
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bg3yo"]
 streams_count = 6
 stream_0/stream = ExtResource("4_qy5y3")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("5_snhk5")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_68riu")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("7_2g57s")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("8_x2nkr")
-stream_4/weight = 1.0
 stream_5/stream = ExtResource("9_vutj0")
-stream_5/weight = 1.0
 
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
@@ -106,12 +103,40 @@ shape = SubResource("BoxShape3D_a87f0")
 mesh = SubResource("BoxMesh_b22rr")
 skeleton = NodePath("../..")
 
-[node name="LevelLoader2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2706, 0, 0.235756)
+[node name="Path" type="Node3D" parent="Geometry"]
 
-[node name="Level2 loader" parent="LevelLoader2" instance=ExtResource("3_0mbah")]
-transform = Transform3D(0.84663, 0, -0.532182, 0, 1, 0, 0.532182, 0, 0.84663, 30.4098, 0, -37.1901)
-index = 2
+[node name="Barriere" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.0149049, 0, 0.020071, 0, 0.025, 0, -0.020071, 0, -0.0149049, -3.4012, 0, -12.3755)
+
+[node name="Barriere3" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(0.00442411, 0, 0.0246054, 0, 0.025, 0, -0.0246054, 0, 0.00442411, 3.18322, 0, -13.0728)
+
+[node name="Barriere8" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.00175349, 0, 0.0249384, 0, 0.025, 0, -0.0249384, 0, -0.00175349, 9.32625, 1.90735e-06, -26.5204)
+
+[node name="Barriere5" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.0098305, 0, 0.0229861, 0, 0.025, 0, -0.0229861, 0, -0.0098305, -0.250173, -0.0228333, -26.7202)
+
+[node name="Barriere17" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(0.00773206, 0, -0.0237743, 0, 0.025, 0, 0.0237743, 0, 0.00773206, 3.44099, -0.0228319, -36.1599)
+
+[node name="Barriere10" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.0213479, 0, 0.0130103, 0, 0.025, 0, -0.0130103, 0, -0.0213479, -6.48612, -0.0228329, -16.1883)
+
+[node name="Barriere14" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.0167613, 0, -0.0185488, 0, 0.025, 0, 0.0185488, 0, -0.0167613, -1.87919, -0.02283, -49.4199)
+
+[node name="Barriere13" parent="Geometry/Path" instance=ExtResource("11_8lecc")]
+transform = Transform3D(-0.0207544, 0, 0.0139375, 0, 0.025, 0, -0.0139375, 0, -0.0207544, -11.9782, -0.02283, -39.1145)
+
+[node name="Barriere6" parent="Geometry/Path" instance=ExtResource("12_i6qbk")]
+transform = Transform3D(0.0161767, 0, 0.0190608, 0, 0.025, 0, -0.0190608, 0, 0.0161767, 6.17858, 4.76837e-07, -19.0308)
+
+[node name="Barriere11" parent="Geometry/Path" instance=ExtResource("12_i6qbk")]
+transform = Transform3D(-0.017405, 0, 0.0179462, 0, 0.025, 0, -0.0179462, 0, -0.017405, -5.78953, 3.33786e-06, -33.2274)
+
+[node name="Barriere12" parent="Geometry/Path" instance=ExtResource("12_i6qbk")]
+transform = Transform3D(0.0140167, 0, 0.020701, 0, 0.025, 0, -0.020701, 0, 0.0140167, 2.9685, 3.33786e-06, -41.4926)
 
 [node name="LevelLoader1" type="Node3D" parent="."]
 transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 1.5256, 0, -9.40647)
@@ -119,6 +144,10 @@ transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 
 [node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("3_0mbah")]
 transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, -0.0985675, 0, -14.3132)
 index = 1
+
+[node name="Level 2 loader" parent="." instance=ExtResource("12_uxqpr")]
+transform = Transform3D(-0.396812, 0, -0.9179, 0, 1, 0, 0.9179, 0, -0.396812, 10.2246, 0.128363, -36.6911)
+index = 2
 
 [node name="Level 3 loader" parent="." instance=ExtResource("23_hf785")]
 transform = Transform3D(0.935203, 0, 0.354111, 0, 1, 0, -0.354111, 0, 0.935203, -9.90051, 0, -45.2612)
@@ -173,16 +202,16 @@ transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408
 transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673, -5.79186)
 
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
-transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.034728, -0.14218, -8.71555, 2.63982, 0.665581)
+transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.64965
+light_energy = 1.41903
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
-transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236838, 0.988124, -0.0363922, -0.149287, 9.24446, 3.17858, 0.665581)
+transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.64965
+light_energy = 1.41903
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
