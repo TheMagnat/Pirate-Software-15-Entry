@@ -54,6 +54,8 @@ func set_camera(cam: Camera3D):
 	camera.current = true
 
 func _ready():
+	$AssetsHolder/CloakEffect.visible = false
+	
 	shaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/BrasGauche.material_override.next_pass.next_pass
 	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Oeuf/RootNode/Int_Potion.material_override
 	
@@ -119,7 +121,7 @@ func lightLogic(delta: float):
 	
 	# If true, player is in the light
 	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture] * mixtureMultiplier)
-	if lastLightLevel > lightTreshold:
+	if !cloaking and lastLightLevel > lightTreshold:
 		spottedValue += ((lastLightLevel - lightTreshold) * delta) / time
 	else:
 		spottedValue -= delta / (time * 2.0)
@@ -178,7 +180,7 @@ func playFootStep():
 	var volumeValue: float
 	var pitchScale: float
 
-	if sneaking:
+	if sneaking || cloaking:
 		volumeValue = -27.0
 		pitchScale = 1.25
 		emitSuspiciousSneakSound()
@@ -283,6 +285,40 @@ func _process(_delta: float):
 	$SubViewport/TopView.global_position.x = global_position.x
 	$SubViewport/TopView.global_position.z = global_position.z
 	$SubViewport/TopView.global_position.y = global_position.y + 1.5
+
+const CLOAK_ANIM_TIME := 0.5
+const BASE_CLOAK_SCALE := Vector3(0.5, 0.0, 0.5)
+const BASE_CLOAK_VOLUME := -20.0
+var cloaking := false
+var cloak_tween : Tween
+func cloak_tween_finish():
+	if cloaking:
+		$AssetsHolder/Potion.visible = false
+	else:
+		$AssetsHolder/CloakEffect.visible = false
+		$Cloaking.stop()
+
+func cloak_do_tween():
+	if cloak_tween: cloak_tween.kill()
+	cloak_tween = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	cloak_tween.tween_property($AssetsHolder/Potion, "scale:y", 0.0 if cloaking else 1.0, CLOAK_ANIM_TIME)
+	cloak_tween.tween_property($AssetsHolder/CloakEffect, "scale", Vector3(1, 1, 1) if cloaking else BASE_CLOAK_SCALE, CLOAK_ANIM_TIME)
+	cloak_tween.tween_property($Cloaking, "pitch_scale", 0.4 if cloaking else 1.0, CLOAK_ANIM_TIME)
+	cloak_tween.tween_property($Cloaking, "volume_db", -2 if cloaking else BASE_CLOAK_VOLUME, CLOAK_ANIM_TIME)
+	cloak_tween.finished.connect(cloak_tween_finish)
+
+func cloak(): 
+	cloaking = true
+	$AssetsHolder/CloakEffect.visible = true
+	$AssetsHolder/CloakEffect.scale = BASE_CLOAK_SCALE
+	$Cloaking.volume_db = BASE_CLOAK_VOLUME
+	$Cloaking.play()
+	cloak_do_tween()
+
+func uncloak():
+	cloaking = false
+	$AssetsHolder/Potion.visible = true
+	cloak_do_tween()
 
 func _physics_process(delta: float):
 	### Light computation Logic ###

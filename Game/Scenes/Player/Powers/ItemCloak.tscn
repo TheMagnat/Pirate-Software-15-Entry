@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mqs0ica5jgwn"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Powers/ItemCloak.gd" id="1_tha5v"]
+[ext_resource type="PackedScene" uid="uid://cd6lipl7sm2jy" path="res://Scenes/Player/Powers/CloakMesh.tscn" id="3_h06ni"]
+
+[node name="Cloak" type="Node3D"]
+top_level = true
+script = ExtResource("1_tha5v")
+model = ExtResource("3_h06ni")
+cooldown = 15.0
+cooldown_decrease_per_level = 2.0

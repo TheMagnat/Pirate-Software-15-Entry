@@ -24,7 +24,7 @@ func setAllowedSpells(allowedSpellsParam: PackedInt32Array):
 				1:
 					spellList.push_back( $Spawner )
 				2:
-					print("Pas encore dev")
+					spellList.push_back( $Cloak )
 		
 		currentSpell = spellList[currentSpellIndex]
 		if player: loadSpellMesh()
