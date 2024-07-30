@@ -3,6 +3,7 @@ extends Area3D
 const TUTORIAL_TEXT := preload("res://Scenes/UI/tutorial_text.tscn")
 
 @export var index := 0
+@onready var in_lobby := has_node("/root/Main")
 
 func level_opened() -> bool:
 	return Save.levels[index][0]
@@ -12,6 +13,9 @@ func _ready():
 	if index < 0 or index >= Save.levels.size():
 		print("Invalid level index")
 		queue_free()
+		return
+	
+	if !in_lobby:
 		return
 	
 	if level_opened():
