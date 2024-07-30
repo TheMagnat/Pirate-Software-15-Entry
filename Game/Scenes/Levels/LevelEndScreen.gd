@@ -43,8 +43,9 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		$ScreenContainer/Level.text = ESCAPE_TEXTS.pick_random() % level.level_name
 	else:
 		$ScreenContainer/Level.text = FINISH_TEXTS.pick_random() % level.level_name
-		$ScreenContainer/RessourcesSection/MainRessource/Text.text = MAIN_RESSOURCE_TEXTS.pick_random()
-		$ScreenContainer/RessourcesSection/MainRessource/Name.text = level.main_ressource.capitalize()
+		if level.main_ressource != "":
+			$ScreenContainer/RessourcesSection/MainRessource/Text.text = MAIN_RESSOURCE_TEXTS.pick_random()
+			$ScreenContainer/RessourcesSection/MainRessource/Name.text = level.main_ressource.capitalize()
 	
 	var label_settings : LabelSettings = $ScreenContainer/Level.label_settings.duplicate()
 	label_settings.font_size *= 0.75
