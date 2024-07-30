@@ -13,24 +13,24 @@
 [ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="6_68riu"]
 [ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="6_gj5ef"]
 [ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="7_2g57s"]
-[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/table_de_chevet_gbl.tscn" id="7_l0u7l"]
+[ext_resource type="PackedScene" uid="uid://dtuj72gxe5pbh" path="res://Scenes/Mesh/Misc/table_de_chevet_gbl.tscn" id="7_l0u7l"]
 [ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="8_x2nkr"]
 [ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="9_vutj0"]
 [ext_resource type="Material" uid="uid://dsa8mykfrhvxt" path="res://Scenes/Levels/Level_3/GrassMaterial.tres" id="10_jjtlf"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_8lecc"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_i6qbk"]
-[ext_resource type="PackedScene" uid="uid://dx8wdf8i8cmsk" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="12_uxqpr"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="12_uxqpr"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
-[ext_resource type="PackedScene" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
+[ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
 [ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="20_yhcoy"]
 [ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="21_3s03c"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="22_ruaxr"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
+[ext_resource type="PackedScene" uid="uid://rmvra5b8e5e8" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
 [ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="24_ixqxq"]
 [ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_may71"]
 [ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="25_dls45"]
-[ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_npve2"]
-[ext_resource type="PackedScene" uid="uid://cey4unhlm1rc5" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_udnd3"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_npve2"]
+[ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_udnd3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
 size = Vector3(1, 6, 1)
@@ -92,7 +92,7 @@ transform = Transform3D(0.177032, 0, -0.290275, 0, 0.34, 0, 0.290275, 0, 0.17703
 shape = SubResource("BoxShape3D_lt1e3")
 
 [node name="Player" parent="." instance=ExtResource("1_g40ai")]
-transform = Transform3D(0.986432, 0, -0.16417, 0, 1, 0, 0.16417, 0, 0.986432, -2.39737, 0, 5.77828)
+transform = Transform3D(0.986432, 0, -0.16417, 0, 1, 0, 0.16417, 0, 0.986432, -2, 0, 5)
 safePlace = true
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -147,7 +147,6 @@ transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 
 
 [node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("3_0mbah")]
 transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, -0.0985675, 0, -14.3132)
-index = 1
 
 [node name="Level 2 loader" parent="." instance=ExtResource("12_uxqpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
@@ -229,14 +228,14 @@ transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.14722
+light_energy = 1.15074
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.14722
+light_energy = 1.15074
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
@@ -271,3 +270,15 @@ pain really
 worth it"
 player = NodePath("../Player")
 distance = 6.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+position = Vector2(0, 360)
+points = PackedVector2Array(0, 0, 1280, 0)
+width = 720.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="CenterPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
