@@ -1,0 +1,209 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfsc3fgadw6fu"]
+
+[ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_u0veg"]
+[ext_resource type="PackedScene" uid="uid://uiqmxktdm8b3" path="res://Scenes/UI/main_menu.tscn" id="2_3inud"]
+[ext_resource type="AudioStream" uid="uid://drossq8wrr8cw" path="res://Assets/SFX/voices/voice_yoho.ogg" id="2_ce5yu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5mkp"]
+font_size = 48
+
+[sub_resource type="Animation" id="Animation_s1m37"]
+resource_name = "anim"
+length = 60.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11, 13),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"stop_music"
+}, {
+"args": [],
+"method": &"play_menu_music"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 13, 56),
+"transitions": PackedFloat32Array(1, 0.8, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 720), Vector2(0, -1008)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djdny"]
+_data = {
+"anim": SubResource("Animation_s1m37")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_drpj6"]
+font_size = 48
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_u0veg")
+next_scene = ExtResource("2_3inud")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 360)
+points = PackedVector2Array(0, 0, 1280, 0)
+width = 720.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+offset_top = -72.0
+offset_right = 1280.0
+offset_bottom = 648.0
+text = "Finally"
+label_settings = SubResource("LabelSettings_u5mkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "I have made the world become shadow"
+label_settings = SubResource("LabelSettings_u5mkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+offset_top = 72.0
+offset_right = 1280.0
+offset_bottom = 792.0
+text = "just like me"
+label_settings = SubResource("LabelSettings_u5mkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_djdny")
+}
+autoplay = "anim"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ce5yu")
+volume_db = -2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1280, 0)
+offset_top = 720.0
+offset_right = 1280.0
+offset_bottom = 2329.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rogue In A Bottle
+
+
+A Game by:
+
+Magnat
+Buloz
+ObaniGarage
+Kryspou
+
+Code and VFX:
+
+Magnat
+Buloz
+ObaniGarage
+
+Art by: Kryspou
+
+Music by: ObaniGarage
+
+
+
+You just finished a pretty hard and long
+game, so good job!
+
+
+If you enjoyed playing it, don't
+hesitate to plau through it again to
+find everything you've missed!
+
+Thanks for playing our game!"
+label_settings = SubResource("LabelSettings_drpj6")
+horizontal_alignment = 1
+vertical_alignment = 1

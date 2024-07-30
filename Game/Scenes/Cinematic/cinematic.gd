@@ -16,6 +16,12 @@ func _ready():
 	if play_music:
 		Music.play(Music.mystery1)
 
+func stop_music():
+	Music.stop()
+
+func play_menu_music():
+	Music.play(Music.menu)
+
 func go_next():
 	skip.skip.disconnect(go_next)
 	Transition.start(get_tree().change_scene_to_packed.bind(next_scene))
