@@ -29,6 +29,7 @@ func play(stream: AudioStreamPlayer):
 		stream.volume_db = -15 + base_volume[stream]
 		var t_in := create_tween()
 		t_in.tween_property(stream, "volume_db", base_volume[stream], 1.0)
+	stream.volume_db = base_volume[stream]
 	stream.play()
 	current = stream
 
