@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://cl4br0sqn70wh"]
+[gd_scene load_steps=135 format=4 uid="uid://cl4br0sqn70wh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
@@ -16,17 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="11_oe1wc"]
 [ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="13_4v2mu"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="15_svkgy"]
-[ext_resource type="PackedScene" uid="uid://bjwo3gmvrmvv0" path="res://Scenes/LightEntity/lantern.tscn" id="15_vuwel"]
+[ext_resource type="PackedScene" path="res://Scenes/LightEntity/lantern.tscn" id="15_vuwel"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="16_pmmuf"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="17_q5irf"]
 [ext_resource type="Material" uid="uid://dfjswv2mn5sxs" path="res://Scenes/Levels/Level_2/castle_wall_material.tres" id="17_tmc3e"]
-[ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="17_vmjse"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="17_vmjse"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="18_8eu1b"]
 [ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="18_11j0b"]
 [ext_resource type="PackedScene" uid="uid://cg4s7wr4yn5l2" path="res://Scenes/Mesh/Misc/Bibliotheque2.tscn" id="18_ochug"]
-[ext_resource type="PackedScene" uid="uid://d1iepywfjrh7l" path="res://Scenes/Mesh/Misc/table.tscn" id="19_doemx"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/table.tscn" id="19_doemx"]
 [ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="19_nkfps"]
-[ext_resource type="Material" uid="uid://cuubtkfugp6vf" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="22_cx1a0"]
+[ext_resource type="Material" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="22_cx1a0"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="25_oixnc"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="26_xt283"]
 [ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="27_eitms"]
@@ -39,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://bc7dp6um4joj0" path="res://Scenes/Mesh/Misc/big_frame_hor.tscn" id="35_0w417"]
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="35_thaii"]
 [ext_resource type="Texture2D" uid="uid://cf7c0xyu47op8" path="res://Assets/Models/Cadres/o.png" id="36_twtow"]
+[ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="40_ex8om"]
+[ext_resource type="PackedScene" uid="uid://dgo7ijhjhtwv" path="res://Scenes/Levels/Checkpoints/Checkpoint.tscn" id="41_ftiwl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onw2g"]
 radius = 4.0
@@ -529,16 +531,26 @@ height = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_wgeas"]
 size = Vector3(4.82349, 6.93372, 1)
 
-[node name="2" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_1g4nx"]
+radius = 11.6443
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5r0sv"]
+radius = 3.45478
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3t4gs"]
+size = Vector3(11.756, 2.6958, 9.00275)
+
+[node name="2" type="Node3D" node_paths=PackedStringArray("checkpoints")]
 script = ExtResource("1_nrngv")
 open_levels = Array[int]([3])
 level_name = "Dungeon"
 main_ressource = "secret_heart"
+checkpoints = NodePath("Checkpoints")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("15_svkgy")]
 
 [node name="Player" parent="." instance=ExtResource("1_swu07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934551, -3.81469e-06, 0.927719)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0343064, 0.777439, 8.05015)
 
 [node name="MoonColor" parent="." instance=ExtResource("3_1gy3l")]
 transform = Transform3D(-0.502506, -0.325047, 0.801144, -0.0755988, 0.939605, 0.333807, -0.861262, 0.107174, -0.49673, 0, 0, 0)
@@ -928,12 +940,12 @@ transform = Transform3D(-0.569839, 0, -0.821756, 0, 1, 0, 0.821756, 0, -0.569839
 
 [node name="Campfire" parent="Geometry/Garden" instance=ExtResource("9_tcpmy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1064, 3, -18.2549)
-light_energy = 4.00861
+light_energy = 5.45298
 min_energy = 4.0
 
 [node name="Torch2" parent="Geometry/Garden" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.3345, 2.25, -45.91)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="Tour" parent="Geometry/Garden" instance=ExtResource("6_b7y0l")]
@@ -941,14 +953,14 @@ transform = Transform3D(0.0420878, 0, 0.0269929, 0, 0.05, 0, -0.0269929, 0, 0.04
 
 [node name="Torch2" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(7.39526, 0, 18.5825, 0, 20, 0, -18.5825, 0, 7.39526, 108.156, 50, 53.337)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_1q8li")
 
 [node name="StaticLamp" parent="Geometry/Garden" instance=ExtResource("9_ukmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4877, 3.60079, -59.7781)
-light_energy = 5.00689
+light_energy = 6.16239
 
 [node name="ArbreCarre" parent="Geometry/Garden" instance=ExtResource("10_t10m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7232, -0.525065, -63.6669)
@@ -1036,7 +1048,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17958, -4.76837e-07, -12.56
 
 [node name="Torch2" parent="Geometry/Entrance" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, -6.75663, 2.43407, 0.645422)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_tfd4u")
@@ -1049,7 +1061,7 @@ transform = Transform3D(-0.0254098, 0, 0.0159481, 0, 0.03, 0, -0.0159481, 0, -0.
 
 [node name="Lantern" parent="Geometry/Entrance" instance=ExtResource("15_vuwel")]
 transform = Transform3D(-0.995644, -0.0932395, 8.70419e-08, -0.0932395, 0.995644, 8.15125e-09, -8.74228e-08, 0, -1, -13.732, 1.80718, -11.8065)
-light_energy = 5.00689
+light_energy = 6.16239
 
 [node name="PetitCaillou" parent="Geometry/Entrance" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -14, -0.0277354, -13)
@@ -1119,7 +1131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -33)
 [node name="Torch" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.109, 3, 0)
 rotation_edit_mode = 0
-light_energy = 3.00517
+light_energy = 3.87179
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1128,7 +1140,7 @@ min_energy = 3.0
 [node name="Torch2" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -12)
 rotation_edit_mode = 0
-light_energy = 3.00517
+light_energy = 3.87179
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1137,7 +1149,7 @@ min_energy = 3.0
 [node name="Torch3" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -23)
 rotation_edit_mode = 0
-light_energy = 3.00517
+light_energy = 3.87179
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1248,24 +1260,24 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.4217, 0, -54.3066)
 
 [node name="Torch" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50599, 4, -61.1211)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 3, -46.8768)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="Torch3" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 3, -46.8808)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_mreqy")
 
 [node name="Lantern" parent="Geometry/WindowGallery" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 0.966282, 0.257487, 0, -0.257487, 0.966282, 28.043, 0.920775, -59.9285)
-light_energy = 5.00689
+light_energy = 6.16239
 
 [node name="PetitCaillou" parent="Geometry/WindowGallery" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.0118941, 0, -0.0219893, 0, 0.025, 0, 0.0219893, 0, 0.0118941, 28.1305, 0.0070647, -59.819)
@@ -1374,19 +1386,19 @@ transform = Transform3D(-6, 0, -5.24537e-07, 0, 6, 0, 5.24537e-07, 0, -6, 29, 4.
 
 [node name="Lantern" parent="Geometry/Library" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3665, 1.24732, -24)
-light_energy = 5.00689
+light_energy = 6.16239
 
 [node name="PetitCaillou" parent="Geometry/Library" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.00854103, 0, 0.0318756, 0, 0.033, 0, -0.0318756, 0, 0.00854103, 24.6928, 0, -23.5339)
 
 [node name="Torch3" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -35.1308)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="Torch4" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.8831, 3, -28.1308)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 
@@ -1463,12 +1475,12 @@ content = ExtResource("30_45ayf")
 
 [node name="Torch" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -42)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -32)
-light_energy = 1.00689
+light_energy = 2.16239
 shadow_enabled = false
 
 [node name="libbroom2" parent="Geometry/Treasure" instance=ExtResource("17_q5irf")]
@@ -2888,6 +2900,15 @@ mesh = SubResource("CylinderMesh_6xltc")
 [node name="Tuto" type="Node3D" parent="."]
 script = ExtResource("27_wa143")
 
+[node name="TutorialNoSpellTextItem" parent="Tuto" node_paths=PackedStringArray("player") instance=ExtResource("27_s2qli")]
+transform = Transform3D(0.498267, 0, 0.526645, 0, 0.725, 0, -0.526645, 0, 0.498267, -34.0592, 3.0739, -51.6924)
+text = "I should bring this
+back to my place.
+It inspires me with
+OBSCURE ideas"
+player = NodePath("../../Player")
+distance = 7.0
+
 [node name="TutorialNoSpellText" parent="Tuto" node_paths=PackedStringArray("player") instance=ExtResource("27_s2qli")]
 transform = Transform3D(0.725, 0, 0, 0, 0.725, 0, 0, 0, 0.725, 0.0520197, 3.3255, -10.4954)
 text = "I might have to
@@ -2896,6 +2917,14 @@ to get past
 this guard..."
 player = NodePath("../../Player")
 distance = 10.0
+
+[node name="TutorialNoSpellText2" parent="Tuto/TutorialNoSpellText" node_paths=PackedStringArray("player") instance=ExtResource("27_s2qli")]
+transform = Transform3D(0.704287, 0, 0.709915, 0, 1, 0, -0.709915, 0, 0.704287, -8.18824, -0.90082, 4.61582)
+text = "Maybe I could find
+something interesting
+in their garden ?"
+player = NodePath("../../../Player")
+distance = 7.0
 
 [node name="TutorialSpellText" type="Node3D" parent="Tuto"]
 
@@ -2941,5 +2970,45 @@ content = ExtResource("36_twtow")
 [node name="BigFrameHorizontal2" parent="." instance=ExtResource("35_0w417")]
 transform = Transform3D(3.82137e-15, 8.74228e-08, 1, 2, -8.74228e-08, 0, 8.74228e-08, 2, -4.37114e-08, -23.2871, 4, -19.724)
 content = ExtResource("27_eitms")
+
+[node name="Checkpoints" parent="." instance=ExtResource("40_ex8om")]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("41_ftiwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0967, 0.269641, -6.49981)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84862, 0, -2.68354)
+shape = SubResource("SphereShape3D_1g4nx")
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("41_ftiwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3825, 0.269642, -27.392)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03864, 7.15256e-07, -1.22654)
+shape = SubResource("SphereShape3D_5r0sv")
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("41_ftiwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22441, 0.269641, -60.423)
+respawnCameraOrientation = 3
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44496, 0.847901, 3.47409)
+shape = SubResource("BoxShape3D_3t4gs")
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("41_ftiwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9019, 0.269641, -47.052)
+respawnCameraOrientation = 2
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99577, 9.53674e-07, 1.24191)
+shape = SubResource("SphereShape3D_5r0sv")
 
 [connection signal="body_entered" from="WorldEdge2" to="Player" method="_on_world_edge_2_body_entered"]

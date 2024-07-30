@@ -8,6 +8,11 @@ var collector: Player = null
 func _ready():
 	var tween = create_tween().set_loops()
 	tween.tween_property(self, "rotation:y", PI/4, 1.0).as_relative()
+	
+	var secondTween = create_tween().set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	secondTween.tween_property(self, "position:y", 0.25, 2.0).as_relative()
+	secondTween.tween_property(self, "position:y", -0.25, 2.0).as_relative()
+
 	$Area3D.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://detf01eo1b1gl"]
+[gd_scene load_steps=9 format=4 uid="uid://detf01eo1b1gl"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline-forest.gdshader" id="1_ktcsj"]
 [ext_resource type="Texture2D" uid="uid://dob3iqvyeepcw" path="res://Assets/Models/Table/TableGBL_0.png" id="1_ytx37"]
@@ -56,9 +56,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oj6rb")
 
-[node name="TableGBL" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dt7a1"]
+size = Vector3(0.706238, 0.484833, 1.98865)
+
+[node name="TableGBL" type="StaticBody3D"]
 
 [node name="Table2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_iooik")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000579834, 0.265915, -0.000549316)
+shape = SubResource("BoxShape3D_dt7a1")

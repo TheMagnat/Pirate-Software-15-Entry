@@ -7,3 +7,4 @@ func _ready():
 		$TutorialSpellText.hide()
 	else:
 		$TutorialNoSpellText.hide()
+		$TutorialNoSpellTextItem.hide()

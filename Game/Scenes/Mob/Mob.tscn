@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dcosg2j6qqww8"]
+[gd_scene load_steps=46 format=3 uid="uid://dcosg2j6qqww8"]
 
 [ext_resource type="Script" path="res://Scenes/Mob/Mob.gd" id="1_mno22"]
 [ext_resource type="PackedScene" uid="uid://ckjfa8q5vykds" path="res://Scenes/Tool/Actionable.tscn" id="2_8yyng"]
@@ -41,8 +41,12 @@
 [ext_resource type="AudioStream" uid="uid://e5s6418frqki" path="res://Assets/SFX/steps/step_metal9.ogg" id="38_06531"]
 [ext_resource type="AudioStream" uid="uid://cvi03uxmew1pq" path="res://Assets/SFX/steps/step_metal10.ogg" id="39_4d0k3"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c54kf"]
+radius = 0.314234
+height = 1.23069
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ff4gg"]
-size = Vector3(1, 1.985, 0.891602)
+size = Vector3(1, 1.5716, 0.685364)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r8vkl"]
 streams_count = 7
@@ -83,15 +87,18 @@ collision_mask = 15
 velocity = Vector3(0, -66428.8, 0)
 script = ExtResource("1_mno22")
 checkpoints = PackedVector2Array(30.1979, -14.6882, 0.999157, -0.0410562, 0.999701, 0.0244669, 23.8656, -5.66278)
-dedicatedDirection = PackedVector2Array()
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="MobModel" parent="." instance=ExtResource("2_yt6ug")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
+[node name="Feets" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.316317, -0.0175027)
+shape = SubResource("CapsuleShape3D_c54kf")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0007, 0.0541992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2074, -0.0489198)
 shape = SubResource("BoxShape3D_ff4gg")
 
 [node name="DeathActionable" parent="." instance=ExtResource("2_8yyng")]
