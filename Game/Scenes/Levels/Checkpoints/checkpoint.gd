@@ -11,9 +11,8 @@ func _ready() -> void:
 	
 	area.collision_layer = 0
 	area.collision_mask = 0b010
-	area.body_entered.connect(func(body): checkpoints.hittedCheckpoint(self))
+	area.body_entered.connect(hitCheckpoint)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func hitCheckpoint(body):
+	if body.is_in_group("Player") and not body.canBeSeen():
+		checkpoints.hittedCheckpoint(self)
