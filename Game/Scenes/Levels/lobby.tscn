@@ -147,6 +147,7 @@ transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 
 
 [node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("3_0mbah")]
 transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, -0.0985675, 0, -14.3132)
+index = 1
 
 [node name="Level 2 loader" parent="." instance=ExtResource("12_uxqpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
