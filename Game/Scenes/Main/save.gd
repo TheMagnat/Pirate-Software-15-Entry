@@ -35,8 +35,7 @@ var levels := []
 
 const DEFAULT_CONFIG := {
 	"fullscreen": false,
-	"volume": 1.0,
-	"camera_speed": PI,
+	"volume": 1.0
 }
 
 var config := {}

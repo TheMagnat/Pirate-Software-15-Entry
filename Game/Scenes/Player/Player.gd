@@ -53,7 +53,6 @@ func set_camera(cam: Camera3D):
 	camera = cam
 	camera.current = true
 
-const CAMERA_SIDE_POS := Vector3(0, 2, 4)
 func _ready():
 	$AssetsHolder/CloakEffect.visible = false
 	
@@ -341,12 +340,7 @@ func _physics_process(delta: float):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
-	var cam_side := 0.0
-	if Input.is_action_pressed("cam_left"): cam_side -= 1.0
-	if Input.is_action_pressed("cam_right"): cam_side += 1.0
-	$CameraHolder.rotation.y += cam_side * delta * Save.config.camera_speed
-	
+
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
@@ -370,6 +364,26 @@ func _physics_process(delta: float):
 
 	move_and_slide()
 	#TODO: Handle y position if player y can change
+
+const CAMERA_SIDE_POS := Vector3(0, 2, 4)
+
+var cam_side_tween : Tween
+var goal_rot_side := 0.0
+func camera_side(side: float):
+	if camera != playerCamera: return
+	
+	if cam_side_tween: cam_side_tween.kill()
+	
+	goal_rot_side += side * PI/2
+	cam_side_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	cam_side_tween.tween_property($CameraHolder, "rotation:y", goal_rot_side, 0.25)
+	#cam_side_tween.tween_property($AssetsHolder, "rotation:y", goal_rot_side, 0.25)
+
+func _input(event):
+	if event.is_action_pressed("cam_left"):
+		camera_side(-1.0)
+	if event.is_action_pressed("cam_right"):
+		camera_side(1.0)
 
 func _on_world_edge_2_body_entered(body):
 	dying(true)
