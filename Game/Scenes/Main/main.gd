@@ -87,10 +87,12 @@ func escape_level():
 	
 func finish_level():
 	var new_record := false
+	var opened_level := false
 	
 	### Open the access to this level
 	for idx2 in currentLevel.open_levels:
 		print("Opened access to level " + str(idx2))
+		opened_level = opened_level || !Save.levels[idx2][0]
 		Save.levels[idx2][0] = true
 	
 	### Record time on this level
@@ -118,6 +120,7 @@ func finish_level():
 	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel)
 	endScreen.new_record = new_record
+	endScreen.opened_level = opened_level
 	if idx == END_LEVEL:
 		endScreen.addCallback(Transition.start.bind(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END)))) ## don't preload this or it will create cyclic references
 	else:

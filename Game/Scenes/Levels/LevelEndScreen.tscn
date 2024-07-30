@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd0kr04h7njb6"]
+[gd_scene load_steps=13 format=3 uid="uid://dd0kr04h7njb6"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelEndScreen.gd" id="1_5ir8a"]
 [ext_resource type="Shader" path="res://Scenes/Levels/LevelEndScreen.gdshader" id="2_rhbay"]
@@ -26,7 +26,7 @@ font_size = 48
 [sub_resource type="Shader" id="Shader_2x2mm"]
 code = "shader_type canvas_item;
 
-uniform float speed : hint_range(10.0, 40.0, 10.0);
+uniform float speed : hint_range(1.0, 40.0, 1.0);
 
 void vertex() {
 	VERTEX.y += cos((TIME + VERTEX.x) * speed) * 2.0;
@@ -39,6 +39,10 @@ shader_parameter/speed = 10.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ijd1"]
 shader = SubResource("Shader_2x2mm")
 shader_parameter/speed = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j76fp"]
+shader = SubResource("Shader_2x2mm")
+shader_parameter/speed = 4.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_38o5u"]
 playback_mode = 1
@@ -185,6 +189,14 @@ layout_mode = 2
 text = "NEW RECORD !"
 label_settings = SubResource("LabelSettings_pkh2e")
 horizontal_alignment = 2
+
+[node name="OpenedLevel" type="Label" parent="ScreenContainer"]
+modulate = Color(0.74698, 0.74698, 0.74698, 1)
+material = SubResource("ShaderMaterial_j76fp")
+layout_mode = 2
+text = "Opened Level"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_38o5u")

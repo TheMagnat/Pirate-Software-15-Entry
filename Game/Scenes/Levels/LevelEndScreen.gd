@@ -23,8 +23,17 @@ const MAIN_RESSOURCE_TEXTS := [
 	"I found what I came for: the "
 ]
 
+const NEW_LEVEL_TEXT := [
+	"I found another place to visit...",
+	"I found a way to my next location",
+	"A map I found told me where to go next",
+	"There's a new location I need to go to",
+	"I found a new location to go to"
+]
+
 var escape := false
 var new_record := false
+var opened_level := false
 var no_ressources := true
 
 var ressourceAnimationOrder = []
@@ -84,8 +93,9 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		$ScreenContainer/KillNote.text = "BOTCHED WORK"
 		$ScreenContainer/KillNote.modulate = Color(0.2, 0.1, 0.0)
 		$ScreenContainer/TimeText/TimeText.text = "Managed to sneak in in"
-		
+	
 	$ScreenContainer/TimeText/Time.text = "%02d:%02d" % [int(level.time_spent / 60), int(int(level.time_spent) % 60)]
+	$ScreenContainer/OpenedLevel.text = NEW_LEVEL_TEXT.pick_random()
 
 var callback: Callable
 func addCallback(newCallback: Callable):
@@ -135,7 +145,8 @@ func startAnimation():
 	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape, 0.75)
 	
 	#TODO: Get condition to show
-	prepareNodeAndAnimation($ScreenContainer/Record, not escape and new_record)
+	prepareNodeAndAnimation($ScreenContainer/Record, not escape and new_record, 1.5)
+	prepareNodeAndAnimation($ScreenContainer/OpenedLevel, not escape and opened_level)
 	
 	# Sleep time
 	animationTween.tween_callback(func(): sleep_time = true)
