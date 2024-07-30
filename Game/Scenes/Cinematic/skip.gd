@@ -5,7 +5,7 @@ signal skip
 var factor := -4.0
 
 func _process(delta: float):
-	var v := delta * 50.0 * factor
+	var v := delta * 100.0 * factor
 	value = clampf(value + v, min_value, max_value)
 	$Label.modulate.a = sqrt(value * 0.01)
 	
