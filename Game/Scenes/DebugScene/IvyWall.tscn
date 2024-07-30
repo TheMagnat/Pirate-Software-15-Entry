@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ouxsdxifmyue"]
+[gd_scene load_steps=9 format=3 uid="uid://ouxsdxifmyue"]
 
 [ext_resource type="Script" path="res://Scenes/DebugScene/IvyWall.gd" id="1_bug73"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="2_h2a7c"]
-[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="3_ap8xt"]
+[ext_resource type="PackedScene" uid="uid://c6yopv44ntocw" path="res://Scenes/Mesh/Spells/ronce.tscn" id="2_vltf8"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha-ivy.gdshader" id="4_gjsy7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vh4d1"]
 render_priority = 0
@@ -11,7 +12,7 @@ shader = ExtResource("2_h2a7c")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xa80q"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_vh4d1")
-shader = ExtResource("3_ap8xt")
+shader = ExtResource("4_gjsy7")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/color = Color(0, 0.443137, 0.34902, 1)
@@ -29,10 +30,17 @@ size = Vector3(3, 2, 1)
 [node name="IvyWall" type="StaticBody3D"]
 script = ExtResource("1_bug73")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="Ronce" parent="Mesh" instance=ExtResource("2_vltf8")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.190184, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("ShaderMaterial_xa80q")
+cast_shadow = 3
 mesh = SubResource("BoxMesh_dheom")
+skeleton = NodePath("../..")
 
 [node name="CubeCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

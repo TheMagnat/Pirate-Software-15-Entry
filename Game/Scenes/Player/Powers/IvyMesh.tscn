@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgfsw03tn6dqb"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_gyjhi"]
-[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_ecagt"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha-ivy.gdshader" id="2_mcgu3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5p6qh"]
 render_priority = 0
@@ -10,7 +10,7 @@ shader = ExtResource("1_gyjhi")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8uds"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_5p6qh")
-shader = ExtResource("2_ecagt")
+shader = ExtResource("2_mcgu3")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/color = Color(0, 0.835294, 0.219608, 1)
