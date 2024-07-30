@@ -374,7 +374,7 @@ func camera_side(side: float):
 	
 	if cam_side_tween: cam_side_tween.kill()
 	
-	goal_rot_side += side * PI/2
+	goal_rot_side += side * PI/4
 	cam_side_tween = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	cam_side_tween.tween_property($CameraHolder, "rotation:y", goal_rot_side, 0.25)
 	#cam_side_tween.tween_property($AssetsHolder, "rotation:y", goal_rot_side, 0.25)
