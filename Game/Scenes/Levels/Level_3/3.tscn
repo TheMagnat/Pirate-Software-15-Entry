@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://deva86s4ho6q3"]
+[gd_scene load_steps=104 format=3 uid="uid://deva86s4ho6q3"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_3/3.gd" id="1_p4hd0"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_0tgnm"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cufqj1pkxlprd" path="res://Scenes/LightEntity/HandTorch.tscn" id="25_6r8q1"]
 [ext_resource type="PackedScene" uid="uid://c0lvcyvuf5q1i" path="res://Scenes/Mesh/Misc/Ruby.tscn" id="28_rix62"]
 [ext_resource type="PackedScene" uid="uid://1r170co06tri" path="res://Scenes/Mesh/Misc/Jade.tscn" id="29_38ble"]
+[ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="29_tqr1j"]
+[ext_resource type="PackedScene" uid="uid://dgo7ijhjhtwv" path="res://Scenes/Levels/Checkpoints/Checkpoint.tscn" id="30_oka4v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ex4ep"]
 radius = 7.85909
@@ -340,11 +342,15 @@ size = Vector3(40.2183, 28.4216, 60.686)
 [sub_resource type="BoxOccluder3D" id="BoxOccluder3D_241pq"]
 size = Vector3(45.1033, 21.6616, 60.686)
 
-[node name="Level_3" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_e51ca"]
+radius = 9.45228
+
+[node name="Level_3" type="Node3D" node_paths=PackedStringArray("checkpoints")]
 script = ExtResource("1_p4hd0")
+checkpoints = NodePath("")
 
 [node name="Player" parent="." instance=ExtResource("3_i2163")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5629, 10.5262, -41.3698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3855, 10.5262, -45.2873)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0tgnm")]
 
@@ -1021,33 +1027,33 @@ shape = SubResource("ConvexPolygonShape3D_6m2ew")
 
 [node name="StaticLamp" parent="NavigationRegion3D/DownPart" instance=ExtResource("23_fr7tl")]
 transform = Transform3D(-0.996164, 0, 0.0875034, 0, 1, 0, -0.0875034, 0, -0.996164, -20.6574, 4.12275, -31.0162)
-light_energy = 7.02252
+light_energy = 10.152
 omni_range = 7.055
 max_energy = 18.0
 min_energy = 7.0
 
 [node name="StaticLamp2" parent="NavigationRegion3D/DownPart" instance=ExtResource("23_fr7tl")]
 transform = Transform3D(-0.99866, 0, -0.0517609, 0, 1, 0, 0.0517609, 0, -0.99866, -31.0197, 4.12275, -31.0162)
-light_energy = 7.02661
+light_energy = 10.7251
 omni_range = 7.055
 max_energy = 20.0
 min_energy = 7.0
 
 [node name="StaticLamp3" parent="NavigationRegion3D/DownPart" instance=ExtResource("23_fr7tl")]
 transform = Transform3D(-0.998597, 0, 0.0529459, 0, 1, 0, -0.0529459, 0, -0.998597, -41.9099, 4.12275, -31.0162)
-light_energy = 10.0164
+light_energy = 12.2924
 omni_range = 7.055
 max_energy = 18.0
 min_energy = 10.0
 
 [node name="StaticLamp4" parent="NavigationRegion3D/DownPart" instance=ExtResource("23_fr7tl")]
 transform = Transform3D(0.0277471, 0, 0.999615, 0, 1, 0, -0.999615, 0, 0.0277471, -48.9654, 4.12275, -44.7006)
-light_energy = 5.00819
+light_energy = 6.14618
 omni_range = 7.055
 
 [node name="StaticLamp5" parent="NavigationRegion3D/DownPart" instance=ExtResource("23_fr7tl")]
 transform = Transform3D(-0.448836, 0, 0.893614, 0, 1, 0, -0.893614, 0, -0.448836, -48.4107, 4.12275, -34.3509)
-light_energy = 12.0143
+light_energy = 14.0058
 omni_range = 7.055
 max_energy = 19.0
 min_energy = 12.0
@@ -1063,7 +1069,7 @@ transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 24.296, -0.342514
 
 [node name="Campfire" parent="NavigationRegion3D/DownPart" instance=ExtResource("16_1vsq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8466, 3.09685, -29.0093)
-light_energy = 5.00819
+light_energy = 6.14618
 
 [node name="Part1" type="Node3D" parent="NavigationRegion3D"]
 
@@ -1153,7 +1159,7 @@ transform = Transform3D(2.3571, 0, 0.833119, 0, 2.5, 0, -0.833119, 0, 2.3571, 25
 
 [node name="Campfire" parent="NavigationRegion3D/Part1" instance=ExtResource("16_1vsq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9057, 12.9722, -61.7689)
-light_energy = 5.00819
+light_energy = 6.14618
 shadow_enabled = true
 
 [node name="ArbreCarre" parent="NavigationRegion3D/Part1" instance=ExtResource("17_umpde")]
@@ -1910,45 +1916,45 @@ mesh = SubResource("CylinderMesh_bswro")
 
 [node name="Torch" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(-0.544969, -0.0795378, 0.834675, -0.0434834, 0.996832, 0.0665992, -0.837328, 4.43841e-09, -0.546701, 13.6149, 12.1597, -70.6385)
-light_energy = 1.00819
+light_energy = 2.14618
 shadow_enabled = false
 omni_range = 3.84
 
 [node name="Torch2" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(-0.659687, 0, -0.751541, 0, 1, 0, 0.751541, 0, -0.659687, -15.4559, 21.3996, -74.7942)
-light_energy = 1.00819
+light_energy = 2.14618
 
 [node name="Torch3" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(0.997268, 0, 0.0738648, 0, 1, 0, -0.0738648, 0, 0.997268, -8.75405, 35.5231, -188.148)
-light_energy = 1.00819
+light_energy = 2.14618
 shadow_enabled = false
 
 [node name="Torch4" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(0.997315, 0, -0.0732382, 0, 1, 0, 0.0732382, 0, 0.997315, 8.63035, 35.523, -188.132)
 rotation_edit_mode = 0
-light_energy = 1.00819
+light_energy = 2.14618
 shadow_enabled = false
 
 [node name="Torch5" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(-0.893802, 0, -0.448461, 0, 1, 0, 0.448461, 0, -0.893802, 21.7042, 2.89433, -23.7774)
-light_energy = 3.00409
+light_energy = 3.57309
 omni_range = 7.787
 min_energy = 3.0
 
 [node name="Torch6" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(1, 0, 0, 0, 0.832448, -0.554104, 0, 0.554104, 0.832448, 77.3212, 6.0436, -48.4741)
-light_energy = 1.00819
+light_energy = 2.14618
 omni_range = 7.0
 
 [node name="Torch7" parent="." instance=ExtResource("13_0qqbi")]
 transform = Transform3D(-1, -4.83791e-08, -7.28163e-08, 0, 0.832921, -0.553392, 8.74228e-08, -0.553392, -0.832921, 77.3212, 6.0436, -21.6433)
 rotation_edit_mode = 0
-light_energy = 1.00819
+light_energy = 2.14618
 omni_range = 7.0
 
 [node name="HandTorch" parent="." instance=ExtResource("25_6r8q1")]
 transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 49.8343, 9.99561, -99.8552)
-light_energy = 1.00819
+light_energy = 2.14618
 omni_range = 3.722
 
 [node name="Forest" type="Node3D" parent="."]
@@ -4074,14 +4080,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.722, -1.22864, -74.458)
 occluder = SubResource("BoxOccluder3D_241pq")
 bake_mask = 4294967265
 
-[node name="Ruby" parent="." instance=ExtResource("28_rix62")]
+[node name="Checkpoints" parent="." instance=ExtResource("29_tqr1j")]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("30_oka4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.917, 1.21138, -46.6141)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.93391e-06, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint/Area3D"]
+shape = SubResource("SphereShape3D_e51ca")
+
+[node name="Collectables" type="Node3D" parent="."]
+
+[node name="Ruby" parent="Collectables" instance=ExtResource("28_rix62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.3477, 1.21642, -33.3445)
 
-[node name="Jade" parent="." instance=ExtResource("29_38ble")]
+[node name="Jade" parent="Collectables" instance=ExtResource("29_38ble")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.1303, 11.8602, -43.589)
 
-[node name="Jade2" parent="." instance=ExtResource("29_38ble")]
+[node name="Jade2" parent="Collectables" instance=ExtResource("29_38ble")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3452, 0.672678, 47.8871)
 
-[node name="Ruby2" parent="." instance=ExtResource("28_rix62")]
+[node name="Ruby2" parent="Collectables" instance=ExtResource("28_rix62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7878, 20.638, -49.078)

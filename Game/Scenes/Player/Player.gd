@@ -365,6 +365,13 @@ func _physics_process(delta: float):
 	move_and_slide()
 	#TODO: Handle y position if player y can change
 
+func setSpawnOrientation(angle: float):
+	goal_rot_side = angle
+	$CameraHolder.rotation.y = angle
+	var targetDir2d := Vector2.from_angle(-angle - PI/2.0)
+	var target: Vector3 = global_position + Vector3(targetDir2d.x, 0.0, targetDir2d.y)
+	$AssetsHolder.look_at(target)
+	
 const CAMERA_SIDE_POS := Vector3(0, 2, 4)
 
 var cam_side_tween : Tween

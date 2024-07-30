@@ -1498,7 +1498,6 @@ idleDuration = 6.0
 patrolSpeed = 2.0
 useDedicatedDirection = true
 checkpoints = PackedVector2Array(58.1748, -29.4272, 46.0565, -22.4111, 58.0415, -18.9667)
-toPosition = 1
 dedicatedDirection = PackedVector2Array(-0.712161, 0.702016, 0.974421, -0.22473, -0.650483, 0.759521)
 walkToPosition = Vector2(58.0415, -18.9667)
 
@@ -1554,7 +1553,7 @@ shape = SubResource("SphereShape3D_1e3p5")
 [node name="HandTorch" parent="." instance=ExtResource("15_ydg18")]
 transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 56.7599, 1.10194, 4.99117)
 light_color = Color(1, 0.765708, 0.450306, 1)
-light_energy = 18.1406
+light_energy = 15.4851
 omni_range = 6.02
 max_energy = 20.0
 min_energy = 15.0

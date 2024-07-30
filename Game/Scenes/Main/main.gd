@@ -26,7 +26,7 @@ func load_lobby():
 	$Menu.show_menu(false)
 
 var shadowAtlasIndex: int = 1
-func _load_level(idx : int):
+func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 	if not resource_preloader.has_resource(str(idx)):
 		print("Ressource '", idx, "' not found")
 		return
@@ -47,12 +47,17 @@ func _load_level(idx : int):
 	if idx != -1:
 		currentLevel.init(idx)
 	$Level.add_child(currentLevel)
+	
+	# To allow the usage of checkpoints
+	if spawnInformation:
+		currentLevel.get_node("Player").global_position = spawnInformation.position
+		currentLevel.get_node("Player").setSpawnOrientation(spawnInformation.cameraAngle)
 
-func load_level(idx := -1):
+func load_level(idx := -1, spawnInformation: SpawnInformation = null):
 	if $Level.get_child_count() == 0:
-		_load_level(idx)
+		_load_level(idx, spawnInformation)
 	else:
-		Transition.start(_load_level.bind(idx))
+		Transition.start(_load_level.bind(idx, spawnInformation))
 
 func escape_level():
 	var resources = currentLevel.finish_resources

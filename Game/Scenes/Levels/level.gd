@@ -7,6 +7,8 @@ class_name Level extends Node3D
 
 @export var main_ressource: String
 
+@export var checkpoints: Checkpoints
+
 var contained_resources := {}
 var finish_resources := {}
 
@@ -66,8 +68,12 @@ func init(i: int):
 	add_child(timer)
  
 func restart_level():
+	var respawnInformation: SpawnInformation = null
+	if checkpoints: respawnInformation = checkpoints.getLastCheckpointPosition()
+	else: print("WARNING: No Checkpoints set for this level")
+	
 	var main = get_node("/root/Main")
-	main.load_level(idx)
+	main.load_level(idx, respawnInformation)
 
 func escape_level(body = null):
 	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
