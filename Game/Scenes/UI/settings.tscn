@@ -46,6 +46,26 @@ layout_mode = 2
 max_value = 1.0
 step = 0.0
 
+[node name="CamSpeed" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CamSpeed"]
+modulate = Color(0.862745, 0.862745, 0.862745, 1)
+material = SubResource("ShaderMaterial_lhdky")
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+text = "CamSpeed"
+label_settings = SubResource("LabelSettings_ppeuo")
+
+[node name="HSlider" type="HSlider" parent="CamSpeed"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.0
+value = 1.0
+
 [node name="Back" parent="." instance=ExtResource("1_ain2r")]
 layout_mode = 2
 text = "Back"
