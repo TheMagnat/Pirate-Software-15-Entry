@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bicwlkd0fpsjk"]
+[gd_scene load_steps=26 format=3 uid="uid://bicwlkd0fpsjk"]
 
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_0pp36"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="3_hoe3g"]
@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_3s16k"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_a7abq"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="16_b1cw8"]
+[ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="20_qceap"]
+[ext_resource type="PackedScene" uid="uid://dx8wdf8i8cmsk" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="21_wbvo6"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="22_d85j8"]
 [ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="23_xyig8"]
-[ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_34t1f"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_34t1f"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_4ayld"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_teyai"]
 [ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="27_btmu1"]
@@ -160,14 +162,25 @@ transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408
 [node name="Torch" parent="." instance=ExtResource("30_qycdo")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.78717
+light_energy = 2.04251
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("30_qycdo")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.78717
+light_energy = 2.04251
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
+
+[node name="LevelLoader1" type="Node3D" parent="."]
+transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 1.427, 0, -9.406)
+
+[node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("20_qceap")]
+transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, 0, 0, -14.313)
+index = 1
+
+[node name="Level 2 loader" parent="." instance=ExtResource("21_wbvo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
+index = 2

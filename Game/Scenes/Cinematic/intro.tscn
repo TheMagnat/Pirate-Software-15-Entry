@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2lny0lysi34q"]
+[gd_scene load_steps=9 format=3 uid="uid://d2lny0lysi34q"]
 
 [ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_sl0cv"]
 [ext_resource type="PackedScene" uid="uid://c01k4w5v13dy5" path="res://Scenes/Main/main.tscn" id="2_2r5w6"]
 [ext_resource type="PackedScene" uid="uid://bicwlkd0fpsjk" path="res://Scenes/Levels/lobby_intro.tscn" id="3_hbicc"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="4_ruigt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ftgpw"]
 font_size = 32
@@ -20,6 +21,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.19356, 1.02908, -13.375)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.462512, 0.972096, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l5rsd"]
@@ -81,22 +94,22 @@ tracks/4/path = NodePath("Line2D:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(15, 20, 26),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(11, 15, 24, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("Camera3D:position")
-tracks/5/interp = 1
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(11, 26),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(11, 15, 19, 22, 24, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.19356, 1.02908, -14.9504), Vector3(-1.19356, 1.02908, -6.99671)]
+"values": [Vector3(4.52678, 3.81512, 4.69113), Vector3(1.03974, 2.67774, 1.85255), Vector3(0.201568, 2.67774, -2.39345), Vector3(0.196, 4.573, -11.688), Vector3(-3.357, 3.768, -15.57), Vector3(-4.58744, 1.95218, -21.0535)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -105,7 +118,7 @@ tracks/6/path = NodePath("lobby/Radio:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(11),
+"times": PackedFloat32Array(14),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -121,6 +134,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.55, 0.6, 1.2, 0.5, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera3D:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(11, 15, 19, 22, 24, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.462512, 0.972096, 0), Vector3(-0.462512, 0.535816, 0), Vector3(-0.349066, 0.13439, 0), Vector3(-0.155615, 0.0881354, -0.300449), Vector3(-0.39619, 0.321141, 0.268781), Vector3(-0.541052, 0.321141, -0.539307)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3byg5"]
@@ -160,7 +185,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
-modulate = Color(1, 0.886275, 0.854902, 1)
+modulate = Color(1, 1, 1, 0)
 offset_top = 23.0
 offset_right = 1280.0
 offset_bottom = 743.0
@@ -187,13 +212,15 @@ autoplay = "intro"
 
 [node name="lobby" parent="." instance=ExtResource("3_hbicc")]
 
+[node name="WorldEnvironment" parent="lobby/Decor" index="0" instance=ExtResource("4_ruigt")]
+
 [node name="Torch" parent="lobby" index="6"]
-light_energy = 1.18761
+light_energy = 1.16362
 
 [node name="Torch2" parent="lobby" index="7"]
-light_energy = 1.18761
+light_energy = 1.16362
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.19356, 1.02908, -13.375)
+transform = Transform3D(0.563569, -0.36859, 0.739277, 0, 0.894934, 0.446197, -0.826069, -0.251463, 0.504357, -1.19356, 1.02908, -13.375)
 
 [editable path="lobby"]

@@ -140,5 +140,5 @@ outline_width={
 }
 diffuse_curve={
 "type": "sampler2D",
-"value": ""
+"value": "res://Ressources/ShadersGlobal/diffuseCurveTexture.tres"
 }

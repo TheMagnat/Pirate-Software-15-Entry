@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://c3s2utp2tdam3"]
+
+[ext_resource type="Curve" uid="uid://dj5icunpgbasb" path="res://Ressources/ShadersGlobal/diffuseCurve.tres" id="1_dxnk3"]
+
+[resource]
+curve = ExtResource("1_dxnk3")
