@@ -20,7 +20,7 @@ var recipes := [
 	gen_recipe("Shade Cloak", "",  "I am nothing but shadow in the light", { "sapphire": 1, "ruby":2, "jade": 2, "shade_cloak": 1 }, ["shade_cloak"], 3),
 	gen_recipe("Cat Walk", "", "Be a shadow so the night rewards you", { "night_stone": 1, "amethyst": 1, "jade": 2, "ruby": 2 }, [], 4),
 	gen_recipe("Hardened Mixture", "",  "Your enemies's life will empower you", { "blood_stone": 1, "amethyst": 1, "ruby": 2, "sapphire": 1 }, [], 4),
-	gen_recipe("Casting Speed", "",  "Every power will be impacted", { "blood_stone": 100, "amethyst": 100, "ruby": 200, "sapphire": 100 }, [], 4) ## craft to change
+	gen_recipe("Casting Speed", "",  "Every power will be impacted", { "amethyst": 1, "sapphire": 1, "ruby": 2, "jade": 2 }, [], 4)
 ]
 
 signal craft_success

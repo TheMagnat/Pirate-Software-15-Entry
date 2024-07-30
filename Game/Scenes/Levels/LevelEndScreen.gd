@@ -1,16 +1,40 @@
 class_name LevelEndScreen extends CanvasLayer
 
+const ESCAPE_TEXTS := [
+	"I escaped from %s",
+	"I ran away from %s",
+	"I came back from %s",
+	"%s was no good, I left",
+	"I left %s",
+]
 
-var escape: bool = false
+const FINISH_TEXTS := [
+	"%s wasn't as dangerous as I thought",
+	"I went through %s smoothly",
+	"I triumphed over %s",
+	"%s: DONE!!",
+	"%s was easy in the end",
+]
+
+const MAIN_RESSOURCE_TEXTS := [
+	"I could even lay hands on a ",
+	"I could borrow a ",
+	"I found the ",
+	"I found what I came for: the "
+]
+
+var escape := false
+var new_record := false
 
 var ressourceAnimationOrder = []
 func fillScreen(level: Level, escapeParam: bool = false):
 	escape = escapeParam
 	if escape:
-		$ScreenContainer/TitleContainer/LevelName.text = "Escaped from %s" % level.level_name
+		$ScreenContainer/Level.text = ESCAPE_TEXTS.pick_random() % level.level_name
 	else:
-		$ScreenContainer/TitleContainer/LevelName.text = "%s Finished" % level.level_name
-		$ScreenContainer/RessourcesSection/MainRessource/MainRessource.text = level.main_ressource.capitalize()
+		$ScreenContainer/Level.text = FINISH_TEXTS.pick_random() % level.level_name
+		$ScreenContainer/RessourcesSection/MainRessource/Text.text = MAIN_RESSOURCE_TEXTS.pick_random()
+		$ScreenContainer/RessourcesSection/MainRessource/Name.text = level.main_ressource.capitalize()
 	
 	for ressource in level.contained_resources:
 		var count: int = level.finish_resources[ressource]
@@ -36,14 +60,17 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		ressourceAnimationOrder.push_back(hBoxContainer)
 	
 	$ScreenContainer/EnemyKilled/NbEnemies.text = "%d / %d" % [level.killedEnemies, level.nbEnemies]
-	if level.killedEnemies == level.nbEnemies:
-		$ScreenContainer/KillNote.text = "BLOODSHED"
-		$ScreenContainer/TimeText/TimeText.text = "CARNAGE carried out in"
-	elif level.killedEnemies == 0:
+	if level.killedEnemies == 0:
 		$ScreenContainer/KillNote.text = "TRUE SHADOW"
+		$ScreenContainer/KillNote.modulate = Color(0.5, 0.0, 1.0)
 		$ScreenContainer/TimeText/TimeText.text = "INFILTRATION completed smoothly in"
+	elif level.killedEnemies == level.nbEnemies:
+		$ScreenContainer/KillNote.text = "BLOODSHED"
+		$ScreenContainer/KillNote.modulate = Color(1.0, 0.0, 0.0)
+		$ScreenContainer/TimeText/TimeText.text = "CARNAGE carried out in"
 	else:
 		$ScreenContainer/KillNote.text = "BOTCHED WORK"
+		$ScreenContainer/KillNote.modulate = Color(0.2, 0.1, 0.0)
 		$ScreenContainer/TimeText/TimeText.text = "Managed to sneak in in"
 		
 	$ScreenContainer/TimeText/Time.text = "%02d:%02d" % [int(level.time_spent / 60), int(int(level.time_spent) % 60)]
@@ -53,6 +80,8 @@ func addCallback(newCallback: Callable):
 	callback = newCallback
 
 func animationFinished():
+	if animationTween: animationTween.kill()
+	
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property($ScreenContainer, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(queue_free)
@@ -72,6 +101,7 @@ func createBlurTransition(transitionTime: float = 2.0):
 	animationTween.tween_property($BlurV/Renderer.material, "shader_parameter/strength", 1.0, transitionTime)
 	animationTween.parallel().tween_property($BlurH/Renderer.material, "shader_parameter/strength", 1.0, transitionTime)
 
+var sleep_time := false
 func startAnimation():
 	if animationTween:
 		animationTween.kill()
@@ -81,24 +111,29 @@ func startAnimation():
 	# Add the blur transition to the tween
 	createBlurTransition()
 	
-	prepareNodeAndAnimation($ScreenContainer/TitleContainer)
-	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource)
+	prepareNodeAndAnimation($ScreenContainer/Level, true, 2.0)
+	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource, not escape, 2.0)
 
 	for ressource in ressourceAnimationOrder:
 		prepareNodeAndAnimation(ressource)
 
 	prepareNodeAndAnimation($ScreenContainer/EnemyKilled, not escape)
 	prepareNodeAndAnimation($ScreenContainer/KillNote, not escape)
-	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape)
+	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape, 1.0)
 	
 	#TODO: Get condition to show
-	prepareNodeAndAnimation($ScreenContainer/Record, not escape)
+	prepareNodeAndAnimation($ScreenContainer/Record, not escape and new_record)
 	
 	# Sleep time
-	animationTween.tween_interval(2.0)
+	animationTween.tween_callback(func(): sleep_time = true)
+	animationTween.tween_interval(7.0)
 	animationTween.tween_callback(animationFinished)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	startAnimation()
 	$ScreenContainer.modulate.a = 1.0
+
+func _input(event):
+	if event.is_action_pressed("interact") and sleep_time:
+		animationFinished()

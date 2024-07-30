@@ -1,5 +1,7 @@
 extends Node
 
+const END_SCREEN := preload("res://Scenes/Levels/LevelEndScreen.tscn")
+
 ### DEBUG ###
 var inDebug: bool = false
 var debugIndex: int = 2
@@ -7,7 +9,6 @@ var debugIndex: int = 2
 
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
 
-var current_level_idx: int = -2
 var currentLevel = null
 
 func _ready():
@@ -40,7 +41,6 @@ func _load_level(idx : int):
 	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex+3)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_16)
 	shadowAtlasIndex += 1
 	
-	current_level_idx = idx
 	$Menu/Control/HBoxContainer/Main/Lobby.visible = idx != -1
 	
 	currentLevel = resource_preloader.get_resource(str(idx)).instantiate()
@@ -54,7 +54,8 @@ func load_level(idx := -1):
 	else:
 		Transition.start(_load_level.bind(idx))
 
-func escape_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary):
+func escape_level():
+	var resources = currentLevel.finish_resources
 	### Add retrieved resources
 	print("Resources gathered:")
 	for resource in resources.keys():
@@ -64,25 +65,31 @@ func escape_level(idx: int, open_levels: Array, time_spent: float, resources: Di
 		else:
 			Save.resources[resource] = resources[resource]
 	
-	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
+	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel, true)
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
 	
-func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Dictionary, artifact: String):
-		
+func finish_level():
+	var new_record := false
+	
 	### Open the access to this level
-	for idx2 in open_levels:
+	for idx2 in currentLevel.open_levels:
 		print("Opened access to level " + str(idx2))
 		Save.levels[idx2][0] = true
 	
 	### Record time on this level
+	var idx = currentLevel.idx
+	var time_spent = currentLevel.time_spent
 	print("Level finished in " + str(time_spent) + " seconds")
 	if Save.levels[idx][1] <= 0.0 or time_spent < Save.levels[idx][1]:
 		print("New record!!")
 		Save.levels[idx][1] = time_spent
+		new_record = true
 	
 	### Add retrieved resources
+	var resources = currentLevel.finish_resources
+	var artifact = currentLevel.main_ressource
 	print("Resources gathered:")
 	for resource in resources.keys():
 		print("- ", resource, ": ", resources[resource])
@@ -93,7 +100,8 @@ func finish_level(idx: int, open_levels: Array, time_spent: float, resources: Di
 	Save.resources[artifact] += 1
 	print("Added artifact:", artifact)
 	
-	var endScreen := preload("res://Scenes/Levels/LevelEndScreen.tscn").instantiate()
+	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel)
+	endScreen.new_record = new_record
 	endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
