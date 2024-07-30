@@ -1,77 +1,75 @@
-[gd_scene load_steps=10 format=4 uid="uid://cvw2jwvacprq7"]
+[gd_scene load_steps=11 format=4 uid="uid://cvw2jwvacprq7"]
 
 [ext_resource type="Script" path="res://Scenes/Mesh/Misc/pickable.gd" id="1_5c7fb"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="2_a6y3y"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="3_4ahkq"]
+[ext_resource type="PackedScene" uid="uid://cyt6bhbe0dgh0" path="res://Scenes/Mesh/Misc/jewel1.tscn" id="3_q2ldv"]
 [ext_resource type="AudioStream" uid="uid://cnra6vddse1tm" path="res://Assets/SFX/misc/collectableSound.wav" id="4_its0r"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ujb2u"]
-size = Vector3(0.539917, 1.01904, 0.439941)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eise4"]
 render_priority = 0
 shader = ExtResource("2_a6y3y")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fh5kn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g43kc"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_eise4")
 shader = ExtResource("3_4ahkq")
 shader_parameter/metallic = 1.0
 shader_parameter/roughness = 0.3
-shader_parameter/color = Color(0.173, 0.31, 4, 1)
+shader_parameter/color = Color(0.5, 0.5, 5, 1)
 shader_parameter/specular = Color(0.301961, 0.301961, 0.301961, 0.286275)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.243137)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bjwfv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_h53c5"]
 _surfaces = [{
-"aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
-"format": 34896613377,
-"index_count": 24,
-"index_data": PackedByteArray("AAACAAEAAwAAAAEABAADAAEAAgAEAAEABQACAAAABQAAAAMABQADAAQABQAEAAIA"),
-"name": "DefaultMaterial",
+"aabb": AABB(-0.330561, 0.00126708, -0.458263, 0.751694, 2.59801, 0.849264),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAQAAAAEAAEAAAAFAAMAAAACAAUABgAHAAgABgAIAAkABgAJAAoABgAKAAsABgALAAcABwACAAEAAQAIAAcABwALAAUABQACAAcACgADAAUABQALAAoACgAJAAQABAADAAoACQAIAAEAAQAEAAkA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 6,
-"vertex_data": PackedByteArray("AAD6/8V/AAD/f/1/AAAAAAAAAADFfwAA///6/8V/AAD//wAAxX8AAP9//X///wAA")
+"vertex_count": 12,
+"vertex_data": PackedByteArray("ALC3OwAUpjpQJIm7QDkJPlvWDT9LMcg+0J7XPl3WDT8gJIm7SD+pvl3WDT9EYn6+SD+pvlvWDT8A0HU+QDkJPl3WDT9tesy+ALI1vYVaJkB81LA8iLS9PsyX+j+DbzO9UK4VPlUXAEBv4cM+IG2fvvFnAEA41KU+mDuRvpDD/D9fsE2+YG22PW4P/j9qoeq+")
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_eqn6r"]
-resource_name = "Root Scene_Pyramid001"
+[sub_resource type="ArrayMesh" id="ArrayMesh_xj5wp"]
+resource_name = "Icosphere_001"
 _surfaces = [{
-"aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
-"attribute_data": PackedByteArray("AAD///9//38AAAAA////////AAD/fwAAAAD/////////fwAAAAD/////////fwAAAAD/////////fwAAAAD///////8="),
-"format": 34896613399,
-"index_count": 24,
-"index_data": PackedByteArray("AAACAAEAAwAAAAEABAADAAEAAgAEAAEABQAHAAYACAAKAAkACwANAAwADgAQAA8A"),
-"material": SubResource("ShaderMaterial_fh5kn"),
-"name": "DefaultMaterial",
+"aabb": AABB(-0.330561, 0.00126708, -0.458263, 0.751694, 2.59801, 0.849264),
+"attribute_data": PackedByteArray("QbroPvkRBz/wogs/VmEvP6Euuj5WYS8/YHRRP/kRBz8wumg/VmEvP5AuOj9WYS8/wOgiP/kRBz+QLjo/VmEvP/CiCz9WYS8/Bi+6PfkRBz/DLjo+VmEvPwAAAABWYS8/AaOLPvkRBz+hLro+VmEvP8MuOj5WYS8/AaOLPvkRBz+hLro+VmEvP8MuOj5WYS8/Bi+6PfkRBz/DLjo+VmEvPwAAAABWYS8/YHRRP/kRBz8wumg/VmEvP5AuOj9WYS8/wOgiP/kRBz+QLjo/VmEvP/CiCz9WYS8/QbroPvkRBz/wogs/VmEvP6Euuj5WYS8/oS66PlZhLz+hLro+VmEvP/CiCz9WYS8/wy46PlZhLz+hLro+VmEvP/CiCz9WYS8/wy46PlZhLz+hLro+VmEvP5AuOj9WYS8/AAAAAFZhLz/DLjo+VmEvP/CiCz9WYS8/kC46P1ZhLz8wumg/VmEvP5AuOj9WYS8/AAAAAFZhLz8wumg/VmEvP8MuOj5WYS8/8KILP1ZhLz+QLjo/VmEvPw=="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYAKgArACwALAAtACoALgAvADAAMAAxAC4A"),
+"material": SubResource("ShaderMaterial_g43kc"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 17,
-"vertex_data": PackedByteArray("AAD6/8V/8+X/f/1/AAD//wAAAADFf/Pl///6/8V/8+X//wAAxX/z5f9//X///07LAAD6/8V/TssAAAAAxX9Oy/9//X/////////6/8V///8AAPr/xX////9//X///07L//8AAMV/Tsv///r/xX9Oy/9//X///6+wAAAAAMV/r7D//wAAxX+vsLX7g1f///9/eyi2e4PXSIRJBHuotlxIo7ZcSKO2XEij/3/Ts/9/07P/f9OzSCNII0gjSCNII0gjAAD/fwAA/38AAP9/")
+"vertex_count": 50,
+"vertex_data": PackedByteArray("ALC3OwAUpjpQJIm7QDkJPlvWDT9LMcg+0J7XPl3WDT8gJIm7ALC3OwAUpjpQJIm7SD+pvl3WDT9EYn6+SD+pvlvWDT8A0HU+ALC3OwAUpjpQJIm7SD+pvlvWDT8A0HU+QDkJPlvWDT9LMcg+ALC3OwAUpjpQJIm7QDkJPl3WDT9tesy+SD+pvl3WDT9EYn6+ALC3OwAUpjpQJIm70J7XPl3WDT8gJIm7QDkJPl3WDT9tesy+ALI1vYVaJkB81LA8iLS9PsyX+j+DbzO9UK4VPlUXAEBv4cM+ALI1vYVaJkB81LA8UK4VPlUXAEBv4cM+IG2fvvFnAEA41KU+ALI1vYVaJkB81LA8IG2fvvFnAEA41KU+mDuRvpDD/D9fsE2+ALI1vYVaJkB81LA8mDuRvpDD/D9fsE2+YG22PW4P/j9qoeq+ALI1vYVaJkB81LA8YG22PW4P/j9qoeq+iLS9PsyX+j+DbzO9iLS9PsyX+j+DbzO90J7XPl3WDT8gJIm7QDkJPlvWDT9LMcg+UK4VPlUXAEBv4cM+iLS9PsyX+j+DbzO9YG22PW4P/j9qoeq+QDkJPl3WDT9tesy+0J7XPl3WDT8gJIm7mDuRvpDD/D9fsE2+SD+pvl3WDT9EYn6+QDkJPl3WDT9tesy+YG22PW4P/j9qoeq+mDuRvpDD/D9fsE2+IG2fvvFnAEA41KU+SD+pvlvWDT8A0HU+SD+pvl3WDT9EYn6+IG2fvvFnAEA41KU+UK4VPlUXAEBv4cM+QDkJPlvWDT9LMcg+SD+pvlvWDT8A0HU+pbMsWSJK/7+lsyxZIkr/v6WzLFkiSv+/ZzCYT/7///9nMJhP/v///2cwmE/+////02pVVgAAsc/TalVWAACxz9NqVVYAALHPqiksFf//TbCqKSwV//9NsKopLBX//02wLNmlM9y1/78s2aUz3LX/vyzZpTPctf+/Ar4ppfL3rJQCviml8veslAK+KaXy96yUuXbaql/wZL+5dtqqX/Bkv7l22qpf8GS/UyP/qex5dsNTI/+p7Hl2w1Mj/6nseXbDYyI02Xs1/L5jIjTZezX8vmMiNNl7Nfy+KNliycsEFeco2WLJywQV5yjZYsnLBBXnzM3cgf///z/MzdyB////P8zN3IH///8/zM3cgf///z9M/zK1////v0z/MrX///+/TP8ytf///79M/zK1////v08A2in///+/TwDaKf///79PANop////v08A2in///+/9AJfhv///7/0Al+G////v/QCX4b///+/9AJfhv///7+5aJZ9////P7loln3///8/uWiWff///z+5aJZ9////Pw==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bjwfv")
+shadow_mesh = SubResource("ArrayMesh_h53c5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hekc3"]
+size = Vector3(0.417816, 1.14642, 0.439941)
 
 [node name="Sapphire" type="Node3D"]
 script = ExtResource("1_5c7fb")
 itemKey = "sapphire"
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_its0r")
+
+[node name="Icosphere_002" parent="." instance=ExtResource("3_q2ldv")]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0.15, 0)
+mesh = SubResource("ArrayMesh_xj5wp")
+
+[node name="Area3D2" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10352e-05, 0.512939, 0.00317383)
-shape = SubResource("BoxShape3D_ujb2u")
-
-[node name="Pyramid001" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.54, 0, 0, 0, 0, 2.54, 0, -2.54, 0, 0, 0.471095, 0)
-mesh = SubResource("ArrayMesh_eqn6r")
-skeleton = NodePath("")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_its0r")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000473022, 0.57663, 0.00317383)
+shape = SubResource("BoxShape3D_hekc3")
