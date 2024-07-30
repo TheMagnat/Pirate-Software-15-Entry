@@ -1,6 +1,9 @@
 extends Node
 
+const CINEMATIC_END := "res://Scenes/Cinematic/end.tscn"
 const END_SCREEN := preload("res://Scenes/Levels/LevelEndScreen.tscn")
+
+const END_LEVEL := 4
 
 ### DEBUG ###
 var inDebug: bool = false
@@ -108,5 +111,8 @@ func finish_level():
 	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel)
 	endScreen.new_record = new_record
-	endScreen.addCallback(func(): load_lobby())
+	if idx == END_LEVEL:
+		endScreen.addCallback(Transition.start.bind(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END)))) ## don't preload this or it will create cyclic references
+	else:
+		endScreen.addCallback(func(): load_lobby())
 	add_child(endScreen)
