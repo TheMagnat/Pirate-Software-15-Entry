@@ -1,13 +1,13 @@
 [gd_scene load_steps=56 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
-[ext_resource type="PackedScene" uid="uid://b4vnvuheoq6i5" path="res://Scenes/Mesh/Potion_4.tscn" id="2_cw1pp"]
 [ext_resource type="Script" path="res://Scenes/Player/Powers/SpellHolder.gd" id="2_nrs8g"]
 [ext_resource type="PackedScene" uid="uid://c0fak7ocrtu6n" path="res://Scenes/Player/Powers/ItemThrower.tscn" id="3_hwpjk"]
 [ext_resource type="PackedScene" uid="uid://ccxx8s4foejsx" path="res://Scenes/Player/Powers/ItemSpawner.tscn" id="4_8y31p"]
 [ext_resource type="Script" path="res://Scenes/Player/CameraLiberator.gd" id="4_bpjyo"]
 [ext_resource type="PackedScene" uid="uid://mqs0ica5jgwn" path="res://Scenes/Player/Powers/ItemCloak.tscn" id="5_4hygo"]
 [ext_resource type="PackedScene" uid="uid://c5hdnvohh05nk" path="res://Scenes/Mesh/Octahedron.tscn" id="5_nhg1m"]
+[ext_resource type="PackedScene" uid="uid://dk6g6v05f5q5s" path="res://anim_coup_couteau.tscn" id="6_mjsf7"]
 [ext_resource type="PackedScene" uid="uid://xjmyvah4ga17" path="res://Scenes/Tool/Shader/ShaderHandler.tscn" id="6_pq1f3"]
 [ext_resource type="Script" path="res://Scenes/Player/WaterShaderHandler.gd" id="7_bm8x7"]
 [ext_resource type="AudioStream" uid="uid://dljsn7rq5kk5v" path="res://Assets/SFX/steps/step_grass1.ogg" id="7_eekrp"]
@@ -55,6 +55,7 @@ void vertex() {
 
 void fragment() {
 	float g = max(0.0, cos(TIME * 3.642315 + sin(TIME * 1.53151 + sin(UV.x * 5.0 * PI) * 10.0) + UV.y * 10.0)) * 0.25;
+	//g = step(0.3, 0.5, g*4.0) * 0.25;
 	ALBEDO = vec3(g);
 }
 
@@ -81,59 +82,35 @@ radius = 1.135
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lvwh6"]
 streams_count = 7
 stream_0/stream = ExtResource("7_eekrp")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("8_gaafs")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("9_wg75q")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("10_4ppvy")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("11_27m27")
-stream_4/weight = 1.0
 stream_5/stream = ExtResource("12_6mif6")
-stream_5/weight = 1.0
 stream_6/stream = ExtResource("13_lak5j")
-stream_6/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8n2cv"]
 streams_count = 6
 stream_0/stream = ExtResource("14_0sv8c")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("15_7vm7y")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("16_wsyuw")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("17_6dwbu")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("18_65au2")
-stream_4/weight = 1.0
 stream_5/stream = ExtResource("19_danf2")
-stream_5/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i2neh"]
 streams_count = 11
 stream_0/stream = ExtResource("20_ntyxb")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("21_traqb")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("23_hsdln")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("24_owb3o")
-stream_3/weight = 1.0
 stream_4/stream = ExtResource("25_8uy8o")
-stream_4/weight = 1.0
 stream_5/stream = ExtResource("26_526r8")
-stream_5/weight = 1.0
 stream_6/stream = ExtResource("27_vm211")
-stream_6/weight = 1.0
 stream_7/stream = ExtResource("28_0yhj6")
-stream_7/weight = 1.0
 stream_8/stream = ExtResource("29_8u3k5")
-stream_8/weight = 1.0
 stream_9/stream = ExtResource("30_ld8dl")
-stream_9/weight = 1.0
 stream_10/stream = ExtResource("22_pa0cl")
-stream_10/weight = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pdvll"]
 viewport_path = NodePath("SubViewport")
@@ -177,13 +154,9 @@ shader_parameter/noise = SubResource("NoiseTexture2D_00pcc")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jcm78"]
 streams_count = 4
 stream_0/stream = ExtResource("32_x65hp")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("33_b4dxe")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("34_jwje2")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("35_g30xl")
-stream_3/weight = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -202,7 +175,7 @@ script = ExtResource("2_nrs8g")
 
 [node name="AssetsHolder" type="Node3D" parent="."]
 
-[node name="Potion" parent="AssetsHolder" instance=ExtResource("2_cw1pp")]
+[node name="Potion" parent="AssetsHolder" instance=ExtResource("6_mjsf7")]
 
 [node name="CloakEffect" type="MeshInstance3D" parent="AssetsHolder"]
 visible = false

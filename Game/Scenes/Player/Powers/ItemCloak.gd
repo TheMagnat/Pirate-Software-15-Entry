@@ -3,11 +3,11 @@ extends Spell
 const CLOAK_TIME_PER_LEVEL := 2.0
 const CLOAK_TIME := 3.0 - CLOAK_TIME_PER_LEVEL
 
-func tryActivateSpell():
-	if player.cloaking:
-		player.uncloak()
-	else:
-		super()
+#func tryActivateSpell():
+	#if player.cloaking:
+		#player.uncloak()
+	#else:
+		#super()
 
 func activateSpell():
 	player.cloak()

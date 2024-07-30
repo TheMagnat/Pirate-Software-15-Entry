@@ -56,8 +56,8 @@ func set_camera(cam: Camera3D):
 func _ready():
 	$AssetsHolder/CloakEffect.visible = false
 	
-	shaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/BrasGauche.material_override.next_pass.next_pass
-	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/RootNode/Fiole/Oeuf/RootNode/Int_Potion.material_override
+	shaderHandler.shaderMaterial = $AssetsHolder/Potion/Fiole/BrasGauche.material_override.next_pass.next_pass
+	waterShaderHandler.shaderMaterial = $AssetsHolder/Potion/Fiole/Oeuf/RootNode/Int_Potion.material_override
 	
 	$CameraHolder/PlayerCamera.position = CAMERA_SIDE_POS
 	
@@ -121,10 +121,10 @@ func lightLogic(delta: float):
 	
 	# If true, player is in the light
 	var time : float = timeForFullSpot * (1 + Save.unlockable[HardenedMixture] * mixtureMultiplier)
-	if !cloaking and lastLightLevel > lightTreshold:
+	if not cloaking and lastLightLevel > lightTreshold:
 		spottedValue += ((lastLightLevel - lightTreshold) * delta) / time
 	else:
-		spottedValue -= delta / (time * 2.0)
+		spottedValue -= (delta * (1.0 + int(cloaking) * 4.0)) / (time * (2.0))
 	
 	spottedValue = clampf(spottedValue, 0.0, 1.0)
 	$Boiling.volume_db = (-1.0 + spottedValue) * 40.0
@@ -320,6 +320,17 @@ func uncloak():
 	$AssetsHolder/Potion.visible = true
 	cloak_do_tween()
 
+var slashAnimationTween: Tween
+func slash():
+	$SlashPlayer.play()
+	
+	if slashAnimationTween: slashAnimationTween.kill()
+	animationTween = create_tween()
+	#animationTween.set_parallel(true)
+	animationTween.tween_property(animation, "parameters/SlashBlend/blend_amount", 1.0, 0.01)
+	animationTween.tween_property(animation, "parameters/SlashBlend/blend_amount", 0.0, 1.0)
+	animation.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
 func _physics_process(delta: float):
 	### Light computation Logic ###
 	if not safePlace: lightLogic(delta)
@@ -342,7 +353,7 @@ func _physics_process(delta: float):
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	sneaking = Input.is_action_pressed("sneak")
-	var speedMultiplier: float = (sneakMultiplier if sneaking else 1.0) + catWalkMultiplier * Save.unlockable[CatWalk]
+	var speedMultiplier: float = (sneakMultiplier if sneaking and not cloaking else 1.0) + catWalkMultiplier * Save.unlockable[CatWalk]
 	
 	if direction:
 		velocity.x = direction.x * SPEED * speedMultiplier

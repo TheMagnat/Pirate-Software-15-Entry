@@ -38,6 +38,7 @@ shader = ExtResource("2_fcd55")
 shader_parameter/alpha = 0.63
 shader_parameter/baseColor = Color(0.645385, 0.000935902, 0.000513699, 1)
 shader_parameter/emissionColor = Color(1, 0.819608, 0, 1)
+shader_parameter/endColor = Color(0.118581, 0.118581, 0.118581, 1)
 shader_parameter/emissionStr = 2.0
 shader_parameter/displacementStr = 0.25
 shader_parameter/displacementMap = SubResource("NoiseTexture2D_i0vbs")
@@ -84,9 +85,9 @@ turbulence_influence_over_life = SubResource("CurveTexture_gxfpy")
 [sub_resource type="SphereMesh" id="SphereMesh_ius1e"]
 
 [node name="HandTorch" type="OmniLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.234, 0)
+transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.742125, 0)
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 1.83296
+light_energy = 2.15609
 shadow_bias = 0.2
 shadow_normal_bias = 1.5
 script = ExtResource("1_fggfc")
@@ -95,10 +96,10 @@ max_energy = 5.0
 min_energy = 1.0
 
 [node name="Torche" parent="." instance=ExtResource("3_b2d53")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -8.43406e-06, -0.0483329)
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.740204, -0.0482037)
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.841, 0)
+transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 0, 0.100805, 0.000129189)
 material_override = SubResource("ShaderMaterial_b0rsn")
 amount = 16
 lifetime = 3.0

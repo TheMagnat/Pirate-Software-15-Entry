@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0lvcyvuf5q1i"]
+[gd_scene load_steps=10 format=4 uid="uid://c0lvcyvuf5q1i"]
 
 [ext_resource type="Script" path="res://Scenes/Mesh/Misc/pickable.gd" id="1_mcfcr"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="2_uwo1d"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_wyk6v"]
+[ext_resource type="AudioStream" uid="uid://cnra6vddse1tm" path="res://Assets/SFX/misc/collectableSound.wav" id="4_wpxjl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujb2u"]
 size = Vector3(0.539917, 1.01904, 0.439941)
@@ -28,12 +29,12 @@ _surfaces = [{
 "aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
 "format": 34896613377,
 "index_count": 24,
-"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 3, 0, 1, 0, 2, 0, 4, 0, 1, 0, 5, 0, 2, 0, 0, 0, 5, 0, 0, 0, 3, 0, 5, 0, 3, 0, 4, 0, 5, 0, 4, 0, 2, 0),
+"index_data": PackedByteArray("AAACAAEAAwAAAAEABAADAAEAAgAEAAEABQACAAAABQAAAAMABQADAAQABQAEAAIA"),
 "name": "DefaultMaterial",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 6,
-"vertex_data": PackedByteArray(0, 0, 250, 255, 197, 127, 0, 0, 255, 127, 253, 127, 0, 0, 0, 0, 0, 0, 0, 0, 197, 127, 0, 0, 255, 255, 250, 255, 197, 127, 0, 0, 255, 255, 0, 0, 197, 127, 0, 0, 255, 127, 253, 127, 255, 255, 0, 0)
+"vertex_data": PackedByteArray("AAD6/8V/AAD/f/1/AAAAAAAAAADFfwAA///6/8V/AAD//wAAxX8AAP9//X///wAA")
 }]
 blend_shape_mode = 0
 
@@ -41,16 +42,16 @@ blend_shape_mode = 0
 resource_name = "Root Scene_Pyramid001"
 _surfaces = [{
 "aabb": AABB(-0.101691, -0.0791983, -0.18547, 0.203382, 0.158407, 0.40071),
-"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 127, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255),
+"attribute_data": PackedByteArray("AAD///9//38AAAAA////////AAD/fwAAAAD/////////fwAAAAD/////////fwAAAAD/////////fwAAAAD///////8="),
 "format": 34896613399,
 "index_count": 24,
-"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 3, 0, 1, 0, 2, 0, 4, 0, 1, 0, 5, 0, 7, 0, 6, 0, 8, 0, 10, 0, 9, 0, 11, 0, 13, 0, 12, 0, 14, 0, 16, 0, 15, 0),
+"index_data": PackedByteArray("AAACAAEAAwAAAAEABAADAAEAAgAEAAEABQAHAAYACAAKAAkACwANAAwADgAQAA8A"),
 "material": SubResource("ShaderMaterial_d7epn"),
 "name": "DefaultMaterial",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 17,
-"vertex_data": PackedByteArray(0, 0, 250, 255, 197, 127, 243, 229, 255, 127, 253, 127, 0, 0, 255, 255, 0, 0, 0, 0, 197, 127, 243, 229, 255, 255, 250, 255, 197, 127, 243, 229, 255, 255, 0, 0, 197, 127, 243, 229, 255, 127, 253, 127, 255, 255, 78, 203, 0, 0, 250, 255, 197, 127, 78, 203, 0, 0, 0, 0, 197, 127, 78, 203, 255, 127, 253, 127, 255, 255, 255, 255, 255, 255, 250, 255, 197, 127, 255, 255, 0, 0, 250, 255, 197, 127, 255, 255, 255, 127, 253, 127, 255, 255, 78, 203, 255, 255, 0, 0, 197, 127, 78, 203, 255, 255, 250, 255, 197, 127, 78, 203, 255, 127, 253, 127, 255, 255, 175, 176, 0, 0, 0, 0, 197, 127, 175, 176, 255, 255, 0, 0, 197, 127, 175, 176, 181, 251, 131, 87, 255, 255, 255, 127, 123, 40, 182, 123, 131, 215, 72, 132, 73, 4, 123, 168, 182, 92, 72, 163, 182, 92, 72, 163, 182, 92, 72, 163, 255, 127, 211, 179, 255, 127, 211, 179, 255, 127, 211, 179, 72, 35, 72, 35, 72, 35, 72, 35, 72, 35, 72, 35, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
+"vertex_data": PackedByteArray("AAD6/8V/8+X/f/1/AAD//wAAAADFf/Pl///6/8V/8+X//wAAxX/z5f9//X///07LAAD6/8V/TssAAAAAxX9Oy/9//X/////////6/8V///8AAPr/xX////9//X///07L//8AAMV/Tsv///r/xX9Oy/9//X///6+wAAAAAMV/r7D//wAAxX+vsLX7g1f///9/eyi2e4PXSIRJBHuotlxIo7ZcSKO2XEij/3/Ts/9/07P/f9OzSCNII0gjSCNII0gjAAD/fwAA/38AAP9/")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bjwfv")
@@ -60,6 +61,8 @@ script = ExtResource("1_mcfcr")
 itemKey = "ruby"
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10352e-05, 0.512939, 0.00317383)
@@ -69,3 +72,6 @@ shape = SubResource("BoxShape3D_ujb2u")
 transform = Transform3D(2.54, 0, 0, 0, 0, 2.54, 0, -2.54, 0, 0, 0.471095, 0)
 mesh = SubResource("ArrayMesh_dka7h")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_wpxjl")

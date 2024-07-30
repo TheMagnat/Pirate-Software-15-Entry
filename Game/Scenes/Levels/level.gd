@@ -40,7 +40,7 @@ func initPlayerSpells():
 	$Player/SpellHolder.setAllowedSpells(unlockedSpells)
 	
 	### DEBUG ###
-	$Player/SpellHolder.setAllowedSpells([0, 1])
+	$Player/SpellHolder.setAllowedSpells([0, 1, 2])
 
 func init(i: int):
 	idx = i

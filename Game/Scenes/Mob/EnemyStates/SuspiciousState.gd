@@ -36,9 +36,10 @@ func onPhysicProcess(delta: float):
 		var new2dDirection = Vector2.from_angle(angle)
 		
 		currentDirection = Vector3(new2dDirection.x, 0.0, new2dDirection.y)
-		
-	var new_transform = parent.global_transform.looking_at(parent.global_position + currentDirection, Vector3.UP)
-	parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
+	
+	if currentDirection != Vector3.ZERO:	
+		var new_transform = parent.global_transform.looking_at(parent.global_position + currentDirection, Vector3.UP)
+		parent.global_transform  = parent.global_transform.interpolate_with(new_transform, rotationSpeed * delta)
 	
 	parent.velocity = parent.velocity.lerp(Vector3.ZERO, decelerationSpeed * delta)
 	parent.move_and_slide()
@@ -55,6 +56,7 @@ func exit():
 func updateTarget(target):
 	target.y -= 1.0 # To compensate the position on the feet of the mobs
 	currentDirection = target - parent.global_position
+	currentDirection.y = clamp(currentDirection.y, -0.5, 0.5)
 	timeSinceLastReset = 0.0
 	timeForDirectionReset = randf_range(timeRangeForDirectionReset.x, timeRangeForDirectionReset.y)
 	if not timeSinceStart.is_stopped():

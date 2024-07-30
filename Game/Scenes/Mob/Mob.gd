@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var suspiciousDecreaseSpeed: float = 0.25 # Per seconds
 var suspicious: float = 0.0
 @export var limitSuspiciousLevel: float = 10.0
+@export var imperturbable: bool = false
 
 ### State machine param part ###
 @export_category("StateMachine")
@@ -122,7 +123,7 @@ func _ready():
 	$StateMachine.initialize()
 	
 	# Configure View
-	view.collision_mask = 0b010
+	if view: view.collision_mask = 0b010
 	
 	#$Voice.talk()
 	
@@ -139,6 +140,8 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 func suspiciousActivity(pos: Vector3, suspiciousLevel: float):
+	if imperturbable: return
+	
 	suspicious += suspiciousLevel
 	
 	if $StateMachine.getCurrentStateName() == "Chase":
@@ -209,7 +212,7 @@ func _process(_delta):
 			waterShaderHandler.xIsTilted(-1.0)
 
 func backstabbed(backstabber: Player):
-	backstabber.get_node("SlashPlayer").play()
+	backstabber.slash()
 	var rigidMobInstance = RIGID_MOB.instantiate()
 	rigidMobInstance.global_transform = global_transform
 	rigidMobInstance.apply_central_impulse(backstabber.global_position.direction_to(global_position) * 5.0)

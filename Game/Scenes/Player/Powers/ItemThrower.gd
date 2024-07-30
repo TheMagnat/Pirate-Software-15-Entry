@@ -46,7 +46,7 @@ func showPreview():
 			
 			if Vector3.LEFT.is_equal_approx(-ray.normal):
 				$Sprite3D.rotation = Vector3(0.0, PI / 2.0, 0.0)
-			elif Vector3.RIGHT.is_equal_approx(ray.normal):
+			elif Vector3.RIGHT.is_equal_approx(-ray.normal):
 				$Sprite3D.rotation = Vector3(0.0, -PI / 2.0, 0.0)
 			else:
 				$Sprite3D.global_transform = $Sprite3D.global_transform.looking_at($Sprite3D.global_position + ray.normal, Vector3.LEFT)
@@ -88,8 +88,6 @@ func getThrowDirection(depth: float):
 	return get_viewport().get_camera_3d().get_global_transform().basis * resultDir
 
 func activateSpell():
-	aiming = false
-	
 	var newItem: RigidBody3D = item.instantiate()
 	
 	var direction = getThrowDirection(-1.0)

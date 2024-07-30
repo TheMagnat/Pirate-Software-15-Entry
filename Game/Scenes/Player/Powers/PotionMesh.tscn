@@ -24,5 +24,4 @@ shader_parameter/uv_offset = Vector2(0, 0)
 material = SubResource("ShaderMaterial_y5qfj")
 
 [node name="PotionMesh" type="MeshInstance3D"]
-transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
 mesh = SubResource("SphereMesh_hua48")

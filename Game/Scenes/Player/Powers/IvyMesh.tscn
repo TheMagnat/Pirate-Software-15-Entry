@@ -25,5 +25,4 @@ material = SubResource("ShaderMaterial_n8uds")
 [node name="IvyMesh" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
 mesh = SubResource("BoxMesh_qv1lo")

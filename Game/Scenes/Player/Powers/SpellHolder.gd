@@ -36,9 +36,10 @@ func loadSpellMesh():
 		currentSpellModel.queue_free()
 	
 	currentSpellModel = currentSpell.model.instantiate()
-	player.get_node("AssetsHolder/Potion/RootNode/Fiole/BrasDroit").add_child(currentSpellModel)
+	player.get_node("AssetsHolder/Potion/Fiole/BrasDroit").add_child(currentSpellModel)
+	currentSpellModel.scale = Vector3(17.0, 17.0, 17.0)
 	#currentSpellModel.position += Vector3(0.35, -0.1, 0.0)
-	currentSpellModel.position += Vector3(0.35, -0.05, 0.05)
+	currentSpellModel.position += Vector3(36.5, 4.5, 10.5)
 	
 func changeCurrentSpell(forward: bool = true):
 	if not spellList: return

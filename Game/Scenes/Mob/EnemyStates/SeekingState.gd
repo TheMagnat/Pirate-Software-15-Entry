@@ -24,7 +24,8 @@ func _ready():
 func onPhysicProcess(delta: float):
 
 	var targetDirection: Vector3 = parent.global_position.direction_to(target)
-
+	targetDirection.y = 0
+	
 	# Update the navigation agent target position
 	nav.target_position = target
 	
@@ -40,7 +41,7 @@ func onPhysicProcess(delta: float):
 	parent.move_and_slide()
 	
 	# Verify if we reached our target
-	if parent.global_position.distance_to(target) <= minTargetDist:
+	if parent.global_position.distance_to(Vector3(target.x, 0.0, target.z)) <= minTargetDist:
 		get_parent().get_node("Suspicious").updateTarget(target)
 		get_parent().transitionTo("Suspicious")
 	
