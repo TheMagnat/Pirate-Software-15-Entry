@@ -22,6 +22,7 @@ func main_menu():
 
 func _ready():
 	$Control.visible = false
+	$Control/HBoxContainer/Main/Restart.pressed.connect(get_parent().restart_level)
 	$Control/HBoxContainer/Main/Lobby.pressed.connect(get_parent().load_lobby)
 	$Control/HBoxContainer/Main/MainMenu.pressed.connect(main_menu)
 	$Control/HBoxContainer/Main/Settings.pressed.connect(show_settings.bind(true))

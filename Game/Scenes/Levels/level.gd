@@ -75,13 +75,17 @@ func init(i: int):
 	timer.wait_time = 10.0
 	timer.timeout.connect(func(): time_spent += WAIT_TIME)
 	add_child(timer)
- 
-func restart_level():
+
+func restart_level(death := false):
 	var respawnInformation: SpawnInformation = null
-	if checkpoints: respawnInformation = checkpoints.getLastCheckpointPosition()
-	else: print("WARNING: No Checkpoints set for this level")	
+	if checkpoints:
+		if death:
+			respawnInformation = checkpoints.getLastCheckpointPosition()
+	else:
+		print("WARNING: No Checkpoints set for this level")	
+	
 	var main = get_node("/root/Main")
-	main.load_level(idx, respawnInformation)
+	main.load_level(idx, respawnInformation, death)
 
 func escape_level(body = null):
 	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:

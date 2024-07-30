@@ -44,6 +44,7 @@ func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 	get_viewport().set_positional_shadow_atlas_quadrant_subdiv((shadowAtlasIndex+3)%4, Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_16)
 	shadowAtlasIndex += 1
 	
+	$Menu/Control/HBoxContainer/Main/Restart.visible = idx != -1
 	$Menu/Control/HBoxContainer/Main/Lobby.visible = idx != -1
 	
 	currentLevel = resource_preloader.get_resource(str(idx)).instantiate()
@@ -59,11 +60,14 @@ func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 		currentLevel.collected_resources = spawnInformation.collected.duplicate()
 		currentLevel.remove_already_collected()
 
-func load_level(idx := -1, spawnInformation: SpawnInformation = null):
+func load_level(idx := -1, spawnInformation: SpawnInformation = null, death := false):
 	if $Level.get_child_count() == 0:
 		_load_level(idx, spawnInformation)
 	else:
-		Transition.start(_load_level.bind(idx, spawnInformation))
+		Transition.start(_load_level.bind(idx, spawnInformation), "death_in" if death else "in")
+
+func restart_level():
+	currentLevel.restart_level(false)
 
 func escape_level():
 	var resources = currentLevel.finish_resources

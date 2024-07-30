@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://de2wa3g6in18b"]
+[gd_scene load_steps=14 format=3 uid="uid://de2wa3g6in18b"]
 
 [ext_resource type="Script" path="res://Scenes/Main/transition.gd" id="1_qkqh5"]
+[ext_resource type="AudioStream" uid="uid://bgjrq8gvonm5k" path="res://Assets/SFX/glass/glass_break1.ogg" id="2_ih7c4"]
+[ext_resource type="AudioStream" uid="uid://bcab4t70ckic7" path="res://Assets/SFX/glass/glass_break2.ogg" id="3_b2sy6"]
 
 [sub_resource type="Shader" id="Shader_x4tme"]
 code = "shader_type canvas_item;
@@ -45,6 +47,29 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0ohq"]
 shader = SubResource("Shader_x4tme")
 
+[sub_resource type="Shader" id="Shader_u75qv"]
+code = "shader_type canvas_item;
+
+uniform float offset;
+
+void fragment() {
+	vec2 pos = UV - vec2(0.5, 0.5);
+	vec2 pos_norm = normalize(pos);
+	if ((length(pos) + (mod(acos(pos_norm.x) + acos(pos_norm.y) + offset, PI/4.0) + offset) * 0.05) < offset) {
+		COLOR.a = 0.0;
+	}
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7pcv2"]
+shader = SubResource("Shader_u75qv")
+shader_parameter/offset = 2.0
+
 [sub_resource type="Animation" id="Animation_fx1el"]
 length = 0.001
 tracks/0/type = "value"
@@ -58,6 +83,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1280.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathFX:material:shader_parameter/offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
 }
 
 [sub_resource type="Animation" id="Animation_463ee"]
@@ -76,6 +113,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1280.0, -512.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathFX:material:shader_parameter/offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
 
 [sub_resource type="Animation" id="Animation_oxu1q"]
 resource_name = "out"
@@ -93,13 +142,59 @@ tracks/0/keys = {
 "update": 0,
 "values": [-512.0, -2304.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathFX:material:shader_parameter/offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_yb34c"]
+resource_name = "death_in"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathFX:material:shader_parameter/offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [0.734694, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d28r8"]
 _data = {
 "RESET": SubResource("Animation_fx1el"),
+"death_in": SubResource("Animation_yb34c"),
 "in": SubResource("Animation_463ee"),
 "out": SubResource("Animation_oxu1q")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j5xf0"]
+streams_count = 2
+stream_0/stream = ExtResource("2_ih7c4")
+stream_1/stream = ExtResource("3_b2sy6")
 
 [node name="Transition" type="CanvasLayer"]
 process_mode = 3
@@ -112,8 +207,22 @@ material = SubResource("ShaderMaterial_a0ohq")
 offset_left = 1280.0
 offset_right = 3584.0
 offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="DeathFX" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_7pcv2")
+offset_top = -280.0
+offset_right = 1280.0
+offset_bottom = 1000.0
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_d28r8")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_j5xf0")
+volume_db = -10.0
+pitch_scale = 0.5
