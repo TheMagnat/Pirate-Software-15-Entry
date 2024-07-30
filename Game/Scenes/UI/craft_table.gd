@@ -15,12 +15,12 @@ func gen_recipe(n: String, texture: String, description: String, ingredients: Di
 			"max_level": max_level}
 
 var recipes := [
-	gen_recipe("Potion of disturbance", "res://Assets/Textures/potion.png",  "Glass breaks, eyes look", { "jade": 1, "golden_fist": 1 }, ["golden_fist"], 3),
-	gen_recipe("Ivy Wall", "",  "From the ground, nature will raise", { "ruby": 1, "secret_heart": 1 }, ["secret_heart"], 3),
-	gen_recipe("Shade Cloak", "",  "I am nothing but shadow in the light", { "sapphire": 1, "ruby":2, "jade": 2, "shade_cloak": 1 }, ["shade_cloak"], 3),
-	gen_recipe("Cat Walk", "", "Be a shadow so the night rewards you", { "night_stone": 1, "amethyst": 1, "jade": 2, "ruby": 2 }, [], 4),
-	gen_recipe("Hardened Mixture", "",  "Your enemies's life will empower you", { "blood_stone": 1, "amethyst": 1, "ruby": 2, "sapphire": 1 }, [], 4),
-	gen_recipe("Casting Speed", "",  "Every power will be impacted", { "amethyst": 1, "sapphire": 1, "ruby": 2, "jade": 2 }, [], 4)
+	gen_recipe("Potion of disturbance", "res://Assets/Textures/potion2.png",  "Glass breaks, eyes look", { "jade": 1, "golden_fist": 1 }, ["golden_fist"], 3),
+	gen_recipe("Ivy Wall", "res://Assets/Textures/wall.png",  "From the ground, nature will raise", { "ruby": 1, "secret_heart": 1 }, ["secret_heart"], 3),
+	gen_recipe("Shade Cloak", "res://Assets/Textures/shadecloak.png",  "I am nothing but shadow in the light", { "sapphire": 1, "ruby":2, "jade": 2, "shade_cloak": 1 }, ["shade_cloak"], 3),
+	gen_recipe("Cat Walk", "res://Assets/Textures/catwalk.png", "Be a shadow so the night rewards you", { "night_stone": 1, "amethyst": 1, "jade": 2, "ruby": 2 }, [], 4),
+	gen_recipe("Hardened Mixture", "res://Assets/Textures/hardened.png",  "Your enemies's life will empower you", { "blood_stone": 1, "amethyst": 1, "ruby": 2, "sapphire": 1 }, [], 4),
+	gen_recipe("Casting Speed", "res://Assets/Textures/cooldown.png",  "Every power will be impacted", { "amethyst": 1, "sapphire": 1, "ruby": 2, "jade": 2 }, [], 4)
 ]
 
 signal craft_success
