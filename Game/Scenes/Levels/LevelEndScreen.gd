@@ -123,16 +123,16 @@ func startAnimation():
 	# Add the blur transition to the tween
 	createBlurTransition()
 	
-	prepareNodeAndAnimation($ScreenContainer/Level, true, 2.0)
-	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource, not escape, 2.0)
-	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/IAlsoFound, true, 1.0)
+	prepareNodeAndAnimation($ScreenContainer/Level, true, 1.5)
+	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource, not escape, 1.5)
+	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/IAlsoFound, true, 0.75)
 
 	for i in ressourceAnimationOrder.size():
-		prepareNodeAndAnimation(ressourceAnimationOrder[i], true, 2.0 if i == (ressourceAnimationOrder.size() - 1) else 0.25)
+		prepareNodeAndAnimation(ressourceAnimationOrder[i], true, 1.0 if i == (ressourceAnimationOrder.size() - 1) else 0.25)
 
 	prepareNodeAndAnimation($ScreenContainer/EnemyKilled, not escape)
 	prepareNodeAndAnimation($ScreenContainer/KillNote, not escape)
-	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape, 1.0)
+	prepareNodeAndAnimation($ScreenContainer/TimeText, not escape, 0.75)
 	
 	#TODO: Get condition to show
 	prepareNodeAndAnimation($ScreenContainer/Record, not escape and new_record)
