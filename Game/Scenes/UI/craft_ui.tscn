@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3aoyco28g2co"]
+[gd_scene load_steps=22 format=3 uid="uid://b3aoyco28g2co"]
 
 [ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
 [ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_45yes"]
@@ -7,6 +7,26 @@
 [ext_resource type="AudioStream" uid="uid://bs538bytbae82" path="res://Assets/SFX/misc/bottle_fill2.ogg" id="4_siyph"]
 [ext_resource type="LabelSettings" uid="uid://cqub7j446ve4b" path="res://Ressources/LabelSettings.tres" id="5_k342e"]
 [ext_resource type="Texture2D" uid="uid://dgjxgfsamarva" path="res://Assets/Textures/page.png" id="9_vbmge"]
+
+[sub_resource type="Shader" id="Shader_x0fu6"]
+code = "shader_type canvas_item;
+
+uniform float transparency;
+
+void fragment() {
+	float y = abs(UV.y - 0.5);
+	COLOR.a *= min(1.0, y * transparency * 8.0 + transparency);
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7kc64"]
+shader = SubResource("Shader_x0fu6")
+shader_parameter/transparency = 1.0
 
 [sub_resource type="Shader" id="Shader_vql40"]
 code = "shader_type canvas_item;
@@ -27,9 +47,9 @@ shader_parameter/displacement = 100.0
 font = ExtResource("3_e50dp")
 font_size = 22
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7itad"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj46u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7itad"]
 
 [sub_resource type="Animation" id="Animation_wu663"]
 resource_name = "warning"
@@ -84,9 +104,7 @@ width = 1
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ibmil"]
 streams_count = 2
 stream_0/stream = ExtResource("3_1fe31")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("4_siyph")
-stream_1/weight = 1.0
 
 [node name="CraftUI" type="Control"]
 layout_mode = 3
@@ -126,6 +144,7 @@ theme_override_constants/separation = 5
 alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer"]
+material = SubResource("ShaderMaterial_7kc64")
 position = Vector2(138, 60)
 
 [node name="Description" type="Label" parent="Panel/VBoxContainer"]
@@ -162,8 +181,8 @@ offset_bottom = 432.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("3_e50dp")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7itad")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hj46u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7itad")
 text = "Brew"
 
 [node name="NotEnough" type="Label" parent="Panel"]
