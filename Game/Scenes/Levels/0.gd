@@ -6,3 +6,4 @@ func _ready():
 	$Player.changeGroundSound(0)
 	$Player.killed.connect(restart_level)
 	$finish.body_entered.connect(finish_level)
+	$Player.pickup_item.connect(add_to_inventory)

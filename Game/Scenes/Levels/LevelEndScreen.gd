@@ -25,6 +25,7 @@ const MAIN_RESSOURCE_TEXTS := [
 
 var escape := false
 var new_record := false
+var no_ressources := true
 
 var ressourceAnimationOrder = []
 func fillScreen(level: Level, escapeParam: bool = false):
@@ -36,21 +37,30 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		$ScreenContainer/RessourcesSection/MainRessource/Text.text = MAIN_RESSOURCE_TEXTS.pick_random()
 		$ScreenContainer/RessourcesSection/MainRessource/Name.text = level.main_ressource.capitalize()
 	
+	var label_settings : LabelSettings = $ScreenContainer/Level.label_settings.duplicate()
+	label_settings.font_size *= 0.75
+	
+	no_ressources = true
 	for ressource in level.contained_resources:
 		var count: int = level.finish_resources[ressource]
 		var total: int = level.contained_resources[ressource]
+		no_ressources = no_ressources && count == 0
 		
 		# Create the ressource control
 		var ressourceLabel := Label.new()
+		ressourceLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		ressourceLabel.text = ressource.capitalize()
+		ressourceLabel.label_settings = label_settings
 		
 		var margin := MarginContainer.new()
-		margin.size_flags_horizontal = Control.SIZE_EXPAND
+		margin.custom_minimum_size.x = 16
 		
 		var nbRessource := Label.new()
 		nbRessource.text = "%d / %d" % [count, total]
+		nbRessource.label_settings = label_settings
 		
 		var hBoxContainer := HBoxContainer.new()
+		hBoxContainer.alignment = BoxContainer.ALIGNMENT_CENTER
 		hBoxContainer.add_child(ressourceLabel)
 		hBoxContainer.add_child(margin)
 		hBoxContainer.add_child(nbRessource)
@@ -58,6 +68,8 @@ func fillScreen(level: Level, escapeParam: bool = false):
 		$ScreenContainer/RessourcesSection.add_child(hBoxContainer)
 		
 		ressourceAnimationOrder.push_back(hBoxContainer)
+	
+	$ScreenContainer/RessourcesSection/IAlsoFound.text = "I could have found:" if no_ressources else "I also found:"
 	
 	$ScreenContainer/EnemyKilled/NbEnemies.text = "%d / %d" % [level.killedEnemies, level.nbEnemies]
 	if level.killedEnemies == 0:
@@ -113,9 +125,10 @@ func startAnimation():
 	
 	prepareNodeAndAnimation($ScreenContainer/Level, true, 2.0)
 	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/MainRessource, not escape, 2.0)
+	prepareNodeAndAnimation($ScreenContainer/RessourcesSection/IAlsoFound, true, 1.0)
 
-	for ressource in ressourceAnimationOrder:
-		prepareNodeAndAnimation(ressource)
+	for i in ressourceAnimationOrder.size():
+		prepareNodeAndAnimation(ressourceAnimationOrder[i], true, 2.0 if i == (ressourceAnimationOrder.size() - 1) else 0.25)
 
 	prepareNodeAndAnimation($ScreenContainer/EnemyKilled, not escape)
 	prepareNodeAndAnimation($ScreenContainer/KillNote, not escape)

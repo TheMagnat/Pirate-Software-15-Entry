@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd0kr04h7njb6"]
+[gd_scene load_steps=12 format=3 uid="uid://dd0kr04h7njb6"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelEndScreen.gd" id="1_5ir8a"]
 [ext_resource type="Shader" path="res://Scenes/Levels/LevelEndScreen.gdshader" id="2_rhbay"]
@@ -22,6 +22,23 @@ shader_parameter/strength = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_pkh2e"]
 font = ExtResource("3_p8gmm")
 font_size = 48
+
+[sub_resource type="Shader" id="Shader_2x2mm"]
+code = "shader_type canvas_item;
+
+uniform float speed : hint_range(10.0, 40.0, 10.0);
+
+void vertex() {
+	VERTEX.y += cos((TIME + VERTEX.x) * speed) * 2.0;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clpvh"]
+shader = SubResource("Shader_2x2mm")
+shader_parameter/speed = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ijd1"]
+shader = SubResource("Shader_2x2mm")
+shader_parameter/speed = 40.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_38o5u"]
 playback_mode = 1
@@ -93,8 +110,15 @@ horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="ScreenContainer/RessourcesSection/MainRessource"]
 modulate = Color(0.392157, 1, 0, 1)
+material = SubResource("ShaderMaterial_clpvh")
 layout_mode = 2
 text = "Night Stone"
+label_settings = SubResource("LabelSettings_pkh2e")
+horizontal_alignment = 1
+
+[node name="IAlsoFound" type="Label" parent="ScreenContainer/RessourcesSection"]
+layout_mode = 2
+text = "I also found these:"
 label_settings = SubResource("LabelSettings_pkh2e")
 horizontal_alignment = 1
 
@@ -126,6 +150,7 @@ text = "3 / 3"
 label_settings = SubResource("LabelSettings_pkh2e")
 
 [node name="KillNote" type="Label" parent="ScreenContainer"]
+material = SubResource("ShaderMaterial_8ijd1")
 layout_mode = 2
 text = "BLOODSHED"
 label_settings = SubResource("LabelSettings_pkh2e")
