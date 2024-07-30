@@ -31,7 +31,7 @@ func _on_body_entered(body: Node3D):
 		t.parallel().tween_property(self, "scale", Vector3(0.25, 0.25, 0.25), 0.4).as_relative()
 		
 		t.tween_property(self, "position:y", -1.5, 0.4).as_relative()
-		t.parallel().tween_property(self, "scale", Vector3(0.0, 0.0, 0.0), 0.4)
+		t.parallel().tween_property(self, "scale", Vector3(0.0001, 0.0001, 0.0001), 0.4)
 		
 		$AudioStreamPlayer3D.finished.connect(queue_free)
 		#t.finished.connect(queue_free)
