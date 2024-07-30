@@ -87,16 +87,22 @@ func restart_level(death := false):
 	var main = get_node("/root/Main")
 	main.load_level(idx, respawnInformation, death)
 
-func escape_level(body = null):
-	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
+func escape_level(body):
+	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()):
 		body.safePlace = true
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").escape_level()
 
-func finish_level(body = null):
-	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()) or body == null:
+func finish_level(body):
+	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()):
 		body.safePlace = true
+		isFinished = true
+		time_spent += timer.wait_time - timer.time_left
+		get_node("/root/Main").finish_level()
+
+func finish_level_by_death(body):
+	if not isFinished and body.is_in_group("Player"):
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").finish_level()
