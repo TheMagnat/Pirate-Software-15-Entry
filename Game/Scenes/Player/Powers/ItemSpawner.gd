@@ -52,10 +52,10 @@ func getRotationAngle(spawnPosition: Vector3):
 func activateSpell():	
 	var spawnPosition = getSpawnPosition()
 	if not spawnPosition:
-		return
+		return false
 		
 	if player.global_position.distance_to(spawnPosition) < 3:
-		return
+		return false
 	
 	var newItem = item.instantiate()
 	add_child(newItem)
@@ -63,3 +63,5 @@ func activateSpell():
 	newItem.global_position = spawnPosition
 	newItem.rotate_y(getRotationAngle(spawnPosition))
 	newItem.startGrowing()
+	
+	return true

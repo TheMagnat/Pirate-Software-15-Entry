@@ -1,7 +1,7 @@
 extends RigidBody3D
 
-@export var suspectLevelOnGround: float = 1.0
-@export var suspectLevelOnHit: float = 5.0
+@export var suspectLevelOnGround: float = 4.0
+@export var suspectLevelOnHit: float = 10.0
 
 
 # Called when the item hit the ground

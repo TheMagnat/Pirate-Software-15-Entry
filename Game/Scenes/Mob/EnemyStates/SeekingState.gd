@@ -41,7 +41,7 @@ func onPhysicProcess(delta: float):
 	parent.move_and_slide()
 	
 	# Verify if we reached our target
-	if parent.global_position.distance_to(Vector3(target.x, 0.0, target.z)) <= minTargetDist:
+	if parent.global_position.distance_to(Vector3(target.x, parent.global_position.y, target.z)) <= minTargetDist:
 		get_parent().get_node("Suspicious").updateTarget(target)
 		get_parent().transitionTo("Suspicious")
 	

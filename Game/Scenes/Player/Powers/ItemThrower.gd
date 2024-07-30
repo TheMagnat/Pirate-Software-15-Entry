@@ -69,9 +69,10 @@ func raycastQuery(pointA: Vector3, pointB: Vector3) -> Dictionary:
 	return result
 
 func getThrowImpulse():
+	var level := maxi(1, Save.unlockable[Player.IvyWall])
 	var direction: Vector2 = get_viewport().get_mouse_position() / Vector2(get_viewport().get_visible_rect().size)
 	direction.y = 1.0 - direction.y
-	return throwImpulse + direction.y * 0.0
+	return throwImpulse + ((direction.y * direction.y) * (level - 1))
 
 func getThrowStartPosition(dir: Vector3):
 	return player.global_position + Vector3.UP * 1.0 + dir * 1.0
@@ -91,8 +92,9 @@ func activateSpell():
 	var newItem: RigidBody3D = item.instantiate()
 	
 	var direction = getThrowDirection(-1.0)
+	
 	if direction.y < 0.0:
-		return
+		return false
 	
 	var target = to_global(direction)
 	var globalDirection = (target - global_position).normalized()
@@ -100,3 +102,8 @@ func activateSpell():
 	add_child(newItem)
 	newItem.global_position = getThrowStartPosition(direction)
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
+	var randValue: float = randf_range(-0.25, 0.25)
+	print(randValue)
+	newItem.apply_torque_impulse(Vector3(direction.z + randValue, 0.0, (-direction.x) + randValue) * 10.0)
+	
+	return true

@@ -116,7 +116,7 @@ func lightLogic(delta: float):
 		# And if there is a mob at sneak foot range
 		for body in $SneakSoundEmission.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
-				body.suspiciousActivity(global_position + heightCompensation, 0.0)
+				body.suspiciousActivity(global_position + heightCompensation, 1.0)
 				lastLightLevel = 1.0
 	
 	# If true, player is in the light
@@ -154,7 +154,7 @@ func getTilt(goal: Vector2):
 var leftPlay: bool = false
 var rightPlay: bool = false
 
-var footEmissionSuspiciousLevel: float = 3.0
+var footEmissionSuspiciousLevel: float = 2.5
 func emitSuspiciousSound():
 	for body in $FootSoundEmission.get_overlapping_bodies():
 		if body.is_in_group("Enemy"):

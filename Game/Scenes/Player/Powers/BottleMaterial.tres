@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://chewokblud7cj"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline-forest.gdshader" id="1_7n0sl"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_m7t17"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2eqy"]
+render_priority = 0
+shader = ExtResource("1_7n0sl")
+shader_parameter/forestType = null
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_j2eqy")
+shader = ExtResource("2_m7t17")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/color = Color(0.159735, 0.588745, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

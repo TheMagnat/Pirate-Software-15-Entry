@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://mqs0ica5jgwn"]
+[gd_scene load_steps=6 format=3 uid="uid://mqs0ica5jgwn"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemCloak.gd" id="1_tha5v"]
 [ext_resource type="PackedScene" uid="uid://cd6lipl7sm2jy" path="res://Scenes/Player/Powers/CloakMesh.tscn" id="3_h06ni"]
+[ext_resource type="Shader" path="res://Scenes/Player/Powers/ThrowTargetAim.gdshader" id="3_ykhyp"]
+[ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_d1n6v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iax6r"]
+render_priority = 0
+shader = ExtResource("3_ykhyp")
+shader_parameter/can = 1.0
 
 [node name="Cloak" type="Node3D"]
 top_level = true
@@ -9,3 +16,9 @@ script = ExtResource("1_tha5v")
 model = ExtResource("3_h06ni")
 cooldown = 15.0
 cooldown_decrease_per_level = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(450, 0, 0, 0, -1.96701e-05, -1, 0, 450, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_iax6r")
+cast_shadow = 0
+texture = ExtResource("4_d1n6v")
