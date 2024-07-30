@@ -55,6 +55,9 @@ func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 	if spawnInformation:
 		currentLevel.get_node("Player").global_position = spawnInformation.position
 		currentLevel.get_node("Player").setSpawnOrientation(spawnInformation.cameraAngle)
+		currentLevel.finish_resources = spawnInformation.resources.duplicate()
+		currentLevel.collected_resources = spawnInformation.collected.duplicate()
+		currentLevel.remove_already_collected()
 
 func load_level(idx := -1, spawnInformation: SpawnInformation = null):
 	if $Level.get_child_count() == 0:

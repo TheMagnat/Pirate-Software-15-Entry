@@ -4,13 +4,12 @@ class_name Level extends Node3D
 
 # Level information
 @export var level_name: String
-
 @export var main_ressource: String
-
 @export var checkpoints: Checkpoints
 
-var contained_resources := {}
-var finish_resources := {}
+var contained_resources : Dictionary
+var finish_resources : Dictionary
+var collected_resources : PackedStringArray
 
 var nbEnemies: int = 0
 var killedEnemies: int = 0
@@ -22,6 +21,16 @@ var idx := -1
 const WAIT_TIME := 10.0
 var timer := Timer.new()
 var time_spent := 0.0
+
+func remove_already_collected():
+	for path in collected_resources:
+		# dirty
+		var split := path.split('/')
+		var localPath := ""
+		for i in split.size() - 5:
+			localPath += split[5 + i] + '/'
+		print("Removing '" + localPath + "'")
+		get_node(localPath).queue_free()
 
 func initResources():
 	for child in find_children("*", "Pickable"):
@@ -70,8 +79,7 @@ func init(i: int):
 func restart_level():
 	var respawnInformation: SpawnInformation = null
 	if checkpoints: respawnInformation = checkpoints.getLastCheckpointPosition()
-	else: print("WARNING: No Checkpoints set for this level")
-	
+	else: print("WARNING: No Checkpoints set for this level")	
 	var main = get_node("/root/Main")
 	main.load_level(idx, respawnInformation)
 
@@ -89,5 +97,6 @@ func finish_level(body = null):
 		time_spent += timer.wait_time - timer.time_left
 		get_node("/root/Main").finish_level()
 
-func add_to_inventory(key: String, count: int):
+func add_to_inventory(key: String, count: int, object_path: String):
 	finish_resources[key] += count
+	collected_resources.append(object_path)

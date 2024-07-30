@@ -19,7 +19,7 @@ func _on_body_entered(body: Node3D):
 	if(body is Player):
 		$Area3D.body_entered.disconnect(_on_body_entered)
 		
-		body.pickup_item.emit(itemKey, itemCount)
+		body.pickup_item.emit(itemKey, itemCount, get_path())
 		collector = body
 		$AudioStreamPlayer3D.play()
 		
