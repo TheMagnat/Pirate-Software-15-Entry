@@ -35,6 +35,8 @@ var escape := false
 var new_record := false
 var opened_level := false
 var no_ressources := true
+var night_stone := false
+var blood_stone := false
 
 var ressourceAnimationOrder = []
 func fillScreen(level: Level, escapeParam: bool = false):
@@ -82,11 +84,11 @@ func fillScreen(level: Level, escapeParam: bool = false):
 	$ScreenContainer/RessourcesSection/IAlsoFound.text = "I could have found:" if no_ressources else "I also found:"
 	
 	$ScreenContainer/EnemyKilled/NbEnemies.text = "%d / %d" % [level.killedEnemies, level.nbEnemies]
-	if level.killedEnemies == 0:
+	if night_stone:
 		$ScreenContainer/KillNote.text = "TRUE SHADOW"
 		$ScreenContainer/KillNote.modulate = Color(0.5, 0.0, 1.0)
 		$ScreenContainer/TimeText/TimeText.text = "INFILTRATION completed smoothly in"
-	elif level.killedEnemies == level.nbEnemies:
+	elif blood_stone:
 		$ScreenContainer/KillNote.text = "BLOODSHED"
 		$ScreenContainer/KillNote.modulate = Color(1.0, 0.0, 0.0)
 		$ScreenContainer/TimeText/TimeText.text = "CARNAGE carried out in"

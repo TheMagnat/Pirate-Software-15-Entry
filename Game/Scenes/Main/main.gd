@@ -88,6 +88,8 @@ func escape_level():
 func finish_level():
 	var new_record := false
 	var opened_level := false
+	var night_stone : bool = currentLevel.killedEnemies == 0 && currentLevel.checkpoints.lastCheckpoint == null
+	var blood_stone : bool = currentLevel.killedEnemies == currentLevel.nbEnemies && currentLevel.nbEnemies != 0
 	
 	### Open the access to this level
 	for idx2 in currentLevel.open_levels:
@@ -104,6 +106,9 @@ func finish_level():
 		Save.levels[idx][1] = time_spent
 		new_record = true
 	
+	if night_stone: Save.resources["night_stone"] += 1
+	if blood_stone: Save.resources["blood_stone"] += 1
+	
 	### Add retrieved resources
 	var resources = currentLevel.finish_resources
 	var artifact = currentLevel.main_ressource
@@ -118,9 +123,11 @@ func finish_level():
 	print("Added artifact:", artifact)
 	
 	var endScreen := END_SCREEN.instantiate()
-	endScreen.fillScreen(currentLevel)
 	endScreen.new_record = new_record
 	endScreen.opened_level = opened_level
+	endScreen.night_stone = night_stone
+	endScreen.blood_stone = blood_stone 
+	endScreen.fillScreen(currentLevel)
 	if idx == END_LEVEL:
 		endScreen.addCallback(Transition.start.bind(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END)))) ## don't preload this or it will create cyclic references
 	else:
