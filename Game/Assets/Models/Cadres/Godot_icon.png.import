@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd8keih0n5l8y"
-path.s3tc="res://.godot/imported/Godot_icon.png-985764453a3692e3d6de25633f242aaa.s3tc.ctex"
+path="res://.godot/imported/Godot_icon.png-985764453a3692e3d6de25633f242aaa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/Godot_icon.png"
-dest_files=["res://.godot/imported/Godot_icon.png-985764453a3692e3d6de25633f242aaa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Godot_icon.png-985764453a3692e3d6de25633f242aaa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

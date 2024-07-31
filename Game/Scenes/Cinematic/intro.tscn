@@ -215,10 +215,10 @@ autoplay = "intro"
 [node name="WorldEnvironment" parent="lobby/Decor" index="0" instance=ExtResource("4_ruigt")]
 
 [node name="Torch" parent="lobby" index="6"]
-light_energy = 1.16362
+light_energy = 1.32194
 
 [node name="Torch2" parent="lobby" index="7"]
-light_energy = 1.16362
+light_energy = 1.32194
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.563569, -0.36859, 0.739277, 0, 0.894934, 0.446197, -0.826069, -0.251463, 0.504357, -1.19356, 1.02908, -13.375)

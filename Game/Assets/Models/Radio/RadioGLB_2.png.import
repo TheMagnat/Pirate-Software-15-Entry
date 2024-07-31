@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct5vgu4a2l2jq"
-path.s3tc="res://.godot/imported/RadioGLB_2.png-947150152c1afe65487ecf16352ac39f.s3tc.ctex"
+path="res://.godot/imported/RadioGLB_2.png-947150152c1afe65487ecf16352ac39f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "6856b26d9b5fea10cedda90ca302283b"
@@ -15,13 +14,13 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Radio/RadioGLB_2.png"
-dest_files=["res://.godot/imported/RadioGLB_2.png-947150152c1afe65487ecf16352ac39f.s3tc.ctex"]
+dest_files=["res://.godot/imported/RadioGLB_2.png-947150152c1afe65487ecf16352ac39f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0

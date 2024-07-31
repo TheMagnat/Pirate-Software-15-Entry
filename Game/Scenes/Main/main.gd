@@ -9,7 +9,7 @@ var deathCount: int = 0
 
 ### DEBUG ###
 var inDebug: bool = false
-var debugIndex: int = 2
+var debugIndex: int = 4
 ### END DEBUG ###
 
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
@@ -48,6 +48,8 @@ func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 	
 	$Menu/Control/HBoxContainer/Main/Restart.visible = idx != -1
 	$Menu/Control/HBoxContainer/Main/Lobby.visible = idx != -1
+	
+	print("Death COUNT: ", deathCount)
 	
 	currentLevel = resource_preloader.get_resource(str(idx)).instantiate()
 	if idx != -1:

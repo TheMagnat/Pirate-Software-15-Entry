@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcvr2mp57segy"
-path.s3tc="res://.godot/imported/Sans titre_1.png-2b7af1c9817e66a63f5d39ca81c705a2.s3tc.ctex"
+path="res://.godot/imported/Sans titre_1.png-2b7af1c9817e66a63f5d39ca81c705a2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "dc51ddbb61d7ea5abc0063cd344d39f1"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Forest/Sans titre_1.png"
-dest_files=["res://.godot/imported/Sans titre_1.png-2b7af1c9817e66a63f5d39ca81c705a2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sans titre_1.png-2b7af1c9817e66a63f5d39ca81c705a2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

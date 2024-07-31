@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_1etc6"]
 [ext_resource type="PackedScene" uid="uid://uiqmxktdm8b3" path="res://Scenes/UI/main_menu.tscn" id="2_s6834"]
-[ext_resource type="Texture2D" uid="uid://t638huc3v6ai" path="res://Assets/logo/Godot Game engine logo.svg" id="3_w75e0"]
+[ext_resource type="Texture2D" uid="uid://44vwymrrsde1" path="res://Assets/logo/Godot Game engine logo.svg" id="3_w75e0"]
 [ext_resource type="Shader" path="res://Scenes/Cinematic/splashscreen.gdshader" id="3_yogdi"]
 [ext_resource type="AudioStream" uid="uid://dmebd8nilsr70" path="res://Assets/SFX/fire/fire_burning.ogg" id="5_2r3v5"]
 

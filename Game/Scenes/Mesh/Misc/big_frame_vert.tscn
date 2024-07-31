@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://ciektisjpxak8"]
+[gd_scene load_steps=13 format=4 uid="uid://ciektisjpxak8"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_ip5pt"]
 [ext_resource type="Script" path="res://Scenes/Mesh/Misc/frame.gd" id="1_wg8c4"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_phnri"]
-[ext_resource type="Texture2D" uid="uid://cfej85g34ae6i" path="res://Assets/Models/Cadres/Castle/image.png" id="4_uwj3h"]
 [ext_resource type="Texture2D" uid="uid://chgksof5dvsw" path="res://Assets/Models/Table/TableGBL_4.png" id="4_vnrh6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pik6u"]
@@ -54,8 +53,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pdxxn")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ey0y"]
-albedo_texture = ExtResource("4_uwj3h")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_no1yu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ty3rp"]
 size = Vector2(100, 100)
@@ -73,7 +71,7 @@ script = ExtResource("1_wg8c4")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1.86, 0, 0, 0, 1.86, 0, 0, 0, 1.86, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_6ey0y")
+material_override = SubResource("StandardMaterial3D_no1yu")
 texture = SubResource("PlaceholderTexture2D_ty3rp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

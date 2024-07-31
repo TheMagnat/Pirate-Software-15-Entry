@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oy56boogpyyi"
-path.s3tc="res://.godot/imported/1.png-a2c058685f38ffa3c867fa21dac4a770.s3tc.ctex"
+path="res://.godot/imported/1.png-a2c058685f38ffa3c867fa21dac4a770.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/Mavoxel/1.png"
-dest_files=["res://.godot/imported/1.png-a2c058685f38ffa3c867fa21dac4a770.s3tc.ctex"]
+dest_files=["res://.godot/imported/1.png-a2c058685f38ffa3c867fa21dac4a770.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

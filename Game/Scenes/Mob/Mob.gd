@@ -238,13 +238,13 @@ func checkBodyCanBeSeen(body: CharacterBody3D):
 	var result = space_state.intersect_ray(query)
 	
 	if not result:
-		DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
+		#DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
 		return true
-	else:
-		if result.collider == body:
-			DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
-		else:
-			DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0)
+	#else:
+		#if result.collider == body:
+			#DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0, Color.GREEN)
+		#else:
+			#DebugDraw.draw_line(global_position + eyeLevel, body.global_position + eyeLevel, 10.0)
 	
 	return result.collider == body
 

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Logo_Thief.jpg-4e7d893bf88c2d24442df38488bd33
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

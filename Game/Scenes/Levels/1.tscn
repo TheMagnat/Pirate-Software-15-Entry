@@ -85,7 +85,7 @@ checkpoints = NodePath("Checkpoints")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_awxpd")]
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8638, 6.55651e-06, 9.80837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3673, 6.55651e-06, 11.0553)
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
@@ -1836,23 +1836,23 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.4
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 1.88746
+light_energy = 1.95372
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 1.88746
+light_energy = 1.95372
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 1.88746
+light_energy = 1.95372
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 1.88746
+light_energy = 1.95372
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 1.88746
+light_energy = 1.95372
 
 [node name="Checkpoints" parent="." instance=ExtResource("20_lm2ik")]
 

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fk7vtxbncx3v"
-path.s3tc="res://.godot/imported/kanar.jpg-bf7c1596eb5c6207aa4fd75d09d2b888.s3tc.ctex"
+path="res://.godot/imported/kanar.jpg-bf7c1596eb5c6207aa4fd75d09d2b888.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/kanar.jpg"
-dest_files=["res://.godot/imported/kanar.jpg-bf7c1596eb5c6207aa4fd75d09d2b888.s3tc.ctex"]
+dest_files=["res://.godot/imported/kanar.jpg-bf7c1596eb5c6207aa4fd75d09d2b888.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

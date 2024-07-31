@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://dtuj72gxe5pbh"]
+[gd_scene load_steps=9 format=4 uid="uid://dtuj72gxe5pbh"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_kuw77"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_dwqt2"]
 [ext_resource type="Texture2D" uid="uid://bkdkkcugnae53" path="res://Assets/Models/TableDeChevet/TableDeChevet_baseColor.png" id="3_78p0m"]
-[ext_resource type="Texture2D" uid="uid://cpmh8c1we8epx" path="res://Assets/Models/TableDeChevet/TableDeChevet_occlusionRoughnessMetallic.png" id="4_knfj1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc8kg"]
 render_priority = 0
@@ -13,9 +12,8 @@ shader = ExtResource("1_kuw77")
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_uc8kg")
 shader = ExtResource("2_dwqt2")
-shader_parameter/metallic = 0.47
+shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_surface = ExtResource("4_knfj1")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)

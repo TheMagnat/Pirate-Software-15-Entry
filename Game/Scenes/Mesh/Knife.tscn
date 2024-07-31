@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7hpi6hkigyyy"]
+[gd_scene load_steps=9 format=4 uid="uid://c7hpi6hkigyyy"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_gdi7t"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="1_nwmqn"]
 [ext_resource type="Texture2D" uid="uid://dfhbswtt8cjqf" path="res://Assets/Models/Knife/DefaultMaterial_baseColor.png" id="1_o1ahj"]
-[ext_resource type="Texture2D" uid="uid://cp3qbmtjji13d" path="res://Assets/Models/Knife/DefaultMaterial_occlusionRoughnessMetallic.png" id="2_saif4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i8uuc"]
 render_priority = 0
@@ -15,7 +14,6 @@ next_pass = SubResource("ShaderMaterial_i8uuc")
 shader = ExtResource("1_nwmqn")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_surface = ExtResource("2_saif4")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)

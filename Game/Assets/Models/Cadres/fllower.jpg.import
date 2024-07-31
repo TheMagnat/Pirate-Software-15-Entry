@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnb3noeag8vp5"
-path.s3tc="res://.godot/imported/fllower.jpg-08263eb5568e73fe1b72b255790acc02.s3tc.ctex"
+path="res://.godot/imported/fllower.jpg-08263eb5568e73fe1b72b255790acc02.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/fllower.jpg"
-dest_files=["res://.godot/imported/fllower.jpg-08263eb5568e73fe1b72b255790acc02.s3tc.ctex"]
+dest_files=["res://.godot/imported/fllower.jpg-08263eb5568e73fe1b72b255790acc02.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

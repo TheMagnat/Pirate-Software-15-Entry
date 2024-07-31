@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hardened.png-7851b92e95854b1e548fd982225b625e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

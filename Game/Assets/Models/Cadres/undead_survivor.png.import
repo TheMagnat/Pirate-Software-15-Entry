@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcphd5go0ro7m"
-path.s3tc="res://.godot/imported/undead_survivor.png-28dd95ec331699a5070cc8d42dccfe04.s3tc.ctex"
+path="res://.godot/imported/undead_survivor.png-28dd95ec331699a5070cc8d42dccfe04.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/undead_survivor.png"
-dest_files=["res://.godot/imported/undead_survivor.png-28dd95ec331699a5070cc8d42dccfe04.s3tc.ctex"]
+dest_files=["res://.godot/imported/undead_survivor.png-28dd95ec331699a5070cc8d42dccfe04.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

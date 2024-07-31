@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/spells.png-36241804868557fb085b282e45a52c73.c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

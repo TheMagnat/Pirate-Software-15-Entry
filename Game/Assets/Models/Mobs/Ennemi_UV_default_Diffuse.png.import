@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://88a51ijru8l2"
-path.s3tc="res://.godot/imported/Ennemi_UV_default_Diffuse.png-359c3b4f1387e4f24fd3fb853938a39e.s3tc.ctex"
+path="res://.godot/imported/Ennemi_UV_default_Diffuse.png-359c3b4f1387e4f24fd3fb853938a39e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Mobs/Ennemi_UV_default_Diffuse.png"
-dest_files=["res://.godot/imported/Ennemi_UV_default_Diffuse.png-359c3b4f1387e4f24fd3fb853938a39e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ennemi_UV_default_Diffuse.png-359c3b4f1387e4f24fd3fb853938a39e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.25
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

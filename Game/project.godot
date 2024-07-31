@@ -25,7 +25,6 @@ Save="*res://Scenes/Main/save.gd"
 Transition="*res://Scenes/Main/transition.tscn"
 DebugDraw="*res://Scenes/Tool/DebugDraw.tscn"
 Music="*res://Scenes/Main/music.tscn"
-FpsCounter="*res://Scenes/DebugScene/FpsCounter.tscn"
 
 [display]
 

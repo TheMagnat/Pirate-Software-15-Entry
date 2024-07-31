@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx2o15vapymr3"
-path.s3tc="res://.godot/imported/cargo.jpg-3c8234bc0be7f1847230fde3c022236c.s3tc.ctex"
+path="res://.godot/imported/cargo.jpg-3c8234bc0be7f1847230fde3c022236c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/cargo.jpg"
-dest_files=["res://.godot/imported/cargo.jpg-3c8234bc0be7f1847230fde3c022236c.s3tc.ctex"]
+dest_files=["res://.godot/imported/cargo.jpg-3c8234bc0be7f1847230fde3c022236c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

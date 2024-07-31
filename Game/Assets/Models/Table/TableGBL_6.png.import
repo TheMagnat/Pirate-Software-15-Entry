@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dojjyg5dh8ldr"
-path.s3tc="res://.godot/imported/TableGBL_6.png-c546ed287f06da3d54db49ca98be99ef.s3tc.ctex"
+path="res://.godot/imported/TableGBL_6.png-c546ed287f06da3d54db49ca98be99ef.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "87808fd73792ad31033f74a3e6600841"
@@ -15,13 +14,13 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Table/TableGBL_6.png"
-dest_files=["res://.godot/imported/TableGBL_6.png-c546ed287f06da3d54db49ca98be99ef.s3tc.ctex"]
+dest_files=["res://.godot/imported/TableGBL_6.png-c546ed287f06da3d54db49ca98be99ef.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0

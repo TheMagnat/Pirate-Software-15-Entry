@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq77elr6l8pf8"
-path.s3tc="res://.godot/imported/Bois_baseColor.png-440c189628282cad31bd4fe21f8a41b9.s3tc.ctex"
+path="res://.godot/imported/Bois_baseColor.png-440c189628282cad31bd4fe21f8a41b9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Bibliotheque/Bois_baseColor.png"
-dest_files=["res://.godot/imported/Bois_baseColor.png-440c189628282cad31bd4fe21f8a41b9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bois_baseColor.png-440c189628282cad31bd4fe21f8a41b9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/GAUTHIER_Marie_Jour1.jpg-668ef39f27c0f0d3726e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

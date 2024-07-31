@@ -1,10 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://chrk5hvwntpq"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://chrk5hvwntpq"]
 
 [ext_resource type="Shader" path="res://Scenes/Mesh/Action.gdshader" id="1_0ii2e"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_7tphp"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_d3ne8"]
 [ext_resource type="Texture2D" uid="uid://cuf6sfqhq01qw" path="res://Assets/Models/Potion/textures/Potion_UV_default_AlbedoTransparency.png" id="3_fpwdx"]
-[ext_resource type="Texture2D" uid="uid://c4lut1rgodfe2" path="res://Assets/Models/Potion/textures/Potion_UV_default_MetallicSmoothness.png" id="5_8q56l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_62pro"]
 render_priority = 0
@@ -22,7 +21,6 @@ next_pass = SubResource("ShaderMaterial_wo4gj")
 shader = ExtResource("2_d3ne8")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_surface = ExtResource("5_8q56l")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)

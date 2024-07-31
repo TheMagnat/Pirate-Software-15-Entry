@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://bc1ouldsb240p"]
+[gd_scene load_steps=14 format=4 uid="uid://bc1ouldsb240p"]
 
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_unvu8"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base.gdshader" id="2_pmn6o"]
 [ext_resource type="Texture2D" uid="uid://88a51ijru8l2" path="res://Assets/Models/Mobs/Ennemi_UV_default_Diffuse.png" id="3_7r1cf"]
-[ext_resource type="Texture2D" uid="uid://2qlliodyqjck" path="res://Assets/Models/Mobs/Ennemi_UV_default_Glossiness.png" id="4_8oguk"]
-[ext_resource type="Texture2D" uid="uid://dc0bhols34a8m" path="res://Assets/Models/Mobs/default_occlusionRoughnessMetallic.png" id="5_xlt4s"]
 [ext_resource type="Shader" path="res://Scenes/Mesh/Mobs/MobWater.gdshader" id="6_5v5np"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ifv6"]
@@ -57,12 +55,10 @@ next_pass = SubResource("ShaderMaterial_mial8")
 shader = ExtResource("2_pmn6o")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_surface = ExtResource("5_xlt4s")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/specular = Color(0.00351917, 0.00351917, 0.00351916, 0.5)
 shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
 shader_parameter/base_texture = ExtResource("3_7r1cf")
-shader_parameter/specular_texture = ExtResource("4_8oguk")
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
 

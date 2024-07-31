@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5krqykkrb20"
-path.s3tc="res://.godot/imported/interro.png-56d32525d9e4678c4e67ff056b123b2b.s3tc.ctex"
+path="res://.godot/imported/interro.png-56d32525d9e4678c4e67ff056b123b2b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Models/Cadres/interro.png"
-dest_files=["res://.godot/imported/interro.png-56d32525d9e4678c4e67ff056b123b2b.s3tc.ctex"]
+dest_files=["res://.godot/imported/interro.png-56d32525d9e4678c4e67ff056b123b2b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
