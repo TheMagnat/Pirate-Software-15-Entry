@@ -195,12 +195,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649918, 0)
 shape = SubResource("CapsuleShape3D_3y8l1")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(3, 3)
+size = Vector2i(4, 4)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.74952, 0)
-cull_mask = 1048573
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 18.155, 0)
 fov = 57.7
 size = 0.905
 far = 1000.0
@@ -248,8 +247,8 @@ attenuation_filter_cutoff_hz = 20500.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(143, 128)
-scale = Vector2(95.3333, 85.3333)
+position = Vector2(11, 10)
+scale = Vector2(5.24, 5.24)
 texture = SubResource("ViewportTexture_pdvll")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

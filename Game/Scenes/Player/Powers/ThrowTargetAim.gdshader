@@ -15,7 +15,7 @@ void fragment() {
 		ALPHA = 0.0;
 	}
 	else {
-		ALPHA = (1.25 - dist);
+		ALPHA = max(0.0, (1.25 - dist));
 	}
 	
 	ALBEDO = mix(vec3(1.0, 0.0, 0.0), vec3(97.0/255.0, 167.0/255.0, 186.0/255.0), can);

@@ -11,14 +11,14 @@ const float size = 0.3;
 void fragment() {
 	vec2 centredUv = ((UV - 0.5) * 2.0) * nbLines;
 	float dist = max(abs(centredUv.x), abs(centredUv.y));
-	
+
 	if (!(fract(-dist + TIME * speed) < size)) {
 		ALPHA = 0.0;
 	}
 	else {
-		ALPHA = (1.25 - pow(dist, 2.0) * 0.75);
+		ALPHA = max(0.0, (1.25 - pow(dist, 2.0) * 0.75));
 	}
-	
+
 	ALBEDO = mix(vec3(1.0, 0.0, 0.0), vec3(97.0/255.0, 167.0/255.0, 186.0/255.0), can);
-	
+
 }

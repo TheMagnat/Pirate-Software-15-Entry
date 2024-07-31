@@ -90,7 +90,7 @@ checkpoints = NodePath("Checkpoints")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_awxpd")]
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1141, 6.55651e-06, 10.2747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48325, 6.55651e-06, -18.8494)
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
@@ -110,8 +110,6 @@ light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 8.0
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 18.008
 spot_attenuation = 0.216194
 spot_angle = 39.8
@@ -138,8 +136,6 @@ transform = Transform3D(1, 0.000366696, 0.000113883, -0.000378568, 0.991151, 0.1
 light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 16.0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 15.0
 spot_attenuation = 0.181799
 spot_angle = 39.0106
@@ -167,8 +163,6 @@ light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 16.0
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 16.0896
 spot_attenuation = 0.216194
 spot_angle = 39.8
@@ -198,8 +192,6 @@ transform = Transform3D(0.996846, 0.0758869, 0.0232204, -0.0758869, 0.825892, 0.
 light_color = Color(0.752911, 0.75249, 0.403694, 1)
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 11.338
 spot_attenuation = 1.07177e-05
 spot_angle = 62.9
@@ -228,8 +220,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144379, 1.15023, -0.621727
 light_color = Color(0.752911, 0.75249, 0.403694, 1)
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 11.338
 spot_attenuation = 1.07177e-05
 spot_angle = 62.9
@@ -259,8 +249,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0768661, 1.09379, -0.69083
 light_color = Color(0.752911, 0.75249, 0.403694, 1)
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 11.338
 spot_attenuation = 1.07177e-05
 spot_angle = 62.9
@@ -1846,23 +1834,23 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.4
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 2.65337
+light_energy = 2.67883
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 2.65337
+light_energy = 2.67883
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 2.65337
+light_energy = 2.67883
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 2.65337
+light_energy = 2.67883
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 2.65337
+light_energy = 2.67883
 
 [node name="Checkpoints" parent="." instance=ExtResource("20_lm2ik")]
 

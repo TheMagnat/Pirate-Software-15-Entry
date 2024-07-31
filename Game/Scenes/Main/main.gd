@@ -9,7 +9,7 @@ var deathCount: int = 0
 
 ### DEBUG ###
 var inDebug: bool = false
-var debugIndex: int = 4
+var debugIndex: int = 1
 ### END DEBUG ###
 
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
