@@ -214,13 +214,45 @@ autoplay = "intro"
 
 [node name="WorldEnvironment" parent="lobby/Decor" index="0" instance=ExtResource("4_ruigt")]
 
-[node name="Torch" parent="lobby" index="6"]
-light_energy = 1.32194
+[node name="Radio" parent="lobby" index="6"]
+pitch_scale = 0.55
 
-[node name="Torch2" parent="lobby" index="7"]
-light_energy = 1.32194
+[node name="Torch" parent="lobby" index="11"]
+light_energy = 1.42528
+
+[node name="Torch2" parent="lobby" index="12"]
+transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
+light_energy = 1.42528
+
+[node name="HandTorch" parent="lobby/Level 4 loader/FrameFly6" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/Level 4 loader/FrameFly7" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/Level 4 loader/FrameFly8" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/Level 4 loader/FrameFly9" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/AnimatedTorch/FrameFly8" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/AnimatedTorch/FrameFly10" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/AnimatedTorch/FrameFly11" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/AnimatedTorch/FrameFly12" index="0"]
+light_energy = 1.85055
+
+[node name="HandTorch" parent="lobby/AnimatedTorch/FrameFly9" index="0"]
+light_energy = 1.85055
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.563569, -0.36859, 0.739277, 0, 0.894934, 0.446197, -0.826069, -0.251463, 0.504357, -1.19356, 1.02908, -13.375)
 
 [editable path="lobby"]
+[editable path="lobby/Level 4 loader"]

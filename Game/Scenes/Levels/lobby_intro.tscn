@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://bicwlkd0fpsjk"]
+[gd_scene load_steps=48 format=3 uid="uid://bicwlkd0fpsjk"]
 
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="1_l08n1"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_0pp36"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="3_hoe3g"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="4_gbyad"]
@@ -9,36 +10,82 @@
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="8_dthh7"]
 [ext_resource type="Material" uid="uid://dsa8mykfrhvxt" path="res://Scenes/Levels/Level_3/GrassMaterial.tres" id="10_rf5kn"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_3s16k"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="11_kqpp4"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_a7abq"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="12_cpq3a"]
+[ext_resource type="Texture2D" uid="uid://chgksof5dvsw" path="res://Assets/Models/Table/TableGBL_4.png" id="13_nq40v"]
 [ext_resource type="AudioStream" uid="uid://hoqter4kl37q" path="res://Assets/SFX/pirate/pirate1.ogg" id="16_b1cw8"]
+[ext_resource type="PackedScene" uid="uid://rmvra5b8e5e8" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="18_1nnm6"]
 [ext_resource type="PackedScene" uid="uid://leyoxqhcfred" path="res://Scenes/Levels/lobby/level_1_loader.tscn" id="20_qceap"]
+[ext_resource type="AudioStream" uid="uid://cgl6wiufdm846" path="res://Assets/SFX/pirate/pirate2.ogg" id="20_rivnn"]
+[ext_resource type="AudioStream" uid="uid://fcle6stl0y76" path="res://Assets/SFX/pirate/pirate3.ogg" id="21_id7jy"]
 [ext_resource type="PackedScene" uid="uid://dx8wdf8i8cmsk" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="21_wbvo6"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="22_d85j8"]
+[ext_resource type="AudioStream" uid="uid://bjd8cgd0oc3m8" path="res://Assets/SFX/pirate/pirate4.ogg" id="22_l33is"]
+[ext_resource type="AudioStream" uid="uid://cn4l2qhjdv6st" path="res://Assets/SFX/pirate/pirate5.ogg" id="23_lxxxs"]
 [ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="23_xyig8"]
 [ext_resource type="PackedScene" uid="uid://bxhhfqntwfa28" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_34t1f"]
+[ext_resource type="AudioStream" uid="uid://ddlcdaue31l2s" path="res://Assets/SFX/pirate/pirate6.ogg" id="24_f2lqt"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_4ayld"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_teyai"]
 [ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="27_btmu1"]
 [ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="28_lu41x"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="30_qycdo"]
+[ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="32_32gss"]
+[ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="35_qn8gg"]
+[ext_resource type="PackedScene" uid="uid://dsu847aufy4kt" path="res://Scenes/Levels/lobby/level_4_loader.tscn" id="37_cbcju"]
+[ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="38_il0ka"]
+[ext_resource type="Texture2D" uid="uid://dnbl6v0fkrdh0" path="res://Assets/Models/Cadres/Castle/BBSelenien.jpg" id="39_6ox0h"]
+[ext_resource type="Texture2D" uid="uid://cfej85g34ae6i" path="res://Assets/Models/Cadres/Castle/image.png" id="40_flg06"]
+[ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="41_tqrn4"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level_4/frame_fly.gd" id="42_nbu8l"]
+[ext_resource type="PackedScene" uid="uid://cufqj1pkxlprd" path="res://Scenes/LightEntity/HandTorch.tscn" id="43_1xeai"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mextk"]
 size = Vector3(1, 6, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a87f0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6pjt"]
 size = Vector3(1000, 2, 1000)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b22rr"]
+[sub_resource type="BoxMesh" id="BoxMesh_hdgc7"]
 material = ExtResource("10_rf5kn")
 size = Vector3(1000, 2, 1000)
 subdivide_width = 50
 subdivide_depth = 50
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bg3yo"]
-streams_count = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0ydv"]
+render_priority = 0
+shader = ExtResource("11_kqpp4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cfcdn"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_b0ydv")
+shader = ExtResource("12_cpq3a")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("13_nq40v")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_02usk"]
+top_radius = 10.3
+bottom_radius = 18.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bagvf"]
+streams_count = 6
 stream_0/stream = ExtResource("16_b1cw8")
+stream_1/stream = ExtResource("20_rivnn")
+stream_2/stream = ExtResource("21_id7jy")
+stream_3/stream = ExtResource("22_l33is")
+stream_4/stream = ExtResource("23_lxxxs")
+stream_5/stream = ExtResource("24_f2lqt")
 
 [node name="lobby" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_l08n1")]
 
 [node name="Decor" type="Node3D" parent="."]
 
@@ -70,7 +117,7 @@ transform = Transform3D(0.177032, 0, -0.290275, 0, 0.34, 0, 0.290275, 0, 0.17703
 [node name="StaticBody3D" type="StaticBody3D" parent="Decor/TableEtRadio"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decor/TableEtRadio/StaticBody3D"]
-shape = SubResource("BoxShape3D_lt1e3")
+shape = SubResource("BoxShape3D_mextk")
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -78,11 +125,16 @@ shape = SubResource("BoxShape3D_lt1e3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/floor"]
-shape = SubResource("BoxShape3D_a87f0")
+shape = SubResource("BoxShape3D_b6pjt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/floor"]
-mesh = SubResource("BoxMesh_b22rr")
+mesh = SubResource("BoxMesh_hdgc7")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+material_override = SubResource("ShaderMaterial_cfcdn")
+mesh = SubResource("CylinderMesh_02usk")
 
 [node name="Path" type="Node3D" parent="Geometry"]
 
@@ -119,11 +171,24 @@ transform = Transform3D(-0.017405, 0, 0.0179462, 0, 0.025, 0, -0.0179462, 0, -0.
 [node name="Barriere12" parent="Geometry/Path" instance=ExtResource("12_a7abq")]
 transform = Transform3D(0.0140167, 0, 0.020701, 0, 0.025, 0, -0.020701, 0, 0.0140167, 2.9685, 3.33786e-06, -41.4926)
 
+[node name="LevelLoader1" type="Node3D" parent="."]
+transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 1.5256, 0, -9.40647)
+
+[node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("20_qceap")]
+transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, -0.0985675, 0, -14.3132)
+index = 1
+
+[node name="Level 2 loader" parent="." instance=ExtResource("21_wbvo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
+index = 2
+
+[node name="Level 3 loader" parent="." instance=ExtResource("18_1nnm6")]
+transform = Transform3D(0.935203, 0, 0.354111, 0, 1, 0, -0.354111, 0, 0.935203, -9.90051, 0, -45.2612)
+
 [node name="Radio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04061, 3.788, 0.981275)
-stream = SubResource("AudioStreamRandomizer_bg3yo")
+stream = SubResource("AudioStreamRandomizer_bagvf")
 unit_size = 2.0
-pitch_scale = 0.55
 max_distance = 120.0
 
 [node name="Prototype_Book" parent="." instance=ExtResource("22_d85j8")]
@@ -159,28 +224,825 @@ transform = Transform3D(-7.29278, 0, -1.46267, 0, 7.43802, 0, 1.46267, 0, -7.292
 [node name="PotionMesh" parent="." instance=ExtResource("28_lu41x")]
 transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408, -6.51394)
 
+[node name="IvyMesh" parent="." instance=ExtResource("32_32gss")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -5.75217, 2.00313, -5.79186)
+
 [node name="Torch" parent="." instance=ExtResource("30_qycdo")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.2308
+light_energy = 1.08422
+shadow_bias = 1.5
+shadow_normal_bias = 2.0
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("30_qycdo")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.2308
+light_energy = 1.08422
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
 
-[node name="LevelLoader1" type="Node3D" parent="."]
-transform = Transform3D(0.903956, 0, 0.427626, 0, 1, 0, -0.427626, 0, 0.903956, 1.427, 0, -9.406)
+[node name="CenterPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
-[node name="Level1 loader" parent="LevelLoader1" instance=ExtResource("20_qceap")]
-transform = Transform3D(0.998372, 0, 0.0570413, 0, 1, 0, -0.0570413, 0, 0.998372, 0, 0, -14.313)
-index = 1
+[node name="SmallForest" type="Node3D" parent="."]
 
-[node name="Level 2 loader" parent="." instance=ExtResource("21_wbvo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1515, 0.128363, -36.395)
-index = 2
+[node name="Node3D2" type="Node3D" parent="SmallForest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.975189, 0)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+
+[node name="Sapin" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.77984, 0, 0.356712, 0, 1.81523, 0, -0.356712, 0, 1.77984, 73.2619, 0, -132.107)
+
+[node name="_Node3D_179732" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.493878, 0, 1.82342, 0, 1.88912, 0, -1.82342, 0, 0.493878, 105.584, 0, -107.531)
+
+[node name="_Node3D_179733" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.44257, 0, 1.48653, 0, 1.55101, 0, -1.48653, 0, -0.44257, 77.0418, 0, -111.769)
+
+[node name="_Node3D_179734" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.759257, 0, -1.36821, 0, 1.56476, 0, 1.36821, 0, -0.759257, 51.9882, 0, -110.844)
+
+[node name="_Node3D_179735" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.30303, 0, 1.48864, 0, 1.97837, 0, -1.48864, 0, -1.30303, 23.7272, 0, -147.599)
+
+[node name="_Node3D_179736" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.553989, 0, 1.55225, 0, 1.64815, 0, -1.55225, 0, -0.553989, 40.0338, 0, -135.102)
+
+[node name="_Node3D_179738" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.30018, 0, 1.00935, 0, 1.64598, 0, -1.00935, 0, -1.30018, 1.61515, 0, -133.943)
+
+[node name="_Node3D_179740" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.491996, 0, 1.46576, 0, 1.54613, 0, -1.46576, 0, 0.491996, 195.253, 0, -130.605)
+
+[node name="_Node3D_179741" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.11142, 0, -1.56788, 0, 1.92185, 0, 1.56788, 0, 1.11142, 214.081, 0, -105.329)
+
+[node name="_Node3D_179742" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.32072, 0, -0.970655, 0, 1.63905, 0, 0.970655, 0, 1.32072, 194.533, 0, -109.852)
+
+[node name="_Node3D_179743" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.30992, 0, -1.07623, 0, 1.69533, 0, 1.07623, 0, -1.30992, 169.283, 0, -104.441)
+
+[node name="_Node3D_179744" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.92861, 0, -0.468899, 0, 1.98479, 0, 0.468899, 0, 1.92861, 150.14, 0, -199.562)
+
+[node name="_Node3D_179745" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.62418, 0, -0.276829, 0, 1.6476, 0, 0.276829, 0, 1.62418, 169.43, 0, -169.126)
+
+[node name="_Node3D_179746" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.308448, 0, 1.95817, 0, 1.98231, 0, -1.95817, 0, -0.308448, 147.671, 0, -174.064)
+
+[node name="_Node3D_179747" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.720776, 0, -1.64852, 0, 1.7992, 0, 1.64852, 0, -0.720776, 129.602, 0, -172.129)
+
+[node name="_Node3D_179748" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.13993, 0, -1.63626, 0, 1.99419, 0, 1.63626, 0, -1.13993, 197.268, 0, -150.123)
+
+[node name="_Node3D_179749" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.46554, 0, 0.740145, 0, 1.64184, 0, -0.740145, 0, 1.46554, 175.871, 0, -154.353)
+
+[node name="_Node3D_179750" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.203147, 0, -1.62419, 0, 1.63685, 0, 1.62419, 0, 0.203147, 150.915, 0, -148.089)
+
+[node name="_Node3D_179751" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.679863, 0, -1.80484, 0, 1.92864, 0, 1.80484, 0, -0.679863, 126.259, 0, -149.081)
+
+[node name="_Node3D_179752" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.76019, 0, 0.835689, 0, 1.94849, 0, -0.835689, 0, 1.76019, 102.047, 0, -148.454)
+
+[node name="_Node3D_179753" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0420209, 0, 1.75069, 0, 1.7512, 0, -1.75069, 0, 0.0420209, 169.278, 0, -129.489)
+
+[node name="_Node3D_179754" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.21873, 0, 1.57316, 0, 1.99001, 0, -1.57316, 0, 1.21873, 147.166, 0, -128.794)
+
+[node name="_Node3D_179755" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.6725, 0, 0.0781799, 0, 1.67432, 0, -0.0781799, 0, -1.6725, 119.452, 0, -130.732)
+
+[node name="_Node3D_179756" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.982936, 0, 1.73503, 0, 1.99412, 0, -1.73503, 0, -0.982936, 146.814, 0, -100.634)
+
+[node name="_Node3D_179800" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.10471, 0, -1.15779, 0, 1.60027, 0, 1.15779, 0, 1.10471, 57.3961, 0, -235.828)
+
+[node name="_Node3D_179801" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.70088, 0, 0.245054, 0, 1.71844, 0, -0.245054, 0, 1.70088, 85.8422, 0, -213.748)
+
+[node name="_Node3D_179802" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.701294, 0, 1.72551, 0, 1.86258, 0, -1.72551, 0, 0.701294, 64.8522, 0, -206.652)
+
+[node name="_Node3D_179803" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.63591, 0, 0.769556, 0, 1.80787, 0, -0.769556, 0, -1.63591, 39.8411, 0, -216.536)
+
+[node name="_Node3D_179804" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.508077, 0, -1.42736, 0, 1.51509, 0, 1.42736, 0, 0.508077, 111.213, 0, -194.995)
+
+[node name="_Node3D_179805" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.80479, 0, 0.738838, 0, 1.95017, 0, -0.738838, 0, -1.80479, 86.5862, 0, -192.083)
+
+[node name="_Node3D_179806" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0963179, 0, 1.86128, 0, 1.86377, 0, -1.86128, 0, 0.0963179, 69.4194, 0, -195.705)
+
+[node name="_Node3D_179807" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.85819, 0, 1.80407, 0, 1.99779, 0, -1.80407, 0, -0.85819, 36.9013, 0, -193.305)
+
+[node name="_Node3D_179808" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.310334, 0, -1.74816, 0, 1.77549, 0, 1.74816, 0, 0.310334, 12.9109, 0, -188.343)
+
+[node name="_Node3D_179809" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.95949, 0, -0.246096, 0, 1.97488, 0, 0.246096, 0, -1.95949, 82.9558, 0, -158.189)
+
+[node name="_Node3D_179810" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.54539, 0, -0.715853, 0, 1.70314, 0, 0.715853, 0, 1.54539, 62.7887, 0, -163.443)
+
+[node name="_Node3D_179811" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.54409, 0, 0.0502532, 0, 1.54491, 0, -0.0502532, 0, 1.54409, 38.3207, 0, -160.539)
+
+[node name="_Node3D_179812" parent="SmallForest/Node3D2/MultiMeshInstance3D" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.16441, 0, -1.06392, 0, 1.57727, 0, 1.06392, 0, -1.16441, 56.0859, 0, -139.06)
+
+[node name="MultiMeshInstance3D12" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+
+[node name="Sapin" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.59803, 0, -0.842315, 0, 1.80643, 0, 0.842315, 0, -1.59803, 122.932, 0, -81.3384)
+
+[node name="_Node3D_179757" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.58928, 0, 0.41019, 0, 1.64136, 0, -0.41019, 0, -1.58928, 104.443, 0, -80.8613)
+
+[node name="_Node3D_179758" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.55029, 0, -0.170908, 0, 1.55968, 0, 0.170908, 0, -1.55029, 78.9345, 0, -88.5228)
+
+[node name="_Node3D_179759" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.56861, 0, -0.641483, 0, 1.69471, 0, 0.641483, 0, 1.56861, 58.0596, 0, -75.9223)
+
+[node name="_Node3D_179761" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.51411, 0, 0.127394, 0, 1.51945, 0, -0.127394, 0, -1.51411, 93.9604, 0, -60.7918)
+
+[node name="_Node3D_179762" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.24092, 0, -1.23669, 0, 1.75194, 0, 1.23669, 0, 1.24092, 82.1907, 0, -52.6895)
+
+[node name="_Node3D_179764" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.564252, 0, 1.71318, 0, 1.80371, 0, -1.71318, 0, -0.564252, 70.635, 0, -39.708)
+
+[node name="_Node3D_179765" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.73705, 0, -0.249238, 0, 1.75484, 0, 0.249238, 0, -1.73705, 55.0049, 0, -21.1679)
+
+[node name="_Node3D_179766" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.41036, 0, 1.03148, 0, 1.7473, 0, -1.03148, 0, 1.41036, 78.539, 0, -4.3514)
+
+[node name="_Node3D_179767" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.860847, 0, 1.46663, 0, 1.70061, 0, -1.46663, 0, -0.860847, 56.1649, 0, 3.53366)
+
+[node name="_Node3D_179769" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.94764, 0, 0.333353, 0, 1.97596, 0, -0.333353, 0, 1.94764, 104.012, 0, 19.2137)
+
+[node name="_Node3D_179770" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.50213, 0, 0.615771, 0, 1.62344, 0, -0.615771, 0, 1.50213, 85.8952, 0, 19.0629)
+
+[node name="_Node3D_179771" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.73343, 0, 0.338291, 0, 1.76613, 0, -0.338291, 0, 1.73343, 63.2202, 0, 16.6903)
+
+[node name="_Node3D_179772" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.720235, 0, 1.85773, 0, 1.99246, 0, -1.85773, 0, -0.720235, 37.2673, 0, 24.3543)
+
+[node name="_Node3D_179773" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.1359, 0, -1.80132, 0, 1.80644, 0, 1.80132, 0, -0.1359, 15.6943, 0, 26.0906)
+
+[node name="_Node3D_179774" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.2137, 0, -0.901891, 0, 1.51211, 0, 0.901891, 0, -1.2137, 82.1725, 0, 42.5817)
+
+[node name="_Node3D_179775" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.208298, 0, -1.81296, 0, 1.82489, 0, 1.81296, 0, 0.208298, 54.9369, 0, 47.9367)
+
+[node name="_Node3D_179776" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.29692, 0, -1.10274, 0, 1.70236, 0, 1.10274, 0, 1.29692, 34.7163, 0, 43.8473)
+
+[node name="_Node3D_179777" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.57412, 0, -1.50043, 0, 1.60652, 0, 1.50043, 0, 0.57412, 58.1331, 0, 65.0799)
+
+[node name="_Node3D_179778" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.593273, 0, 1.65373, 0, 1.75693, 0, -1.65373, 0, -0.593273, 132.935, 0, -60.1398)
+
+[node name="_Node3D_179779" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.912423, 0, -1.30652, 0, 1.59358, 0, 1.30652, 0, 0.912423, 153.538, 0, -48.7652)
+
+[node name="_Node3D_179780" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.966587, 0, 1.5962, 0, 1.86605, 0, -1.5962, 0, 0.966587, 133.041, 0, -43.6789)
+
+[node name="_Node3D_179781" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.77907, 0, 0.0731244, 0, 1.78057, 0, -0.0731244, 0, 1.77907, 107.257, 0, -38.5908)
+
+[node name="_Node3D_179782" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.67321, 0, 0.399239, 0, 1.72018, 0, -0.399239, 0, 1.67321, 178.9, 0, -13.5632)
+
+[node name="_Node3D_179783" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.4202, 0, 1.12027, 0, 1.80886, 0, -1.12027, 0, 1.4202, 160.802, 0, -21.0648)
+
+[node name="_Node3D_179784" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.10521, 0, -1.36358, 0, 1.75523, 0, 1.36358, 0, -1.10521, 141.555, 0, -25.4723)
+
+[node name="_Node3D_179785" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.967776, 0, 1.167, 0, 1.51608, 0, -1.167, 0, 0.967776, 117.262, 0, -24.9642)
+
+[node name="_Node3D_179786" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.363421, 0, 1.61871, 0, 1.659, 0, -1.61871, 0, -0.363421, 94.7524, 0, -16.0112)
+
+[node name="_Node3D_179787" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.829853, 0, -1.63934, 0, 1.83741, 0, 1.63934, 0, -0.829853, 159.277, 0, 1.61647)
+
+[node name="_Node3D_179788" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0679579, 0, 1.78882, 0, 1.79011, 0, -1.78882, 0, 0.0679579, 140.721, 0, 3.16925)
+
+[node name="_Node3D_179789" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.51179, 0, -0.0839455, 0, 1.51412, 0, 0.0839455, 0, 1.51179, 110.65, 0, 5.21608)
+
+[node name="_Node3D_179790" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.79291, 0, -0.465582, 0, 1.85238, 0, 0.465582, 0, -1.79291, 138.928, 0, 30.4715)
+
+[node name="_Node3D_179791" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.08499, 0, 1.24132, 0, 1.64866, 0, -1.24132, 0, -1.08499, 238.946, 0, -91.9761)
+
+[node name="_Node3D_179792" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.77916, 0, 0.498612, 0, 1.84771, 0, -0.498612, 0, 1.77916, 212.261, 0, -86.5457)
+
+[node name="_Node3D_179793" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.979474, 0, -1.56892, 0, 1.84956, 0, 1.56892, 0, 0.979474, 183.468, 0, -79.8847)
+
+[node name="_Node3D_179794" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.22518, 0, 1.22324, 0, 1.73129, 0, -1.22324, 0, -1.22518, 172.298, 0, -80.5654)
+
+[node name="_Node3D_179795" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.829688, 0, -1.59249, 0, 1.79566, 0, 1.59249, 0, 0.829688, 139.684, 0, -89.9981)
+
+[node name="_Node3D_179796" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.4613, 0, 0.434833, 0, 1.52463, 0, -0.434833, 0, -1.4613, 218.778, 0, -57.2543)
+
+[node name="_Node3D_179797" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.23837, 0, 0.969761, 0, 1.5729, 0, -0.969761, 0, 1.23837, 192.401, 0, -54.5539)
+
+[node name="_Node3D_179798" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.325197, 0, -1.78279, 0, 1.8122, 0, 1.78279, 0, -0.325197, 159.213, 0, -67.5406)
+
+[node name="_Node3D_179799" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.50685, 0, 0.259446, 0, 1.52902, 0, -0.259446, 0, 1.50685, 193.585, 0, -38.1983)
+
+[node name="_Node3D_179851" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.716081, 0, 1.72844, 0, 1.87091, 0, -1.72844, 0, 0.716081, 16.2987, 0, 60.3933)
+
+[node name="_Node3D_179935" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.48301, 0, 0.90882, 0, 1.73934, 0, -0.90882, 0, -1.48301, 36.506, 0, 73.0912)
+
+[node name="_Node3D_179936" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.249159, 0, -1.68288, 0, 1.70122, 0, 1.68288, 0, -0.249159, 52.9983, 0, 100.967)
+
+[node name="_Node3D_179937" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.84452, 0, 0.0641713, 0, 1.84564, 0, -0.0641713, 0, 1.84452, 35.4355, 0, 104.763)
+
+[node name="_Node3D_179938" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.63352, 0, 1.00006, 0, 1.91533, 0, -1.00006, 0, 1.63352, 12.194, 0, 103.712)
+
+[node name="_Node3D_179939" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.16309, 0, 1.40754, 0, 1.82592, 0, -1.40754, 0, 1.16309, 82.3974, 0, 126.608)
+
+[node name="_Node3D_179940" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.20994, 0, 1.53762, 0, 1.95659, 0, -1.53762, 0, 1.20994, 56.9489, 0, 128.221)
+
+[node name="_Node3D_179941" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.63477, 0, 0.433353, 0, 1.69123, 0, -0.433353, 0, -1.63477, 38.9921, 0, 127.795)
+
+[node name="_Node3D_179942" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.40736, 0, 1.26775, 0, 1.89416, 0, -1.26775, 0, -1.40736, 16.6279, 0, 120.143)
+
+[node name="_Node3D_179943" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.699792, 0, -1.43265, 0, 1.59443, 0, 1.43265, 0, -0.699792, 63.1689, 0, 147.804)
+
+[node name="_Node3D_179944" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.12888, 0, 1.05636, 0, 1.54604, 0, -1.05636, 0, -1.12888, 33.0848, 0, 147.867)
+
+[node name="_Node3D_179945" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.05935, 0, -1.31357, 0, 1.68751, 0, 1.31357, 0, 1.05935, 14.556, 0, 145.372)
+
+[node name="_Node3D_179946" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0960814, 0, 1.54836, 0, 1.55133, 0, -1.54836, 0, 0.0960814, 123.224, 0, 40.22)
+
+[node name="_Node3D_179947" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.876006, 0, -1.57529, 0, 1.80247, 0, 1.57529, 0, -0.876006, 144.903, 0, 59.7711)
+
+[node name="_Node3D_179948" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.01559, 0, 1.62345, 0, 1.91494, 0, -1.62345, 0, -1.01559, 113.771, 0, 59.0479)
+
+[node name="_Node3D_179949" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.937901, 0, -1.47242, 0, 1.74576, 0, 1.47242, 0, -0.937901, 96.1713, 0, 60.6511)
+
+[node name="_Node3D_179950" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.84977, 0, -0.580861, 0, 1.93882, 0, 0.580861, 0, 1.84977, 158.93, 0, 86.2629)
+
+[node name="_Node3D_179951" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.49645, 0, 0.824978, 0, 1.70879, 0, -0.824978, 0, 1.49645, 143.572, 0, 96.0262)
+
+[node name="_Node3D_179952" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.626309, 0, 1.39863, 0, 1.53246, 0, -1.39863, 0, 0.626309, 117.828, 0, 94.037)
+
+[node name="_Node3D_179953" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.82551, 0, -0.284664, 0, 1.84757, 0, 0.284664, 0, -1.82551, 95.2686, 0, 89.8985)
+
+[node name="_Node3D_179954" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.48585, 0, -1.19289, 0, 1.90545, 0, 1.19289, 0, 1.48585, 74.3835, 0, 85.5873)
+
+[node name="_Node3D_179955" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.112355, 0, 1.64329, 0, 1.64713, 0, -1.64329, 0, 0.112355, 143.477, 0, 117.93)
+
+[node name="_Node3D_179956" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.716897, 0, 1.49059, 0, 1.65402, 0, -1.49059, 0, 0.716897, 117.42, 0, 110.142)
+
+[node name="_Node3D_179957" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.568514, 0, -1.41196, 0, 1.52212, 0, 1.41196, 0, 0.568514, 98.1163, 0, 115.069)
+
+[node name="_Node3D_179958" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.4932, 0, -1.13608, 0, 1.87626, 0, 1.13608, 0, 1.4932, 123.439, 0, 135.132)
+
+[node name="_Node3D_179985" parent="SmallForest/Node3D2/MultiMeshInstance3D12" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.52146, 0, 1.0245, 0, 1.83424, 0, -1.0245, 0, 1.52146, 49.8711, 0, -57.0483)
+
+[node name="MultiMeshInstance3D22" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+
+[node name="Sapin" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.52512, 0, -0.584335, 0, 1.63323, 0, 0.584335, 0, -1.52512, -7.02692, 0, -172.762)
+
+[node name="_Node3D_179852" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.77911, 0, 0.0598898, 0, 1.78012, 0, -0.0598898, 0, 1.77911, -3.18612, 0, -147.652)
+
+[node name="_Node3D_179853" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.517612, 0, 1.89866, 0, 1.96795, 0, -1.89866, 0, -0.517612, -33.9015, 0, -152.801)
+
+[node name="_Node3D_179854" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.928613, 0, -1.58039, 0, 1.83302, 0, 1.58039, 0, 0.928613, -26.1907, 0, -129.676)
+
+[node name="_Node3D_179855" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.52249, 0, 0.222415, 0, 1.53865, 0, -0.222415, 0, -1.52249, -51.2844, 0, -127.826)
+
+[node name="_Node3D_179858" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.787784, 0, 1.62567, 0, 1.80649, 0, -1.62567, 0, 0.787784, -70.8801, 0, -131.74)
+
+[node name="_Node3D_179859" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.85294, 0, -1.80244, 0, 1.99406, 0, 1.80244, 0, -0.85294, -91.8431, 0, -142.113)
+
+[node name="_Node3D_179860" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.727968, 0, 1.75346, 0, 1.89857, 0, -1.75346, 0, 0.727968, -114.787, 0, -142.873)
+
+[node name="_Node3D_179861" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.401503, 0, 1.52276, 0, 1.5748, 0, -1.52276, 0, -0.401503, -44.0217, 0, -114.624)
+
+[node name="_Node3D_179862" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.36425, 0, -1.15805, 0, 1.78948, 0, 1.15805, 0, -1.36425, -73.8129, 0, -110.013)
+
+[node name="_Node3D_179863" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.79195, 0, 0.570654, 0, 1.88062, 0, -0.570654, 0, 1.79195, -97.5806, 0, -110.834)
+
+[node name="_Node3D_179864" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.288862, 0, 1.89423, 0, 1.91613, 0, -1.89423, 0, 0.288862, -113.741, 0, -116.383)
+
+[node name="_Node3D_179865" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.794169, 0, 1.56368, 0, 1.7538, 0, -1.56368, 0, -0.794169, -142.83, 0, -109.738)
+
+[node name="_Node3D_179866" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.77175, 0, 0.394052, 0, 1.81504, 0, -0.394052, 0, -1.77175, -77.7632, 0, -236.403)
+
+[node name="_Node3D_179867" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.49476, 0, -1.08933, 0, 1.84959, 0, 1.08933, 0, -1.49476, -43.2865, 0, -216.561)
+
+[node name="_Node3D_179868" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.24742, 0, -1.44252, 0, 1.90707, 0, 1.44252, 0, -1.24742, -69.1429, 0, -206.264)
+
+[node name="_Node3D_179870" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.991396, 0, -1.70985, 0, 1.97647, 0, 1.70985, 0, 0.991396, -32.3247, 0, -183.038)
+
+[node name="_Node3D_179871" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.821096, 0, 1.43012, 0, 1.64907, 0, -1.43012, 0, 0.821096, -44.2383, 0, -189.668)
+
+[node name="_Node3D_179872" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.348716, 0, -1.96699, 0, 1.99766, 0, 1.96699, 0, -0.348716, -69.0816, 0, -187.552)
+
+[node name="_Node3D_179873" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.31885, 0, 1.53173, 0, 1.56456, 0, -1.53173, 0, -0.31885, -103.322, 0, -196.06)
+
+[node name="_Node3D_179874" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.896964, 0, 1.39228, 0, 1.6562, 0, -1.39228, 0, -0.896964, -116.641, 0, -190.815)
+
+[node name="_Node3D_179875" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.14482, 0, 1.0443, 0, 1.54957, 0, -1.0443, 0, -1.14482, -52.9727, 0, -168.776)
+
+[node name="_Node3D_179876" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.141233, 0, 1.84133, 0, 1.84674, 0, -1.84133, 0, 0.141233, -67.8142, 0, -161.024)
+
+[node name="_Node3D_179877" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.38986, 0, -1.18974, 0, 1.82954, 0, 1.18974, 0, 1.38986, -92.6985, 0, -170.94)
+
+[node name="_Node3D_179878" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.25153, 0, -0.931142, 0, 1.55992, 0, 0.931142, 0, -1.25153, -67.6273, 0, -140.82)
+
+[node name="_Node3D_179879" parent="SmallForest/Node3D2/MultiMeshInstance3D22" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.129763, 0, -1.83409, 0, 1.83867, 0, 1.83409, 0, 0.129763, -182.829, 0, -110.882)
+
+[node name="MultiMeshInstance3D23" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+
+[node name="_Node3D_179880" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.57605, 0, -1.12982, 0, 1.93918, 0, 1.12982, 0, -1.57605, -62.8944, 0, -82.145)
+
+[node name="_Node3D_179881" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.79504, 0, -0.878872, 0, 1.99864, 0, 0.878872, 0, 1.79504, -98.3513, 0, -94.4936)
+
+[node name="_Node3D_179882" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.31672, 0, 1.49605, 0, 1.99297, 0, -1.49605, 0, -1.31672, -112.314, 0, -84.7899)
+
+[node name="_Node3D_179883" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.104613, 0, 1.70406, 0, 1.70727, 0, -1.70406, 0, -0.104613, -99.9958, 0, -66.0483)
+
+[node name="_Node3D_179884" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.29217, 0, -1.1333, 0, 1.71874, 0, 1.1333, 0, 1.29217, -78.0868, 0, -60.2747)
+
+[node name="_Node3D_179885" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.52162, 0, 0.325837, 0, 1.55612, 0, -0.325837, 0, 1.52162, -56.4881, 0, -38.1773)
+
+[node name="_Node3D_179886" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.1502, 0, -1.77514, 0, 1.78149, 0, 1.77514, 0, -0.1502, -75.2787, 0, -41.2731)
+
+[node name="_Node3D_179887" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.82469, 0, -0.436117, 0, 1.87608, 0, 0.436117, 0, 1.82469, -106.665, 0, -46.7006)
+
+[node name="_Node3D_179889" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.85519, 0, 0.0297632, 0, 1.85543, 0, -0.0297632, 0, 1.85519, -61.1678, 0, -24.0119)
+
+[node name="_Node3D_179890" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.63849, 0, 0.825352, 0, 1.83463, 0, -0.825352, 0, -1.63849, -82.1872, 0, -26.2676)
+
+[node name="_Node3D_179891" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.923565, 0, 1.34175, 0, 1.62889, 0, -1.34175, 0, 0.923565, -105.49, 0, -16.8591)
+
+[node name="_Node3D_179892" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.53188, 0, 0.0538589, 0, 1.53283, 0, -0.0538589, 0, -1.53188, -130.976, 0, -18.0536)
+
+[node name="_Node3D_179893" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.689846, 0, -1.71537, 0, 1.84889, 0, 1.71537, 0, 0.689846, -53.9147, 0, -2.43236)
+
+[node name="_Node3D_179894" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.50178, 0, 1.12085, 0, 1.87394, 0, -1.12085, 0, -1.50178, -85.8842, 0, 10.2523)
+
+[node name="_Node3D_179895" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.51532, 0, 1.20849, 0, 1.93821, 0, -1.20849, 0, 1.51532, -108.543, 0, 3.34406)
+
+[node name="_Node3D_179896" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.46011, 0, 0.608789, 0, 1.58194, 0, -0.608789, 0, -1.46011, -86.8614, 0, 21.4635)
+
+[node name="_Node3D_179897" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.16048, 0, 1.38775, 0, 1.80902, 0, -1.38775, 0, -1.16048, -167.298, 0, -84.0156)
+
+[node name="_Node3D_179898" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.29296, 0, -0.868921, 0, 1.55781, 0, 0.868921, 0, -1.29296, -187.138, 0, -91.3313)
+
+[node name="_Node3D_179899" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.911085, 0, 1.52438, 0, 1.7759, 0, -1.52438, 0, -0.911085, -206.946, 0, -84.3508)
+
+[node name="_Node3D_179900" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.79297, 0, -0.346152, 0, 1.82607, 0, 0.346152, 0, -1.79297, -137.207, 0, -61.7681)
+
+[node name="_Node3D_179901" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.60436, 0, -0.262009, 0, 1.62562, 0, 0.262009, 0, 1.60436, -160.291, 0, -58.0977)
+
+[node name="_Node3D_179902" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.33713, 0, 1.10751, 0, 1.73623, 0, -1.10751, 0, -1.33713, -184.352, 0, -65.2581)
+
+[node name="_Node3D_179903" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.60782, 0, 0.622168, 0, 1.724, 0, -0.622168, 0, 1.60782, -206.862, 0, -55.2125)
+
+[node name="_Node3D_179904" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.60144, 0, -0.280123, 0, 1.62575, 0, 0.280123, 0, -1.60144, -230.8, 0, -54.7041)
+
+[node name="_Node3D_179905" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.982651, 0, 1.6403, 0, 1.91211, 0, -1.6403, 0, 0.982651, -165.68, 0, -36.086)
+
+[node name="_Node3D_179906" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.570304, 0, 1.89014, 0, 1.9743, 0, -1.89014, 0, -0.570304, -182.987, 0, -33.6053)
+
+[node name="_Node3D_179907" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.377498, 0, -1.79938, 0, 1.83855, 0, 1.79938, 0, 0.377498, -204.551, 0, -31.9451)
+
+[node name="_Node3D_179908" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.765774, 0, 1.66541, 0, 1.83303, 0, -1.66541, 0, -0.765774, -188.791, 0, -19.6279)
+
+[node name="_Node3D_179910" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.6753, 0, 0.366726, 0, 1.71497, 0, -0.366726, 0, -1.6753, -10.2073, 0, 30.071)
+
+[node name="_Node3D_179911" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.23092, 0, -1.09079, 0, 1.64468, 0, 1.09079, 0, 1.23092, -32.3577, 0, 35.7453)
+
+[node name="_Node3D_179912" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.80412, 0, -0.34629, 0, 1.83705, 0, 0.34629, 0, -1.80412, -51.5372, 0, 28.1655)
+
+[node name="_Node3D_179913" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.29225, 0, 0.984155, 0, 1.62434, 0, -0.984155, 0, 1.29225, -4.21408, 0, 61.7855)
+
+[node name="_Node3D_179914" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.825448, 0, -1.81974, 0, 1.9982, 0, 1.81974, 0, -0.825448, -38.1402, 0, 56.371)
+
+[node name="_Node3D_179915" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.07142, 0, -1.22789, 0, 1.62962, 0, 1.22789, 0, -1.07142, -56.2798, 0, 65.1866)
+
+[node name="_Node3D_179916" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.53138, 0, 0.557894, 0, 1.62983, 0, -0.557894, 0, 1.53138, -82.5959, 0, 58.3624)
+
+[node name="_Node3D_179917" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.21834, 0, 0.992859, 0, 1.57166, 0, -0.992859, 0, -1.21834, -7.43435, 0, 80.8996)
+
+[node name="_Node3D_179918" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.30842, 0, -1.46585, 0, 1.96486, 0, 1.46585, 0, 1.30842, -27.0113, 0, 78.3234)
+
+[node name="_Node3D_179919" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.0309, 0, 1.44276, 0, 1.77322, 0, -1.44276, 0, -1.0309, -53.4344, 0, 82.7993)
+
+[node name="_Node3D_179920" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.17589, 0, -1.16099, 0, 1.65246, 0, 1.16099, 0, 1.17589, -37.1402, 0, 108.583)
+
+[node name="_Node3D_179921" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.67342, 0, 0.627228, 0, 1.7871, 0, -0.627228, 0, -1.67342, -155.649, 0, -5.38958)
+
+[node name="_Node3D_179922" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.70518, 0, -1.87044, 0, 1.99896, 0, 1.87044, 0, -0.70518, -131.002, 0, 18.3096)
+
+[node name="_Node3D_179923" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.10784, 0, -1.31325, 0, 1.71811, 0, 1.31325, 0, 1.10784, -160.151, 0, 18.3784)
+
+[node name="_Node3D_179924" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.75006, 0, -0.218074, 0, 1.76359, 0, 0.218074, 0, 1.75006, -187.453, 0, 17.5183)
+
+[node name="_Node3D_179925" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.01791, 0, -1.4726, 0, 1.79017, 0, 1.4726, 0, 1.01791, -107.959, 0, 45.9645)
+
+[node name="_Node3D_179926" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.46402, 0, 0.854588, 0, 1.69519, 0, -0.854588, 0, -1.46402, -133.109, 0, 49.4801)
+
+[node name="_Node3D_179927" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.89217, 0, 0.159207, 0, 1.89886, 0, -0.159207, 0, -1.89217, -163.947, 0, 37.7084)
+
+[node name="_Node3D_179928" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.85995, 0, 0.733462, 0, 1.99935, 0, -0.733462, 0, 1.85995, -183.51, 0, 40.6902)
+
+[node name="_Node3D_179929" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.453539, 0, -1.72475, 0, 1.78338, 0, 1.72475, 0, 0.453539, -206.573, 0, 50.9102)
+
+[node name="_Node3D_179930" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.8708, 0, 0.146348, 0, 1.87651, 0, -0.146348, 0, 1.8708, -139.921, 0, 71.1321)
+
+[node name="_Node3D_179931" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.5789, 0, 1.112, 0, 1.93118, 0, -1.112, 0, 1.5789, -153.275, 0, 67.372)
+
+[node name="_Node3D_179932" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.74559, 0, 0.860217, 0, 1.94603, 0, -0.860217, 0, -1.74559, -180.671, 0, 66.5503)
+
+[node name="_Node3D_179933" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.46905, 0, 1.09047, 0, 1.82954, 0, -1.09047, 0, 1.46905, -152.244, 0, 93.8032)
+
+[node name="_Node3D_179934" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.886973, 0, 1.40626, 0, 1.66261, 0, -1.40626, 0, 0.886973, -8.217, 0, 118.658)
+
+[node name="_Node3D_179959" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.942463, 0, 1.65373, 0, 1.90343, 0, -1.65373, 0, 0.942463, -95.2973, 0, 88.6719)
+
+[node name="_Node3D_179960" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.3297, 0, 0.743051, 0, 1.52323, 0, -0.743051, 0, -1.3297, -72.4557, 0, 120.183)
+
+[node name="_Node3D_179961" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.59198, 0, 0.347229, 0, 1.62941, 0, -0.347229, 0, 1.59198, -97.8798, 0, 107.977)
+
+[node name="_Node3D_179962" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.0141727, 0, -1.79438, 0, 1.79443, 0, 1.79438, 0, -0.0141727, -124.721, 0, 110.746)
+
+[node name="_Node3D_179963" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.50074, 0, 0.677692, 0, 1.64666, 0, -0.677692, 0, 1.50074, -52.9334, 0, 131.859)
+
+[node name="_Node3D_179964" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.426711, 0, -1.7504, 0, 1.80166, 0, 1.7504, 0, -0.426711, -78.2011, 0, 143.99)
+
+[node name="_Node3D_179965" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.69648, 0, -0.429247, 0, 1.74994, 0, 0.429247, 0, -1.69648, -90.3239, 0, 145.105)
+
+[node name="_Node3D_179966" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.3978, 0, 0.686986, 0, 1.5575, 0, -0.686986, 0, 1.3978, -118.213, 0, 141.643)
+
+[node name="_Node3D_179967" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.73318, 0, -0.841397, 0, 1.92662, 0, 0.841397, 0, -1.73318, -146.04, 0, 134.609)
+
+[node name="_Node3D_179968" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.241832, 0, -1.6985, 0, 1.71563, 0, 1.6985, 0, 0.241832, -75.9679, 0, 160.073)
+
+[node name="_Node3D_179969" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.06967, 0, -1.56688, 0, 1.89718, 0, 1.56688, 0, -1.06967, -123.085, 0, 160.504)
+
+[node name="_Node3D_179972" parent="SmallForest/Node3D2/MultiMeshInstance3D23" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.573502, 0, 1.52781, 0, 1.6319, 0, -1.52781, 0, -0.573502, -18.3439, 0, 160.38)
+
+[node name="MultiMeshInstance3D27" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.11672, 0)
+
+[node name="Sapin" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.60247, 0, 0.151967, 0, 1.60966, 0, -0.151967, 0, 1.60247, 32.5682, 0, 167.706)
+
+[node name="_Node3D_179970" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.45712, 0, -0.519842, 0, 1.54708, 0, 0.519842, 0, -1.45712, -99.5085, 0, 167.66)
+
+[node name="_Node3D_179971" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.23747, 0, -1.42435, 0, 1.88683, 0, 1.42435, 0, 1.23747, -95.7291, 0, 188.56)
+
+[node name="_Node3D_179973" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.60612, 0, 1.16981, 0, 1.98698, 0, -1.16981, 0, 1.60612, 3.17702, 0, 176.569)
+
+[node name="_Node3D_179974" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.41138, 0, 1.60255, 0, 1.65451, 0, -1.60255, 0, -0.41138, -22.2893, 0, 176.511)
+
+[node name="_Node3D_179975" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.52056, 0, 1.15516, 0, 1.90958, 0, -1.15516, 0, -1.52056, -44.6579, 0, 184.074)
+
+[node name="_Node3D_179976" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.47218, 0, -0.534661, 0, 1.56626, 0, 0.534661, 0, -1.47218, 22.3283, 0, 202.061)
+
+[node name="_Node3D_179977" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.80958, 0, -0.389331, 0, 1.85099, 0, 0.389331, 0, 1.80958, 0.0180683, 0, 198.399)
+
+[node name="_Node3D_179978" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.231925, 0, 1.94317, 0, 1.95696, 0, -1.94317, 0, -0.231925, -17.2523, 0, 195.115)
+
+[node name="_Node3D_179979" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.53784, 0, 0.718496, 0, 1.69741, 0, -0.718496, 0, -1.53784, -40.2704, 0, 199.711)
+
+[node name="_Node3D_179980" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.942765, 0, -1.2192, 0, 1.54119, 0, 1.2192, 0, -0.942765, -72.2441, 0, 199.162)
+
+[node name="_Node3D_179981" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0333103, 0, -1.98031, 0, 1.98059, 0, 1.98031, 0, 0.0333103, -3.09326, 0, 220.974)
+
+[node name="_Node3D_179982" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.26608, 0, 1.4572, 0, 1.93038, 0, -1.4572, 0, -1.26608, -24.962, 0, 225.689)
+
+[node name="_Node3D_179983" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.444186, 0, 1.57815, 0, 1.63947, 0, -1.57815, 0, -0.444186, -51.5901, 0, 221.229)
+
+[node name="_Node3D_179984" parent="SmallForest/Node3D2/MultiMeshInstance3D27" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.569118, 0, 1.40139, 0, 1.51254, 0, -1.40139, 0, 0.569118, -20.3811, 0, 247.865)
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="SmallForest/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.141536, 0)
+
+[node name="Sapin" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.103895, 0, -1.52208, 0, 1.52562, 0, 1.52208, 0, -0.103895, 15.7027, 0, -114.513)
+
+[node name="_Node3D_189285" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.824103, 0, -1.27987, 0, 1.52224, 0, 1.27987, 0, -0.824103, 38.7644, 0, -86.7071)
+
+[node name="_Node3D_189286" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.78428, 0, 0.555591, 0, 1.86878, 0, -0.555591, 0, 1.78428, 11.1263, 0, -90.7673)
+
+[node name="_Node3D_189289" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.3978, 0, 0.545396, 0, 1.50043, 0, -0.545396, 0, -1.3978, -31.2409, 0, -115.088)
+
+[node name="_Node3D_189290" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.857473, 0, -1.36658, 0, 1.61332, 0, 1.36658, 0, -0.857473, -31.9875, 0, -88.167)
+
+[node name="_Node3D_189291" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.47326, 0, -0.705671, 0, 1.63355, 0, 0.705671, 0, -1.47326, -55.2909, 0, -92.6198)
+
+[node name="_Node3D_189292" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.0264736, 0, -1.7579, 0, 1.7581, 0, 1.7579, 0, 0.0264736, -30.0998, 0, -62.3105)
+
+[node name="_Node3D_189295" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(0.880114, 0, -1.47825, 0, 1.72041, 0, 1.47825, 0, 0.880114, 43.8316, 0, -118.208)
+
+[node name="_Node3D_189296" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-0.0618572, 0, -1.72225, 0, 1.72336, 0, 1.72225, 0, -0.0618572, 65.8945, 0, -99.4326)
+
+[node name="_Node3D_189298" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.4636, 0, 0.79791, 0, 1.66697, 0, -0.79791, 0, -1.4636, 36.0808, 0, -97.3508)
+
+[node name="_Node3D_189299" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.36838, 0, -0.836947, 0, 1.60404, 0, 0.836947, 0, -1.36838, -16.0182, 0, -101.422)
+
+[node name="_Node3D_189307" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.69408, 0, -1.03146, 0, 1.98338, 0, 1.03146, 0, 1.69408, -3.36001, 0, -115.499)
+
+[node name="_Node3D_189310" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.83476, 0, 0.450454, 0, 1.88925, 0, -0.450454, 0, 1.83476, -60.5614, 0, -57.4715)
+
+[node name="_Node3D_189311" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(1.69034, 0, -0.220472, 0, 1.70466, 0, 0.220472, 0, 1.69034, -46.8498, 0, -69.8347)
+
+[node name="_Node3D_189312" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("35_qn8gg")]
+transform = Transform3D(-1.58919, 0, -0.499434, 0, 1.66582, 0, 0.499434, 0, -1.58919, -41.1039, 0, -45.1149)
+
+[node name="Level 4 loader" parent="." instance=ExtResource("37_cbcju")]
+transform = Transform3D(0.834665, 0, -0.550758, 0, 1, 0, 0.550758, 0, 0.834665, 11.054, 0, -58.9963)
+
+[node name="FrameFly" parent="Level 4 loader" index="5"]
+offset = false
+
+[node name="FrameFly2" parent="Level 4 loader" index="6"]
+offset = false
+inverseY = true
+
+[node name="FrameFly3" parent="Level 4 loader" index="7"]
+offset = false
+
+[node name="FrameFly4" parent="Level 4 loader" index="8"]
+offset = false
+inverseY = true
+
+[node name="FrameFly6" parent="Level 4 loader" index="9"]
+offset = false
+
+[node name="HandTorch" parent="Level 4 loader/FrameFly6" index="0"]
+light_energy = 1.16844
+
+[node name="FrameFly7" parent="Level 4 loader" index="10"]
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="Level 4 loader/FrameFly7" index="0"]
+light_energy = 1.16844
+
+[node name="FrameFly8" parent="Level 4 loader" index="11"]
+offset = false
+
+[node name="HandTorch" parent="Level 4 loader/FrameFly8" index="0"]
+light_energy = 1.16844
+
+[node name="FrameFly9" parent="Level 4 loader" index="12"]
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="Level 4 loader/FrameFly9" index="0"]
+light_energy = 1.16844
+
+[node name="SquareFrame" parent="." instance=ExtResource("38_il0ka")]
+transform = Transform3D(-0.369941, 0.208992, 0.905244, 3.57737e-09, 0.97437, -0.224951, -0.929055, -0.0832187, -0.36046, -8.08688, 4.81028, 3.46165)
+content = ExtResource("39_6ox0h")
+
+[node name="SquareFrame2" parent="." instance=ExtResource("38_il0ka")]
+transform = Transform3D(-0.161638, 0.321287, 0.933085, -6.03335e-09, 0.945519, -0.325568, -0.98685, -0.0526243, -0.152832, -8.71795, 5.14251, 0.889414)
+content = ExtResource("40_flg06")
+
+[node name="SquareFrame3" parent="." instance=ExtResource("38_il0ka")]
+transform = Transform3D(0.315434, 0.308947, 0.897247, -6.26644e-09, 0.945519, -0.325568, -0.948948, 0.102695, 0.298248, -8.77447, 4.40661, -1.87407)
+content = ExtResource("41_tqrn4")
+
+[node name="AnimatedTorch" type="Node3D" parent="."]
+
+[node name="FrameFly8" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 3.5332, 4.25268, 1.99118)
+script = ExtResource("42_nbu8l")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly8" instance=ExtResource("43_1xeai")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.16844
+
+[node name="FrameFly10" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 4.92847, 4.10679)
+script = ExtResource("42_nbu8l")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly10" instance=ExtResource("43_1xeai")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.16844
+
+[node name="FrameFly11" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 5.64694, 0.151917)
+script = ExtResource("42_nbu8l")
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly11" instance=ExtResource("43_1xeai")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.16844
+
+[node name="FrameFly12" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, -2.90407, 5.12625, -1.22223)
+script = ExtResource("42_nbu8l")
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly12" instance=ExtResource("43_1xeai")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.16844
+
+[node name="FrameFly9" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 2.97008, 5.01039, -2.04781)
+script = ExtResource("42_nbu8l")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly9" instance=ExtResource("43_1xeai")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.16844
+
+[editable path="Level 4 loader"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="2_xxl4q"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="3_52m6g"]
 [ext_resource type="PackedScene" uid="uid://bjwo3gmvrmvv0" path="res://Scenes/LightEntity/lantern.tscn" id="4_gxnja"]
-[ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="5_vfyaq"]
+[ext_resource type="PackedScene" uid="uid://bxhhfqntwfa28" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="5_vfyaq"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="6_d7uay"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="7_ckhid"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="8_ugs7h"]
@@ -111,7 +111,7 @@ transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -2.42329, -0.2561
 
 [node name="Lantern" parent="Node" instance=ExtResource("4_gxnja")]
 transform = Transform3D(0.988391, -0.151934, 0, 0.151934, 0.988391, 0, 0, 0, 1, -2.4205, 0.655592, -1.17594)
-light_energy = 5.72134
+light_energy = 5.62488
 
 [node name="Tabouret" parent="Node" instance=ExtResource("5_vfyaq")]
 transform = Transform3D(0.904582, 0, -0.4263, 0, 1, 0, 0.4263, 0, 0.904582, -2.84545, -0.256159, 1.06698)

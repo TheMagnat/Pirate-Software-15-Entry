@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bbyatiyy23ddj"]
+[gd_scene load_steps=41 format=3 uid="uid://bbyatiyy23ddj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1/1.gd" id="1_x4ps2"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="2_4ixrp"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/LightEntity/LightFadeOutLogic.gd" id="4_4hdq1"]
 [ext_resource type="PackedScene" uid="uid://c2vg0g4hrcycx" path="res://Scenes/Environement/dark_moon_light.tscn" id="7_d25no"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="8_odmv7"]
-[ext_resource type="Material" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="9_3ax0r"]
+[ext_resource type="Material" uid="uid://cuubtkfugp6vf" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="9_3ax0r"]
 [ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="10_g5hn2"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_figmp"]
 [ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="11_gtrbm"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="18_awbfg"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="20_lm2ik"]
 [ext_resource type="PackedScene" uid="uid://dgo7ijhjhtwv" path="res://Scenes/Levels/Checkpoints/Checkpoint.tscn" id="21_8y0vt"]
-[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/golden_fist.tscn" id="21_xyrgw"]
+[ext_resource type="PackedScene" uid="uid://cmc0iktb8nmju" path="res://Scenes/Mesh/Misc/golden_fist.tscn" id="21_xyrgw"]
 [ext_resource type="PackedScene" uid="uid://ov1yj0jq03fq" path="res://Scenes/Mesh/Misc/Topaz.tscn" id="22_ra68n"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="23_bje3f"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="24_s0adm"]
@@ -43,6 +43,11 @@ agent_radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_sil8d"]
 size = Vector3(500, 20, 250)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxMesh" id="BoxMesh_maokx"]
+size = Vector3(250, 20, 250)
 subdivide_width = 10
 subdivide_depth = 10
 
@@ -85,7 +90,7 @@ checkpoints = NodePath("Checkpoints")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_awxpd")]
 
 [node name="Player" parent="." instance=ExtResource("2_dfcjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3673, 6.55651e-06, 11.0553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1141, 6.55651e-06, 10.2747)
 
 [node name="LevelMobs" type="Node3D" parent="."]
 
@@ -1494,9 +1499,14 @@ material_override = ExtResource("9_3ax0r")
 mesh = SubResource("BoxMesh_sil8d")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/Sol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, -200)
 material_override = ExtResource("9_3ax0r")
-mesh = SubResource("BoxMesh_sil8d")
+mesh = SubResource("BoxMesh_maokx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry/Sol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -200)
+material_override = ExtResource("9_3ax0r")
+mesh = SubResource("BoxMesh_maokx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Sol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.9803, 0)
@@ -1836,23 +1846,23 @@ transform = Transform3D(-0.866025, -0.342274, 0.364485, -0.154069, 0.876173, 0.4
 
 [node name="Torch" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.63663, 0, 0.771169, 0, 1, 0, -0.771169, 0, 0.63663, -3.84612, 2.32655, -10.5663)
-light_energy = 1.95372
+light_energy = 2.65337
 
 [node name="Torch2" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.998156, 0, -0.0607003, 0, 1, 0, 0.0607003, 0, 0.998156, 1.40243, 2.42956, -8.40731)
-light_energy = 1.95372
+light_energy = 2.65337
 
 [node name="Torch3" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.999855, 0, -0.0170336, 0, 1, 0, 0.0170336, 0, 0.999855, 12.5439, 2.96028, -42.8653)
-light_energy = 1.95372
+light_energy = 2.65337
 
 [node name="Torch4" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(-0.175346, 0.0488323, -0.983295, 0.0085728, 0.998807, 0.0480739, 0.98447, -2.36504e-08, -0.175555, 26.6985, 2.1743, -126.941)
-light_energy = 1.95372
+light_energy = 2.65337
 
 [node name="Torch5" parent="." instance=ExtResource("18_awbfg")]
 transform = Transform3D(0.0619454, -0.0649155, 0.995966, 0.00402971, 0.997891, 0.0647903, -0.998071, -5.59873e-09, 0.0620764, 12.507, 2.56864, -129.682)
-light_energy = 1.95372
+light_energy = 2.65337
 
 [node name="Checkpoints" parent="." instance=ExtResource("20_lm2ik")]
 
@@ -1863,15 +1873,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.151, 0.0344408, -33.798)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985833, 0, -1.50481)
-shape = SubResource("SphereShape3D_x6pla")
-
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("21_8y0vt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2242, 0.0344408, -118.63)
-
-[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65662, 0, -6.18286)
 shape = SubResource("SphereShape3D_x6pla")
 
 [node name="Topaz" parent="." instance=ExtResource("22_ra68n")]

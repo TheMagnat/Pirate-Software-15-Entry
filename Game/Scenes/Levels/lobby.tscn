@@ -1,9 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=54 format=3 uid="uid://dv2gvj21gwufs"]
 
-[ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_verifier.gd" id="2_1b8cm"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_60oyf"]
+[ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="2_iearw"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_tb3w6"]
@@ -40,8 +40,11 @@
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="35_l42ve"]
 [ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="38_8j51y"]
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="40_m0dpk"]
+[ext_resource type="Texture2D" uid="uid://dnbl6v0fkrdh0" path="res://Assets/Models/Cadres/Castle/BBSelenien.jpg" id="41_aawep"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4/frame_fly.gd" id="41_c0tdt"]
+[ext_resource type="Texture2D" uid="uid://cfej85g34ae6i" path="res://Assets/Models/Cadres/Castle/image.png" id="42_if1j2"]
 [ext_resource type="PackedScene" uid="uid://cufqj1pkxlprd" path="res://Scenes/LightEntity/HandTorch.tscn" id="42_si5i7"]
+[ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="43_dtcav"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
 size = Vector3(1, 6, 1)
@@ -55,13 +58,13 @@ size = Vector3(1000, 2, 1000)
 subdivide_width = 50
 subdivide_depth = 50
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6nxy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga7tu"]
 render_priority = 0
 shader = ExtResource("12_neo6t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcifl"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_s6nxy")
+next_pass = SubResource("ShaderMaterial_ga7tu")
 shader = ExtResource("13_4060c")
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.0
@@ -90,6 +93,10 @@ stream_5/stream = ExtResource("9_vutj0")
 
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
+
+[node name="Player" parent="." instance=ExtResource("2_iearw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303108, 0, 5.35497)
+safePlace = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_60oyf")]
 
@@ -124,10 +131,6 @@ transform = Transform3D(0.177032, 0, -0.290275, 0, 0.34, 0, 0.290275, 0, 0.17703
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decor/TableEtRadio/StaticBody3D"]
 shape = SubResource("BoxShape3D_lt1e3")
-
-[node name="Player" parent="." instance=ExtResource("1_g40ai")]
-transform = Transform3D(0.986432, 0, -0.16417, 0, 1, 0, 0.16417, 0, 0.986432, -2, 0, 5)
-safePlace = true
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -268,7 +271,7 @@ transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -5.75217, 2.00313, -
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.2843
+light_energy = 1.83037
 shadow_bias = 1.5
 shadow_normal_bias = 2.0
 omni_range = 5.657
@@ -277,7 +280,7 @@ max_energy = 3.0
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.2843
+light_energy = 1.83037
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
@@ -1926,12 +1929,15 @@ transform = Transform3D(0.834665, 0, -0.550758, 0, 1, 0, 0.550758, 0, 0.834665, 
 
 [node name="SquareFrame" parent="." instance=ExtResource("40_m0dpk")]
 transform = Transform3D(-0.369941, 0.208992, 0.905244, 3.57737e-09, 0.97437, -0.224951, -0.929055, -0.0832187, -0.36046, -8.08688, 4.81028, 3.46165)
+content = ExtResource("41_aawep")
 
 [node name="SquareFrame2" parent="." instance=ExtResource("40_m0dpk")]
 transform = Transform3D(-0.161638, 0.321287, 0.933085, -6.03335e-09, 0.945519, -0.325568, -0.98685, -0.0526243, -0.152832, -8.71795, 5.14251, 0.889414)
+content = ExtResource("42_if1j2")
 
 [node name="SquareFrame3" parent="." instance=ExtResource("40_m0dpk")]
 transform = Transform3D(0.315434, 0.308947, 0.897247, -6.26644e-09, 0.945519, -0.325568, -0.948948, 0.102695, 0.298248, -8.77447, 4.40661, -1.87407)
+content = ExtResource("43_dtcav")
 
 [node name="AnimatedTorch" type="Node3D" parent="."]
 
@@ -1942,7 +1948,7 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly8" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.62194
+light_energy = 2.66075
 
 [node name="FrameFly10" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 4.92847, 4.10679)
@@ -1951,7 +1957,7 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly10" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.40984
+light_energy = 2.66075
 
 [node name="FrameFly11" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 5.64694, 0.151917)
@@ -1961,7 +1967,7 @@ inverseY = true
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly11" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.25355
+light_energy = 2.66075
 
 [node name="FrameFly12" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, -2.90407, 5.12625, -1.22223)
@@ -1971,7 +1977,7 @@ inverseY = true
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly12" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 3.07825
+light_energy = 2.66075
 
 [node name="FrameFly9" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 2.97008, 5.01039, -2.04781)
@@ -1980,4 +1986,4 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly9" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 2.63531
+light_energy = 2.66075

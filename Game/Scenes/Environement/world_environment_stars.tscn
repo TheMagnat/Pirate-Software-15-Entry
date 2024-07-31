@@ -43,7 +43,7 @@ noise = SubResource("FastNoiseLite_hidec")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bys3"]
 shader = ExtResource("1_jfcyo")
-shader_parameter/clouds_samples = 24
+shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 2
 shader_parameter/clouds_density = 0.4
 shader_parameter/clouds_scale = 1.0

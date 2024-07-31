@@ -128,17 +128,22 @@ func finish_level():
 			Save.resources[resource] += resources[resource]
 		else:
 			Save.resources[resource] = resources[resource]
-	Save.resources[artifact] += 1
-	print("Added artifact:", artifact)
+		
+	if artifact in Save.resources:
+		Save.resources[artifact] += 1
+		print("Added artifact:", artifact)
 	
-	var endScreen := END_SCREEN.instantiate()
-	endScreen.new_record = new_record
-	endScreen.opened_level = opened_level
-	endScreen.night_stone = night_stone
-	endScreen.blood_stone = blood_stone 
-	endScreen.fillScreen(currentLevel)
+	
+	
 	if idx == END_LEVEL:
-		endScreen.addCallback(Transition.start.bind(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END)))) ## don't preload this or it will create cyclic references
+		Transition.start(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END))) ## don't preload this or it will create cyclic references
 	else:
+		var endScreen := END_SCREEN.instantiate()
+		endScreen.new_record = new_record
+		endScreen.opened_level = opened_level
+		endScreen.night_stone = night_stone
+		endScreen.blood_stone = blood_stone 
+		endScreen.fillScreen(currentLevel)
 		endScreen.addCallback(func(): load_lobby())
-	add_child(endScreen)
+		
+		add_child(endScreen)

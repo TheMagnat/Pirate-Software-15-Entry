@@ -13,6 +13,7 @@ config_version=5
 config/name="Rogue In A Bottle"
 run/main_scene="res://Scenes/Cinematic/splashscreen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [audio]
@@ -38,7 +39,7 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 
 [gui]
 
-theme/custom_font="res://Assets/Fonts/JustinsScript-x35Om.otf"
+theme/custom_font="res://Assets/Fonts/AshesAshesMedium-5wYa.ttf"
 
 [input]
 
