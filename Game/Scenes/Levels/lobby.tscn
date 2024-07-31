@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=51 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_verifier.gd" id="2_1b8cm"]
+[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="2_60oyf"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_tb3w6"]
@@ -20,7 +21,10 @@
 [ext_resource type="Material" uid="uid://dsa8mykfrhvxt" path="res://Scenes/Levels/Level_3/GrassMaterial.tres" id="10_jjtlf"]
 [ext_resource type="PackedScene" uid="uid://m7m21vvghsgk" path="res://Scenes/Mesh/Forest/Barriere.tscn" id="11_8lecc"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="12_i6qbk"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="12_neo6t"]
 [ext_resource type="PackedScene" uid="uid://dx8wdf8i8cmsk" path="res://Scenes/Levels/lobby/level_2_loader.tscn" id="12_uxqpr"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="13_4060c"]
+[ext_resource type="Texture2D" uid="uid://chgksof5dvsw" path="res://Assets/Models/Table/TableGBL_4.png" id="14_fvopx"]
 [ext_resource type="PackedScene" uid="uid://cmkfmv8i8bk06" path="res://Scenes/UI/prototype_book.tscn" id="15_iosmk"]
 [ext_resource type="PackedScene" uid="uid://d03366pkwrtid" path="res://Scenes/Mesh/Structures/Maison.tscn" id="19_f15xt"]
 [ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="20_yhcoy"]
@@ -35,6 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://dsu847aufy4kt" path="res://Scenes/Levels/lobby/level_4_loader.tscn" id="34_t2bj4"]
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="35_l42ve"]
 [ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="38_8j51y"]
+[ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="40_m0dpk"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level_4/frame_fly.gd" id="41_c0tdt"]
+[ext_resource type="PackedScene" uid="uid://cufqj1pkxlprd" path="res://Scenes/LightEntity/HandTorch.tscn" id="42_si5i7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lt1e3"]
 size = Vector3(1, 6, 1)
@@ -47,6 +54,27 @@ material = ExtResource("10_jjtlf")
 size = Vector3(1000, 2, 1000)
 subdivide_width = 50
 subdivide_depth = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6nxy"]
+render_priority = 0
+shader = ExtResource("12_neo6t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcifl"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_s6nxy")
+shader = ExtResource("13_4060c")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("14_fvopx")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_llll8"]
+top_radius = 10.3
+bottom_radius = 18.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibtih"]
 size = Vector3(7.16333, 8, 1)
@@ -62,6 +90,8 @@ stream_5/stream = ExtResource("9_vutj0")
 
 [node name="lobby" type="Node3D"]
 script = ExtResource("1_upkuv")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_60oyf")]
 
 [node name="Decor" type="Node3D" parent="."]
 
@@ -110,6 +140,11 @@ shape = SubResource("BoxShape3D_a87f0")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/floor"]
 mesh = SubResource("BoxMesh_b22rr")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+material_override = SubResource("ShaderMaterial_qcifl")
+mesh = SubResource("CylinderMesh_llll8")
 
 [node name="Path" type="Node3D" parent="Geometry"]
 
@@ -228,19 +263,21 @@ transform = Transform3D(-7.29278, 0, -1.46267, 0, 7.43802, 0, 1.46267, 0, -7.292
 transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, -4.81333, 1.95408, -6.51394)
 
 [node name="IvyMesh" parent="." instance=ExtResource("21_3s03c")]
-transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673, -5.79186)
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -5.75217, 2.00313, -5.79186)
 
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.22303
+light_energy = 1.2843
+shadow_bias = 1.5
+shadow_normal_bias = 2.0
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.22303
+light_energy = 1.2843
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
@@ -1886,3 +1923,61 @@ transform = Transform3D(-1.58919, 0, -0.499434, 0, 1.66582, 0, 0.499434, 0, -1.5
 
 [node name="Level 4 loader" parent="." instance=ExtResource("34_t2bj4")]
 transform = Transform3D(0.834665, 0, -0.550758, 0, 1, 0, 0.550758, 0, 0.834665, 11.054, 0, -58.9963)
+
+[node name="SquareFrame" parent="." instance=ExtResource("40_m0dpk")]
+transform = Transform3D(-0.369941, 0.208992, 0.905244, 3.57737e-09, 0.97437, -0.224951, -0.929055, -0.0832187, -0.36046, -8.08688, 4.81028, 3.46165)
+
+[node name="SquareFrame2" parent="." instance=ExtResource("40_m0dpk")]
+transform = Transform3D(-0.161638, 0.321287, 0.933085, -6.03335e-09, 0.945519, -0.325568, -0.98685, -0.0526243, -0.152832, -8.71795, 5.14251, 0.889414)
+
+[node name="SquareFrame3" parent="." instance=ExtResource("40_m0dpk")]
+transform = Transform3D(0.315434, 0.308947, 0.897247, -6.26644e-09, 0.945519, -0.325568, -0.948948, 0.102695, 0.298248, -8.77447, 4.40661, -1.87407)
+
+[node name="AnimatedTorch" type="Node3D" parent="."]
+
+[node name="FrameFly8" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 3.5332, 4.25268, 1.99118)
+script = ExtResource("41_c0tdt")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly8" instance=ExtResource("42_si5i7")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.62194
+
+[node name="FrameFly10" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 4.92847, 4.10679)
+script = ExtResource("41_c0tdt")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly10" instance=ExtResource("42_si5i7")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.40984
+
+[node name="FrameFly11" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 5.64694, 0.151917)
+script = ExtResource("41_c0tdt")
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly11" instance=ExtResource("42_si5i7")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 1.25355
+
+[node name="FrameFly12" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, -2.90407, 5.12625, -1.22223)
+script = ExtResource("41_c0tdt")
+offset = false
+inverseY = true
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly12" instance=ExtResource("42_si5i7")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 3.07825
+
+[node name="FrameFly9" type="Node3D" parent="AnimatedTorch"]
+transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 2.97008, 5.01039, -2.04781)
+script = ExtResource("41_c0tdt")
+offset = false
+
+[node name="HandTorch" parent="AnimatedTorch/FrameFly9" instance=ExtResource("42_si5i7")]
+transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
+light_energy = 2.63531

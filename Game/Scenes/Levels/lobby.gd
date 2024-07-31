@@ -53,13 +53,16 @@ func check_go_out(body):
 func go(inside: bool):
 	player.set_physics_process(false)
 	if inside:
+		player.changeGroundSound(1)
 		$GoIn.body_entered.disconnect(check_go_in)
 		$GoOut.body_entered.connect(check_go_out)
 	else:
+		player.changeGroundSound(0)
 		$GoOut.body_entered.disconnect(check_go_out)
 		$GoIn.body_entered.connect(check_go_in)
 	Transition.start(gone.bind(inside))
 	player.set_physics_process(true)
 
 func gone(inside: bool):
+	player.changeGroundSound(1 if inside else 0)
 	player.set_camera($CameraInside if inside else $CameraOutside)
