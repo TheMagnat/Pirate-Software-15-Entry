@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmc0iktb8nmju"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_74k86"]
+[ext_resource type="Script" path="res://Scenes/Mesh/Misc/artifact.gd" id="1_ylspp"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_ltcd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bost0"]
+render_priority = 0
+shader = ExtResource("1_74k86")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsyro"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_bost0")
+shader = ExtResource("2_ltcd6")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/color = Color(4, 2, 0.114, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v34v0"]
+material = SubResource("ShaderMaterial_vsyro")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cl32o"]
+
+[node name="GoldenFist" type="Node3D"]
+script = ExtResource("1_ylspp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("SphereMesh_v34v0")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_cl32o")

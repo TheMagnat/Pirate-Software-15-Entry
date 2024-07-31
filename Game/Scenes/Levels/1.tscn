@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bbyatiyy23ddj"]
+[gd_scene load_steps=40 format=3 uid="uid://bbyatiyy23ddj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1/1.gd" id="1_x4ps2"]
 [ext_resource type="PackedScene" uid="uid://dcosg2j6qqww8" path="res://Scenes/Mob/Mob.tscn" id="2_4ixrp"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="18_awbfg"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="20_lm2ik"]
 [ext_resource type="PackedScene" uid="uid://dgo7ijhjhtwv" path="res://Scenes/Levels/Checkpoints/Checkpoint.tscn" id="21_8y0vt"]
+[ext_resource type="PackedScene" uid="uid://cmc0iktb8nmju" path="res://Scenes/Mesh/Misc/golden_fist.tscn" id="21_xyrgw"]
 [ext_resource type="PackedScene" uid="uid://ov1yj0jq03fq" path="res://Scenes/Mesh/Misc/Topaz.tscn" id="22_ra68n"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="23_bje3f"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="24_s0adm"]
@@ -1808,6 +1809,9 @@ shape = SubResource("CylinderShape3D_6go4v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
 mesh = SubResource("CylinderMesh_g6usg")
+
+[node name="GoldenFist" parent="finish" instance=ExtResource("21_xyrgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="escape" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.591, 1.90735e-06, 19.6442)

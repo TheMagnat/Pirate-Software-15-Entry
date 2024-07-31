@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://cl4br0sqn70wh"]
+[gd_scene load_steps=150 format=4 uid="uid://cl4br0sqn70wh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="35_thaii"]
 [ext_resource type="Texture2D" uid="uid://cf7c0xyu47op8" path="res://Assets/Models/Cadres/o.png" id="36_twtow"]
 [ext_resource type="Texture2D" uid="uid://b5krqykkrb20" path="res://Assets/Models/Cadres/interro.png" id="38_nbcwy"]
+[ext_resource type="PackedScene" uid="uid://cab8hc1y036b6" path="res://Scenes/Mesh/Misc/SecretHeart.tscn" id="39_jpuos"]
 [ext_resource type="Texture2D" uid="uid://fk7vtxbncx3v" path="res://Assets/Models/Cadres/kanar.jpg" id="39_tougs"]
 [ext_resource type="PackedScene" uid="uid://ciektisjpxak8" path="res://Scenes/Mesh/Misc/big_frame_vert.tscn" id="40_062ee"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="40_ex8om"]
@@ -3179,6 +3180,8 @@ shape = SubResource("CylinderShape3D_o6vfn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
 mesh = SubResource("CylinderMesh_v7wlo")
+
+[node name="SecretHeart" parent="finish" instance=ExtResource("39_jpuos")]
 
 [node name="escape" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199781, -0.0590005, 19.2104)
