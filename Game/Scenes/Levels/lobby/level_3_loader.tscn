@@ -144,8 +144,8 @@ transform = Transform3D(0.990965, 1.34594, -5.86277e-09, 9.39798e-16, -4.38644e-
 shape = SubResource("ConcavePolygonShape3D_532g4")
 
 [node name="HandTorch" parent="." instance=ExtResource("5_hkbq1")]
-transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 4.0546, 5.00393, -4.39325)
-light_energy = 1.83196
+transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 4.0546, 5.75111, -4.39325)
+light_energy = 1.47202
 
 [node name="ArbreRond" parent="." instance=ExtResource("2_r7gk3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.978989, 9.55817, -14.4899)
@@ -164,11 +164,11 @@ transform = Transform3D(0.394528, 0, 0.383207, 0, 0.55, 0, -0.383207, 0, 0.39452
 
 [node name="Torch" parent="." instance=ExtResource("8_e8r0b")]
 transform = Transform3D(0.945751, 0, -0.324891, 0, 1, 0, 0.324891, 0, 0.945751, 5.00634, 11.8122, -11.8782)
-light_energy = 1.83196
+light_energy = 1.47202
 
 [node name="Torch2" parent="." instance=ExtResource("8_e8r0b")]
 transform = Transform3D(0.463435, 0, 0.886131, 0, 1, 0, -0.886131, 0, 0.463435, -3.53931, 9.16375, -5.9014)
-light_energy = 1.83196
+light_energy = 1.47202
 
 [node name="Sapin" parent="." instance=ExtResource("5_y4d4q")]
 transform = Transform3D(0.772202, 0, 0.635378, 0, 1, 0, -0.635378, 0, 0.772202, -6.58642, -0.300876, -0.43415)

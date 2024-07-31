@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clffpeglu4hff"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="2_34ivg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_34ivg")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/color = Color(0.890196, 0.768627, 0.513726, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

@@ -19,6 +19,7 @@ cooldown_decrease_per_level = 2.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(450, 0, 0, 0, -1.96701e-05, -1, 0, 450, -4.37114e-08, 0, 0, 0)
+visible = false
 material_override = SubResource("ShaderMaterial_iax6r")
 cast_shadow = 0
 texture = ExtResource("4_d1n6v")

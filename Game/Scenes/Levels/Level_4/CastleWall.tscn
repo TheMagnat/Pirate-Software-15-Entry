@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://b2v6p7hi4e22u"]
+[gd_scene load_steps=6 format=4 uid="uid://b2v6p7hi4e22u"]
+
+[ext_resource type="Material" uid="uid://d227x7o1lxi6x" path="res://Scenes/Levels/Level_4/CastleWallTexture.tres" id="1_n60y5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2ylu"]
 resource_name = "material_0"
@@ -43,6 +45,7 @@ data = PackedVector3Array(25, 20, 0.5, 25, 20, -0.5, 25, 0, -0.5, 25, 0, -0.5, 2
 [node name="Node3D" type="StaticBody3D"]
 
 [node name="CSGCombiner3D2" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_n60y5")
 mesh = SubResource("ArrayMesh_hn1cv")
 skeleton = NodePath("")
 

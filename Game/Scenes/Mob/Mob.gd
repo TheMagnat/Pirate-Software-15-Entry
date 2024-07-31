@@ -134,7 +134,8 @@ func _physics_process(delta):
 	if Engine.is_editor_hint(): return
 	handleAnimation()
 	
-	suspicious = max(0.0, suspicious - suspiciousDecreaseSpeed * delta)
+	# Funnier to never decrease the suspicious level
+	#suspicious = max(0.0, suspicious - suspiciousDecreaseSpeed * delta)
 	
 	# Add the gravity.
 	if not is_on_floor():
