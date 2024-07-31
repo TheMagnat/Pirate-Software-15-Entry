@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://dv2gvj21gwufs"]
+[gd_scene load_steps=41 format=3 uid="uid://dv2gvj21gwufs"]
 
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_g40ai"]
 [ext_resource type="Script" path="res://Scenes/Levels/lobby.gd" id="1_upkuv"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_verifier.gd" id="2_1b8cm"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="2_kj0j1"]
 [ext_resource type="PackedScene" uid="uid://x4jsqkyu2n88" path="res://Scenes/Mesh/Misc/Radio.tscn" id="2_m6wle"]
 [ext_resource type="PackedScene" uid="uid://ch4wdbd8advdc" path="res://Scenes/Environement/moon_sky.tscn" id="2_tb3w6"]
@@ -31,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="25_dls45"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_npve2"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="26_udnd3"]
+[ext_resource type="PackedScene" uid="uid://dsu847aufy4kt" path="res://Scenes/Levels/lobby/level_4_loader.tscn" id="34_t2bj4"]
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="35_l42ve"]
 [ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="38_8j51y"]
 
@@ -231,14 +233,14 @@ transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, -5.75217, 1.98673
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.56903
+light_energy = 1.22303
 omni_range = 5.657
 max_energy = 3.0
 
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.56903
+light_energy = 1.22303
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
@@ -266,12 +268,38 @@ familiar..."
 player = NodePath("../Player")
 distance = 3.0
 
-[node name="TutorialText4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+[node name="LevelVerifier" type="Node3D" parent="."]
+script = ExtResource("2_1b8cm")
+index = 2
+
+[node name="creepy1" parent="LevelVerifier" node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
 transform = Transform3D(0.820231, 0, -0.181165, 0, 0.84, 0, 0.181165, 0, 0.820231, 5.78674, 2.8826, -26.9237)
 text = "Is all this
 pain really
-worth it"
-player = NodePath("../Player")
+worth it ?"
+player = NodePath("../../Player")
+distance = 6.0
+
+[node name="LevelVerifier2" type="Node3D" parent="."]
+script = ExtResource("2_1b8cm")
+index = 3
+
+[node name="creepy2" parent="LevelVerifier2" node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.532663, 0, 0.649515, 0, 0.84, 0, -0.649515, 0, 0.532663, -2.16944, 1.97603, -34.9003)
+text = "I have to continue.
+Or do I ?"
+player = NodePath("../../Player")
+distance = 6.0
+
+[node name="LevelVerifier3" type="Node3D" parent="."]
+script = ExtResource("2_1b8cm")
+index = 4
+
+[node name="creepy3" parent="LevelVerifier3" node_paths=PackedStringArray("player") instance=ExtResource("24_ixqxq")]
+transform = Transform3D(0.821984, 0, -0.173039, 0, 0.84, 0, 0.173039, 0, 0.821984, 3.13145, 3.0204, -47.0636)
+text = "Am I going
+too far ?"
+player = NodePath("../../Player")
 distance = 6.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1855,3 +1883,6 @@ transform = Transform3D(1.69034, 0, -0.220472, 0, 1.70466, 0, 0.220472, 0, 1.690
 
 [node name="@Node3D@189312" parent="SmallForest/Node3D2/MultiMeshInstance3D2" instance=ExtResource("38_8j51y")]
 transform = Transform3D(-1.58919, 0, -0.499434, 0, 1.66582, 0, 0.499434, 0, -1.58919, -41.1039, 0, -45.1149)
+
+[node name="Level 4 loader" parent="." instance=ExtResource("34_t2bj4")]
+transform = Transform3D(0.834665, 0, -0.550758, 0, 1, 0, 0.550758, 0, 0.834665, 11.054, 0, -58.9963)

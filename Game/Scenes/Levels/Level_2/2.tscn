@@ -16,19 +16,19 @@
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="11_oe1wc"]
 [ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="13_4v2mu"]
 [ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="15_svkgy"]
-[ext_resource type="PackedScene" uid="uid://bjwo3gmvrmvv0" path="res://Scenes/LightEntity/lantern.tscn" id="15_vuwel"]
+[ext_resource type="PackedScene" path="res://Scenes/LightEntity/lantern.tscn" id="15_vuwel"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="16_pmmuf"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="17_q5irf"]
 [ext_resource type="Material" uid="uid://dfjswv2mn5sxs" path="res://Scenes/Levels/Level_2/castle_wall_material.tres" id="17_tmc3e"]
-[ext_resource type="PackedScene" uid="uid://b3wvglskmcsne" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="17_vmjse"]
+[ext_resource type="PackedScene" uid="uid://bxhhfqntwfa28" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="17_vmjse"]
 [ext_resource type="PackedScene" uid="uid://bc1ouldsb240p" path="res://Scenes/Mesh/Misc/bottle_square.tscn" id="18_8eu1b"]
 [ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="18_11j0b"]
 [ext_resource type="PackedScene" uid="uid://cg4s7wr4yn5l2" path="res://Scenes/Mesh/Misc/Bibliotheque2.tscn" id="18_ochug"]
-[ext_resource type="PackedScene" uid="uid://d1iepywfjrh7l" path="res://Scenes/Mesh/Misc/table.tscn" id="19_doemx"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/table.tscn" id="19_doemx"]
 [ext_resource type="PackedScene" uid="uid://dghqnjpepetuk" path="res://Scenes/Mesh/Misc/Bibliotheque3.tscn" id="19_nkfps"]
 [ext_resource type="PackedScene" uid="uid://ov1yj0jq03fq" path="res://Scenes/Mesh/Misc/Topaz.tscn" id="20_pah3s"]
-[ext_resource type="Material" uid="uid://cuubtkfugp6vf" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="22_cx1a0"]
-[ext_resource type="Material" uid="uid://bpvpn5ttq2ul5" path="res://Scenes/Levels/Level_2/castle_wood_material.tres" id="23_pygvw"]
+[ext_resource type="Material" path="res://Scenes/Levels/Level_3/GrassWithoutOutline.tres" id="22_cx1a0"]
+[ext_resource type="Material" uid="uid://t7sks36vgqjg" path="res://Scenes/Levels/Level_2/castle_wood_material.tres" id="23_pygvw"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="25_oixnc"]
 [ext_resource type="Texture2D" uid="uid://cnb3noeag8vp5" path="res://Assets/Models/Cadres/fllower.jpg" id="26_kleno"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="26_xt283"]
@@ -44,7 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="35_thaii"]
 [ext_resource type="Texture2D" uid="uid://cf7c0xyu47op8" path="res://Assets/Models/Cadres/o.png" id="36_twtow"]
 [ext_resource type="Texture2D" uid="uid://b5krqykkrb20" path="res://Assets/Models/Cadres/interro.png" id="38_nbcwy"]
-[ext_resource type="PackedScene" uid="uid://cab8hc1y036b6" path="res://Scenes/Mesh/Misc/SecretHeart.tscn" id="39_jpuos"]
+[ext_resource type="PackedScene" path="res://Scenes/Mesh/Misc/SecretHeart.tscn" id="39_jpuos"]
 [ext_resource type="Texture2D" uid="uid://fk7vtxbncx3v" path="res://Assets/Models/Cadres/kanar.jpg" id="39_tougs"]
 [ext_resource type="PackedScene" uid="uid://ciektisjpxak8" path="res://Scenes/Mesh/Misc/big_frame_vert.tscn" id="40_062ee"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="40_ex8om"]
@@ -633,7 +633,7 @@ transform = Transform3D(-0.677006, -0.294146, 0.674641, -0.0755988, 0.939605, 0.
 light_energy = 0.2
 
 [node name="Jade" parent="." instance=ExtResource("6_1r37g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8246, 0.409863, -51.0256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8246, 0.478416, -51.0256)
 
 [node name="Mobs" type="Node3D" parent="."]
 
@@ -1017,12 +1017,12 @@ transform = Transform3D(-0.569839, 0, -0.821756, 0, 1, 0, 0.821756, 0, -0.569839
 
 [node name="Campfire" parent="Geometry/Garden" instance=ExtResource("9_tcpmy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1064, 3, -18.2549)
-light_energy = 4.30267
+light_energy = 5.88173
 min_energy = 4.0
 
 [node name="Torch2" parent="Geometry/Garden" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.3345, 2.25, -45.91)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="Tour" parent="Geometry/Garden" instance=ExtResource("6_b7y0l")]
@@ -1030,14 +1030,14 @@ transform = Transform3D(0.0420878, 0, 0.0269929, 0, 0.05, 0, -0.0269929, 0, 0.04
 
 [node name="Torch2" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(7.39526, 0, 18.5825, 0, 20, 0, -18.5825, 0, 7.39526, 108.156, 50, 53.337)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_1q8li")
 
 [node name="StaticLamp" parent="Geometry/Garden" instance=ExtResource("9_ukmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4877, 3.60079, -59.7781)
-light_energy = 5.24214
+light_energy = 6.50539
 
 [node name="ArbreCarre" parent="Geometry/Garden" instance=ExtResource("10_t10m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7232, -0.525065, -63.6669)
@@ -1123,6 +1123,9 @@ transform = Transform3D(0.0241481, 0, 0.00647048, 0, 0.025, 0, -0.00647048, 0, 0
 [node name="Barriere6" parent="Geometry/Garden" instance=ExtResource("6_fsslc")]
 transform = Transform3D(0.0249916, 0, -0.000649624, 0, 0.025, 0, 0.000649624, 0, 0.0249916, 16.5531, -0.195279, -64.8214)
 
+[node name="Barriere9" parent="Geometry/Garden" instance=ExtResource("6_fsslc")]
+transform = Transform3D(0.0249916, 0, -0.000649624, 0, 0.025, 0, 0.000649624, 0, 0.0249916, 19.9668, -0.195279, -64.8214)
+
 [node name="BarriereCasse" parent="Geometry/Garden" instance=ExtResource("18_11j0b")]
 transform = Transform3D(-1.09278e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.09278e-09, 1.2078, -0.195279, -28.7353)
 
@@ -1134,7 +1137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17958, -4.76837e-07, -12.56
 
 [node name="Torch2" parent="Geometry/Entrance" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, -6.75663, 2.43407, 0.645422)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_tfd4u")
@@ -1147,7 +1150,7 @@ transform = Transform3D(-0.0254098, 0, 0.0159481, 0, 0.03, 0, -0.0159481, 0, -0.
 
 [node name="Lantern" parent="Geometry/Entrance" instance=ExtResource("15_vuwel")]
 transform = Transform3D(-0.995644, -0.0932395, 8.70419e-08, -0.0932395, 0.995644, 8.15125e-09, -8.74228e-08, 0, -1, -13.732, 1.80718, -11.8065)
-light_energy = 5.24214
+light_energy = 6.50539
 
 [node name="PetitCaillou" parent="Geometry/Entrance" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -14, -0.0277354, -13)
@@ -1248,7 +1251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -33)
 [node name="Torch" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.109, 3, 0)
 rotation_edit_mode = 0
-light_energy = 3.1816
+light_energy = 4.12904
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1257,7 +1260,7 @@ min_energy = 3.0
 [node name="Torch2" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -12)
 rotation_edit_mode = 0
-light_energy = 3.1816
+light_energy = 4.12904
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1266,7 +1269,7 @@ min_energy = 3.0
 [node name="Torch3" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -23)
 rotation_edit_mode = 0
-light_energy = 3.1816
+light_energy = 4.12904
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1379,24 +1382,24 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.4217, 0, -54.3066)
 
 [node name="Torch" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50599, 4, -61.1211)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 3, -46.8768)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="Torch3" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 3, -46.8808)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 noise = SubResource("FastNoiseLite_mreqy")
 
 [node name="Lantern" parent="Geometry/WindowGallery" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 0.966282, 0.257487, 0, -0.257487, 0.966282, 28.043, 0.920775, -59.9285)
-light_energy = 5.24214
+light_energy = 6.50539
 
 [node name="PetitCaillou" parent="Geometry/WindowGallery" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.0118941, 0, -0.0219893, 0, 0.025, 0, 0.0219893, 0, 0.0118941, 28.1305, 0.0070647, -59.819)
@@ -1507,19 +1510,19 @@ transform = Transform3D(-6, 0, -5.24537e-07, 0, 6, 0, 5.24537e-07, 0, -6, 29, 4.
 
 [node name="Lantern" parent="Geometry/Library" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3665, 1.24732, -24)
-light_energy = 5.24214
+light_energy = 6.50539
 
 [node name="PetitCaillou" parent="Geometry/Library" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.00854103, 0, 0.0318756, 0, 0.033, 0, -0.0318756, 0, 0.00854103, 24.6928, 0, -23.5339)
 
 [node name="Torch3" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -35.1308)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="Torch4" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.8831, 3, -28.1308)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_bias = 0.5
 shadow_normal_bias = 1.5
 
@@ -1610,12 +1613,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9597, 2.38419e-07, -42.793
 
 [node name="Torch" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -42)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -32)
-light_energy = 1.24214
+light_energy = 2.50539
 shadow_enabled = false
 
 [node name="libbroom2" parent="Geometry/Treasure" instance=ExtResource("17_q5irf")]
@@ -1659,10 +1662,10 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_4gh54")
 
 [node name="Topaz" parent="Geometry/Treasure" instance=ExtResource("20_pah3s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92413, 0, -42.3807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92413, 0.629837, -42.3807)
 
 [node name="Jade" parent="Geometry/Treasure" instance=ExtResource("6_1r37g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92413, 0, -32.2986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92413, 0.629837, -32.2986)
 
 [node name="Floor" type="StaticBody3D" parent="Geometry"]
 
@@ -3327,5 +3330,88 @@ respawnCameraOrientation = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99577, 9.53674e-07, 1.24191)
 shape = SubResource("SphereShape3D_5r0sv")
+
+[node name="SmallForest" type="Node3D" parent="."]
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="SmallForest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.951844, 0)
+
+[node name="Sapin" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.414126, 0, -1.72053, 0, 1.76967, 0, 1.72053, 0, 0.414126, 44.2679, 0, -132.815)
+
+[node name="@Node3D@100421" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-0.974526, 0, -1.60051, 0, 1.87385, 0, 1.60051, 0, -0.974526, 43.4189, 0, -113.544)
+
+[node name="@Node3D@100422" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.84123, 0, -0.069656, 0, 1.84255, 0, 0.069656, 0, -1.84123, 14.9218, 0, -106.586)
+
+[node name="@Node3D@100423" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.0734793, 0, -1.95078, 0, 1.95216, 0, 1.95078, 0, 0.0734793, 39.203, 0, -84.9643)
+
+[node name="@Node3D@100424" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.46692, 0, -0.413004, 0, 1.52395, 0, 0.413004, 0, -1.46692, 3.31021, 0, -122.912)
+
+[node name="@Node3D@100425" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.98047, 0, -0.140416, 0, 1.98544, 0, 0.140416, 0, -1.98047, -16.8817, -1.90735e-06, -119.436)
+
+[node name="@Node3D@100426" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.33737, 0, 1.1889, 0, 1.78942, 0, -1.1889, 0, 1.33737, -10.8331, 0, -104.122)
+
+[node name="@Node3D@100427" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.107077, 0, -1.84032, 0, 1.84343, 0, 1.84032, 0, 0.107077, 19.7517, 0, -80.8109)
+
+[node name="@Node3D@100428" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.530435, 0, 1.77073, 0, 1.84847, 0, -1.77073, 0, 0.530435, 3.4059, 0, -80.4314)
+
+[node name="@Node3D@100429" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.77653, 0, -0.0133263, 0, 1.77658, 0, 0.0133263, 0, 1.77653, 25.3407, 0, -161.459)
+
+[node name="@Node3D@100430" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.872915, 0, -1.28636, 0, 1.55458, 0, 1.28636, 0, 0.872915, 24.9399, 1.90735e-06, -140.45)
+
+[node name="@Node3D@100431" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.26425, 0, -1.32597, 0, 1.83208, 0, 1.32597, 0, -1.26425, -45.6663, 1.90735e-06, -128.641)
+
+[node name="@Node3D@100432" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.79241, 0, 0.084083, 0, 1.79438, 0, -0.084083, 0, 1.79241, -76.4823, 1.90735e-06, -123.876)
+
+[node name="@Node3D@100434" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.63419, 0, -0.0423219, 0, 1.63474, 0, 0.0423219, 0, 1.63419, 60.0114, 0, -122.15)
+
+[node name="@Node3D@100435" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.963277, 0, 1.61637, 0, 1.88164, 0, -1.61637, 0, 0.963277, 85.9915, 0, -110.008)
+
+[node name="@Node3D@100436" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.14278, 0, 1.37437, 0, 1.78741, 0, -1.37437, 0, -1.14278, 60.021, -9.53674e-07, -98.7171)
+
+[node name="@Node3D@100437" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.02335, 0, -1.24752, 0, 1.61355, 0, 1.24752, 0, -1.02335, 80.4909, 0, -74.7534)
+
+[node name="@Node3D@100438" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.61586, 0, -1.16, 0, 1.98912, 0, 1.16, 0, -1.61586, 61.3735, 1.90735e-06, -83.7635)
+
+[node name="@Node3D@100439" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.232344, 0, 1.64939, 0, 1.66567, 0, -1.64939, 0, 0.232344, 62.5322, 0, -53.3968)
+
+[node name="@Node3D@100440" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.96059, 0, 0.332373, 0, 1.98856, 0, -0.332373, 0, 1.96059, -20.3675, 0, -94.2593)
+
+[node name="@Node3D@100441" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.588525, 0, -1.47432, 0, 1.58745, 0, 1.47432, 0, 0.588525, -38.3135, 1.90735e-06, -93.3818)
+
+[node name="@Node3D@100442" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.50821, 0, 0.135995, 0, 1.51433, 0, -0.135995, 0, 1.50821, -55.6738, 0, -98.8125)
+
+[node name="@Node3D@100444" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(-1.15228, 0, 1.12062, 0, 1.60734, 0, -1.12062, 0, -1.15228, -36.9481, 0, -114.575)
+
+[node name="@Node3D@100445" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.61959, 0, 0.707533, 0, 1.76739, 0, -0.707533, 0, 1.61959, 23.947, 3.8147e-06, -97.294)
+
+[node name="@Node3D@100446" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(0.387707, 0, 1.64785, 0, 1.69284, 0, -1.64785, 0, 0.387707, 0.547985, 0, -96.3133)
+
+[node name="@Node3D@100447" type="Node3D" parent="SmallForest/MultiMeshInstance3D2" instance=ExtResource("30_pbfys")]
+transform = Transform3D(1.55009, 0, 0.0363277, 0, 1.55051, 0, -0.0363277, 0, 1.55009, 23.7519, 3.8147e-06, -121.088)
 
 [connection signal="body_entered" from="WorldEdge2" to="Player" method="_on_world_edge_2_body_entered"]
