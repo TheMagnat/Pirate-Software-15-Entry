@@ -6,4 +6,5 @@
 material = ExtResource("1_drdyc")
 
 [node name="PotionMesh" type="MeshInstance3D"]
+layers = 2
 mesh = SubResource("SphereMesh_hua48")

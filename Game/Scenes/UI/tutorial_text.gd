@@ -14,7 +14,7 @@ func startFadeAnimation():
 	fadingTween.tween_property(self, "modulate:a", int(isShowing), 2.0)
 	fadingTween.tween_property(self, "outline_modulate:a", int(isShowing), 2.0)
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	var newIsShowing = false
 	if player.global_position.distance_to(global_position) < distance:
 		newIsShowing = true

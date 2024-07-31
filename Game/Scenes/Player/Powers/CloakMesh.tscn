@@ -26,5 +26,6 @@ render_priority = 0
 shader = SubResource("Shader_2h385")
 
 [node name="CloakMesh" type="MeshInstance3D"]
+layers = 2
 mesh = SubResource("SphereMesh_el041")
 surface_material_override/0 = SubResource("ShaderMaterial_gdsx7")

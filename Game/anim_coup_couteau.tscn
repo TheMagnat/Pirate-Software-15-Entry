@@ -251,6 +251,232 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6vm1t")
 
+[sub_resource type="Animation" id="Animation_ua1vn"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fiole")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0101211, 0.93614, -0.00233335)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fiole")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1.86246e-05, 0.00399432, 0.00466816, 0.999981)
+tracks/2/type = "scale_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fiole")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.09506, 1.09506, 1.09506)
+tracks/3/type = "position_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fiole/BrasDroit")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.0100066, -0.183199, -0.0194758)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fiole/BrasDroit")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.00117079, 0.00779986, 0.00655452, 0.999947)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fiole/BrasDroit")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.023195, 0.023195, 0.023195)
+tracks/6/type = "position_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fiole/BrasGauche")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.0060186, -0.178917, -0.0217275)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Fiole/BrasGauche")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.00698716, 0.00905193, 0.00249453, 0.999932)
+tracks/8/type = "scale_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Fiole/BrasGauche")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.023195, 0.023195, 0.023195)
+tracks/9/type = "position_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Fiole/Crane")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.00132959, 0.000940748, 5.07857e-10)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Fiole/Crane")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 3.07489e-12, -3.91291e-10, -0.00340439, 0.999994)
+tracks/11/type = "scale_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Fiole/Crane")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/12/type = "position_3d"
+tracks/12/imported = true
+tracks/12/enabled = true
+tracks/12/path = NodePath("Fiole/Cylinder")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.00589183, 0.0128227, 1.68821e-10)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = true
+tracks/13/enabled = true
+tracks/13/path = NodePath("Fiole/Cylinder")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -7.31861e-13, -7.52455e-10, 0.00246621, 0.999997)
+tracks/14/type = "scale_3d"
+tracks/14/imported = true
+tracks/14/enabled = true
+tracks/14/path = NodePath("Fiole/Cylinder")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/15/type = "position_3d"
+tracks/15/imported = true
+tracks/15/enabled = true
+tracks/15/path = NodePath("Fiole/JambeDroite")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0.192185, -0.771764, 0.00199038)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = true
+tracks/16/enabled = true
+tracks/16/path = NodePath("Fiole/JambeDroite")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0.00307317, -0.00100171, 0.00257589, 0.999991)
+tracks/17/type = "scale_3d"
+tracks/17/imported = true
+tracks/17/enabled = true
+tracks/17/path = NodePath("Fiole/JambeDroite")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0.0118473, 0.00562374, 0.0118473)
+tracks/18/type = "position_3d"
+tracks/18/imported = true
+tracks/18/enabled = true
+tracks/18/path = NodePath("Fiole/JambeGauche")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0.191442, -0.774036, 0.00189915)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = true
+tracks/19/enabled = true
+tracks/19/path = NodePath("Fiole/JambeGauche")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, -0.00845121, 0.00301452, -0.00324935, 0.999954)
+tracks/20/type = "scale_3d"
+tracks/20/imported = true
+tracks/20/enabled = true
+tracks/20/path = NodePath("Fiole/JambeGauche")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 0.0118473, 0.00562374, 0.0118473)
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Fiole/BrasGauche/Node3D/Cut:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.801059, 0.86036, 0.0943301)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Fiole/BrasGauche/Node3D/Cut:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Fiole/BrasGauche/Node3D/Cut:quaternion")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0.694776, 0.131477, -0.131477, 0.694776)]
+}
+
+[sub_resource type="Animation" id="Animation_hgu2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fiole/BrasGauche/Node3D/Cut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fiole/BrasGauche/Node3D/Cut:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0254, 0.0254, 0.0254)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fiole/BrasGauche/Node3D/Cut:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_tgc63"]
 resource_name = "SlashTotal"
 length = 0.566667
@@ -436,45 +662,6 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Quaternion(0.694776, 0.131477, -0.131477, 0.694776), Quaternion(0.744774, 0.126642, -0.117007, 0.644657), Quaternion(0.845792, 0.125554, -0.0828605, 0.511866), Quaternion(0.929915, 0.142593, -0.0475281, 0.335658), Quaternion(0.968394, 0.170174, -0.0269887, 0.18035), Quaternion(0.975841, 0.184664, -0.0217097, 0.114723), Quaternion(0.973619, 0.190043, -0.0693101, 0.105574), Quaternion(0.959325, 0.200861, -0.180095, 0.0831694), Quaternion(0.927207, 0.210073, -0.304999, 0.0559621), Quaternion(0.891337, 0.214679, -0.397815, 0.0342834), Quaternion(0.87413, 0.215912, -0.434321, 0.0253798), Quaternion(0.871549, 0.216058, -0.439477, 0.0241039), Quaternion(0.879715, 0.224485, -0.411659, 0.0790315), Quaternion(0.883678, 0.234018, -0.342551, 0.216812), Quaternion(0.854681, 0.22296, -0.258339, 0.391241), Quaternion(0.790127, 0.188588, -0.186912, 0.552447), Quaternion(0.719428, 0.149417, -0.144316, 0.662776), Quaternion(0.686743, 0.131344, -0.130807, 0.702867)]
-}
-
-[sub_resource type="Animation" id="Animation_hgu2t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fiole/BrasGauche/Node3D/Cut:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Fiole/BrasGauche/Node3D/Cut:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.0254, 0.0254, 0.0254)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Fiole/BrasGauche/Node3D/Cut:quaternion")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mb7p3"]
@@ -664,193 +851,6 @@ tracks/23/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ua1vn"]
-resource_name = "Idle"
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fiole")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.0101211, 0.93614, -0.00233335)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Fiole")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 1.86246e-05, 0.00399432, 0.00466816, 0.999981)
-tracks/2/type = "scale_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Fiole")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 1.09506, 1.09506, 1.09506)
-tracks/3/type = "position_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Fiole/BrasDroit")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.0100066, -0.183199, -0.0194758)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = true
-tracks/4/enabled = true
-tracks/4/path = NodePath("Fiole/BrasDroit")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, -0.00117079, 0.00779986, 0.00655452, 0.999947)
-tracks/5/type = "scale_3d"
-tracks/5/imported = true
-tracks/5/enabled = true
-tracks/5/path = NodePath("Fiole/BrasDroit")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0.023195, 0.023195, 0.023195)
-tracks/6/type = "position_3d"
-tracks/6/imported = true
-tracks/6/enabled = true
-tracks/6/path = NodePath("Fiole/BrasGauche")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, 0.0060186, -0.178917, -0.0217275)
-tracks/7/type = "rotation_3d"
-tracks/7/imported = true
-tracks/7/enabled = true
-tracks/7/path = NodePath("Fiole/BrasGauche")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, 0.00698716, 0.00905193, 0.00249453, 0.999932)
-tracks/8/type = "scale_3d"
-tracks/8/imported = true
-tracks/8/enabled = true
-tracks/8/path = NodePath("Fiole/BrasGauche")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array(0, 1, 0.023195, 0.023195, 0.023195)
-tracks/9/type = "position_3d"
-tracks/9/imported = true
-tracks/9/enabled = true
-tracks/9/path = NodePath("Fiole/Crane")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = PackedFloat32Array(0, 1, 0.00132959, 0.000940748, 5.07857e-10)
-tracks/10/type = "rotation_3d"
-tracks/10/imported = true
-tracks/10/enabled = true
-tracks/10/path = NodePath("Fiole/Crane")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 3.07489e-12, -3.91291e-10, -0.00340439, 0.999994)
-tracks/11/type = "scale_3d"
-tracks/11/imported = true
-tracks/11/enabled = true
-tracks/11/path = NodePath("Fiole/Crane")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, 1, 1, 1)
-tracks/12/type = "position_3d"
-tracks/12/imported = true
-tracks/12/enabled = true
-tracks/12/path = NodePath("Fiole/Cylinder")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = PackedFloat32Array(0, 1, 0.00589183, 0.0128227, 1.68821e-10)
-tracks/13/type = "rotation_3d"
-tracks/13/imported = true
-tracks/13/enabled = true
-tracks/13/path = NodePath("Fiole/Cylinder")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = PackedFloat32Array(0, 1, -7.31861e-13, -7.52455e-10, 0.00246621, 0.999997)
-tracks/14/type = "scale_3d"
-tracks/14/imported = true
-tracks/14/enabled = true
-tracks/14/path = NodePath("Fiole/Cylinder")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = PackedFloat32Array(0, 1, 1, 1, 1)
-tracks/15/type = "position_3d"
-tracks/15/imported = true
-tracks/15/enabled = true
-tracks/15/path = NodePath("Fiole/JambeDroite")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = PackedFloat32Array(0, 1, 0.192185, -0.771764, 0.00199038)
-tracks/16/type = "rotation_3d"
-tracks/16/imported = true
-tracks/16/enabled = true
-tracks/16/path = NodePath("Fiole/JambeDroite")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = PackedFloat32Array(0, 1, 0.00307317, -0.00100171, 0.00257589, 0.999991)
-tracks/17/type = "scale_3d"
-tracks/17/imported = true
-tracks/17/enabled = true
-tracks/17/path = NodePath("Fiole/JambeDroite")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = PackedFloat32Array(0, 1, 0.0118473, 0.00562374, 0.0118473)
-tracks/18/type = "position_3d"
-tracks/18/imported = true
-tracks/18/enabled = true
-tracks/18/path = NodePath("Fiole/JambeGauche")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = PackedFloat32Array(0, 1, 0.191442, -0.774036, 0.00189915)
-tracks/19/type = "rotation_3d"
-tracks/19/imported = true
-tracks/19/enabled = true
-tracks/19/path = NodePath("Fiole/JambeGauche")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = PackedFloat32Array(0, 1, -0.00845121, 0.00301452, -0.00324935, 0.999954)
-tracks/20/type = "scale_3d"
-tracks/20/imported = true
-tracks/20/enabled = true
-tracks/20/path = NodePath("Fiole/JambeGauche")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = PackedFloat32Array(0, 1, 0.0118473, 0.00562374, 0.0118473)
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Fiole/BrasGauche/Node3D/Cut:position")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.801059, 0.86036, 0.0943301)]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Fiole/BrasGauche/Node3D/Cut:scale")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Fiole/BrasGauche/Node3D/Cut:quaternion")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(0.694776, 0.131477, -0.131477, 0.694776)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txhev"]
 _data = {
 "Idle": SubResource("Animation_ua1vn"),
@@ -884,7 +884,7 @@ animation = &"Walking"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_fbtmm"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p88e1"]
-graph_offset = Vector2(-579.478, 40.2462)
+graph_offset = Vector2(-260, 40.2462)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_xo743")
 nodes/Animation/position = Vector2(-40, 400)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_ox8y1")
@@ -910,24 +910,28 @@ node_connections = [&"Blend2", 0, &"Idle", &"Blend2", 1, &"WalkingTime", &"OneSh
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Fiole" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.09498, -0.0102235, 0.0087481, 0.0102238, 1.09502, 4.78736e-08, -0.00874772, 8.1627e-05, 1.09503, -0.0101211, 0.93614, -0.00233335)
+transform = Transform3D(1.09498, -0.0102235, 0.00874807, 0.0102238, 1.09501, 4.79252e-08, -0.00874769, 8.16266e-05, 1.09503, -0.0101211, 0.93614, -0.00233335)
+layers = 2
 mesh = SubResource("ArrayMesh_b5ale")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Fiole"]
 transform = Transform3D(0.999988, -0.0049324, -1.50491e-09, 0.0049324, 0.999988, -2.24771e-12, 1.5049e-09, -5.17514e-12, 1, 0.00589183, 0.0128227, 1.68821e-10)
+layers = 2
 mesh = SubResource("ArrayMesh_vm72s")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_qdx81")
 
 [node name="Crane" type="MeshInstance3D" parent="Fiole"]
-transform = Transform3D(0.999977, 0.00680874, -7.82598e-10, -0.00680874, 0.999977, -3.48553e-12, 7.82556e-10, 8.81396e-12, 1, 0.00132959, 0.000940748, 5.07857e-10)
+transform = Transform3D(0.999977, 0.00680874, -7.82598e-10, -0.00680874, 0.999977, -3.48553e-12, 7.82557e-10, 8.81396e-12, 1, 0.00132959, 0.000940748, 5.07857e-10)
+layers = 2
 mesh = SubResource("ArrayMesh_o5hh0")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_qdx81")
 
 [node name="BrasGauche" type="MeshInstance3D" parent="Fiole"]
-transform = Transform3D(0.0231908, -0.000112779, 0.000420697, 0.000118647, 0.0231924, -0.000323063, -0.00041908, 0.000325158, 0.0231888, 0.0060186, -0.178917, -0.0217275)
+transform = Transform3D(0.0231909, -0.000112779, 0.000420699, 0.000118647, 0.0231925, -0.000323065, -0.000419082, 0.00032516, 0.023189, 0.0060186, -0.178917, -0.0217275)
+layers = 2
 material_override = ExtResource("3_k4rds")
 mesh = SubResource("ArrayMesh_hpc28")
 skeleton = NodePath("")
@@ -946,19 +950,22 @@ transform = Transform3D(1, 0, -2.73576e-09, 0, 1, -4.38886e-08, -3.20142e-09, 4.
 transform = Transform3D(36.2425, -3.68622, -14.9298, 14.7676, -2.32005, 36.4216, -4.28995, -39.1284, -0.753048, 0, 0, 0)
 
 [node name="BrasDroit" type="MeshInstance3D" parent="Fiole"]
-transform = Transform3D(0.0231901, -0.000304471, 0.000361459, 0.000303623, 0.0231929, 5.66814e-05, -0.000362171, -5.19382e-05, 0.023192, 0.0100066, -0.183199, -0.0194758)
+transform = Transform3D(0.0231902, -0.000304473, 0.000361461, 0.000303625, 0.023193, 5.66819e-05, -0.000362173, -5.19386e-05, 0.0231921, 0.0100066, -0.183199, -0.0194758)
+layers = 2
 material_override = ExtResource("3_k4rds")
 mesh = SubResource("ArrayMesh_hbjss")
 skeleton = NodePath("")
 
 [node name="JambeDroite" type="MeshInstance3D" parent="Fiole"]
-transform = Transform3D(0.0118471, -2.90067e-05, -2.35473e-05, 6.09613e-05, 0.00562358, -7.28781e-05, 2.39225e-05, 3.45362e-05, 0.0118471, 0.192185, -0.771764, 0.00199038)
+transform = Transform3D(0.0118471, -2.90068e-05, -2.35474e-05, 6.09613e-05, 0.00562358, -7.28782e-05, 2.39225e-05, 3.45362e-05, 0.0118471, 0.192185, -0.771764, 0.00199038)
+layers = 2
 mesh = SubResource("ArrayMesh_irdx7")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_qdx81")
 
 [node name="JambeGauche" type="MeshInstance3D" parent="Fiole"]
 transform = Transform3D(0.0118469, 3.62589e-05, 7.20754e-05, -7.75923e-05, 0.00562284, 0.000200007, -7.0774e-05, -9.5161e-05, 0.0118454, 0.191442, -0.774036, 0.00189915)
+layers = 2
 mesh = SubResource("ArrayMesh_fbcx1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_qdx81")
@@ -975,20 +982,20 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_p88e1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 1.0
-parameters/current_position = 0.781307
+parameters/current_position = 0.379754
 parameters/current_delta = 0.00714286
 parameters/Animation/current_length = 1.0
-parameters/Animation/current_position = 0.781307
+parameters/Animation/current_position = 0.379754
 parameters/Animation/current_delta = 0.00714286
 parameters/Blend2/current_length = 1.0
-parameters/Blend2/current_position = 0.854068
+parameters/Blend2/current_position = 0.379754
 parameters/Blend2/current_delta = 0.00714286
 parameters/Blend2/blend_amount = 0.0
 parameters/Idle/current_length = 1.0
-parameters/Idle/current_position = 0.854068
+parameters/Idle/current_position = 0.379754
 parameters/Idle/current_delta = 0.00714286
 parameters/OneShot/current_length = 1.0
-parameters/OneShot/current_position = 0.781307
+parameters/OneShot/current_position = 0.379754
 parameters/OneShot/current_delta = 0.00714286
 parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
@@ -997,7 +1004,7 @@ parameters/Slash/current_length = 0.566667
 parameters/Slash/current_position = 0.566667
 parameters/Slash/current_delta = 0.0109518
 parameters/SlashBlend/current_length = 1.0
-parameters/SlashBlend/current_position = 0.781307
+parameters/SlashBlend/current_position = 0.379754
 parameters/SlashBlend/current_delta = 0.00714286
 parameters/SlashBlend/blend_amount = 1.5
 parameters/TimeScale/current_length = 0.566667
@@ -1012,5 +1019,5 @@ parameters/WalkingTime/current_position = 0.0
 parameters/WalkingTime/current_delta = 0.0
 parameters/WalkingTime/scale = 1.0
 parameters/output/current_length = 1.0
-parameters/output/current_position = 0.781307
+parameters/output/current_position = 0.379754
 parameters/output/current_delta = 0.00714286
