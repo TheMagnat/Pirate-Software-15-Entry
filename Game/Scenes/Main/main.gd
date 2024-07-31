@@ -5,6 +5,8 @@ const END_SCREEN := preload("res://Scenes/Levels/LevelEndScreen.tscn")
 
 const END_LEVEL := 4
 
+var deathCount: int = 0
+
 ### DEBUG ###
 var inDebug: bool = false
 var debugIndex: int = 2
@@ -61,6 +63,11 @@ func _load_level(idx : int, spawnInformation: SpawnInformation = null):
 		currentLevel.remove_already_collected()
 
 func load_level(idx := -1, spawnInformation: SpawnInformation = null, death := false):
+	if death and spawnInformation:
+		deathCount += 1
+	else:
+		deathCount = 0
+	
 	if $Level.get_child_count() == 0:
 		_load_level(idx, spawnInformation)
 	else:
@@ -88,7 +95,7 @@ func escape_level():
 func finish_level():
 	var new_record := false
 	var opened_level := false
-	var night_stone : bool = currentLevel.killedEnemies == 0 && currentLevel.checkpoints.lastCheckpoint == null
+	var night_stone : bool = currentLevel.killedEnemies == 0 && deathCount == 0
 	var blood_stone : bool = currentLevel.killedEnemies == currentLevel.nbEnemies && currentLevel.nbEnemies != 0
 	
 	### Open the access to this level
