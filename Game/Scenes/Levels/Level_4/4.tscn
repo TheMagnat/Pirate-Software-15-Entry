@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://d2crylkmmoe7a"]
+[gd_scene load_steps=125 format=3 uid="uid://d2crylkmmoe7a"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4/4.gd" id="1_5ujae"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="2_t76xs"]
@@ -43,12 +43,22 @@
 [ext_resource type="PackedScene" uid="uid://bc7dp6um4joj0" path="res://Scenes/Mesh/Misc/big_frame_hor.tscn" id="37_5a70j"]
 [ext_resource type="Texture2D" uid="uid://cvk37o1yxabej" path="res://icon.svg" id="37_rp5wl"]
 [ext_resource type="Texture2D" uid="uid://cskenvlgagmjy" path="res://Assets/Models/Cadres/Castle/Jour4.jpg" id="39_b05ge"]
+[ext_resource type="Texture2D" uid="uid://rmqnp8hfmx3n" path="res://Assets/Models/Cadres/Castle/tweening.png" id="39_hsnqy"]
 [ext_resource type="Texture2D" uid="uid://b4nhdhpcw4qe1" path="res://Assets/Models/Cadres/Castle/PotionMolotov.png" id="40_ehnor"]
+[ext_resource type="Texture2D" uid="uid://fk7vtxbncx3v" path="res://Assets/Models/Cadres/kanar.jpg" id="40_nd3il"]
+[ext_resource type="Texture2D" uid="uid://bx2o15vapymr3" path="res://Assets/Models/Cadres/cargo.jpg" id="41_dc75p"]
 [ext_resource type="Texture2D" uid="uid://cfej85g34ae6i" path="res://Assets/Models/Cadres/Castle/image.png" id="41_u7hx6"]
 [ext_resource type="Texture2D" uid="uid://6d04oax66v3c" path="res://Assets/Models/Cadres/Castle/image (1).png" id="43_o7xja"]
 [ext_resource type="Texture2D" uid="uid://dpetua007wfil" path="res://Assets/Models/Cadres/Castle/jeu robin.jpg" id="43_tle7o"]
 [ext_resource type="Texture2D" uid="uid://dqs6ouh6us3l" path="res://Assets/Models/Cadres/Castle/MonstreFin.jpg" id="45_0co1s"]
 [ext_resource type="Texture2D" uid="uid://cru43x70y4ngk" path="res://Assets/Models/Cadres/Mavoxel/2.png" id="47_wj7v6"]
+[ext_resource type="Texture2D" uid="uid://cnb3noeag8vp5" path="res://Assets/Models/Cadres/fllower.jpg" id="47_wwvag"]
+[ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="50_xsrrg"]
+[ext_resource type="Texture2D" uid="uid://cf7c0xyu47op8" path="res://Assets/Models/Cadres/o.png" id="51_cc7st"]
+[ext_resource type="Texture2D" uid="uid://b5krqykkrb20" path="res://Assets/Models/Cadres/interro.png" id="52_sq84l"]
+[ext_resource type="Texture2D" uid="uid://r8nbbq1g1ryt" path="res://Assets/Models/Cadres/vulkan.jpg" id="53_7k2yl"]
+[ext_resource type="Texture2D" uid="uid://c1odvynl3jgyn" path="res://Assets/Models/Cadres/shadow_map.png" id="53_p77hw"]
+[ext_resource type="Texture2D" uid="uid://ccqfofng1dr1e" path="res://Assets/Models/Cadres/graou.png" id="54_ltlwh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cr17r"]
 radius = 25.1376
@@ -1970,15 +1980,15 @@ content = ExtResource("28_fj0y8")
 
 [node name="SquareFrame2" parent="." instance=ExtResource("27_lb76m")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 15.429, 5.116, -112.205)
-content = ExtResource("28_fj0y8")
+content = ExtResource("54_ltlwh")
 
 [node name="SquareFrame3" parent="." instance=ExtResource("27_lb76m")]
 transform = Transform3D(-4, 0, -8.74228e-08, 0, 4, 0, 3.49691e-07, 0, -1, 17.0984, 4.51863, 15.3408)
-content = ExtResource("28_fj0y8")
+content = ExtResource("40_nd3il")
 
 [node name="SquareFrame4" parent="." instance=ExtResource("27_lb76m")]
 transform = Transform3D(-4, 0, -8.74228e-08, 0, 4, 0, 3.49691e-07, 0, -1, -16.9629, 4.94446, 15.3404)
-content = ExtResource("28_fj0y8")
+content = ExtResource("41_dc75p")
 
 [node name="StaticLamp" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(-0.00659714, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.00659714, -16.0545, 2.95359, -104.544)
@@ -2028,7 +2038,7 @@ content = ExtResource("41_u7hx6")
 
 [node name="SquareFrame7" parent="." instance=ExtResource("27_lb76m")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -59.3911, 4.54151, 7.19754)
-content = ExtResource("37_rp5wl")
+content = ExtResource("47_wwvag")
 
 [node name="SquareFrame8" parent="." instance=ExtResource("27_lb76m")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -59.3911, 4.54151, -1.80246)
@@ -2048,27 +2058,27 @@ content = ExtResource("47_wj7v6")
 
 [node name="BigFrameVertical4" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -21.4044, 4.89075, -7.97391)
-content = ExtResource("37_rp5wl")
+content = ExtResource("50_xsrrg")
 
 [node name="BigFrameVertical5" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -21.4044, 4.89075, -17.0503)
-content = ExtResource("37_rp5wl")
+content = ExtResource("51_cc7st")
 
 [node name="BigFrameVertical6" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -21.4044, 4.89075, -26.023)
-content = ExtResource("37_rp5wl")
+content = ExtResource("52_sq84l")
 
 [node name="BigFrameVertical7" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 21.404, 4.89075, -7.97391)
-content = ExtResource("37_rp5wl")
+content = ExtResource("39_hsnqy")
 
 [node name="BigFrameVertical8" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 21.404, 4.89075, -17.0503)
-content = ExtResource("37_rp5wl")
+content = ExtResource("53_7k2yl")
 
 [node name="BigFrameVertical9" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 21.404, 4.89075, -26.023)
-content = ExtResource("37_rp5wl")
+content = ExtResource("53_p77hw")
 
 [node name="Torch8" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(1, 0, 0, 0, 0.987198, -0.159502, 0, 0.159502, 0.987198, -34.051, 9.767, -40.757)
