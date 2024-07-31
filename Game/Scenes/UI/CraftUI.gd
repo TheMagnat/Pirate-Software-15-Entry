@@ -37,9 +37,10 @@ func _ready():
 	
 	$Panel/VBoxContainer/Sprite2D.texture = texture
 	if texture != null:
-		$Panel/VBoxContainer/Sprite2D.scale = Vector2(128.0, 128.0) / texture.get_height()
+		$Panel/VBoxContainer/Sprite2D.scale = Vector2(160.0, 160.0) / texture.get_height()
 	
 	$Panel/VBoxContainer/Description.material = $Panel/VBoxContainer/Description.material.duplicate()
+	$Panel/VBoxContainer/Sprite2D.material = $Panel/VBoxContainer/Sprite2D.material.duplicate()
 	$Panel/VBoxContainer/Description.mouse_entered.connect(show_description.bind(true))
 	$Panel/VBoxContainer/Description.mouse_exited.connect(show_description.bind(false))
 	$Panel/VBoxContainer/Description.text = description
@@ -97,6 +98,7 @@ func show_description(s: bool):
 	if desc_tween: desc_tween.kill()
 	desc_tween = create_tween().bind_node(self).set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	desc_tween.tween_property($Panel/VBoxContainer/Description, "modulate:a", 1.0 if s else 0.0, 0.5)
+	desc_tween.tween_method(func(x: float): $Panel/VBoxContainer/Sprite2D.material.set_shader_parameter("transparency", x), $Panel/VBoxContainer/Sprite2D.material.get_shader_parameter("transparency"), 0.25 if s else 1.0, 0.5)
 	desc_tween.tween_method(func(x: float): $Panel/VBoxContainer/Description.material.set_shader_parameter("displacement", x), $Panel/VBoxContainer/Description.material.get_shader_parameter("displacement"), 2.0 if s else 100.0, 0.5)
 
 func _on_next_page_pressed():

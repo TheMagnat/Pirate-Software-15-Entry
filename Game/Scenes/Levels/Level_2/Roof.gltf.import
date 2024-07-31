@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6wjiqfpefa7d"
-path="res://.godot/imported/TreasureDoor.gltf-c00f079a1cd48427ffa6d70dcf7fa185.scn"
+uid="uid://bxkb087vohbck"
+path="res://.godot/imported/Roof.gltf-ae100e6d951a137f4664753961c546e8.scn"
 
 [deps]
 
-source_file="res://Scenes/Levels/Level_2/TreasureDoor.gltf"
-dest_files=["res://.godot/imported/TreasureDoor.gltf-c00f079a1cd48427ffa6d70dcf7fa185.scn"]
+source_file="res://Scenes/Levels/Level_2/Roof.gltf"
+dest_files=["res://.godot/imported/Roof.gltf-ae100e6d951a137f4664753961c546e8.scn"]
 
 [params]
 
@@ -31,15 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:CSGMesh3D": {
-"import/skip_import": true
-},
-"PATH:CSGMesh3D2": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

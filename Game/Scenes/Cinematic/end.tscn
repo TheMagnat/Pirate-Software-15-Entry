@@ -1,16 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfsc3fgadw6fu"]
+[gd_scene load_steps=9 format=3 uid="uid://bfsc3fgadw6fu"]
 
 [ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_u0veg"]
 [ext_resource type="PackedScene" uid="uid://uiqmxktdm8b3" path="res://Scenes/UI/main_menu.tscn" id="2_3inud"]
 [ext_resource type="AudioStream" uid="uid://drossq8wrr8cw" path="res://Assets/SFX/voices/voice_yoho.ogg" id="2_ce5yu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5mkp"]
-font_size = 48
+font_size = 32
 
 [sub_resource type="Animation" id="Animation_s1m37"]
 resource_name = "anim"
 length = 60.0
-step = 1.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,7 +42,7 @@ tracks/2/path = NodePath("Control/Label3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 8, 12),
+"times": PackedFloat32Array(0, 7, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -54,7 +54,7 @@ tracks/3/path = NodePath("Control:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 12),
+"times": PackedFloat32Array(0, 16),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -66,7 +66,7 @@ tracks/4/path = NodePath("AudioStreamPlayer:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(12),
+"times": PackedFloat32Array(16),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -78,7 +78,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(11, 13),
+"times": PackedFloat32Array(15, 17),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -95,14 +95,42 @@ tracks/6/path = NodePath("VBoxContainer:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 13, 56),
+"times": PackedFloat32Array(0, 17, 56),
 "transitions": PackedFloat32Array(1, 0.8, 1),
 "update": 0,
-"values": [Vector2(0, 720), Vector2(0, 720), Vector2(0, -1008)]
+"values": [Vector2(0, 720), Vector2(0, 720), Vector2(0, -1216)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Label4:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 12, 17),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rpcml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_djdny"]
 _data = {
+"RESET": SubResource("Animation_rpcml"),
 "anim": SubResource("Animation_s1m37")
 }
 
@@ -120,36 +148,49 @@ width = 720.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control"]
-modulate = Color(0, 0, 0, 1)
-offset_top = -72.0
+layout_mode = 0
+offset_top = -69.0
 offset_right = 1280.0
-offset_bottom = 648.0
-text = "Finally"
+offset_bottom = 651.0
+text = "I see trees of green, red roses too"
 label_settings = SubResource("LabelSettings_u5mkp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Control"]
-modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = -23.0
 offset_right = 1280.0
-offset_bottom = 720.0
-text = "I have made the world become shadow"
+offset_bottom = 697.0
+text = " I see them bloom, my world is doomed"
 label_settings = SubResource("LabelSettings_u5mkp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Control"]
-modulate = Color(0, 0, 0, 1)
-offset_top = 72.0
+layout_mode = 0
+offset_top = 23.0
 offset_right = 1280.0
-offset_bottom = 792.0
-text = "just like me"
+offset_bottom = 743.0
+text = "As I'm meeting my end, I think"
+label_settings = SubResource("LabelSettings_u5mkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 69.0
+offset_right = 1280.0
+offset_bottom = 789.0
+text = "What a wonderful world"
 label_settings = SubResource("LabelSettings_u5mkp")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -166,9 +207,9 @@ volume_db = -2.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(1280, 0)
-offset_top = 720.0
+offset_top = -1216.0
 offset_right = 1280.0
-offset_bottom = 2329.0
+offset_bottom = 601.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -182,6 +223,7 @@ Magnat
 Buloz
 ObaniGarage
 Kryspou
+Risa
 
 Code and VFX:
 
@@ -189,7 +231,10 @@ Magnat
 Buloz
 ObaniGarage
 
-Art by: Kryspou
+Art by:
+
+Kryspou
+Risa
 
 Music by: ObaniGarage
 
