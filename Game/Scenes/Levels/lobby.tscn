@@ -271,7 +271,7 @@ transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -5.75217, 2.00313, -
 [node name="Torch" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.146359, 0.234724, 0.960981, 1.22237e-08, 0.971442, -0.237279, -0.989232, -0.0347279, -0.142179, -8.71555, 2.63982, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.15323
+light_energy = 1.14542
 shadow_bias = 1.5
 shadow_normal_bias = 2.0
 omni_range = 5.657
@@ -280,7 +280,7 @@ max_energy = 3.0
 [node name="Torch2" parent="." instance=ExtResource("22_ruaxr")]
 transform = Transform3D(-0.153658, -0.234026, -0.960011, 3.34626e-09, 0.971549, -0.236839, 0.988124, -0.0363922, -0.149286, 9.24446, 3.17858, 0.665581)
 rotation_edit_mode = 0
-light_energy = 1.15323
+light_energy = 1.14542
 omni_range = 7.527
 omni_attenuation = 0.757858
 max_energy = 3.0
@@ -1948,7 +1948,7 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly8" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.30646
+light_energy = 1.29083
 
 [node name="FrameFly10" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 4.92847, 4.10679)
@@ -1957,7 +1957,7 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly10" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.30646
+light_energy = 1.29083
 
 [node name="FrameFly11" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 0.446204, 5.64694, 0.151917)
@@ -1967,7 +1967,7 @@ inverseY = true
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly11" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.30646
+light_energy = 1.29083
 
 [node name="FrameFly12" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, -2.90407, 5.12625, -1.22223)
@@ -1977,7 +1977,7 @@ inverseY = true
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly12" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.30646
+light_energy = 1.29083
 
 [node name="FrameFly9" type="Node3D" parent="AnimatedTorch"]
 transform = Transform3D(0.133848, 0, 0.991003, 0, 1, 0, -0.991003, 0, 0.133848, 2.97008, 5.01039, -2.04781)
@@ -1986,4 +1986,4 @@ offset = false
 
 [node name="HandTorch" parent="AnimatedTorch/FrameFly9" instance=ExtResource("42_si5i7")]
 transform = Transform3D(0.999999, -3.63798e-12, 0, 0, 1, -0.000174533, 0, 0.000174533, 0.999999, 0, 0.742125, 0)
-light_energy = 1.30646
+light_energy = 1.29083

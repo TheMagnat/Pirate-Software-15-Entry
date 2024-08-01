@@ -60,6 +60,16 @@ void vertex() {
 	
 }
 
+vec4 toLinear(vec4 sRGB)
+{
+    bvec3 cutoff = lessThan(sRGB.rgb, vec3(0.04045));
+    vec3 higher = pow((sRGB.rgb + vec3(0.055))/vec3(1.055), vec3(2.4));
+    vec3 lower = sRGB.rgb/vec3(12.92);
+
+    return vec4(mix(higher, lower, cutoff), sRGB.a);
+}
+
+
 void fragment() {
 	
 	// Convert the X to the range [1 -> -1 -> 1]
@@ -83,10 +93,12 @@ void fragment() {
 	vec3 deathColor = vec3(1.0, 0.0, 0.0);
 	vec3 subDeathColor = vec3(1.0, 0.0, 0.0);
 	
-	ALBEDO = mix(
+	vec3 color = mix(
 		mix(mainColor, deathColor, spottedValue),
 		mix(subColor, subDeathColor, spottedValue),
 	noiseValue);
+	
+	ALBEDO = toLinear(vec4(color, 1.0)).rgb;
 	
 	ALBEDO *= 1.5;
 	

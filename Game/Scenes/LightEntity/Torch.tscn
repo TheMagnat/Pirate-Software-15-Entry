@@ -88,10 +88,8 @@ turbulence_influence_over_life = SubResource("CurveTexture_gxfpy")
 [node name="Torch" type="OmniLight3D"]
 rotation_edit_mode = 2
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 2.86188
+light_energy = 2.00195
 shadow_enabled = true
-shadow_bias = 0.3
-shadow_normal_bias = 1.25
 script = ExtResource("3_vq4oa")
 noise = SubResource("FastNoiseLite_4luqg")
 max_energy = 5.0

@@ -60,6 +60,24 @@ void vertex() {
 	
 }
 
+vec4 fromLinear(vec4 linearRGB)
+{
+    bvec3 cutoff = lessThan(linearRGB.rgb, vec3(0.0031308));
+    vec3 higher = vec3(1.055)*pow(linearRGB.rgb, vec3(1.0/2.4)) - vec3(0.055);
+    vec3 lower = linearRGB.rgb * vec3(12.92);
+
+    return vec4(mix(higher, lower, cutoff), linearRGB.a);
+}
+
+vec4 toLinear(vec4 sRGB)
+{
+    bvec3 cutoff = lessThan(sRGB.rgb, vec3(0.04045));
+    vec3 higher = pow((sRGB.rgb + vec3(0.055))/vec3(1.055), vec3(2.4));
+    vec3 lower = sRGB.rgb/vec3(12.92);
+
+    return vec4(mix(higher, lower, cutoff), sRGB.a);
+}
+
 void fragment() {
 	
 	// Convert the X to the range [1 -> -1 -> 1]
@@ -83,7 +101,7 @@ void fragment() {
 	vec3 deathColor = vec3(1.0, 0.0, 0.0);
 	vec3 subDeathColor = vec3(1.0, 0.0, 0.0);
 	
-	ALBEDO = vec3(1.0, 0.63, 0.24);
+	ALBEDO = toLinear(vec4(1.0, 0.63, 0.24, 1.0)).rgb;
 	ALBEDO *= 1.5;
 	
 	// Called for every pixel the material is visible on.

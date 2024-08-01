@@ -155,7 +155,7 @@ text = "No"
 [node name="Menu Level" parent="." instance=ExtResource("6_7a3lf")]
 
 [node name="Logo" type="Node2D" parent="."]
-position = Vector2(985, 392)
+position = Vector2(960, 392)
 script = ExtResource("5_t1nmf")
 
 [node name="bottle_mid" type="Sprite2D" parent="Logo"]
@@ -170,6 +170,6 @@ texture = ExtResource("2_o30bw")
 
 [node name="bottle_top" type="Sprite2D" parent="Logo"]
 material = SubResource("ShaderMaterial_omyro")
-position = Vector2(-1, -225)
+position = Vector2(3, -225)
 scale = Vector2(0.555, 0.555)
 texture = ExtResource("3_ikcou")

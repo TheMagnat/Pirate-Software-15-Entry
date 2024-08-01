@@ -66,7 +66,7 @@ turbulence_influence_over_life = SubResource("CurveTexture_rwab7")
 [node name="Campfire" type="OmniLight3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(1, 0.666667, 0, 1)
-light_energy = 5.44692
+light_energy = 7.34304
 shadow_bias = 0.2
 shadow_normal_bias = 1.5
 omni_range = 8.0

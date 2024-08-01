@@ -35,5 +35,5 @@ void fragment() {
 		ALBEDO = endColor;
 	}
 	
-	ALPHA = round((animationTime * 1.75 + 0.5) * alphaMaskValue) * spawnTransition;
+	ALPHA = min(1.0, round((animationTime * 1.75 + 0.5) * alphaMaskValue) * spawnTransition);
 }

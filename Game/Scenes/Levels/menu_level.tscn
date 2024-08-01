@@ -230,6 +230,12 @@ ScreenShakePower = 0.1
 
 [node name="Menu Level" type="Node3D"]
 
+[node name="WorldEnvironment" parent="." instance=ExtResource("18_5vgxu")]
+
+[node name="MoonSky" parent="." instance=ExtResource("16_nshbb")]
+
+[node name="MoonColor" parent="." instance=ExtResource("17_c70tb")]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_w1bj5")
@@ -243,14 +249,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2053, 13.6538, -61.537)
 [node name="Camera3D" type="Camera3D" parent="CamereAnchor"]
 transform = Transform3D(-0.584958, -0.18245, 0.790276, 0, 0.97437, 0.224951, -0.811064, 0.131587, -0.569965, 6.28135, -0.518064, -4.8759)
 near = 1.5
-
-[node name="WorldEnvironment" parent="." instance=ExtResource("18_5vgxu")]
-
-[node name="MoonColor" parent="." instance=ExtResource("17_c70tb")]
-transform = Transform3D(-1, 5.9845e-08, -6.37284e-08, 0, 0.728969, 0.684547, 8.74227e-08, 0.684547, -0.728968, 0, 0, 0)
-
-[node name="MoonSky" parent="." instance=ExtResource("16_nshbb")]
-transform = Transform3D(-0.943223, -0.332161, -1.52577e-07, -0.330576, 0.938721, 0.0975829, -0.0324131, 0.0920424, -0.995227, 0, 0, 0)
 
 [node name="AllMobs" type="Node3D" parent="."]
 
@@ -350,8 +348,6 @@ light_energy = 8.52
 light_specular = 1.04
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 18.008
 spot_attenuation = 0.339245
 spot_angle = 47.85
@@ -380,8 +376,6 @@ light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 8.0
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 18.008
 spot_attenuation = 0.216194
 spot_angle = 39.8
@@ -438,8 +432,6 @@ light_color = Color(0.889547, 0.517455, 0.653895, 1)
 light_energy = 8.0
 light_bake_mode = 0
 shadow_enabled = true
-shadow_bias = 0.75
-shadow_normal_bias = 2.0
 spot_range = 8.748
 spot_attenuation = 0.216194
 spot_angle = 48.37
@@ -587,8 +579,10 @@ transform = Transform3D(2.3571, 0, 0.833119, 0, 2.5, 0, -0.833119, 0, 2.3571, 25
 
 [node name="Campfire" parent="NavigationRegion3D/Part1" instance=ExtResource("11_nllvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9057, 12.9722, -61.7689)
-light_energy = 5.29162
+light_energy = 19.6805
 shadow_enabled = true
+omni_range = 8.425
+max_energy = 45.0
 
 [node name="ArbreCarre" parent="NavigationRegion3D/Part1" instance=ExtResource("16_klo7t")]
 transform = Transform3D(0.723454, 0, -1.00092, 0, 1.235, 0, 1.00092, 0, 0.723454, 31.4331, 9.73871, -57.1015)
@@ -1046,13 +1040,13 @@ transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -6.15616, 20, -51
 
 [node name="Torch" parent="." instance=ExtResource("18_tjmb8")]
 transform = Transform3D(-0.544969, -0.0795378, 0.834675, -0.0434834, 0.996832, 0.0665992, -0.837328, 4.43841e-09, -0.546701, 13.6149, 12.1597, -70.6385)
-light_energy = 1.29162
+light_energy = 2.46805
 shadow_enabled = false
 omni_range = 3.84
 
 [node name="HandTorch" parent="." instance=ExtResource("27_v73gf")]
 transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 49.8343, 10.7415, -99.8552)
-light_energy = 1.29162
+light_energy = 2.46805
 omni_range = 3.722
 
 [node name="Forest" type="Node3D" parent="."]

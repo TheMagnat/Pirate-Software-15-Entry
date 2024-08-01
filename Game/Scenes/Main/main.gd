@@ -9,7 +9,7 @@ var deathCount: int = 0
 
 ### DEBUG ###
 var inDebug: bool = false
-var debugIndex: int = 1
+var debugIndex: int = 2
 ### END DEBUG ###
 
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
@@ -17,6 +17,8 @@ var debugIndex: int = 1
 var currentLevel = null
 
 func _ready():
+	#Record mode:
+	# Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#get_viewport().debug_draw = 9
 	Save.enable_save = true
 	load_lobby()
