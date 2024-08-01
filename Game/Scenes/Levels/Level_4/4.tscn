@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://d2crylkmmoe7a"]
+[gd_scene load_steps=124 format=3 uid="uid://d2crylkmmoe7a"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4/4.gd" id="1_5ujae"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="2_t76xs"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://b7whhsct3t561" path="res://Assets/Models/Cadres/Crate1.png" id="28_fj0y8"]
 [ext_resource type="PackedScene" uid="uid://ct72hstsh84vk" path="res://Scenes/LightEntity/StaticLamp.tscn" id="29_codbl"]
 [ext_resource type="PackedScene" uid="uid://ciektisjpxak8" path="res://Scenes/Mesh/Misc/big_frame_vert.tscn" id="30_m17nj"]
+[ext_resource type="PackedScene" uid="uid://cvw2jwvacprq7" path="res://Scenes/Mesh/Misc/Sapphire.tscn" id="31_65ete"]
 [ext_resource type="Material" uid="uid://d3ro2cb2ih045" path="res://Scenes/Levels/Level_4/CastleCarpet.tres" id="35_qkulo"]
 [ext_resource type="PackedScene" uid="uid://bc7dp6um4joj0" path="res://Scenes/Mesh/Misc/big_frame_hor.tscn" id="37_5a70j"]
 [ext_resource type="Texture2D" uid="uid://cskenvlgagmjy" path="res://Assets/Models/Cadres/Castle/Jour4.jpg" id="39_b05ge"]
@@ -1790,8 +1791,8 @@ script = ExtResource("8_om0xy")
 [node name="BibliothèqueGLB" parent="." instance=ExtResource("13_ega6t")]
 transform = Transform3D(-4.99037, 0, 2.93603, 0, 5.79, 0, -2.93603, 0, -4.99037, -24.2001, 0, -8.83085)
 
-[node name="Amethyst" parent="." instance=ExtResource("14_nb5gr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5057, 1.08391, 0.232909)
+[node name="Sapphire" parent="." instance=ExtResource("31_65ete")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5634, 0.829037, 0.198868)
 
 [node name="Mob4" parent="." node_paths=PackedStringArray("view") instance=ExtResource("5_injvj")]
 transform = Transform3D(-0.0448572, 0, -0.998994, 0, 1, 0, 0.998994, 0, -0.0448572, 40.5364, -0.0196991, -1.99353)
