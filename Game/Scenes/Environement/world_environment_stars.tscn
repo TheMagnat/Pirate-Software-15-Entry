@@ -81,7 +81,6 @@ ambient_light_energy = 0.1
 tonemap_mode = 2
 ssao_radius = 11.8
 ssao_sharpness = 1.0
-ssil_enabled = true
 fog_enabled = true
 fog_light_color = Color(0, 0.160784, 0.54902, 1)
 fog_aerial_perspective = 1.0
