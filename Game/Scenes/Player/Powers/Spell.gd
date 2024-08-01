@@ -11,8 +11,8 @@ var on_cooldown := false
 func tryActivateSpell():
 	aiming = false
 	if !on_cooldown:
-		on_cooldown = true
 		if activateSpell():
+			on_cooldown = true
 			var t := get_tree().create_timer(cooldown - cooldown_decrease_per_level * Save.unlockable[Player.CastingSpeed])
 			t.timeout.connect(func(): on_cooldown = false)
 
