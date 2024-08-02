@@ -86,6 +86,8 @@ func escape_level():
 		else:
 			Save.resources[resource] = resources[resource]
 	
+	Save.save_game()
+	
 	var endScreen := END_SCREEN.instantiate()
 	endScreen.fillScreen(currentLevel, true)
 	endScreen.addCallback(func(): load_lobby())
@@ -130,7 +132,7 @@ func finish_level():
 		Save.resources[artifact] += 1
 		print("Added artifact:", artifact)
 	
-	
+	Save.save_game()
 	
 	if idx == END_LEVEL:
 		Transition.start(get_tree().change_scene_to_packed.bind(load(CINEMATIC_END))) ## don't preload this or it will create cyclic references
