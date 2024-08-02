@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cmkfmv8i8bk06"]
 
-[ext_resource type="Script" path="res://Scenes/UI/craft_table_interaction.gd" id="1_842uj"]
+[ext_resource type="Script" path="res://Scenes/UI/prototype_book.gd" id="1_842uj"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_rbhua"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_table.gd" id="3_57m76"]
 [ext_resource type="AudioStream" uid="uid://dgbrwssopwhl" path="res://Assets/SFX/UI/page_turn1.ogg" id="4_qh07j"]
@@ -29,13 +29,9 @@ points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_skntt"]
 streams_count = 4
 stream_0/stream = ExtResource("4_qh07j")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("5_8br65")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_y7i7e")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("7_gj701")
-stream_3/weight = 1.0
 
 [node name="Prototype_Book" type="Node3D"]
 process_mode = 3

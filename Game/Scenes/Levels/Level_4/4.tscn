@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c0lvcyvuf5q1i" path="res://Scenes/Mesh/Misc/Ruby.tscn" id="16_vi6gi"]
 [ext_resource type="PackedScene" uid="uid://ov1yj0jq03fq" path="res://Scenes/Mesh/Misc/Topaz.tscn" id="17_esgtl"]
 [ext_resource type="PackedScene" uid="uid://cg4s7wr4yn5l2" path="res://Scenes/Mesh/Misc/Bibliotheque2.tscn" id="18_m6ae1"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="19_o0tkr"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/Levels/Objects/tutorial_text.tscn" id="19_o0tkr"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="26_noskr"]
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="27_lb76m"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4/boss.gd" id="27_x2tjw"]

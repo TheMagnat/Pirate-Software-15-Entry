@@ -3,8 +3,25 @@
 [ext_resource type="Script" path="res://Scenes/Cinematic/cinematic.gd" id="1_1etc6"]
 [ext_resource type="PackedScene" uid="uid://uiqmxktdm8b3" path="res://Scenes/UI/main_menu.tscn" id="2_s6834"]
 [ext_resource type="Texture2D" uid="uid://44vwymrrsde1" path="res://Assets/logo/Godot Game engine logo.svg" id="3_w75e0"]
-[ext_resource type="Shader" path="res://Scenes/Cinematic/splashscreen.gdshader" id="3_yogdi"]
 [ext_resource type="AudioStream" uid="uid://dmebd8nilsr70" path="res://Assets/SFX/fire/fire_burning.ogg" id="5_2r3v5"]
+
+[sub_resource type="Shader" id="Shader_yfll4"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform float offset : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec2 p = UV - vec2(0.5, 0.5);
+	float nx = texture(noise, UV + vec2(cos(4.4135 + p.x), sin(2.59135 + p.y))).r - 0.5;
+	float ny = texture(noise, UV + vec2(sin(3.2135 + p.y), cos(3.849135 + p.x))).r - 0.5;
+	if (length(p + vec2(nx, ny)) > offset) {
+		COLOR.a = 0.0;
+	}
+
+	COLOR.gb *= 0.5 + offset * 0.5;
+}
+"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_a4rll"]
 frequency = 0.0124
@@ -15,7 +32,7 @@ height = 64
 noise = SubResource("FastNoiseLite_a4rll")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81lo3"]
-shader = ExtResource("3_yogdi")
+shader = SubResource("Shader_yfll4")
 shader_parameter/offset = 0.0
 shader_parameter/noise = SubResource("NoiseTexture2D_h3hqs")
 

@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="21_3s03c"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="22_ruaxr"]
 [ext_resource type="PackedScene" uid="uid://rmvra5b8e5e8" path="res://Scenes/Levels/lobby/level_3_loader.tscn" id="23_hf785"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="24_ixqxq"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/Levels/Objects/tutorial_text.tscn" id="24_ixqxq"]
 [ext_resource type="PackedScene" uid="uid://bxhhfqntwfa28" path="res://Scenes/Mesh/Misc/tabouret.tscn" id="24_may71"]
 [ext_resource type="PackedScene" uid="uid://b1047aafggjac" path="res://Scenes/Mesh/Forest/ArbreRond.tscn" id="25_dls45"]
 [ext_resource type="PackedScene" uid="uid://detf01eo1b1gl" path="res://Scenes/Mesh/Misc/table_empty.tscn" id="25_npve2"]

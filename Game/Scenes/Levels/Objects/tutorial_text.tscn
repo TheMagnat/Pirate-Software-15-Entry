@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxxe3v05f2odr"]
 
 [ext_resource type="FontFile" uid="uid://cj3nq2ds8l2bx" path="res://Assets/Fonts/AshesAshesMedium-5wYa.ttf" id="1_2w3nl"]
-[ext_resource type="Script" path="res://Scenes/UI/tutorial_text.gd" id="1_wn674"]
+[ext_resource type="Script" path="res://Scenes/Levels/Objects/tutorial_text.gd" id="1_wn674"]
 
 [node name="TutorialText" type="Label3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)

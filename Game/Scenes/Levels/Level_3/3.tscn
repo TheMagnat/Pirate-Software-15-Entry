@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bs7y1omtsrwac" path="res://Scenes/LightEntity/campfire.tscn" id="16_1vsq6"]
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="17_umpde"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="18_62op1"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="21_7g626"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/Levels/Objects/tutorial_text.tscn" id="21_7g626"]
 [ext_resource type="Shader" path="res://Scenes/Levels/Level_3/darkDoor.gdshader" id="22_xosvo"]
 [ext_resource type="PackedScene" uid="uid://ct72hstsh84vk" path="res://Scenes/LightEntity/StaticLamp.tscn" id="23_fr7tl"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outlineCustomColor.gdshader" id="23_xwd2i"]

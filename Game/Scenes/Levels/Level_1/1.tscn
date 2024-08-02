@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dam4t5wssxfxo" path="res://Scenes/Mesh/Forest/Tour.tscn" id="11_gtrbm"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="13_jp1f7"]
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="13_k4frq"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="14_3rnfn"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/Levels/Objects/tutorial_text.tscn" id="14_3rnfn"]
 [ext_resource type="PackedScene" uid="uid://bdw8xg6pipfvx" path="res://Scenes/Mesh/Forest/BarriereCasse.tscn" id="14_8nt75"]
 [ext_resource type="PackedScene" uid="uid://b3gq2ak2tey5s" path="res://Scenes/Mesh/Forest/Barriere2.tscn" id="15_uyvu6"]
 [ext_resource type="PackedScene" uid="uid://e3c85f6wmycc" path="res://Scenes/Mesh/Forest/Lampadaire.tscn" id="16_ia27f"]

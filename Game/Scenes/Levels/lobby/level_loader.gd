@@ -1,6 +1,6 @@
 extends Area3D
 
-const TUTORIAL_TEXT := preload("res://Scenes/UI/tutorial_text.tscn")
+const TUTORIAL_TEXT := preload("res://Scenes/Levels/Objects/tutorial_text.tscn")
 
 @export var index := 0
 @onready var in_lobby := has_node("/root/Main")

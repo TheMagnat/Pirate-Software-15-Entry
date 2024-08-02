@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ba6ql6n1vd4bc" path="res://Assets/logo/bottle_mid.png" id="2_o30bw"]
 [ext_resource type="PackedScene" uid="uid://dup14c7te2t1d" path="res://Scenes/UI/settings.tscn" id="3_a2otm"]
 [ext_resource type="Texture2D" uid="uid://mews5nspbb7l" path="res://Assets/logo/bottle_top.png" id="3_ikcou"]
-[ext_resource type="Shader" path="res://Scenes/UI/top.gdshader" id="5_cr08y"]
 [ext_resource type="Script" path="res://Scenes/UI/logoAnimation.gd" id="5_t1nmf"]
 [ext_resource type="PackedScene" uid="uid://urrutg0cfqks" path="res://Scenes/Levels/menu_level.tscn" id="6_7a3lf"]
 
@@ -82,8 +81,17 @@ shader = SubResource("Shader_sx4u5")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/noise = SubResource("NoiseTexture2D_wwftn")
 
+[sub_resource type="Shader" id="Shader_pggd1"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	float originalAlpha = texture(TEXTURE, UV).a;
+	COLOR = vec4(1.0, 1.0, 1.0, originalAlpha * 0.75);
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_omyro"]
-shader = ExtResource("5_cr08y")
+shader = SubResource("Shader_pggd1")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8gul7")

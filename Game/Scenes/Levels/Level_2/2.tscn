@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cnb3noeag8vp5" path="res://Assets/Models/Cadres/fllower.jpg" id="26_kleno"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha.gdshader" id="26_xt283"]
 [ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="27_eitms"]
-[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/UI/tutorial_text.tscn" id="27_s2qli"]
+[ext_resource type="PackedScene" uid="uid://bxxe3v05f2odr" path="res://Scenes/Levels/Objects/tutorial_text.tscn" id="27_s2qli"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/TutoHandler.gd" id="27_wa143"]
 [ext_resource type="Texture2D" uid="uid://c1odvynl3jgyn" path="res://Assets/Models/Cadres/shadow_map.png" id="30_45ayf"]
 [ext_resource type="PackedScene" uid="uid://bqtly38fifh0" path="res://Scenes/Mesh/Forest/Sapin.tscn" id="30_pbfys"]
