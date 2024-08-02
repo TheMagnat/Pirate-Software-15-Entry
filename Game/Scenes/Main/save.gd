@@ -1,5 +1,10 @@
 extends Node
 
+#replace old saves using that
+const OLD_RESOURCES := {
+	"shade_cloak": "shade_core"
+}
+
 const RESOURCES := {
 	"amethyst": 0,
 	"diamond": 0,
@@ -9,7 +14,7 @@ const RESOURCES := {
 	"topaz": 0,
 	"golden_fist": 0,
 	"secret_heart": 0,
-	"shade_cloak": 0,
+	"shade_core": 0,
 	"night_stone": 0,
 	"blood_stone": 0,
 }
@@ -75,6 +80,11 @@ func _save_set_data(file: FileAccess):
 	resources = get_var(file, RESOURCES.duplicate())
 	unlockable = get_var(file, UNLOCKABLES.duplicate())
 	levels = get_var(file, LEVELS.duplicate())
+	
+	for resource in OLD_RESOURCES.keys():
+		if resource in resources:
+			resources[OLD_RESOURCES[resource]] = resources[resource]
+			resources.erase(resource)
 	
 	_add_missing_dict(resources, RESOURCES)
 	_add_missing_arr(unlockable, UNLOCKABLES)
