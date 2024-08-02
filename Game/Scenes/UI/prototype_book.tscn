@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmkfmv8i8bk06"]
+[gd_scene load_steps=17 format=3 uid="uid://cmkfmv8i8bk06"]
 
 [ext_resource type="Script" path="res://Scenes/UI/prototype_book.gd" id="1_842uj"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_page_3d.gd" id="1_rbhua"]
@@ -17,6 +17,9 @@ size = Vector3(1.7, 2, 1.1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_xmrvd"]
 size = Vector2(0.8, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_1omcy"]
+size = Vector3(0.8, 0.15, 1)
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_totlh"]
 points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
 
@@ -25,6 +28,9 @@ size = Vector2(0.8, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxj2s"]
 points = PackedVector3Array(0.4, 0, 0.5, -0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gbp1"]
+size = Vector3(0.1, 0.148, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_skntt"]
 streams_count = 4
@@ -50,6 +56,7 @@ shape = SubResource("BoxShape3D_15e0w")
 shape = SubResource("BoxShape3D_pgvpn")
 
 [node name="LeftPage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394, 0, 0)
 script = ExtResource("1_rbhua")
 
 [node name="SubViewPort" type="SubViewport" parent="LeftPage"]
@@ -57,9 +64,15 @@ gui_embed_subwindows = true
 size = Vector2i(346, 432)
 
 [node name="Quad" type="MeshInstance3D" parent="LeftPage"]
-transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, -0.4, 0, 0)
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_xmrvd")
 skeleton = NodePath("../..")
+
+[node name="Depth" type="MeshInstance3D" parent="LeftPage/Quad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.076, 0)
+sorting_offset = -1.0
+mesh = SubResource("BoxMesh_1omcy")
+skeleton = NodePath("../../..")
 
 [node name="Area3D" type="Area3D" parent="LeftPage/Quad"]
 
@@ -68,6 +81,7 @@ transform = Transform3D(1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_totlh")
 
 [node name="RightPage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394, 0, 0)
 script = ExtResource("1_rbhua")
 
 [node name="SubViewPort" type="SubViewport" parent="RightPage"]
@@ -75,15 +89,25 @@ gui_embed_subwindows = true
 size = Vector2i(346, 432)
 
 [node name="Quad" type="MeshInstance3D" parent="RightPage"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0.4, 0, 0)
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ahefp")
 skeleton = NodePath("../..")
+
+[node name="Depth" type="MeshInstance3D" parent="RightPage/Quad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.076, 0)
+sorting_offset = -1.0
+mesh = SubResource("BoxMesh_1omcy")
+skeleton = NodePath("../../..")
 
 [node name="Area3D" type="Area3D" parent="RightPage/Quad"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightPage/Quad/Area3D"]
 transform = Transform3D(1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_mxj2s")
+
+[node name="Depth" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145, 0)
+mesh = SubResource("BoxMesh_4gbp1")
 
 [node name="CraftTable" type="Node" parent="."]
 script = ExtResource("3_57m76")

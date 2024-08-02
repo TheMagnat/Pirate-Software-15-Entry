@@ -118,16 +118,19 @@ stream_1/stream = ExtResource("7_lxbk1")
 [node name="CraftPageUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.125
-offset_top = 6.4
-offset_right = 5.125
-offset_bottom = 6.4
 mouse_filter = 1
 script = ExtResource("1_7ukbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.622779, 0.621845, 0.461136, 1)
-scale = Vector2(0.29, 0.23)
+modulate = Color(0.687394, 0.687797, 0.528271, 0.5)
+scale = Vector2(0.29, 0.225)
+texture = ExtResource("2_pvq03")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.687394, 0.687797, 0.528271, 0.5)
+position = Vector2(348, 0)
+scale = Vector2(-0.29, 0.225)
 texture = ExtResource("2_pvq03")
 centered = false
 
@@ -146,7 +149,7 @@ anchor_right = 0.9
 anchor_bottom = 0.1
 offset_left = 0.399998
 offset_top = -0.200001
-offset_right = -0.399994
+offset_right = 11.6
 offset_bottom = 168.8
 grow_horizontal = 2
 theme_override_constants/separation = 5
