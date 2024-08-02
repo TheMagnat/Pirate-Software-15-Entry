@@ -9,7 +9,7 @@ const CLOAK_TIME := 2.0 - CLOAK_TIME_PER_LEVEL
 	#else:
 		#super()
 
-func _process(delta):
+func _process(_delta):
 	if aiming:
 		showPreview()
 	else:

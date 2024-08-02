@@ -61,7 +61,7 @@ func initPlayerSpells():
 func initMobs():
 	for child in find_children("*", "Mob"):
 		nbEnemies += 1
-		child.get_node("DeathActionable").actioned.connect(func (body: Player): killedEnemies += 1)
+		child.get_node("DeathActionable").actioned.connect(func (_body: Player): killedEnemies += 1)
 
 func init(i: int):
 	idx = i

@@ -3,7 +3,7 @@ extends Spell
 @export var item: PackedScene
 var throwImpulse: float = 10.0
 
-func _process(delta):
+func _process(_delta):
 	if aiming:
 		showPreview()
 	else:

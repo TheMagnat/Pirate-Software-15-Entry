@@ -38,7 +38,7 @@ func _on_body_entered(body: Node3D):
 		$AudioStreamPlayer3D.finished.connect(queue_free)
 		#t.finished.connect(queue_free)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if collector:
 		global_position.x = collector.global_position.x
 		global_position.z = collector.global_position.z

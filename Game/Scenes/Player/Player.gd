@@ -306,7 +306,7 @@ func cloak_do_tween():
 	cloak_tween.tween_property($AssetsHolder/Potion, "scale:y", 0.0 if cloaking else 1.0, CLOAK_ANIM_TIME)
 	cloak_tween.tween_property($AssetsHolder/CloakEffect, "scale", Vector3(1, 1, 1) if cloaking else BASE_CLOAK_SCALE, CLOAK_ANIM_TIME)
 	cloak_tween.tween_property($Cloaking, "pitch_scale", 0.4 if cloaking else 1.0, CLOAK_ANIM_TIME)
-	cloak_tween.tween_property($Cloaking, "volume_db", -2 if cloaking else BASE_CLOAK_VOLUME, CLOAK_ANIM_TIME)
+	cloak_tween.tween_property($Cloaking, "volume_db", -2.0 if cloaking else BASE_CLOAK_VOLUME, CLOAK_ANIM_TIME)
 	cloak_tween.finished.connect(cloak_tween_finish)
 
 func cloak(): 
@@ -394,5 +394,5 @@ func _input(event):
 	if event.is_action_pressed("cam_right"):
 		camera_side(1.0)
 
-func _on_world_edge_2_body_entered(body):
+func _on_world_edge_2_body_entered(_body):
 	dying(true)

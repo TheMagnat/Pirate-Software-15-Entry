@@ -2,7 +2,7 @@ extends Spell
 
 @export var item: PackedScene
 
-func _process(delta):
+func _process(_delta):
 	if aiming:
 		showPreview()
 	else:
@@ -41,7 +41,7 @@ func getSpawnPosition():
 	
 	return null
 
-func getRotationAngle(spawnPosition: Vector3):
+func getRotationAngle(_spawnPosition: Vector3):
 	# Relative to Player :
 	#var spawnDirection: Vector3 = player.global_position.direction_to(spawnPosition)
 	

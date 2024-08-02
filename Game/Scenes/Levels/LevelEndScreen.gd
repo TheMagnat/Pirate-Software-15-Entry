@@ -114,9 +114,9 @@ func animationFinished():
 	callback.call()
 
 var animationTween: Tween
-func prepareNodeAndAnimation(toAnimate: Control, show: bool = true, animationTime: float = 0.5):
+func prepareNodeAndAnimation(toAnimate: Control, shown: bool = true, animationTime: float = 0.5):
 	toAnimate.modulate.a = 0.0
-	if show:
+	if shown:
 		animationTween.tween_callback(func(): $AudioStreamPlayer.play())
 		animationTween.tween_property(toAnimate, "modulate:a", 1.0, animationTime)
 
