@@ -91,7 +91,7 @@ func save_erase():
 func save_exists() -> bool:
 	return FileAccess.file_exists(SAVE_FILE)
 
-func save_game(save_progress: bool):
+func save_game(save_progress := true):
 	var file := FileAccess.open(CONFIG_FILE, FileAccess.WRITE)
 	file.store_var(config)
 	file.close()
