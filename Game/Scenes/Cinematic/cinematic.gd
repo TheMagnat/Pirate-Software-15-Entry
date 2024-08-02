@@ -8,6 +8,10 @@ const skip_button := preload("res://Scenes/Cinematic/skip.tscn")
 
 
 func _ready():
+	if DebugHelper.debug and DebugHelper.loadLevelOnRun:
+		get_tree().change_scene_to_file("res://Scenes/Main/main.tscn")
+		return
+	
 	skip.position = Vector2(1280 - 128, 720 - 128)
 	skip.skip.connect(go_next)
 	add_child(skip)

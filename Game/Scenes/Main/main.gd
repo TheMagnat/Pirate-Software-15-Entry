@@ -7,11 +7,6 @@ const END_LEVEL := 4
 
 var deathCount: int = 0
 
-### DEBUG ###
-var inDebug: bool = false
-var debugIndex: int = 2
-### END DEBUG ###
-
 @onready var resource_preloader: ResourcePreloader = $ResourcePreloader
 
 var currentLevel = null
@@ -25,8 +20,8 @@ func _ready():
 
 func load_lobby():
 	# DEBUG
-	if inDebug:
-		load_level(debugIndex)
+	if DebugHelper.debug and DebugHelper.loadLevelOnRun:
+		load_level(DebugHelper.debugStartLevel)
 	else:
 		load_level(-1)
 	

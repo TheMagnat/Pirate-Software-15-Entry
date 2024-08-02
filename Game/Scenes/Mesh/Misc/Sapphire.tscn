@@ -66,10 +66,10 @@ stream = ExtResource("4_its0r")
 transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0.15, 0)
 mesh = SubResource("ArrayMesh_xj5wp")
 
-[node name="Area3D2" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000473022, 0.57663, 0.00317383)
 shape = SubResource("BoxShape3D_hekc3")

@@ -46,6 +46,7 @@ var animationBlendTime: float = 0.25
 @onready var playerCamera := $CameraHolder/PlayerCamera
 @onready var camera := playerCamera
 
+@onready var topViewCameraOffset: float = $SubViewport/TopView.position.y
 var heightCompensation := Vector3(0.0, 1.0, 0.0)
 
 func set_camera(cam: Camera3D):
@@ -281,10 +282,11 @@ func _process(_delta: float):
 			animationTween = create_tween()
 			animationTween.tween_property(animation, "parameters/Blend2/blend_amount", 0.0, animationBlendTime)
 			state = 0
-			
+	
+	# Set the top view camera to render the light level on the player
 	$SubViewport/TopView.global_position.x = global_position.x
 	$SubViewport/TopView.global_position.z = global_position.z
-	$SubViewport/TopView.global_position.y = global_position.y + 1.5
+	$SubViewport/TopView.global_position.y = global_position.y + topViewCameraOffset
 
 const CLOAK_ANIM_TIME := 0.5
 const BASE_CLOAK_SCALE := Vector3(0.5, 0.0, 0.5)

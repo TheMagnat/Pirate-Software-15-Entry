@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=4 uid="uid://cl4br0sqn70wh"]
+[gd_scene load_steps=149 format=4 uid="uid://cl4br0sqn70wh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ccmblyjjf4jqm" path="res://Scenes/Mesh/Forest/ArbreCarre.tscn" id="10_t10m5"]
 [ext_resource type="PackedScene" uid="uid://cswmugqwlg0n" path="res://Scenes/LightEntity/Torch.tscn" id="11_oe1wc"]
 [ext_resource type="PackedScene" uid="uid://dnrc3db5v88yx" path="res://Scenes/Mesh/Forest/GrosCaillou.tscn" id="13_4v2mu"]
-[ext_resource type="PackedScene" uid="uid://c07crbhhyvvwo" path="res://Scenes/Environement/world_environment_stars.tscn" id="15_svkgy"]
 [ext_resource type="PackedScene" uid="uid://bjwo3gmvrmvv0" path="res://Scenes/LightEntity/lantern.tscn" id="15_vuwel"]
 [ext_resource type="PackedScene" uid="uid://ci3bher6koqui" path="res://Scenes/Mesh/Forest/PetitCaillou.tscn" id="16_pmmuf"]
 [ext_resource type="PackedScene" uid="uid://bx26x4g0u00b7" path="res://Scenes/Mesh/Misc/Bibliotheque.tscn" id="17_q5irf"]
@@ -620,10 +619,8 @@ level_name = "Dungeon"
 main_ressource = "secret_heart"
 checkpoints = NodePath("Checkpoints")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("15_svkgy")]
-
 [node name="Player" parent="." instance=ExtResource("1_swu07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0343064, 0.777439, 8.05015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389, 8.05)
 
 [node name="MoonColor" parent="." instance=ExtResource("3_1gy3l")]
 transform = Transform3D(-0.502506, -0.325047, 0.801144, -0.0755988, 0.939605, 0.333807, -0.861262, 0.107174, -0.49673, 0, 0, 0)
@@ -993,13 +990,13 @@ transform = Transform3D(-0.569839, 0, -0.821756, 0, 1, 0, 0.821756, 0, -0.569839
 
 [node name="Campfire" parent="Geometry/Garden" instance=ExtResource("9_tcpmy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1064, 3, -18.2549)
-light_energy = 4.59036
+light_energy = 5.80092
 shadow_enabled = true
 min_energy = 4.0
 
 [node name="Torch2" parent="Geometry/Garden" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.3345, 2.25, -45.91)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="Tour" parent="Geometry/Garden" instance=ExtResource("6_b7y0l")]
@@ -1007,12 +1004,12 @@ transform = Transform3D(0.0420878, 0, 0.0269929, 0, 0.05, 0, -0.0269929, 0, 0.04
 
 [node name="Torch2" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(7.39526, 0, 18.5825, 0, 20, 0, -18.5825, 0, 7.39526, 108.156, 50, 53.337)
-light_energy = 1.47229
+light_energy = 2.44073
 noise = SubResource("FastNoiseLite_1q8li")
 
 [node name="StaticLamp" parent="Geometry/Garden" instance=ExtResource("9_ukmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4877, 3.60079, -59.7781)
-light_energy = 5.47229
+light_energy = 6.44073
 
 [node name="ArbreCarre" parent="Geometry/Garden" instance=ExtResource("10_t10m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7232, -0.525065, -63.6669)
@@ -1112,7 +1109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17958, -4.76837e-07, -12.56
 
 [node name="Torch2" parent="Geometry/Entrance" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, -6.75663, 2.43407, 0.645422)
-light_energy = 1.47229
+light_energy = 2.44073
 noise = SubResource("FastNoiseLite_tfd4u")
 
 [node name="GrosCaillou" parent="Geometry/Entrance" instance=ExtResource("13_4v2mu")]
@@ -1123,7 +1120,7 @@ transform = Transform3D(-0.0254098, 0, 0.0159481, 0, 0.03, 0, -0.0159481, 0, -0.
 
 [node name="Lantern" parent="Geometry/Entrance" instance=ExtResource("15_vuwel")]
 transform = Transform3D(-0.995644, -0.0932395, 8.70419e-08, -0.0932395, 0.995644, 8.15125e-09, -8.74228e-08, 0, -1, -13.732, 1.80718, -11.8065)
-light_energy = 5.47229
+light_energy = 6.44073
 
 [node name="PetitCaillou" parent="Geometry/Entrance" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -14, -0.0277354, -13)
@@ -1224,7 +1221,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -33)
 [node name="Torch" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.109, 3, 0)
 rotation_edit_mode = 0
-light_energy = 3.35422
+light_energy = 4.08055
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1233,7 +1230,7 @@ min_energy = 3.0
 [node name="Torch2" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -12)
 rotation_edit_mode = 0
-light_energy = 3.35422
+light_energy = 4.08055
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1242,7 +1239,7 @@ min_energy = 3.0
 [node name="Torch3" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -23)
 rotation_edit_mode = 0
-light_energy = 3.35422
+light_energy = 4.08055
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1355,22 +1352,22 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.4217, 0, -54.3066)
 
 [node name="Torch" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50599, 4, -61.1211)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 3, -46.8768)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="Torch3" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 3, -46.8808)
-light_energy = 1.47229
+light_energy = 2.44073
 noise = SubResource("FastNoiseLite_mreqy")
 
 [node name="Lantern" parent="Geometry/WindowGallery" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 0.966282, 0.257487, 0, -0.257487, 0.966282, 28.043, 0.920775, -59.9285)
-light_energy = 5.47229
+light_energy = 6.44073
 
 [node name="PetitCaillou" parent="Geometry/WindowGallery" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.0118941, 0, -0.0219893, 0, 0.025, 0, 0.0219893, 0, 0.0118941, 28.1305, 0.0070647, -59.819)
@@ -1481,19 +1478,19 @@ transform = Transform3D(-6, 0, -5.24537e-07, 0, 6, 0, 5.24537e-07, 0, -6, 29, 4.
 
 [node name="Lantern" parent="Geometry/Library" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3665, 1.24732, -24)
-light_energy = 5.47229
+light_energy = 6.44073
 
 [node name="PetitCaillou" parent="Geometry/Library" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.00854103, 0, 0.0318756, 0, 0.033, 0, -0.0318756, 0, 0.00854103, 24.6928, 0, -23.5339)
 
 [node name="Torch3" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -35.1308)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="Torch4" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.8831, 3, -28.1308)
-light_energy = 1.47229
+light_energy = 2.44073
 
 [node name="Library1" type="StaticBody3D" parent="Geometry/Library"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, -37)
@@ -1582,12 +1579,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9597, 2.38419e-07, -42.793
 
 [node name="Torch" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -42)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -32)
-light_energy = 1.47229
+light_energy = 2.44073
 shadow_enabled = false
 
 [node name="libbroom2" parent="Geometry/Treasure" instance=ExtResource("17_q5irf")]

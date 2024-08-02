@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://d2crylkmmoe7a"]
+[gd_scene load_steps=124 format=3 uid="uid://d2crylkmmoe7a"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4/4.gd" id="1_5ujae"]
 [ext_resource type="PackedScene" uid="uid://p1rtimqql3y3" path="res://Scenes/Levels/Checkpoints/Checkpoints.tscn" id="2_t76xs"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://dcphd5go0ro7m" path="res://Assets/Models/Cadres/undead_survivor.png" id="53_kerb0"]
 [ext_resource type="Texture2D" uid="uid://b08mognb06p0u" path="res://Assets/Models/Cadres/Castle/Illu_SeaOfStars.jpg" id="57_scwqd"]
 [ext_resource type="Texture2D" uid="uid://dnbl6v0fkrdh0" path="res://Assets/Models/Cadres/Castle/BBSelenien.jpg" id="57_woteo"]
+[ext_resource type="PackedScene" uid="uid://cvw2jwvacprq7" path="res://Scenes/Mesh/Misc/Sapphire.tscn" id="60_xa4j5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cr17r"]
 radius = 25.1376
@@ -287,8 +288,10 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_vr2w7"]
 size = Vector3(8, 1, 80)
 
-[node name="Level_4" type="Node3D"]
+[node name="Level_4" type="Node3D" node_paths=PackedStringArray("checkpoints")]
 script = ExtResource("1_5ujae")
+level_name = "Manor"
+checkpoints = NodePath("Checkpoints")
 
 [node name="Checkpoints" parent="." instance=ExtResource("2_t76xs")]
 
@@ -312,31 +315,31 @@ shadow_enabled = true
 [node name="WorldEnvironment" parent="." instance=ExtResource("4_dmgf7")]
 
 [node name="Player" parent="." instance=ExtResource("5_27gtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209358, 0.376829, 35.2772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
 
 [node name="Torch2" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.1148, 5.33443, -3.38523)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 omni_range = 6.0
 
 [node name="Torch3" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.1148, 5.32869, 13.3891)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 omni_range = 6.0
 
 [node name="Torch4" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(-0.999413, 0, 0.0342541, 0, 1, 0, -0.0342541, 0, -0.999413, 10, 2.22774, 12.625)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 shadow_enabled = false
 omni_range = 6.0
 
 [node name="Torch5" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(-0.999413, 0, 0.0342541, 0, 1, 0, -0.0342541, 0, -0.999413, -10, 2.22774, 12.625)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 shadow_enabled = false
 omni_range = 6.0
 
@@ -467,13 +470,13 @@ shape = SubResource("ConvexPolygonShape3D_j2hlu")
 [node name="Torch" parent="NavigationRegion3D/Hall/Bords/Wall" instance=ExtResource("26_noskr")]
 transform = Transform3D(-1, 3.19744e-14, -8.74228e-08, 3.3358e-08, 0.92434, -0.381571, 8.08083e-08, -0.381571, -0.92434, -29.9431, 5.61284, 14.7616)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 shadow_enabled = false
 
 [node name="Torch2" parent="NavigationRegion3D/Hall/Bords/Wall" instance=ExtResource("26_noskr")]
 transform = Transform3D(-1, 3.19744e-14, -8.74228e-08, 3.3358e-08, 0.92434, -0.381571, 8.08083e-08, -0.381571, -0.92434, -41.501, 5.61284, 14.7616)
 rotation_edit_mode = 0
-light_energy = 1.26449
+light_energy = 1.18988
 shadow_enabled = false
 
 [node name="Wall2" type="StaticBody3D" parent="NavigationRegion3D/Hall/Bords"]
@@ -1724,7 +1727,7 @@ spot_angle_attenuation = 1.03527
 script = ExtResource("8_om0xy")
 
 [node name="Mob3" parent="." instance=ExtResource("5_injvj")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -41.7466, 3.93399, -32.5529)
+transform = Transform3D(-0.6193, 0, -0.785155, 0, 1, 0, 0.785155, 0, -0.6193, -25.6065, 3.93399, -32.5148)
 imperturbable = true
 idleDuration = 1.0
 patrolSpeed = 8.0
@@ -1736,24 +1739,20 @@ metadata/_edit_group_ = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Mob3"]
 transform = Transform3D(0.997415, -0.0716514, 0.0054085, 0.0571679, 0.83689, 0.544377, -0.0435317, -0.542661, 0.838823, 0.0342178, 1.25319, -1.12217)
-light_color = Color(0.889547, 0.517455, 0.653895, 1)
-light_energy = 8.0
 light_bake_mode = 0
 shadow_enabled = true
 spot_range = 29.621
-spot_attenuation = -2.14
+spot_attenuation = 0.0
 spot_angle = 34.0
 spot_angle_attenuation = 0.535887
 script = ExtResource("8_om0xy")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Mob3/SpotLight3D"]
 transform = Transform3D(0.999561, -0.00389744, 0.0293804, -0.00826361, 0.915354, 0.402565, -0.0284625, -0.402631, 0.91492, 0.0536194, 0.668392, -1.03317)
-light_color = Color(0.889547, 0.517455, 0.653895, 1)
-light_energy = 8.0
 light_bake_mode = 0
 shadow_enabled = true
 spot_range = 29.621
-spot_attenuation = -2.14
+spot_attenuation = 0.0
 spot_angle = 46.78
 spot_angle_attenuation = 0.732043
 script = ExtResource("8_om0xy")
@@ -1789,9 +1788,6 @@ script = ExtResource("8_om0xy")
 
 [node name="BibliothèqueGLB" parent="." instance=ExtResource("13_ega6t")]
 transform = Transform3D(-4.99037, 0, 2.93603, 0, 5.79, 0, -2.93603, 0, -4.99037, -24.2001, 0, -8.83085)
-
-[node name="Amethyst" parent="." instance=ExtResource("14_nb5gr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5057, 1.08391, 0.232909)
 
 [node name="Mob4" parent="." node_paths=PackedStringArray("view") instance=ExtResource("5_injvj")]
 transform = Transform3D(-0.0448572, 0, -0.998994, 0, 1, 0, 0.998994, 0, -0.0448572, 40.5364, -0.0196991, -1.99353)
@@ -1879,7 +1875,7 @@ shape = SubResource("SphereShape3D_1e3p5")
 [node name="HandTorch" parent="." instance=ExtResource("15_ydg18")]
 transform = Transform3D(1, 0, 0, 0, 1, -0.000174533, 0, 0.000174533, 1, 56.7599, 1.10194, 4.99117)
 light_color = Color(1, 0.765708, 0.450306, 1)
-light_energy = 15.3306
+light_energy = 15.2373
 omni_range = 6.02
 max_energy = 20.0
 min_energy = 15.0
@@ -1934,7 +1930,7 @@ mesh = SubResource("BoxMesh_vr2w7")
 
 [node name="Torch" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(0.0115888, 0, -0.999933, 0, 1, 0, 0.999933, 0, 0.0115888, 59.1336, 7.20542, -33.9474)
-light_energy = 1.26449
+light_energy = 1.18988
 shadow_enabled = false
 
 [node name="SquareFrame" parent="." instance=ExtResource("27_lb76m")]
@@ -1955,32 +1951,32 @@ content = ExtResource("41_ufesb")
 
 [node name="StaticLamp" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(-0.00659714, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.00659714, -16.0545, 2.95359, -104.544)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="StaticLamp2" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(0.0163879, 0, -0.999866, 0, 1, 0, 0.999866, 0, 0.0163879, 16.055, 2.954, -104.544)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="StaticLamp3" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(-0.00659714, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.00659714, -16.0545, 2.95359, -80.3854)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="StaticLamp4" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(0.0163879, 0, -0.999866, 0, 1, 0, 0.999866, 0, 0.0163879, 16.055, 2.954, -80.3852)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="StaticLamp5" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(-0.00659714, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.00659714, -16.0545, 2.95359, -61.8655)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="StaticLamp6" parent="." instance=ExtResource("29_codbl")]
 transform = Transform3D(0.0163879, 0, -0.999866, 0, 1, 0, 0.999866, 0, 0.0163879, 16.055, 2.954, -61.8654)
-light_energy = 5.26449
+light_energy = 5.18988
 omni_range = 13.38
 
 [node name="BigFrameVertical" parent="." instance=ExtResource("30_m17nj")]
@@ -2023,7 +2019,7 @@ content = ExtResource("47_wj7v6")
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -21.4044, 4.89075, -7.97391)
 content = ExtResource("53_1qeo7")
 
-[node name="BigFrameVertical5" parent="." instance=ExtResource("30_m17nj")]
+[node name="MeshInstance3D" parent="." instance=ExtResource("30_m17nj")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -21.4044, 4.89075, -16.7324)
 content = ExtResource("51_6m6nb")
 
@@ -2046,7 +2042,7 @@ content = ExtResource("57_woteo")
 [node name="Torch8" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(1, 0, 0, 0, 0.987198, -0.159502, 0, 0.159502, 0.987198, -34.051, 9.767, -40.757)
 rotation_edit_mode = 0
-light_energy = 1.52897
+light_energy = 1.37976
 shadow_enabled = false
 omni_range = 7.0
 omni_attenuation = 1.828
@@ -2055,7 +2051,7 @@ max_energy = 9.0
 [node name="Torch6" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(1, 0, 0, 0, 0.996794, -0.0800076, 0, 0.0800076, 0.996794, 34.051, 9.76734, -40.7574)
 rotation_edit_mode = 0
-light_energy = 1.52897
+light_energy = 1.37976
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 9.0
@@ -2063,7 +2059,7 @@ max_energy = 9.0
 [node name="Torch9" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(1, 0, 0, 0, 0.987198, -0.159502, 0, 0.159502, 0.987198, -44.859, 9.767, -40.757)
 rotation_edit_mode = 0
-light_energy = 1.52897
+light_energy = 1.37976
 shadow_enabled = false
 omni_range = 7.0
 omni_attenuation = 1.828
@@ -2072,7 +2068,7 @@ max_energy = 9.0
 [node name="Torch7" parent="." instance=ExtResource("26_noskr")]
 transform = Transform3D(1, 0, 0, 0, 0.996794, -0.0800076, 0, 0.0800076, 0.996794, 44.8586, 9.76734, -40.7574)
 rotation_edit_mode = 0
-light_energy = 1.52897
+light_energy = 1.37976
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 9.0
@@ -2081,5 +2077,8 @@ max_energy = 9.0
 stream = ExtResource("50_wxbab")
 volume_db = -4.0
 autoplay = true
+
+[node name="Sapphire" parent="." instance=ExtResource("60_xa4j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2217, 0.72023, 0.278666)
 
 [editable path="NavigationRegion3D/couloirFinal/Node3D"]

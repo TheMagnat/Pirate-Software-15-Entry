@@ -41,6 +41,10 @@ func initResources():
 		finish_resources[resource] = 0
 
 func initPlayerSpells():
+	# Set player position if not in debuging
+	if not DebugHelper.debug or not DebugHelper.ignoreSpawnPosition:
+		$Player.position = DebugHelper.playerStartPosition[idx]
+	
 	# Load unlocked spells
 	var unlockedSpells := PackedInt32Array()
 	
@@ -48,10 +52,11 @@ func initPlayerSpells():
 	if Save.unlockable[1] > 0: unlockedSpells.push_back(1)
 	if Save.unlockable[2] > 0: unlockedSpells.push_back(2)
 	
-	$Player/SpellHolder.setAllowedSpells(unlockedSpells)
+	if DebugHelper.debug and DebugHelper.unlockAllSpells:
+		$Player/SpellHolder.setAllowedSpells([0, 1, 2])
+	else:
+		$Player/SpellHolder.setAllowedSpells(unlockedSpells)
 	
-	### DEBUG ###
-	#$Player/SpellHolder.setAllowedSpells([0, 1, 2])
 
 func initMobs():
 	for child in find_children("*", "Mob"):

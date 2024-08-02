@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dgyf1i48s3iys"]
+[gd_scene load_steps=57 format=3 uid="uid://dgyf1i48s3iys"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_xqvjk"]
 [ext_resource type="Script" path="res://Scenes/Player/Powers/SpellHolder.gd" id="2_nrs8g"]
@@ -72,6 +72,8 @@ shader = SubResource("Shader_inckh")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3y8l1"]
 radius = 0.624949
 height = 1.29514
+
+[sub_resource type="Environment" id="Environment_0rlu6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qvij2"]
 radius = 16.088
@@ -200,10 +202,12 @@ size = Vector2i(4, 4)
 render_target_update_mode = 4
 
 [node name="TopView" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 18.155, 0)
+transform = Transform3D(1, 0, 0, 0, -2.59633e-08, 1, 0, -1, -2.59633e-08, 0, 1.339, 0)
 cull_mask = 1048573
+environment = SubResource("Environment_0rlu6")
+projection = 1
 fov = 57.7
-size = 0.905
+size = 0.6
 far = 1000.0
 
 [node name="Octahedron" parent="." instance=ExtResource("5_nhg1m")]
@@ -246,11 +250,11 @@ stream = SubResource("AudioStreamRandomizer_i2neh")
 volume_db = -10.0
 attenuation_filter_cutoff_hz = 20500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="LightTexture" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(172.26, 145.26)
-scale = Vector2(85.87, 72.87)
+position = Vector2(94, 95)
+scale = Vector2(45.5, 45.5)
 texture = SubResource("ViewportTexture_pdvll")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

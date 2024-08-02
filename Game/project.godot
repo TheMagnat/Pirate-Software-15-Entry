@@ -26,6 +26,7 @@ Save="*res://Scenes/Main/save.gd"
 Transition="*res://Scenes/Main/transition.tscn"
 DebugDraw="*res://Scenes/Tool/DebugDraw.tscn"
 Music="*res://Scenes/Main/music.tscn"
+DebugHelper="*res://Scenes/DebugScene/DebugHelper.gd"
 
 [display]
 
@@ -113,10 +114,13 @@ sneak={
 
 [rendering]
 
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/directional_shadow/16_bits=false
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=3
+lights_and_shadows/positional_shadow/atlas_size=8192
+lights_and_shadows/positional_shadow/atlas_16_bits=false
 lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=2
-lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3
 
 [shader_globals]
 
