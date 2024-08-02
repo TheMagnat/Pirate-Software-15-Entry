@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://b3aoyco28g2co"]
 
-[ext_resource type="Script" path="res://Scenes/UI/CraftUI.gd" id="1_83flf"]
-[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="2_45yes"]
-[ext_resource type="AudioStream" uid="uid://clvwjd1q5q7bq" path="res://Assets/SFX/misc/bottle_fill1.ogg" id="3_1fe31"]
-[ext_resource type="FontFile" uid="uid://c285m2lypsss1" path="res://Assets/Fonts/Lemon Tuesday.otf" id="3_e50dp"]
-[ext_resource type="AudioStream" uid="uid://bs538bytbae82" path="res://Assets/SFX/misc/bottle_fill2.ogg" id="4_siyph"]
-[ext_resource type="LabelSettings" uid="uid://cqub7j446ve4b" path="res://Ressources/LabelSettings.tres" id="5_k342e"]
-[ext_resource type="Texture2D" uid="uid://dgjxgfsamarva" path="res://Assets/Textures/page.png" id="9_vbmge"]
+[ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_7ukbu"]
+[ext_resource type="Texture2D" uid="uid://dgjxgfsamarva" path="res://Assets/Textures/page.png" id="2_pvq03"]
+[ext_resource type="LabelSettings" uid="uid://cqub7j446ve4b" path="res://Ressources/LabelSettings.tres" id="3_55283"]
+[ext_resource type="FontFile" uid="uid://c285m2lypsss1" path="res://Assets/Fonts/Lemon Tuesday.otf" id="4_7bxkw"]
+[ext_resource type="PackedScene" uid="uid://7kvqydjvck" path="res://Scenes/UI/button.tscn" id="5_o8svm"]
+[ext_resource type="AudioStream" uid="uid://clvwjd1q5q7bq" path="res://Assets/SFX/misc/bottle_fill1.ogg" id="6_cj7ip"]
+[ext_resource type="AudioStream" uid="uid://bs538bytbae82" path="res://Assets/SFX/misc/bottle_fill2.ogg" id="7_lxbk1"]
 
 [sub_resource type="Shader" id="Shader_x0fu6"]
 code = "shader_type canvas_item;
@@ -44,7 +44,7 @@ shader = SubResource("Shader_vql40")
 shader_parameter/displacement = 100.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ca0us"]
-font = ExtResource("3_e50dp")
+font = ExtResource("4_7bxkw")
 font_size = 22
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj46u"]
@@ -103,10 +103,10 @@ width = 1
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ibmil"]
 streams_count = 2
-stream_0/stream = ExtResource("3_1fe31")
-stream_1/stream = ExtResource("4_siyph")
+stream_0/stream = ExtResource("6_cj7ip")
+stream_1/stream = ExtResource("7_lxbk1")
 
-[node name="CraftUI" type="Control"]
+[node name="CraftPageUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 5.125
@@ -114,12 +114,12 @@ offset_top = 6.4
 offset_right = 5.125
 offset_bottom = 6.4
 mouse_filter = 1
-script = ExtResource("1_83flf")
+script = ExtResource("1_7ukbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.75, 0.75, 0.6, 1)
 scale = Vector2(0.29, 0.23)
-texture = ExtResource("9_vbmge")
+texture = ExtResource("2_pvq03")
 centered = false
 
 [node name="Panel" type="Control" parent="."]
@@ -152,7 +152,7 @@ material = SubResource("ShaderMaterial_ekecx")
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 mouse_filter = 0
-label_settings = ExtResource("5_k342e")
+label_settings = ExtResource("3_55283")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -170,9 +170,9 @@ offset_top = 184.0
 offset_right = 335.0
 offset_bottom = 212.0
 text = "Level 0"
-label_settings = ExtResource("5_k342e")
+label_settings = ExtResource("3_55283")
 
-[node name="Craft" parent="Panel" instance=ExtResource("2_45yes")]
+[node name="Craft" parent="Panel" instance=ExtResource("5_o8svm")]
 layout_mode = 0
 offset_left = 224.0
 offset_top = 352.0
@@ -180,7 +180,7 @@ offset_right = 352.0
 offset_bottom = 432.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("3_e50dp")
+theme_override_fonts/font = ExtResource("4_7bxkw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hj46u")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_7itad")
 text = "Brew"

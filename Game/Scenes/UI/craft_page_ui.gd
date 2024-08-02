@@ -1,144 +1,108 @@
-extends Node3D
+extends Control
 
-# Used for checking if the mouse is inside the Area3D.
-var is_mouse_inside = false
-# The last processed input touch/mouse event. To calculate relative movement.
-var last_event_pos2D = null
-# The time of the last event in seconds since engine start.
-var last_event_time: float = -1.0
+var index : int
+var label: String
+var texture: Texture2D
+var description: String
+var resources: Dictionary
+var artefacts: Array
+var max_level: int
 
-@onready var node_viewport = $SubViewPort
-@onready var node_quad = $Quad
-@onready var node_area = $Quad/Area3D
+const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
-var materialDone: bool = false
-func readyAfterFirstFrame():
-	var newMaterial := StandardMaterial3D.new()
-	newMaterial.resource_local_to_scene = true
-	newMaterial.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	newMaterial.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	newMaterial.albedo_texture = node_viewport.get_texture()
-	
-	node_quad.set_surface_override_material(0, newMaterial)
-	
-	# If the material is NOT set to use billboard settings, then avoid running billboard specific code
-	#if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
-		#set_process(false)
-	
-	RenderingServer.frame_post_draw.disconnect(readyAfterFirstFrame)
-	materialDone = true
-	
+func make_label(n: String, text: String, alignment: HorizontalAlignment, container: HBoxContainer) -> Label:
+	var lbl := Label.new()
+	lbl.name = n
+	lbl.text = text
+	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lbl.horizontal_alignment = alignment
+	lbl.label_settings = LABEL_SETTINGS
+	container.add_child(lbl)
+	return lbl
+
+var _displayedResources = {}
+
+signal craft_pressed(recipe_index: int)
+signal turn_page(direction: int)
+
+const findsomethingtext := [
+	"I need to find something first...",
+	"There's something missing...",
+	"This needs something more...",
+]
+
+
 func _ready():
-	RenderingServer.frame_post_draw.connect(readyAfterFirstFrame)
+	$Panel/Craft.pressed.connect(_on_craft_pressed)
 	
-	node_area.mouse_entered.connect(_mouse_entered_area)
-	node_area.mouse_exited.connect(_mouse_exited_area)
-	node_area.input_event.connect(_mouse_input_event)
+	$Panel/VBoxContainer/Sprite2D.texture = texture
+	if texture != null:
+		$Panel/VBoxContainer/Sprite2D.scale = Vector2(160.0, 160.0) / texture.get_height()
+	
+	$Panel/VBoxContainer/Description.material = $Panel/VBoxContainer/Description.material.duplicate()
+	$Panel/VBoxContainer/Sprite2D.material = $Panel/VBoxContainer/Sprite2D.material.duplicate()
+	$Panel/VBoxContainer/Description.mouse_entered.connect(show_description.bind(true))
+	$Panel/VBoxContainer/Description.mouse_exited.connect(show_description.bind(false))
+	$Panel/VBoxContainer/Description.text = description
+	$Panel/VBoxContainer/Description.modulate.a = 0.0
+	
+	$"Panel/VBoxContainer/Label".text = label
+	for key in resources:
+		var resourceContainer := HBoxContainer.new()
+		resourceContainer.anchors_preset = PRESET_TOP_WIDE
+		make_label("Resource", key.capitalize(), HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
+		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
+		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
+		$Panel/VBoxContainer.add_child(resourceContainer)
+		_displayedResources[key] = inventoryCountLabel
+	
+	$Panel/Level.visible = Save.unlockable[index] != 0
+	$Panel/Level.text = "Level " + str(Save.unlockable[index])
+	
+	$Panel/FindSomething.visible = false
+	for artefact in artefacts:
+		if Save.resources[artefact] < 1 && Save.unlockable[index] < 1:
+			$Panel/Craft.visible = false
+			$Panel/FindSomething.visible = true
+			$Panel/FindSomething.text = findsomethingtext[index]
+			break
+	
+	if max_level != 0 && Save.unlockable[index] >= max_level:
+		$Panel/Craft.queue_free()
+	
+	if(index % 2 == 0):
+		$Panel/NextPage.queue_free()
+	else:
+		$Panel/PreviousPage.queue_free()
 
-	## If the material is NOT set to use billboard settings, then avoid running billboard specific code
-	#if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
-		#set_process(false)
+func updateResources():
+	for key in _displayedResources:
+		_displayedResources[key].text = str(Save.resources[key])
 
+func _on_craft_pressed():
+	craft_pressed.emit(index, max_level, self)
 
-func _mouse_entered_area():
-	is_mouse_inside = true
+func craft_resources_limit():
+	$Panel/NotEnough/AnimationPlayer.play("warning")
 
+func craft_max_level():
+	$Panel/Craft.queue_free()
 
-func _mouse_exited_area():
-	is_mouse_inside = false
+func craft_success():
+	$Panel/Level.visible = true
+	$Panel/Level.text = "Level " + str(Save.unlockable[index])
+	$Brew.play()
 
+var desc_tween: Tween
+func show_description(s: bool):
+	if desc_tween: desc_tween.kill()
+	desc_tween = create_tween().bind_node(self).set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	desc_tween.tween_property($Panel/VBoxContainer/Description, "modulate:a", 1.0 if s else 0.0, 0.5)
+	desc_tween.tween_method(func(x: float): $Panel/VBoxContainer/Sprite2D.material.set_shader_parameter("transparency", x), $Panel/VBoxContainer/Sprite2D.material.get_shader_parameter("transparency"), 0.25 if s else 1.0, 0.5)
+	desc_tween.tween_method(func(x: float): $Panel/VBoxContainer/Description.material.set_shader_parameter("displacement", x), $Panel/VBoxContainer/Description.material.get_shader_parameter("displacement"), 2.0 if s else 100.0, 0.5)
 
-func _unhandled_input(event):
-	# Check if the event is a non-mouse/non-touch event
-	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
-		if is_instance_of(event, mouse_event):
-			# If the event is a mouse/touch event, then we can ignore it here, because it will be
-			# handled via Physics Picking.
-			return
-	node_viewport.push_input(event)
+func _on_next_page_pressed():
+	turn_page.emit(1)
 
-
-func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int):
-	# Get mesh size to detect edges and make conversions. This code only support PlaneMesh and QuadMesh.
-	var quad_mesh_size = node_quad.mesh.size
-
-	# Event position in Area3D in world coordinate space.
-	var event_pos3D = event_position
-
-	# Current time in seconds since engine start.
-	var now: float = Time.get_ticks_msec() / 1000.0
-
-	# Convert position to a coordinate space relative to the Area3D node.
-	# NOTE: affine_inverse accounts for the Area3D node's scale, rotation, and position in the scene!
-	event_pos3D = node_quad.global_transform.affine_inverse() * event_pos3D
-
-	# TODO: Adapt to bilboard mode or avoid completely.
-
-	var event_pos2D: Vector2 = Vector2()
-
-	if is_mouse_inside:
-		# Convert the relative event position from 3D to 2D.
-		event_pos2D = Vector2(event_pos3D.x, event_pos3D.z)
-
-		# Right now the event position's range is the following: (-quad_size/2) -> (quad_size/2)
-		# We need to convert it into the following range: -0.5 -> 0.5
-		event_pos2D.x = event_pos2D.x / quad_mesh_size.x
-		event_pos2D.y = event_pos2D.y / quad_mesh_size.y
-		# Then we need to convert it into the following range: 0 -> 1
-		event_pos2D.x += 0.5
-		event_pos2D.y += 0.5
-
-		# Finally, we convert the position to the following range: 0 -> viewport.size
-		event_pos2D.x *= node_viewport.size.x
-		event_pos2D.y *= node_viewport.size.y
-		# We need to do these conversions so the event's position is in the viewport's coordinate system.
-
-	elif last_event_pos2D != null:
-		# Fall back to the last known event position.
-		event_pos2D = last_event_pos2D
-
-	# Set the event's position and global position.
-	event.position = event_pos2D
-	if event is InputEventMouse:
-		event.global_position = event_pos2D
-
-	# Calculate the relative event distance.
-	if event is InputEventMouseMotion or event is InputEventScreenDrag:
-		# If there is not a stored previous position, then we'll assume there is no relative motion.
-		if last_event_pos2D == null:
-			event.relative = Vector2(0, 0)
-		# If there is a stored previous position, then we'll calculate the relative position by subtracting
-		# the previous position from the new position. This will give us the distance the event traveled from prev_pos.
-		else:
-			event.relative = event_pos2D - last_event_pos2D
-			event.velocity = event.relative / (now - last_event_time)
-
-	# Update last_event_pos2D with the position we just calculated.
-	last_event_pos2D = event_pos2D
-
-	# Update last_event_time to current time.
-	last_event_time = now
-
-	# Finally, send the processed input event to the viewport.
-	node_viewport.push_input(event)
-
-
-func rotate_area_to_billboard():
-	var billboard_mode = node_quad.get_surface_override_material(0).params_billboard_mode
-
-	# Try to match the area with the material's billboard setting, if enabled.
-	if billboard_mode > 0:
-		# Get the camera.
-		var camera = get_viewport().get_camera_3d()
-		# Look in the same direction as the camera.
-		var look = camera.to_global(Vector3(0, 0, -100)) - camera.global_transform.origin
-		look = node_area.position + look
-
-		# Y-Billboard: Lock Y rotation, but gives bad results if the camera is tilted.
-		if billboard_mode == 2:
-			look = Vector3(look.x, 0, look.z)
-
-		node_area.look_at(look, Vector3.UP)
-
-		# Rotate in the Z axis to compensate camera tilt.
-		node_area.rotate_object_local(Vector3.BACK, camera.rotation.z)
+func _on_previous_page_pressed():
+	turn_page.emit(-1)

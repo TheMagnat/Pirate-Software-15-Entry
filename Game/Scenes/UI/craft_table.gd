@@ -1,6 +1,6 @@
 extends Node
 
-var ui_scene = preload("res://Scenes/UI/craft_ui.tscn")
+var ui_scene = preload("res://Scenes/UI/craft_page_ui.tscn")
 var enabled = false
 var leftScene: Control
 var rightScene: Control

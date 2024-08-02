@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cmkfmv8i8bk06"]
 
 [ext_resource type="Script" path="res://Scenes/UI/prototype_book.gd" id="1_842uj"]
-[ext_resource type="Script" path="res://Scenes/UI/craft_page_ui.gd" id="1_rbhua"]
+[ext_resource type="Script" path="res://Scenes/UI/craft_page_3d.gd" id="1_rbhua"]
 [ext_resource type="Script" path="res://Scenes/UI/craft_table.gd" id="3_57m76"]
 [ext_resource type="AudioStream" uid="uid://dgbrwssopwhl" path="res://Assets/SFX/UI/page_turn1.ogg" id="4_qh07j"]
 [ext_resource type="AudioStream" uid="uid://m7gu1x3q6ya5" path="res://Assets/SFX/UI/page_turn2.ogg" id="5_8br65"]
