@@ -10,11 +10,12 @@ var max_level: int
 
 const LABEL_SETTINGS := preload("res://Ressources/LabelSettings.tres")
 
-func make_label(n: String, text: String, alignment: HorizontalAlignment, container: HBoxContainer) -> Label:
+func make_label(n: String, text: String, alignment: HorizontalAlignment, container: HBoxContainer, expand := true) -> Label:
 	var lbl := Label.new()
 	lbl.name = n
 	lbl.text = text
-	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	if expand:
+		lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	lbl.horizontal_alignment = alignment
 	lbl.label_settings = LABEL_SETTINGS
 	container.add_child(lbl)
@@ -49,23 +50,30 @@ func _ready():
 	$"Panel/VBoxContainer/Label".text = label
 	for key in resources:
 		var resourceContainer := HBoxContainer.new()
-		resourceContainer.anchors_preset = PRESET_TOP_WIDE
 		make_label("Resource", key.capitalize(), HORIZONTAL_ALIGNMENT_LEFT, resourceContainer)
 		var inventoryCountLabel := make_label("InventoryCount", str(Save.resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
-		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_RIGHT, resourceContainer)
+		make_label("Count", "/ " + str(resources[key]), HORIZONTAL_ALIGNMENT_LEFT, resourceContainer, false)
 		$Panel/VBoxContainer.add_child(resourceContainer)
 		_displayedResources[key] = inventoryCountLabel
 	
 	$Panel/Level.visible = Save.unlockable[index] != 0
 	$Panel/Level.text = "Level " + str(Save.unlockable[index])
 	
+	var has_artefact := false
 	$Panel/FindSomething.visible = false
+	$Panel/Unlocked.visible = false
 	for artefact in artefacts:
 		if Save.resources[artefact] < 1 && Save.unlockable[index] < 1:
-			$Panel/Craft.visible = false
-			$Panel/FindSomething.visible = true
-			$Panel/FindSomething.text = findsomethingtext[index]
+			has_artefact = true
 			break
+	
+	if has_artefact:
+		$Panel/Craft.visible = false
+		$Panel/FindSomething.visible = true
+		$Panel/FindSomething.text = findsomethingtext[index]
+	elif !artefacts.is_empty():
+		$Panel/Unlocked.visible = true
+		$Panel/Unlocked/Artefact.text = artefacts[0].capitalize()
 	
 	if max_level != 0 && Save.unlockable[index] >= max_level:
 		$Panel/Craft.queue_free()
