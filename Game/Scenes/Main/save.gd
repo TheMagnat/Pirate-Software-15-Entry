@@ -63,8 +63,9 @@ func _add_missing_dict(dict: Dictionary, basis: Dictionary):
 
 func _add_missing_arr(arr: Array, basis: Array):
 	if arr.size() < basis.size():
-		for i in basis.size() - arr.size():
-			arr.append(basis[arr.size() + i ])
+		var original_size := arr.size()
+		for i in basis.size() - original_size:
+			arr.append(basis[original_size + i])
 	elif arr.size() > basis.size():
 		for i in arr.size() - basis.size():
 			arr.pop_back()
