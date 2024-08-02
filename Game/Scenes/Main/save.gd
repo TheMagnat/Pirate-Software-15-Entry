@@ -35,7 +35,8 @@ var levels := []
 
 const DEFAULT_CONFIG := {
 	"fullscreen": false,
-	"volume": 1.0
+	"volume": 1.0,
+	"invert": 1.0
 }
 
 var config := {}
