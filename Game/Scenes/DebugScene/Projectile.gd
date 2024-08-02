@@ -12,7 +12,6 @@ func explode():
 	$BreakPlayer.play()
 	$BreakPlayer.finished.connect(func(): queue_free())
 
-	
 func _on_body_entered(body):
 	for target in $Area3D.get_overlapping_bodies():
 		if target.is_in_group("Enemy"):
@@ -20,4 +19,3 @@ func _on_body_entered(body):
 			$HitPlayer.play()
 	if not body.is_in_group("Enemy") and not body.is_in_group("Projectile"):
 		explode()
-	

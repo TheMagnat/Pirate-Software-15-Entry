@@ -99,7 +99,7 @@ func activateSpell():
 	var target = to_global(direction)
 	var globalDirection = (target - global_position).normalized()
 	
-	add_child(newItem)
+	get_node("../../../").add_child(newItem)
 	newItem.global_position = getThrowStartPosition(direction)
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
 	var randValue: float = randf_range(-0.25, 0.25)

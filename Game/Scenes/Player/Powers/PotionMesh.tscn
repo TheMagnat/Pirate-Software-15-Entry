@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqtmjpypyxtrx"]
+[gd_scene load_steps=2 format=3 uid="uid://cqtmjpypyxtrx"]
 
-[ext_resource type="Material" uid="uid://chewokblud7cj" path="res://Scenes/Player/Powers/BottleMaterial.tres" id="1_drdyc"]
+[ext_resource type="PackedScene" uid="uid://c86hlrmfq5rot" path="res://Scenes/Mesh/Spells/PotionThrow.tscn" id="1_ckohb"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_hua48"]
-material = ExtResource("1_drdyc")
+[node name="PotionMesh" type="Node3D"]
 
-[node name="PotionMesh" type="MeshInstance3D"]
-layers = 2
-mesh = SubResource("SphereMesh_hua48")
+[node name="PotionItem" parent="." instance=ExtResource("1_ckohb")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.1, -0.5, 0)

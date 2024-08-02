@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0fak7ocrtu6n"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemThrower.gd" id="1_3eaj6"]
-[ext_resource type="PackedScene" uid="uid://dpckh3ieawwn" path="res://Scenes/DebugScene/Ball.tscn" id="2_q64jq"]
+[ext_resource type="PackedScene" uid="uid://dpckh3ieawwn" path="res://Scenes/Player/Powers/PotionProjectile.tscn" id="2_q64jq"]
 [ext_resource type="Shader" path="res://Scenes/Player/Powers/ThrowTargetAim.gdshader" id="3_j2pcc"]
 [ext_resource type="PackedScene" uid="uid://cqtmjpypyxtrx" path="res://Scenes/Player/Powers/PotionMesh.tscn" id="3_uin7n"]
 [ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_1cnq2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpckh3ieawwn"]
+[gd_scene load_steps=15 format=3 uid="uid://dpckh3ieawwn"]
 
 [ext_resource type="Script" path="res://Scenes/DebugScene/Projectile.gd" id="1_pphbo"]
 [ext_resource type="PackedScene" uid="uid://c86hlrmfq5rot" path="res://Scenes/Mesh/Spells/PotionThrow.tscn" id="2_4b6oi"]
@@ -12,9 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dfgfh15fk5c1" path="res://Assets/SFX/glass/glass_hit4.ogg" id="9_sbbag"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_likhv"]
-radius = 0.444834
-
-[sub_resource type="SphereMesh" id="SphereMesh_x4f2r"]
+radius = 0.38
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2hl7m"]
 radius = 10.0
@@ -44,15 +42,11 @@ max_contacts_reported = 1
 script = ExtResource("1_pphbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193401, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0)
 shape = SubResource("SphereShape3D_likhv")
 
 [node name="PotionItem" parent="." instance=ExtResource("2_4b6oi")]
-transform = Transform3D(3.57, 0, 0, 0, 3.57, 0, 0, 0, 3.57, 0, -0.417963, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_x4f2r")
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.417963, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
