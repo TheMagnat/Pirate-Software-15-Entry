@@ -92,25 +92,21 @@ func restart_level(death := false):
 	var main = get_node("/root/Main")
 	main.load_level(idx, respawnInformation, death)
 
-func escape_level(body):
-	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()):
-		body.safePlace = true
+func exit_level(body, c: Callable, safe_end := true):
+	if not isFinished and (body.is_in_group("Player") and (not body.canBeSeen() or safe_end)):
+		body.safePlace = body.safePlace || safe_end
 		isFinished = true
 		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").escape_level()
+		c.call()
+
+func escape_level(body):
+	exit_level(body, get_node("/root/Main").escape_level)
 
 func finish_level(body):
-	if not isFinished and (body.is_in_group("Player") and not body.canBeSeen()):
-		body.safePlace = true
-		isFinished = true
-		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level()
+	exit_level(body, get_node("/root/Main").finish_level)
 
 func finish_level_by_death(body):
-	if not isFinished and body.is_in_group("Player"):
-		isFinished = true
-		time_spent += timer.wait_time - timer.time_left
-		get_node("/root/Main").finish_level()
+	exit_level(body, get_node("/root/Main").finish_level, false)
 
 func add_to_inventory(key: String, count: int, object_path: String):
 	finish_resources[key] += count
