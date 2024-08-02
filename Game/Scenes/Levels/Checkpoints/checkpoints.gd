@@ -7,8 +7,8 @@ var lastCollected := []
 func hittedCheckpoint(checkpoint: Checkpoint):
 	if checkpoint != lastCheckpoint:
 		lastCheckpoint = checkpoint
-		lastResources = get_parent().finish_resources
-		lastCollected = get_parent().collected_resources
+		lastResources = get_parent().finish_resources.duplicate()
+		lastCollected = get_parent().collected_resources.duplicate()
 
 func getLastCheckpointPosition():
 	if lastCheckpoint:

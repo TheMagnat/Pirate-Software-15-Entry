@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://b7whhsct3t561" path="res://Assets/Models/Cadres/Crate1.png" id="28_fj0y8"]
 [ext_resource type="PackedScene" uid="uid://ct72hstsh84vk" path="res://Scenes/LightEntity/StaticLamp.tscn" id="29_codbl"]
 [ext_resource type="PackedScene" uid="uid://ciektisjpxak8" path="res://Scenes/Mesh/Misc/big_frame_vert.tscn" id="30_m17nj"]
+[ext_resource type="PackedScene" uid="uid://cvw2jwvacprq7" path="res://Scenes/Mesh/Misc/Sapphire.tscn" id="31_65ete"]
 [ext_resource type="Material" uid="uid://d3ro2cb2ih045" path="res://Scenes/Levels/Level_4/CastleCarpet.tres" id="35_qkulo"]
 [ext_resource type="PackedScene" uid="uid://bc7dp6um4joj0" path="res://Scenes/Mesh/Misc/big_frame_hor.tscn" id="37_5a70j"]
 [ext_resource type="Texture2D" uid="uid://cskenvlgagmjy" path="res://Assets/Models/Cadres/Castle/Jour4.jpg" id="39_b05ge"]
