@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgfsw03tn6dqb"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="1_gyjhi"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha-ivy.gdshader" id="2_mcgu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p6qh"]
+render_priority = 0
+shader = ExtResource("1_gyjhi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8uds"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_5p6qh")
+shader = ExtResource("2_mcgu3")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/color = Color(0, 0.835294, 0.219608, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qv1lo"]
+material = SubResource("ShaderMaterial_n8uds")
+
+[node name="IvyMesh" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2
+mesh = SubResource("BoxMesh_qv1lo")

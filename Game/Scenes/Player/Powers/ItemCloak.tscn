@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://mqs0ica5jgwn"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemCloak.gd" id="1_tha5v"]
-[ext_resource type="PackedScene" uid="uid://cd6lipl7sm2jy" path="res://Scenes/Player/Powers/CloakMesh.tscn" id="3_h06ni"]
+[ext_resource type="PackedScene" uid="uid://cd6lipl7sm2jy" path="res://Scenes/Player/Powers/MeshCloak.tscn" id="3_h06ni"]
 [ext_resource type="Shader" path="res://Scenes/Player/Powers/ThrowTargetAim.gdshader" id="3_ykhyp"]
 [ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_d1n6v"]
 

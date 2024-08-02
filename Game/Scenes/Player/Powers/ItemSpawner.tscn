@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccxx8s4foejsx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/ItemSpawner.gd" id="1_idlvx"]
-[ext_resource type="PackedScene" uid="uid://ouxsdxifmyue" path="res://Scenes/DebugScene/IvyWall.tscn" id="2_p0qkf"]
-[ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/IvyMesh.tscn" id="3_ax5pc"]
+[ext_resource type="PackedScene" uid="uid://ouxsdxifmyue" path="res://Scenes/Player/Powers/IvyWall.tscn" id="2_p0qkf"]
+[ext_resource type="PackedScene" uid="uid://dgfsw03tn6dqb" path="res://Scenes/Player/Powers/MeshIvy.tscn" id="3_ax5pc"]
 [ext_resource type="Shader" path="res://Scenes/DebugScene/CircleAim.gdshader" id="3_mylme"]
 [ext_resource type="Texture2D" uid="uid://b0m2d12q2iocw" path="res://Assets/Shapes/square.png" id="4_8ta70"]
 

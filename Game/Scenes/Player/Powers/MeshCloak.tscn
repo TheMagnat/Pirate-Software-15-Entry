@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd6lipl7sm2jy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_el041"]
+
+[sub_resource type="Shader" id="Shader_2h385"]
+code = "shader_type spatial;
+
+void vertex() {
+	float c = cos(TIME + VERTEX.x + VERTEX.y + VERTEX.z) * 0.5;
+	VERTEX += vec3(c, sin(c), -c);
+}
+
+void fragment() {
+	float g = max(0.0, sin(TIME + UV.y)) * 0.25;
+	ALBEDO = vec3(g);
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the material.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdsx7"]
+render_priority = 0
+shader = SubResource("Shader_2h385")
+
+[node name="CloakMesh" type="MeshInstance3D"]
+layers = 2
+mesh = SubResource("SphereMesh_el041")
+surface_material_override/0 = SubResource("ShaderMaterial_gdsx7")
