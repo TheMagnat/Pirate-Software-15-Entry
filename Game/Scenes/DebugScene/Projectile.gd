@@ -8,9 +8,23 @@ extends RigidBody3D
 func explode():
 	collision_mask = 0
 	collision_layer = 0
-	hide()
+	
+	rotation = Vector3.ZERO
+	
+	# Hide the mesh, stop the particles and stop the boiling sound
+	$PotionItem.hide()
+	$GPUParticles3D.emitting = false
+	$GPUParticles3D.one_shot = true
+	$BoilingBubbles.playing = false
+	freeze = true
+	
+	$ExplodingParticles.emitting = true
+	
+	# Play the breaking sound
 	$BreakPlayer.play()
-	$BreakPlayer.finished.connect(func(): queue_free())
+	
+	# Stay alive until the longest lasting effect end (break sound or last alive particles)
+	$ExplodingParticles.finished.connect(func(): queue_free())
 
 func _on_body_entered(body):
 	for target in $Area3D.get_overlapping_bodies():

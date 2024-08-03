@@ -1,0 +1,41 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://d3hpxo78km8ns"]
+
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-bubbles.gdshader" id="1_suphh"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline-bubbles.gdshader" id="1_yyotp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h37sr"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fcqf1"]
+seamless = true
+noise = SubResource("FastNoiseLite_h37sr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdkku"]
+render_priority = 0
+shader = ExtResource("1_yyotp")
+shader_parameter/smoothness = 0.05
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_fcqf1")
+
+[sub_resource type="Gradient" id="Gradient_qsy0x"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ad6bv"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_74vfl"]
+seamless = true
+color_ramp = SubResource("Gradient_qsy0x")
+noise = SubResource("FastNoiseLite_ad6bv")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_qdkku")
+shader = ExtResource("1_suphh")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/color = Color(0.615686, 0.921569, 1, 0.537255)
+shader_parameter/specular = Color(1, 1, 1, 0.5)
+shader_parameter/fresnel = Color(1, 1, 1, 0.486275)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/smoothness = 0.05
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_74vfl")
