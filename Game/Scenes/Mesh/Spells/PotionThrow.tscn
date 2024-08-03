@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://c86hlrmfq5rot"]
+[gd_scene load_steps=10 format=4 uid="uid://c86hlrmfq5rot"]
 
 [ext_resource type="Material" uid="uid://chewokblud7cj" path="res://Scenes/Player/Powers/BottleMaterial.tres" id="1_xw0yk"]
+[ext_resource type="Material" uid="uid://d3hpxo78km8ns" path="res://Scenes/Player/Powers/BubbleMaterial.tres" id="2_i2y1h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiebr"]
 resource_name = "default"
@@ -43,9 +44,36 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qko0t")
 
+[sub_resource type="Curve" id="Curve_8fc15"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.182353, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k7ack"]
+curve = SubResource("Curve_8fc15")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w0pkx"]
+emission_shape = 1
+emission_sphere_radius = 0.05
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.04
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_k7ack")
+
+[sub_resource type="SphereMesh" id="SphereMesh_llw4e"]
+
 [node name="PotionItem" type="Node3D"]
 
 [node name="Fiole_004" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_m5eme")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_xw0yk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294712, 0)
+material_override = ExtResource("2_i2y1h")
+amount = 4
+lifetime = 2.0
+randomness = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_w0pkx")
+draw_pass_1 = SubResource("SphereMesh_llw4e")

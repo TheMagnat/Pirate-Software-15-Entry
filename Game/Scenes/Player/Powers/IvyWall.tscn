@@ -1,25 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ouxsdxifmyue"]
+[gd_scene load_steps=6 format=3 uid="uid://ouxsdxifmyue"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Powers/IvyWall.gd" id="1_bug73"]
-[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/outline.gdshader" id="2_h2a7c"]
 [ext_resource type="PackedScene" uid="uid://c6yopv44ntocw" path="res://Scenes/Mesh/Spells/ronce.tscn" id="2_vltf8"]
-[ext_resource type="Shader" path="res://Ressources/Shaders/CeilShading/cel-shader-base-no-alpha-ivy.gdshader" id="4_gjsy7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh4d1"]
-render_priority = 0
-shader = ExtResource("2_h2a7c")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa80q"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_vh4d1")
-shader = ExtResource("4_gjsy7")
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/color = Color(0, 0.443137, 0.34902, 1)
-shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
-shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_offset = Vector2(0, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcxah"]
+cull_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_dheom"]
 size = Vector3(3, 2, 1)
@@ -37,7 +22,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.190184, 0, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("ShaderMaterial_xa80q")
+material_override = SubResource("StandardMaterial3D_mcxah")
 cast_shadow = 3
 mesh = SubResource("BoxMesh_dheom")
 skeleton = NodePath("../..")

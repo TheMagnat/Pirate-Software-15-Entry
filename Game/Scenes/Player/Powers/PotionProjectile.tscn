@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dpckh3ieawwn"]
+[gd_scene load_steps=32 format=3 uid="uid://dpckh3ieawwn"]
 
 [ext_resource type="Script" path="res://Scenes/DebugScene/Projectile.gd" id="1_pphbo"]
 [ext_resource type="PackedScene" uid="uid://c86hlrmfq5rot" path="res://Scenes/Mesh/Spells/PotionThrow.tscn" id="2_4b6oi"]
@@ -39,14 +39,14 @@ stream_3/stream = ExtResource("9_sbbag")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.247059, 1), 0.0, 0.0, 0, 0, Vector2(0.867647, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_785q5"]
+[sub_resource type="CurveTexture" id="CurveTexture_pgut0"]
 curve = SubResource("Curve_itmtn")
 
 [sub_resource type="Curve" id="Curve_opiku"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.182353, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_k7ack"]
+[sub_resource type="CurveTexture" id="CurveTexture_y5uv5"]
 curve = SubResource("Curve_opiku")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ing2g"]
@@ -55,8 +55,8 @@ emission_sphere_radius = 0.5
 gravity = Vector3(0, 2, 0)
 scale_min = 0.1
 scale_max = 0.2
-scale_curve = SubResource("CurveTexture_k7ack")
-alpha_curve = SubResource("CurveTexture_785q5")
+scale_curve = SubResource("CurveTexture_y5uv5")
+alpha_curve = SubResource("CurveTexture_pgut0")
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot820"]
 
@@ -106,8 +106,6 @@ scale_max = 0.6
 scale_curve = SubResource("CurveTexture_taq8e")
 collision_use_scale = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_iaak1"]
-
 [node name="Ball" type="RigidBody3D" groups=["Projectile"]]
 collision_layer = 8
 collision_mask = 13
@@ -144,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.407855, 0)
 material_override = ExtResource("11_l301r")
 amount = 32
 randomness = 0.1
-fixed_fps = 0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_ing2g")
 draw_pass_1 = SubResource("SphereMesh_ot820")
 
@@ -158,11 +156,6 @@ explosiveness = 0.99
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fcovf")
 draw_pass_1 = SubResource("SphereMesh_ot820")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-material_override = ExtResource("11_l301r")
-mesh = SubResource("SphereMesh_iaak1")
 
 [node name="BoilingBubbles" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_nggfh")

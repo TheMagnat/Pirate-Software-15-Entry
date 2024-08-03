@@ -2,7 +2,7 @@ extends StaticBody3D
 
 const BASE_DURATION := 3.0
 const DURATION_PER_LEVEL := 3.0
-const BASE_SIZE_Y := 0.5
+const BASE_SIZE_Y := 0.75
 const SIZE_PER_LEVEL := 0.25
 
 var goalY: float
