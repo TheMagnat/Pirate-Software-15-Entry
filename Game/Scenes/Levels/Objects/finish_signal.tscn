@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://da0qieiaq13w5"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Objects/finish_signal.gd" id="1_5wu58"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r4dx1"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 256.0
+
+[sub_resource type="Shader" id="Shader_qrtcq"]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform vec4 color;
+uniform float dist : hint_range(0.0, 1.0, 0.0);
+const float mid = 0.2;
+const float range = 0.1;
+
+void fragment() {
+	ALBEDO = color.rgb;
+	ALPHA = dist * (cos(TIME) * range + mid);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrgc"]
+render_priority = 0
+shader = SubResource("Shader_qrtcq")
+shader_parameter/color = null
+shader_parameter/dist = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vc851"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pymx"]
+transparency = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ejsw"]
+height = 4.0
+
+[sub_resource type="Animation" id="Animation_aikqm"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n4fcu"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ya6mh"]
+_data = {
+"RESET": SubResource("Animation_n4fcu"),
+"idle": SubResource("Animation_aikqm")
+}
+
+[node name="finish_signal" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5wu58")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 128, 0)
+mesh = SubResource("CylinderMesh_r4dx1")
+surface_material_override/0 = SubResource("ShaderMaterial_8jrgc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vc851")
+surface_material_override/0 = SubResource("StandardMaterial3D_4pymx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_8ejsw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ya6mh")
+}
+autoplay = "idle"
