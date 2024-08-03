@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://cl4br0sqn70wh"]
+[gd_scene load_steps=145 format=4 uid="uid://cl4br0sqn70wh"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2/2.gd" id="1_nrngv"]
 [ext_resource type="PackedScene" uid="uid://dgyf1i48s3iys" path="res://Scenes/Player/Player.tscn" id="1_swu07"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://c47tb43f2onwy" path="res://Scenes/Mesh/Misc/square_frame.tscn" id="35_thaii"]
 [ext_resource type="Texture2D" uid="uid://cf7c0xyu47op8" path="res://Assets/Models/Cadres/o.png" id="36_twtow"]
 [ext_resource type="Texture2D" uid="uid://b5krqykkrb20" path="res://Assets/Models/Cadres/interro.png" id="38_nbcwy"]
+[ext_resource type="PackedScene" uid="uid://da0qieiaq13w5" path="res://Scenes/Levels/Objects/finish_signal.tscn" id="38_ttuih"]
 [ext_resource type="PackedScene" uid="uid://cab8hc1y036b6" path="res://Scenes/Mesh/Misc/SecretHeart.tscn" id="39_jpuos"]
 [ext_resource type="Texture2D" uid="uid://fk7vtxbncx3v" path="res://Assets/Models/Cadres/kanar.jpg" id="39_tougs"]
 [ext_resource type="PackedScene" uid="uid://ciektisjpxak8" path="res://Scenes/Mesh/Misc/big_frame_vert.tscn" id="40_062ee"]
@@ -576,30 +577,6 @@ albedo_color = Color(0.270588, 0.427451, 0.886275, 1)
 material = SubResource("StandardMaterial3D_2tpjy")
 size = Vector3(530, 20, 300)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_o6vfn"]
-height = 1.0
-radius = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_027gr"]
-transparency = 1
-albedo_color = Color(1, 0, 0, 0.490196)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_v7wlo"]
-material = SubResource("StandardMaterial3D_027gr")
-top_radius = 2.0
-bottom_radius = 2.0
-height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvhud"]
-transparency = 1
-albedo_color = Color(0, 1, 0, 0.27451)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_6xltc"]
-material = SubResource("StandardMaterial3D_bvhud")
-top_radius = 2.0
-bottom_radius = 2.0
-height = 1.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_wgeas"]
 size = Vector3(4.82349, 6.93372, 1)
 
@@ -990,13 +967,13 @@ transform = Transform3D(-0.569839, 0, -0.821756, 0, 1, 0, 0.821756, 0, -0.569839
 
 [node name="Campfire" parent="Geometry/Garden" instance=ExtResource("9_tcpmy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1064, 3, -18.2549)
-light_energy = 5.80092
+light_energy = 4.36566
 shadow_enabled = true
 min_energy = 4.0
 
 [node name="Torch2" parent="Geometry/Garden" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.3345, 2.25, -45.91)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="Tour" parent="Geometry/Garden" instance=ExtResource("6_b7y0l")]
@@ -1004,12 +981,12 @@ transform = Transform3D(0.0420878, 0, 0.0269929, 0, 0.05, 0, -0.0269929, 0, 0.04
 
 [node name="Torch2" parent="Geometry/Garden/Tour" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(7.39526, 0, 18.5825, 0, 20, 0, -18.5825, 0, 7.39526, 108.156, 50, 53.337)
-light_energy = 2.44073
+light_energy = 1.29253
 noise = SubResource("FastNoiseLite_1q8li")
 
 [node name="StaticLamp" parent="Geometry/Garden" instance=ExtResource("9_ukmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4877, 3.60079, -59.7781)
-light_energy = 6.44073
+light_energy = 5.29253
 
 [node name="ArbreCarre" parent="Geometry/Garden" instance=ExtResource("10_t10m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7232, -0.525065, -63.6669)
@@ -1109,7 +1086,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17958, -4.76837e-07, -12.56
 
 [node name="Torch2" parent="Geometry/Entrance" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-0.999358, 0, -0.0358415, 0, 1, 0, 0.0358415, 0, -0.999358, -6.75663, 2.43407, 0.645422)
-light_energy = 2.44073
+light_energy = 1.29253
 noise = SubResource("FastNoiseLite_tfd4u")
 
 [node name="GrosCaillou" parent="Geometry/Entrance" instance=ExtResource("13_4v2mu")]
@@ -1120,7 +1097,7 @@ transform = Transform3D(-0.0254098, 0, 0.0159481, 0, 0.03, 0, -0.0159481, 0, -0.
 
 [node name="Lantern" parent="Geometry/Entrance" instance=ExtResource("15_vuwel")]
 transform = Transform3D(-0.995644, -0.0932395, 8.70419e-08, -0.0932395, 0.995644, 8.15125e-09, -8.74228e-08, 0, -1, -13.732, 1.80718, -11.8065)
-light_energy = 6.44073
+light_energy = 5.29253
 
 [node name="PetitCaillou" parent="Geometry/Entrance" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -14, -0.0277354, -13)
@@ -1221,7 +1198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -33)
 [node name="Torch" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.109, 3, 0)
 rotation_edit_mode = 0
-light_energy = 4.08055
+light_energy = 3.2194
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1230,7 +1207,7 @@ min_energy = 3.0
 [node name="Torch2" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -12)
 rotation_edit_mode = 0
-light_energy = 4.08055
+light_energy = 3.2194
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1239,7 +1216,7 @@ min_energy = 3.0
 [node name="Torch3" parent="Geometry/Corridor" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.1, 3, -23)
 rotation_edit_mode = 0
-light_energy = 4.08055
+light_energy = 3.2194
 shadow_enabled = false
 omni_range = 7.0
 max_energy = 6.0
@@ -1352,22 +1329,22 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.4217, 0, -54.3066)
 
 [node name="Torch" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50599, 4, -61.1211)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 3, -46.8768)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="Torch3" parent="Geometry/WindowGallery" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21, 3, -46.8808)
-light_energy = 2.44073
+light_energy = 1.29253
 noise = SubResource("FastNoiseLite_mreqy")
 
 [node name="Lantern" parent="Geometry/WindowGallery" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 0.966282, 0.257487, 0, -0.257487, 0.966282, 28.043, 0.920775, -59.9285)
-light_energy = 6.44073
+light_energy = 5.29253
 
 [node name="PetitCaillou" parent="Geometry/WindowGallery" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.0118941, 0, -0.0219893, 0, 0.025, 0, 0.0219893, 0, 0.0118941, 28.1305, 0.0070647, -59.819)
@@ -1478,19 +1455,19 @@ transform = Transform3D(-6, 0, -5.24537e-07, 0, 6, 0, 5.24537e-07, 0, -6, 29, 4.
 
 [node name="Lantern" parent="Geometry/Library" instance=ExtResource("15_vuwel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3665, 1.24732, -24)
-light_energy = 6.44073
+light_energy = 5.29253
 
 [node name="PetitCaillou" parent="Geometry/Library" instance=ExtResource("16_pmmuf")]
 transform = Transform3D(0.00854103, 0, 0.0318756, 0, 0.033, 0, -0.0318756, 0, 0.00854103, 24.6928, 0, -23.5339)
 
 [node name="Torch3" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -35.1308)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="Torch4" parent="Geometry/Library" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.8831, 3, -28.1308)
-light_energy = 2.44073
+light_energy = 1.29253
 
 [node name="Library1" type="StaticBody3D" parent="Geometry/Library"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 5, -37)
@@ -1579,12 +1556,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9597, 2.38419e-07, -42.793
 
 [node name="Torch" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -42)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="Torch2" parent="Geometry/Treasure" instance=ExtResource("11_oe1wc")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.11511, 3, -32)
-light_energy = 2.44073
+light_energy = 1.29253
 shadow_enabled = false
 
 [node name="libbroom2" parent="Geometry/Treasure" instance=ExtResource("17_q5irf")]
@@ -3139,29 +3116,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, -21)
 mesh = SubResource("BoxMesh_vlquq")
 skeleton = NodePath("../..")
 
-[node name="finish" type="Area3D" parent="."]
+[node name="finish" parent="." node_paths=PackedStringArray("player") instance=ExtResource("38_ttuih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -37)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
-shape = SubResource("CylinderShape3D_o6vfn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
-mesh = SubResource("CylinderMesh_v7wlo")
+type = 1
+player = NodePath("../Player")
 
 [node name="SecretHeart" parent="finish" instance=ExtResource("39_jpuos")]
 
-[node name="escape" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199781, -0.0590005, 19.2104)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="escape"]
-shape = SubResource("CylinderShape3D_o6vfn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="escape"]
-mesh = SubResource("CylinderMesh_6xltc")
+[node name="escape" parent="." node_paths=PackedStringArray("player") instance=ExtResource("38_ttuih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+player = NodePath("../Player")
 
 [node name="Tuto" type="Node3D" parent="."]
 script = ExtResource("27_wa143")
