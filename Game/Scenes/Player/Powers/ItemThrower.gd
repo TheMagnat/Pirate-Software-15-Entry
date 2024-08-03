@@ -8,7 +8,7 @@ func _process(_delta):
 		showPreview()
 	else:
 		$Sprite3D.hide()
-	
+
 func showPreview():
 	var dir: Vector3 = getThrowDirection(-1.0)
 	var vel: Vector3 = dir * getThrowImpulse()
@@ -31,7 +31,7 @@ func showPreview():
 		colors = [Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0), Color(97.0/255.0, 167.0/255.0, 186.0/255.0, 1.0)]
 	
 	var lineWidth: float = 10.0
-	for i in range(1, 50):
+	for i in range(1, 25):
 		vel.y += g * timeStep
 		lineEnd = lineStart
 		lineEnd += vel * timeStep
@@ -58,16 +58,41 @@ func showPreview():
 	
 	# Probably aiming the void, hide the sprite
 	$Sprite3D.hide()
-	
-func raycastQuery(pointA: Vector3, pointB: Vector3) -> Dictionary:
+
+var projectileShape = preload("res://Scenes/Player/Powers/PotionProjectileShape.tres")
+func raycastQuery(pointA: Vector3, pointB: Vector3, testOrigin: bool = false) -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
 	
-	var query =  PhysicsRayQueryParameters3D.create(pointA, pointB, 0b101)
-	query.hit_from_inside = false
+	var query =  PhysicsShapeQueryParameters3D.new()
+	query.collision_mask = 0b101
+	query.shape = projectileShape
 	
-	var result = space_state.intersect_ray(query)
-	return result
-
+	var trans := Transform3D()
+	trans.origin = pointA
+	
+	query.transform = trans # From
+	query.motion = pointB - pointA # Direction
+	
+	var collisionEncountered: bool = false
+	if testOrigin:
+		collisionEncountered = not space_state.intersect_shape(query).is_empty()
+	
+	if not collisionEncountered:
+		collisionEncountered = space_state.cast_motion(query)[1] < 1.0
+		
+	if collisionEncountered:
+		var rayQuery = PhysicsRayQueryParameters3D.create(pointA, pointB + pointA.direction_to(pointB) * 1.0)
+		rayQuery.collision_mask = 0b101
+		var rayResult = space_state.intersect_ray(rayQuery)
+		
+		if not rayResult:
+			rayResult.position = pointB
+			rayResult.normal = pointB.direction_to(pointA)
+		
+		return rayResult
+		
+	return {}
+	
 func getThrowImpulse():
 	var level := maxi(1, Save.unlockable[Player.IvyWall])
 	var direction: Vector2 = get_viewport().get_mouse_position() / Vector2(get_viewport().get_visible_rect().size)

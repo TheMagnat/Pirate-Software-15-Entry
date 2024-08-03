@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/DebugScene/Projectile.gd" id="1_pphbo"]
 [ext_resource type="PackedScene" uid="uid://c86hlrmfq5rot" path="res://Scenes/Mesh/Spells/PotionThrow.tscn" id="2_4b6oi"]
 [ext_resource type="AudioStream" uid="uid://bgjrq8gvonm5k" path="res://Assets/SFX/glass/glass_break1.ogg" id="2_aevrp"]
+[ext_resource type="Shape3D" uid="uid://bbp6itlg52djx" path="res://Scenes/Player/Powers/PotionProjectileShape.tres" id="2_psh5n"]
 [ext_resource type="AudioStream" uid="uid://bcab4t70ckic7" path="res://Assets/SFX/glass/glass_break2.ogg" id="3_533nn"]
 [ext_resource type="AudioStream" uid="uid://j2phjiqc5n4e" path="res://Assets/SFX/glass/glass_break3.ogg" id="4_w34au"]
 [ext_resource type="AudioStream" uid="uid://c38ta3ddcqxfh" path="res://Assets/SFX/glass/glass_break4.ogg" id="5_c7x0j"]
@@ -12,9 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://dfgfh15fk5c1" path="res://Assets/SFX/glass/glass_hit4.ogg" id="9_sbbag"]
 [ext_resource type="Material" uid="uid://d3hpxo78km8ns" path="res://Scenes/Player/Powers/BubbleMaterial.tres" id="11_l301r"]
 [ext_resource type="AudioStream" uid="uid://cfh47wse60mms" path="res://Assets/SFX/misc/boiling_water.ogg" id="12_nggfh"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_likhv"]
-radius = 0.38
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2hl7m"]
 radius = 10.0
@@ -116,7 +114,7 @@ script = ExtResource("1_pphbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0)
-shape = SubResource("SphereShape3D_likhv")
+shape = ExtResource("2_psh5n")
 
 [node name="PotionItem" parent="." instance=ExtResource("2_4b6oi")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.417963, 0)

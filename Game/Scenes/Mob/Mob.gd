@@ -92,6 +92,11 @@ const RIGID_MOB = preload("res://Scenes/Mob/RigidMob.tscn")
 		toDirection = value
 ### End debug section ###
 
+func _get_configuration_warnings():
+	if view:
+		if view.get_parent() != self:
+			return ["The current view of the Mob is not one of his child. Becareful in case it get deleted before the mob."]
+
 @onready var waterShaderHandler = $WaterShaderHandler
 func _ready():
 	if Engine.is_editor_hint(): return
