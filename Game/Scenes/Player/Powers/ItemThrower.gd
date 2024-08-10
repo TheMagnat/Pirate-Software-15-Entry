@@ -38,7 +38,7 @@ func showPreview():
 		
 		vel *= clamp(1.0 - drag * timeStep, 0, 1) # Drag
 		
-		var ray := raycastQuery(lineStart, lineEnd)
+		var ray := raycastQuery(lineStart, lineEnd, true)
 		if not ray.is_empty():
 			DebugDraw.draw_line(lineStart, ray.position, lineWidth, colors[i%2])
 			$Sprite3D.show()
@@ -128,7 +128,7 @@ func activateSpell():
 	newItem.global_position = getThrowStartPosition(direction)
 	newItem.apply_central_impulse(globalDirection * getThrowImpulse())
 	var randValue: float = randf_range(-0.25, 0.25)
-	print(randValue)
+	
 	newItem.apply_torque_impulse(Vector3(direction.z + randValue, 0.0, (-direction.x) + randValue) * 10.0)
 	
 	return true

@@ -9,7 +9,7 @@ varying vec3 worldPosition;
 void vertex() {
 	worldPosition = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	float height = texture(noiseTexture, VERTEX.xz * smoothness + vec2(TIME * 0.1)).r;
-	VERTEX += NORMAL * height; 
+	VERTEX += NORMAL * height;
 }
 
 float fresnel(float amount, vec3 normal, vec3 view) {
